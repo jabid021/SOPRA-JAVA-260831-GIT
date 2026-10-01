@@ -1,11 +1,22 @@
 package duck.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Carte {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String numero;
 	private int points;
-	private Client client;
+	private transient Client client;
+	
+	public Carte() {}
+	
 	
 	public Carte(Integer id, String numero, int points,Client client) {
 		this.id = id;

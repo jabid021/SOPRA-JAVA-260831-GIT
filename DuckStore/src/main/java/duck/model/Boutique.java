@@ -1,11 +1,21 @@
 package duck.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity //OBLIGATOIRE
 public class Boutique {
 
+	@Id //OBLIGATOIRE
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  //SEMI-OBLIGATOIRE
 	private Integer id;
 	private String nom;
-	private Adresse adresse;
+	private transient Adresse adresse;
 	
+	
+	public Boutique() {} //OBLIGATOIRE
 	
 	public Boutique(Integer id, String nom, String numero,String voie,String ville,String cp) {
 
