@@ -1,10 +1,19 @@
 package duck.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("employee")
 public class Employe extends Compte{
 	
+	@Column(name="sal", columnDefinition = "DECIMAL(6,2)" )
 	private double salaire;
-	private Boutique boutique;
+	private transient Boutique boutique;
 
+	public Employe() {}
+	
 	public Employe(Integer id, String login, String password, String nom, String prenom, Civilite civilite, double salaire,Boutique boutique) {
 		super(id, login, password, nom, prenom, civilite);
 		this.salaire = salaire;

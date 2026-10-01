@@ -40,18 +40,18 @@ public class Test {
 		 * ========================= JEUX =========================
 		 */
 
-		Jeu duckSouls = new Jeu(null, "Duck Souls", duckStation, paris, Set.of(Genre.ACTION, Genre.RPG));
+		Jeu duckSouls = new Jeu(null, "Duck Souls", duckStation, paris, Set.of(Genre.ACTION, Genre.RPG),25.99);
 
 		Jeu quackOfTheWild = new Jeu(null, "The Legend of Duck: Quack of the Wild", duckSwitch, paris,
-				Set.of(Genre.ACTION, Genre.AVENTURE, Genre.RPG));
+				Set.of(Genre.ACTION, Genre.AVENTURE, Genre.RPG),25.99);
 
-		Jeu callOfDuck = new Jeu(null, "Call of Duck", duckStation, lyon, Set.of(Genre.ACTION, Genre.STRATEGIE));
+		Jeu callOfDuck = new Jeu(null, "Call of Duck", duckStation, lyon, Set.of(Genre.ACTION, Genre.STRATEGIE),25.99);
 
-		Jeu duckKart = new Jeu(null, "Super Duck Kart", duckSwitch, lyon, Set.of(Genre.SPORT, Genre.ACTION));
+		Jeu duckKart = new Jeu(null, "Super Duck Kart", duckSwitch, lyon, Set.of(Genre.SPORT, Genre.ACTION),0);
 
-		Jeu pokemonDuck = new Jeu(null, "PokéDuck: Mare et Canards", duckBoy, paris, Set.of(Genre.RPG, Genre.AVENTURE));
+		Jeu pokemonDuck = new Jeu(null, "PokéDuck: Mare et Canards", duckBoy, paris, Set.of(Genre.RPG, Genre.AVENTURE),25.99);
 
-		Jeu ageOfDucks = new Jeu(null, "Age of Ducks", duckBoy, lyon, Set.of(Genre.STRATEGIE));
+		Jeu ageOfDucks = new Jeu(null, "Age of Ducks", duckBoy, lyon, Set.of(Genre.STRATEGIE),25.99);
 
 		/*
 		 * ========================= CLIENTS =========================

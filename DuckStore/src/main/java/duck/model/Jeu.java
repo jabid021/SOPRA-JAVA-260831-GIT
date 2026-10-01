@@ -2,22 +2,53 @@ package duck.model;
 
 import java.util.Set;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="game")
 public class Jeu {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name="title", length = 50, nullable = false )
 	private String titre;
-	private Console console;
-	private Boutique boutique;
+	
+	@Column(columnDefinition = "DECIMAL(5,2)") //Avec DECIMAL(x,y) => x correspond au nombre total de digit (avant + apres la virgule) , y correspond au nombre de deci apres la virgule, fait un Round si trop de deci
+	private double prix;
+	
+	@ElementCollection
+	@Enumerated(EnumType.STRING)
 	private Set<Genre> genres;
 	
 	
-	public Jeu(Integer id, String titre, Console console,Boutique boutique, Set<Genre> genres) {
+	private transient Console console;
+	private transient Boutique boutique;
+
+	
+	
+
+	
+	public Jeu() {}
+	
+	public Jeu(Integer id, String titre, Console console,Boutique boutique, Set<Genre> genres,double prix) {
 		
 		this.id = id;
 		this.titre = titre;
 		this.boutique = boutique;
 		this.console = console;
 		this.genres = genres;
+		this.prix=prix;
 	}
 
 
@@ -70,10 +101,19 @@ public class Jeu {
 		this.genres = genres;
 	}
 
+	public double getPrix() {
+		return prix;
+	}
+
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
+
 
 	public String toString() {
 		return "Jeu [id=" + id + ", titre=" + titre + ", boutique=" + boutique + ", console=" + console + ", genres="
-				+ genres + "]";
+				+ genres + ", prix= "+prix+"]";
 	}
 	
 	

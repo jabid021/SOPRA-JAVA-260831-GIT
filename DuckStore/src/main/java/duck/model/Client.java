@@ -3,11 +3,28 @@ package duck.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Client extends Compte {
-    private String email;
-    private Adresse adresse;
-    private List<Jeu> achats = new ArrayList();
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@DiscriminatorValue("customer")
+public class Client extends Compte {
+	
+	@Column(length = 30)
+    private String email;
+	@Embedded
+    private Adresse adresse;
+    private transient List<Jeu> achats = new ArrayList();
+
+    
+    public Client() {}
+    
     public Client(Integer id, String login, String password,String nom, String prenom, Civilite civilite,String email, String numero,String voie,String ville,String cp) {
         super(id, login, password, nom, prenom, civilite);
         this.email = email;

@@ -1,11 +1,21 @@
 package duck.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class Adresse {
 	
+	@Column(name="num",length = 10)
 	private String numero;
+	@Column(name="street",length = 30)
 	private String voie;
+	@Column(name="city",length = 30)
 	private String ville;
+	@Column(name="pc",length = 15)
 	private String cp;
+	
+	public Adresse() {}
 	
 	public Adresse(String numero, String voie, String ville, String cp) {
 		this.numero = numero;
