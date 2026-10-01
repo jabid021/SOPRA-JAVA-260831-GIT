@@ -21,8 +21,11 @@ public class Salon extends Console {
 
 	@Override
 	public String toString() {
-		return "Salon [lecteur=" + lecteur + "]";
+		return "Salon [id=" + id + ", nom=" + nom + ", prix=" + prix + ", dateSortie=" + dateSortie + ", lecteur="
+				+ lecteur + "]";
 	}
+
+	
 	
 	
 }

@@ -10,7 +10,6 @@ public abstract class Console {
 	protected LocalDate dateSortie;
 	
 	public Console(Integer id, String nom, double prix, LocalDate dateSortie) {
-		super();
 		this.id = id;
 		this.nom = nom;
 		this.prix = prix;

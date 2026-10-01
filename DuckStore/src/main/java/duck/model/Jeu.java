@@ -4,14 +4,14 @@ import java.util.Set;
 
 public class Jeu {
 
-	private int id;
+	private Integer id;
 	private String titre;
-	private Boutique boutique;
 	private Console console;
+	private Boutique boutique;
 	private Set<Genre> genres;
 	
 	
-	public Jeu(int id, String titre, Boutique boutique, Console console, Set<Genre> genres) {
+	public Jeu(Integer id, String titre, Console console,Boutique boutique, Set<Genre> genres) {
 		
 		this.id = id;
 		this.titre = titre;
@@ -21,12 +21,12 @@ public class Jeu {
 	}
 
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

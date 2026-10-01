@@ -2,25 +2,25 @@ package duck.model;
 
 public class Boutique {
 
-	private int id;
+	private Integer id;
 	private String nom;
 	private Adresse adresse;
 	
 	
-	public Boutique(int id, String nom, Adresse adresse) {
+	public Boutique(Integer id, String nom, String numero,String voie,String ville,String cp) {
 
 		this.id = id;
 		this.nom = nom;
-		this.adresse = adresse;
+		this.adresse = new Adresse(numero,voie,ville,cp);
 	}
 
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -45,10 +45,9 @@ public class Boutique {
 	}
 
 
+	@Override
 	public String toString() {
-		return "Boutique [id=" + id + ", nom=" + nom + "]";
+		return "Boutique [id=" + id + ", nom=" + nom + ", adresse=" + adresse + "]";
 	}
-	
-	
-	
+
 }

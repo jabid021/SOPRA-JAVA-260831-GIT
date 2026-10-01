@@ -31,8 +31,10 @@ public class Hybride extends Console {
 
 	@Override
 	public String toString() {
-		return "Hybride [autonomie=" + autonomie + ", dockInclus=" + dockInclus + "]";
+		return "Hybride [id=" + id + ", nom=" + nom + ", prix=" + prix + ", dateSortie=" + dateSortie + ", autonomie="
+				+ autonomie + ", dockInclus=" + dockInclus + "]";
 	}
+
 	
 	
 	

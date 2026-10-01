@@ -31,8 +31,11 @@ public class Portable extends Console {
 
 	@Override
 	public String toString() {
-		return "Portable [autonomie=" + autonomie + ", ecran=" + ecran + "]";
+		return "Portable [id=" + id + ", nom=" + nom + ", prix=" + prix + ", dateSortie=" + dateSortie + ", autonomie="
+				+ autonomie + ", ecran=" + ecran + "]";
 	}
+
+	
 	
 	
 	

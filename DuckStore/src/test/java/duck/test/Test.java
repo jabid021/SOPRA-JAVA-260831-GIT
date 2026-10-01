@@ -3,6 +3,17 @@ package duck.test;
 import java.time.LocalDate;
 import java.util.Set;
 
+import duck.model.Boutique;
+import duck.model.Carte;
+import duck.model.Civilite;
+import duck.model.Client;
+import duck.model.Employe;
+import duck.model.Genre;
+import duck.model.Hybride;
+import duck.model.Jeu;
+import duck.model.Portable;
+import duck.model.Salon;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -108,22 +119,8 @@ public class Test {
 
 		System.out.println();
 
-		System.out.println("=== JEUX DE DUCKSWITCH ===");
-		for (Jeu jeu : duckSwitch.getJeux()) {
-			System.out.println("- " + jeu.getTitre());
-		}
-
-		System.out.println();
-
-		System.out.println("=== JEUX RPG ===");
-		for (Jeu jeu : paris.getJeux()) {
-			if (jeu.getGenres().contains(Genre.RPG)) {
-				System.out.println("- " + jeu.getTitre());
-			}
-		}
-
-
-		System.out.println(alice.getPrenom() + " possède " + alice.getCarte().getPoints() + " points de fidélité.");
+		
+		System.out.println(alice.getPrenom() + " possède " + carteAlice.getPoints() + " points de fidélité.");
 	}
 
 }

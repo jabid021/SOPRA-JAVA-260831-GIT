@@ -3,10 +3,12 @@ package duck.model;
 public class Employe extends Compte{
 	
 	private double salaire;
+	private Boutique boutique;
 
-	protected Employe(Integer id, String login, String password, String nom, String prenom, Civilite civilite, double salaire) {
+	public Employe(Integer id, String login, String password, String nom, String prenom, Civilite civilite, double salaire,Boutique boutique) {
 		super(id, login, password, nom, prenom, civilite);
 		this.salaire = salaire;
+		this.boutique=boutique;
 	}
 
 	public double getSalaire() {
@@ -18,10 +20,19 @@ public class Employe extends Compte{
 	}
 	
 	
+	
+	public Boutique getBoutique() {
+		return boutique;
+	}
+
+	public void setBoutique(Boutique boutique) {
+		this.boutique = boutique;
+	}
+
 	@Override
 	public String toString() {
 		return "TPT > Groupe 2 > all\nEmploye [id=" + id + ", login=" + login + ", password=" + password + ", nom=" + nom + ", prenom="
-				+ prenom + ", civilite=" + civilite + ", salaire=" + salaire + "]";
+				+ prenom + ", civilite=" + civilite + ", salaire=" + salaire + ", boutique=" +boutique+"]";
 	}
 	
 

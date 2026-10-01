@@ -9,8 +9,7 @@ public abstract class Compte {
 	protected Civilite civilite;
 	
 
-	protected Compte(Integer id, String login, String password, String nom, String prenom, Civilite civilite) {
-		super();
+	public Compte(Integer id, String login, String password, String nom, String prenom, Civilite civilite) {
 		this.id = id;
 		this.login = login;
 		this.password = password;
@@ -91,14 +90,4 @@ public abstract class Compte {
 	public void setCivilite(Civilite civilite) {
 		this.civilite = civilite;
 	}
-
-
-
-	@Override
-	public String toString() {
-		return "Groupe 2 > all \nCompte TPT [id=" + id + ", login=" + login + ", password=" + password + ", nom=" + nom + ", prenom="
-				+ prenom + "]";
-	}
-	
-	
 }

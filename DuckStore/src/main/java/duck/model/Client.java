@@ -6,12 +6,12 @@ import java.util.List;
 public class Client extends Compte {
     private String email;
     private Adresse adresse;
-    private List<Jeu> achats = new ArrayList<>();
+    private List<Jeu> achats = new ArrayList();
 
-    public Client(Integer id, String login, String password,String nom, String prenom, Civilite civilite,String email, Adresse adresse) {
+    public Client(Integer id, String login, String password,String nom, String prenom, Civilite civilite,String email, String numero,String voie,String ville,String cp) {
         super(id, login, password, nom, prenom, civilite);
         this.email = email;
-        this.adresse = adresse;
+        this.adresse = new Adresse(numero,voie,ville,cp);
     }
 
 	public String getEmail() {
@@ -37,10 +37,14 @@ public class Client extends Compte {
 	public void setAchats(List<Jeu> achats) {
 		this.achats = achats;
 	}
-    
+
 	@Override
 	public String toString() {
-		return "Client [email=" + email + ", adresse=" + adresse + ", achats=" + achats + "]";
+		return "Client [id=" + id + ", login=" + login + ", password=" + password + ", nom=" + nom + ", prenom="
+				+ prenom + ", civilite=" + civilite + ", email=" + email + ", adresse=" + adresse 
+				+ "]";
+	}
+    
 	
     
 }
