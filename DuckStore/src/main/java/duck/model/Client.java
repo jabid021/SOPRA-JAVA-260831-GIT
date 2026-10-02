@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
@@ -31,6 +32,8 @@ public class Client extends Compte {
 			)
     private List<Jeu> achats = new ArrayList();
 
+	@OneToOne(mappedBy = "client")
+	private Carte carte;
     
     public Client() {}
     
@@ -62,6 +65,15 @@ public class Client extends Compte {
 
 	public void setAchats(List<Jeu> achats) {
 		this.achats = achats;
+	}
+
+
+	public Carte getCarte() {
+		return carte;
+	}
+
+	public void setCarte(Carte carte) {
+		this.carte = carte;
 	}
 
 	@Override

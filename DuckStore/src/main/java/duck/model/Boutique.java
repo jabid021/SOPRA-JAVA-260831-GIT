@@ -1,11 +1,14 @@
 package duck.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity //OBLIGATOIRE
@@ -21,6 +24,13 @@ public class Boutique {
 	
 	@Embedded
 	private Adresse adresse;
+	
+	
+	@OneToMany(mappedBy="boutique")
+	private List<Employe> staff;
+	
+	@OneToMany(mappedBy = "boutique")
+	private List<Jeu> catalogue;
 	
 	
 	public Boutique() {} //OBLIGATOIRE
@@ -62,6 +72,25 @@ public class Boutique {
 		this.adresse = adresse;
 	}
 
+	
+
+	public List<Employe> getStaff() {
+		return staff;
+	}
+
+	public void setStaff(List<Employe> staff) {
+		this.staff = staff;
+	}
+
+	
+	
+	public List<Jeu> getCatalogue() {
+		return catalogue;
+	}
+
+	public void setCatalogue(List<Jeu> catalogue) {
+		this.catalogue = catalogue;
+	}
 
 	@Override
 	public String toString() {

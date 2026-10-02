@@ -2,10 +2,10 @@ package eshop.test;
 
 import java.time.LocalDate;
 
+import eshop.model.Achat;
 import eshop.model.Client;
 import eshop.model.Fournisseur;
 import eshop.model.Genre;
-import eshop.model.Personne;
 import eshop.model.Produit;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -21,8 +21,15 @@ public class TestJPA {
 		Produit produit1 = new Produit(null,"Formation SQL",849.99,fournisseur1);
 		Produit produit2 = new Produit(null,"Formation Spring",1350,fournisseur1);
 		
-		client1.getAchats().add(produit1);
-		client1.getAchats().add(produit2);
+		
+		Achat a1 = new Achat(null,LocalDate.now(),1,client1,produit1);
+		Achat a2 = new Achat(null,LocalDate.now(),2,client1,produit2);
+		
+		
+		//client1.getAchats().add(a1);
+		//client1.getAchats().add(a2);
+		
+		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contextJPA");
 		EntityManager em = emf.createEntityManager();
 		
@@ -32,6 +39,8 @@ public class TestJPA {
 			em.persist(fournisseur1);
 			em.persist(produit1);
 			em.persist(produit2);
+			em.persist(a1);
+			em.persist(a2);
 		
 		em.getTransaction().commit();
 		

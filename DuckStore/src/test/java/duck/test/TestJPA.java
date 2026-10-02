@@ -67,6 +67,8 @@ public class TestJPA {
 
 		Carte carteCharlie = new Carte(null, "DUCK-0003", 50,charlie);
 		
+		alice.setCarte(carteAlice);
+		
 		alice.getAchats().add(duckSouls);
 		alice.getAchats().add(quackOfTheWild);
 		alice.getAchats().add(duckKart);

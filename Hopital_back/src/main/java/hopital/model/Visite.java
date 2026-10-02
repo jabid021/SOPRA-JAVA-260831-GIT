@@ -2,6 +2,7 @@ package hopital.model;
 
 import java.time.LocalDate;
 
+
 public class Visite {
 
 	private Integer numero;

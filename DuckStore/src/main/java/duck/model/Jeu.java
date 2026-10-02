@@ -1,5 +1,6 @@
 package duck.model;
 
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -11,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -40,6 +42,9 @@ public class Jeu {
 	@ManyToOne
 	@JoinColumn(name="boutique",nullable = false)
 	private Boutique boutique;
+	
+	@ManyToMany(mappedBy="achats")
+	private List<Client> acheteurs;
 
 	public Jeu() {}
 	
