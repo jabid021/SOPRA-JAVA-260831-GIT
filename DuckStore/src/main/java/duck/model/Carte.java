@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -23,6 +24,7 @@ public class Carte {
 	// Ici dans la classe Carte, le X correspond à la relation INVERSE (Un client a combien de carte ?) 
 	// Ici dans la classe Carte, le Y correspond au nombre de client associe à une carte
 	@OneToOne
+	@JoinColumn(name="client",nullable = false)
 	private Client client;
 	
 	public Carte() {}

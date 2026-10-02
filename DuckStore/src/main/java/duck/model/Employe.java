@@ -3,6 +3,7 @@ package duck.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -13,6 +14,7 @@ public class Employe extends Compte{
 	private double salaire;
 	
 	@ManyToOne
+	@JoinColumn(name="boutique")
 	private Boutique boutique;
 
 	public Employe() {}

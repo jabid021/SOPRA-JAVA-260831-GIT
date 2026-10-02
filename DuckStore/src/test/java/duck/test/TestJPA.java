@@ -38,7 +38,7 @@ public class TestJPA {
 				Set.of(Genre.ACTION, Genre.AVENTURE, Genre.RPG),25.99);
 
 		Jeu callOfDuck = new Jeu(null, "Call of Duck", duckStation, lyon, Set.of(Genre.ACTION, Genre.STRATEGIE),25.99);
-
+		
 		Jeu duckKart = new Jeu(null, "Super Duck Kart", duckSwitch, lyon, Set.of(Genre.SPORT, Genre.ACTION),0);
 
 		Jeu pokemonDuck = new Jeu(null, "PokéDuck: Mare et Canards", duckBoy, paris, Set.of(Genre.RPG, Genre.AVENTURE),25.99);
@@ -47,7 +47,7 @@ public class TestJPA {
 		
 		Employe donald = new Employe(null, "donald", "picsou123", "Duck", "Donald", Civilite.Homme, 2450.00,paris);
 
-		Employe daisy = new Employe(null, "daisy", "donald123", "Duck", "Daisy", Civilite.Femme, 2600.00,lyon);
+		Employe daisy = new Employe(null, "daisy", "donald123", "Duck", "Daisy", Civilite.Femme, 2600.00,null);
 		
 		
 		Client alice = new Client(null, "alice.duck", "coincoin123", "Durand", "Alice", Civilite.Femme,
@@ -84,23 +84,34 @@ public class TestJPA {
 		
 			em.persist(paris);
 			em.persist(lyon);
-			em.persist(carteAlice);
-			em.persist(carteBob);
-			em.persist(carteCharlie);
+			
+			em.persist(donald);
+			em.persist(daisy);
+			
+			em.persist(duckSwitch);
+			em.persist(duckStation);
+			em.persist(duckBoy);
+			
+			
 			em.persist(duckSouls);
 			em.persist(quackOfTheWild);
 			em.persist(callOfDuck);
 			em.persist(duckKart);
 			em.persist(pokemonDuck);
 			em.persist(ageOfDucks);
-			em.persist(donald);
-			em.persist(daisy);
+			
+			
 			em.persist(alice);
 			em.persist(bob);
 			em.persist(charlie);
-			em.persist(duckSwitch);
-			em.persist(duckStation);
-			em.persist(duckBoy);
+			
+			em.persist(carteAlice);
+			em.persist(carteBob);
+			em.persist(carteCharlie);
+			
+			
+		
+		
 
 		em.getTransaction().commit();
 		

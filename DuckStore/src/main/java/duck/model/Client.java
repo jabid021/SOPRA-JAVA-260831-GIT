@@ -7,7 +7,10 @@ import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @DiscriminatorValue("customer")
@@ -18,8 +21,14 @@ public class Client extends Compte {
 	@Embedded
     private Adresse adresse;
 	
-	
+	//Avec une table de Jointure, on va obtenir 2 fk, ici l'id du Client (fk principale) + id du Jeu  (fk inverse)
 	@ManyToMany
+	@JoinTable(
+			name="achats",
+			joinColumns =  @JoinColumn(name="client"),
+			inverseJoinColumns = @JoinColumn(name="jeu"),
+			uniqueConstraints = @UniqueConstraint(columnNames = {"client","jeu"})
+			)
     private List<Jeu> achats = new ArrayList();
 
     

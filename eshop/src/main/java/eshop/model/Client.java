@@ -1,11 +1,14 @@
 package eshop.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 @DiscriminatorValue("customer")
@@ -16,6 +19,9 @@ public class Client extends Personne {
 	
 	@Embedded
 	private Adresse adresse;
+	
+	@ManyToMany
+	private List<Produit> achats = new ArrayList();
 	
 	public Client() {}
 
@@ -39,6 +45,15 @@ public class Client extends Personne {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+	
+	public List<Produit> getAchats() {
+		return achats;
+	}
+
+	public void setAchats(List<Produit> achats) {
+		this.achats = achats;
 	}
 
 	@Override

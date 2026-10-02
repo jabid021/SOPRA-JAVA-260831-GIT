@@ -10,11 +10,13 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="game")
+@Table(name="game", uniqueConstraints = @UniqueConstraint(columnNames = { "title","console","boutique" }))
 public class Jeu {
 
 	@Id
@@ -32,9 +34,11 @@ public class Jeu {
 	private Set<Genre> genres;
 	
 	@ManyToOne
+	@JoinColumn(name="console",nullable = false)
 	private Console console;
 	
 	@ManyToOne
+	@JoinColumn(name="boutique",nullable = false)
 	private Boutique boutique;
 
 	public Jeu() {}
