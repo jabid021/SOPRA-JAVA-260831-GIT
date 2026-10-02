@@ -7,10 +7,10 @@ import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,14 +31,12 @@ public class Jeu {
 	@Enumerated(EnumType.STRING)
 	private Set<Genre> genres;
 	
+	@ManyToOne
+	private Console console;
 	
-	private transient Console console;
-	private transient Boutique boutique;
+	@ManyToOne
+	private Boutique boutique;
 
-	
-	
-
-	
 	public Jeu() {}
 	
 	public Jeu(Integer id, String titre, Console console,Boutique boutique, Set<Genre> genres,double prix) {

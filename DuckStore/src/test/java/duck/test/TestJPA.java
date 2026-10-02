@@ -26,12 +26,6 @@ public class TestJPA {
 		Boutique lyon = new Boutique(null, "DuckStore Lyon", "7", "Quai des Palmipèdes", "Lyon", "69002");
 		
 		
-		Carte carteAlice = new Carte(null, "DUCK-0001", 420,null);
-
-		Carte carteBob = new Carte(null, "DUCK-0002", 180,null);
-
-		Carte carteCharlie = new Carte(null, "DUCK-0003", 50,null);
-		
 		Portable duckBoy = new Portable(null, "DuckBoy", 129.99, LocalDate.parse("2022-04-15"), 8, 6.0);
 
 		Hybride duckSwitch = new Hybride(null, "DuckSwitch", 299.99, LocalDate.parse("2023-09-20"), 6, true);
@@ -66,6 +60,23 @@ public class TestJPA {
 				"charlie@duckmail.fr", "3", "Impasse du Coin-Coin", "Lyon", "69003");
 
 		
+		
+		Carte carteAlice = new Carte(null, "DUCK-0001", 420,alice);
+
+		Carte carteBob = new Carte(null, "DUCK-0002", 180,bob);
+
+		Carte carteCharlie = new Carte(null, "DUCK-0003", 50,charlie);
+		
+		alice.getAchats().add(duckSouls);
+		alice.getAchats().add(quackOfTheWild);
+		alice.getAchats().add(duckKart);
+
+		bob.getAchats().add(callOfDuck);
+		bob.getAchats().add(ageOfDucks);
+
+		charlie.getAchats().add(pokemonDuck);
+		charlie.getAchats().add(quackOfTheWild);
+		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contextJPA");
 		EntityManager em = emf.createEntityManager();
 		
@@ -87,7 +98,10 @@ public class TestJPA {
 			em.persist(alice);
 			em.persist(bob);
 			em.persist(charlie);
-		
+			em.persist(duckSwitch);
+			em.persist(duckStation);
+			em.persist(duckBoy);
+
 		em.getTransaction().commit();
 		
 		em.close();
@@ -99,6 +113,8 @@ public class TestJPA {
 			System.out.println(em.find(Boutique.class,1));
 			
 			System.out.println(em.createQuery("FROM Carte").getResultList());
+			
+			System.out.println(em.createQuery("SELECT j FROM Jeu j where j.prix>=20").getResultList());
 		
 			System.out.println(em.find(Jeu.class, 1));
 			

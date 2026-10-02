@@ -7,10 +7,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 @DiscriminatorValue("customer")
@@ -20,7 +17,10 @@ public class Client extends Compte {
     private String email;
 	@Embedded
     private Adresse adresse;
-    private transient List<Jeu> achats = new ArrayList();
+	
+	
+	@ManyToMany
+    private List<Jeu> achats = new ArrayList();
 
     
     public Client() {}

@@ -2,10 +2,23 @@ package duck.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="handheld")
+@PrimaryKeyJoinColumn(name="handheld_console_id")
 public class Portable extends Console {
 
+	
 	private int autonomie;
+	
+	@Column(name="screen_size", columnDefinition = "double default 10.5")
 	private double ecran;
+	public Portable() {}
 	
 	public Portable(Integer id, String nom, double prix, LocalDate dateSortie, int autonomie, double ecran) {
 		super(id, nom, prix, dateSortie);

@@ -2,12 +2,36 @@ package duck.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="console")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Console {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="console_id")
 	protected Integer id;
+	
+	@Column(name="name",length = 20, nullable = false)
 	protected String nom;
+	
+	@Column(name="price",columnDefinition = "DECIMAL(5,2)")
 	protected double prix;
+	
+	@Column(name="release_date", nullable = false)
 	protected LocalDate dateSortie;
+	
+	public Console() {}
 	
 	public Console(Integer id, String nom, double prix, LocalDate dateSortie) {
 		this.id = id;

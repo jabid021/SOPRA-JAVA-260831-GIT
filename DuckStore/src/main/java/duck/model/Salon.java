@@ -2,10 +2,17 @@ package duck.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="home")
 public class Salon extends Console {
 
 	private boolean lecteur;
 
+	public Salon() {}
+	
 	public Salon(Integer id, String nom, double prix, LocalDate dateSortie, boolean lecteur) {
 		super(id, nom, prix, dateSortie);
 		this.lecteur = lecteur;

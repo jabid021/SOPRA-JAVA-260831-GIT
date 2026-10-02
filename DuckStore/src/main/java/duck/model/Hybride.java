@@ -2,10 +2,17 @@ package duck.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="hybrid")
 public class Hybride extends Console {
 
 	private int autonomie;
 	private boolean dockInclus;
+	
+	public Hybride() {}
 	
 	public Hybride(Integer id, String nom, double prix, LocalDate dateSortie, int autonomie, boolean dockInclus) {
 		super(id, nom, prix, dateSortie);
