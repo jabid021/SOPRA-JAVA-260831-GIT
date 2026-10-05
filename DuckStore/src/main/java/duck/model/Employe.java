@@ -45,7 +45,7 @@ public class Employe extends Compte{
 
 	@Override
 	public String toString() {
-		return "TPT > Groupe 2 > all\nEmploye [id=" + id + ", login=" + login + ", password=" + password + ", nom=" + nom + ", prenom="
+		return "Employe [id=" + id + ", login=" + login + ", password=" + password + ", nom=" + nom + ", prenom="
 				+ prenom + ", civilite=" + civilite + ", salaire=" + salaire + ", boutique=" +boutique+"]";
 	}
 	

@@ -8,6 +8,7 @@ import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,7 +32,7 @@ public class Jeu {
 	@Column(columnDefinition = "DECIMAL(5,2)") //Avec DECIMAL(x,y) => x correspond au nombre total de digit (avant + apres la virgule) , y correspond au nombre de deci apres la virgule, fait un Round si trop de deci
 	private double prix;
 	
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@Enumerated(EnumType.STRING)
 	private Set<Genre> genres;
 	
@@ -43,8 +44,8 @@ public class Jeu {
 	@JoinColumn(name="boutique",nullable = false)
 	private Boutique boutique;
 	
-	@ManyToMany(mappedBy="achats")
-	private List<Client> acheteurs;
+	@ManyToMany(mappedBy="jeu")
+	private List<Achat> ventes;
 
 	public Jeu() {}
 	
@@ -116,7 +117,15 @@ public class Jeu {
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
+	
 
+	public List<Achat> getVentes() {
+		return ventes;
+	}
+
+	public void setVentes(List<Achat> ventes) {
+		this.ventes = ventes;
+	}
 
 	public String toString() {
 		return "Jeu [id=" + id + ", titre=" + titre + ", boutique=" + boutique + ", console=" + console + ", genres="

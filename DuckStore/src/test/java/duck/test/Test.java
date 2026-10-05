@@ -3,6 +3,7 @@ package duck.test;
 import java.time.LocalDate;
 import java.util.Set;
 
+import duck.model.Achat;
 import duck.model.Boutique;
 import duck.model.Carte;
 import duck.model.Civilite;
@@ -92,7 +93,7 @@ public class Test {
 		 *
 		 */
 
-		alice.getAchats().add(duckSouls);
+		/*alice.getAchats().add(duckSouls);
 		alice.getAchats().add(quackOfTheWild);
 		alice.getAchats().add(duckKart);
 
@@ -100,7 +101,17 @@ public class Test {
 		bob.getAchats().add(ageOfDucks);
 
 		charlie.getAchats().add(pokemonDuck);
-		charlie.getAchats().add(quackOfTheWild);
+		charlie.getAchats().add(quackOfTheWild);*/
+		
+		Achat achat1 = new Achat(alice,duckSouls,null);
+		Achat achat2 = new Achat(alice,quackOfTheWild,null);
+		Achat achat3 = new Achat(alice,duckKart,null);
+		
+		Achat achat4 = new Achat(bob,callOfDuck,null);
+		Achat achat5 = new Achat(bob,ageOfDucks,null);
+		
+		Achat achat6 = new Achat(charlie,pokemonDuck,null);
+		Achat achat7 = new Achat(charlie,quackOfTheWild,null);
 
 		/*
 		 * ========================= PETITS TESTS =========================
@@ -112,10 +123,6 @@ public class Test {
 
 		System.out.println();
 
-		System.out.println("=== JEUX DE ALICE ===");
-		for (Jeu jeu : alice.getAchats()) {
-			System.out.println("- " + jeu.getTitre());
-		}
 
 		System.out.println();
 

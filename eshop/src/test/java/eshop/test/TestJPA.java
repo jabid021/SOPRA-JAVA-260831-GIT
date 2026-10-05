@@ -29,7 +29,6 @@ public class TestJPA {
 		//client1.getAchats().add(a1);
 		//client1.getAchats().add(a2);
 		
-		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contextJPA");
 		EntityManager em = emf.createEntityManager();
 		

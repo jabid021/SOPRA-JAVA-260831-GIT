@@ -23,14 +23,14 @@ public class Client extends Compte {
     private Adresse adresse;
 	
 	//Avec une table de Jointure, on va obtenir 2 fk, ici l'id du Client (fk principale) + id du Jeu  (fk inverse)
-	@ManyToMany
-	@JoinTable(
+	@ManyToMany(mappedBy = "client")
+	/*@JoinTable(
 			name="achats",
 			joinColumns =  @JoinColumn(name="client"),
 			inverseJoinColumns = @JoinColumn(name="jeu"),
 			uniqueConstraints = @UniqueConstraint(columnNames = {"client","jeu"})
-			)
-    private List<Jeu> achats = new ArrayList();
+			)*/
+    private List<Achat> achats = new ArrayList();
 
 	@OneToOne(mappedBy = "client")
 	private Carte carte;
@@ -59,11 +59,11 @@ public class Client extends Compte {
 		this.adresse = adresse;
 	}
 
-	public List<Jeu> getAchats() {
+	public List<Achat> getAchats() {
 		return achats;
 	}
 
-	public void setAchats(List<Jeu> achats) {
+	public void setAchats(List<Achat> achats) {
 		this.achats = achats;
 	}
 

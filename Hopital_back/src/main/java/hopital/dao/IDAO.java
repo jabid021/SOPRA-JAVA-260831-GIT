@@ -13,4 +13,5 @@ public interface IDAO<T,K> {
 	public T insert(T obj);
 	public T update(T obj);
 	public void deleteById(K id);
+	
 }

@@ -3,7 +3,9 @@ package duck.test;
 import java.time.LocalDate;
 import java.util.Set;
 
+import duck.model.Achat;
 import duck.model.Boutique;
+import duck.model.CB;
 import duck.model.Carte;
 import duck.model.Civilite;
 import duck.model.Client;
@@ -11,6 +13,8 @@ import duck.model.Employe;
 import duck.model.Genre;
 import duck.model.Hybride;
 import duck.model.Jeu;
+import duck.model.Paiement;
+import duck.model.Paypal;
 import duck.model.Portable;
 import duck.model.Salon;
 import jakarta.persistence.EntityManager;
@@ -69,15 +73,23 @@ public class TestJPA {
 		
 		alice.setCarte(carteAlice);
 		
-		alice.getAchats().add(duckSouls);
-		alice.getAchats().add(quackOfTheWild);
-		alice.getAchats().add(duckKart);
-
-		bob.getAchats().add(callOfDuck);
-		bob.getAchats().add(ageOfDucks);
-
-		charlie.getAchats().add(pokemonDuck);
-		charlie.getAchats().add(quackOfTheWild);
+		Paiement paiementAlice = new CB("4856");
+		Paiement paiementAlice2 = new Paypal(true);
+		
+		
+		Paiement paiementBob = new CB("1234");
+		
+		Paiement paiementCharlie = new CB("7845");
+		
+		Achat achat1 = new Achat(alice,duckSouls,paiementAlice);
+		Achat achat2 = new Achat(alice,quackOfTheWild,paiementAlice);
+		Achat achat3 = new Achat(alice,duckKart,paiementAlice2);
+		
+		Achat achat4 = new Achat(bob,callOfDuck,paiementBob);
+		Achat achat5 = new Achat(bob,ageOfDucks,paiementBob);
+		
+		Achat achat6 = new Achat(charlie,pokemonDuck,paiementCharlie);
+		Achat achat7 = new Achat(charlie,quackOfTheWild,paiementCharlie);
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contextJPA");
 		EntityManager em = emf.createEntityManager();
@@ -111,7 +123,18 @@ public class TestJPA {
 			em.persist(carteBob);
 			em.persist(carteCharlie);
 			
+			em.persist(paiementAlice);
+			em.persist(paiementAlice2);
+			em.persist(paiementBob);
+			em.persist(paiementCharlie);
 			
+			em.persist(achat1);
+			em.persist(achat2);
+			em.persist(achat3);
+			em.persist(achat4);
+			em.persist(achat5);
+			em.persist(achat6);
+			em.persist(achat7);
 		
 		
 
