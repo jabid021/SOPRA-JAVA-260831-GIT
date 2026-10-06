@@ -1,8 +1,8 @@
 package hopital.context;
 
-import hopital.dao.DAOCompteJDBC;
-import hopital.dao.DAOPatientJDBC;
-import hopital.dao.DAOVisiteJDBC;
+import hopital.dao.DAOCompte;
+import hopital.dao.DAOPatient;
+import hopital.dao.DAOVisite;
 import hopital.dao.IDAOCompte;
 import hopital.dao.IDAOPatient;
 import hopital.dao.IDAOVisite;
@@ -11,9 +11,9 @@ import hopital.service.PatientService;
 public class Singleton {
 
 	//Avec le polymorphisme, on pourra switch facilement de JDBC à JPA (les deux etant des IDAOX)
-	private IDAOCompte daoCompte = new DAOCompteJDBC();
-	private IDAOVisite daoVisite = new DAOVisiteJDBC();
-	private IDAOPatient daoPatient = new DAOPatientJDBC();
+	private IDAOCompte daoCompte = new DAOCompte();
+	private IDAOVisite daoVisite = new DAOVisite();
+	private IDAOPatient daoPatient = new DAOPatient();
 	private PatientService patientService = new PatientService();
 	
 	private static Singleton instance=null;

@@ -305,7 +305,7 @@ public class App {
 			System.out.println("----SAUVEGARDE DES VISITES : -------");
 			for(Visite v : medecin.getVisites()) 
 			{
-				daoVisite.insert(v);
+				daoVisite.save(v);
 				System.out.println(v);
 			}
 			medecin.getVisites().clear();

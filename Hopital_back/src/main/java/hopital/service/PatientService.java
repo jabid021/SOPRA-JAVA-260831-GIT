@@ -22,23 +22,23 @@ public class PatientService {
 		return daoPatient.findById(id);
 	}
 	
-	public void insert(Patient patient) 
+	public Patient insert(Patient patient) 
 	{
 		if(patient.getPrenom().length()==0) 
 		{
 			throw new RuntimeException("Un patient doit avoir un prenom dans un insert...");
 			
 		}
-		daoPatient.insert(patient);
+		return daoPatient.save(patient);
 	}
 	
-	public void update(Patient patient) 
+	public Patient update(Patient patient) 
 	{
 		if(patient.getId()==null) 
 		{
 			throw new RuntimeException("Un patient doit avoir un id lors d'un update ...");
 		}
-		daoPatient.update(patient);
+		return daoPatient.save(patient);
 	}
 	
 	
