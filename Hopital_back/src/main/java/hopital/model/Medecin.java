@@ -3,9 +3,16 @@ package hopital.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
 public class Medecin extends Compte{
 	private transient int salle;
 	private transient List<Visite> visites = new ArrayList();
+	
+	public Medecin() {}
 	
 	public Medecin(Integer id, String login, String password) {
 		super(id, login, password);

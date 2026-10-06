@@ -2,11 +2,22 @@ package hopital.model;
 
 import java.io.Serializable;
 
-public class Patient implements Serializable{
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name="patient")
+public class Patient implements Serializable{
+	@Id
 	private Integer id;
+	@Column(length = 50, nullable = false)
 	private String prenom;
+	@Column(length = 50, nullable = false)
 	private String nom;
+	
+	public Patient() {}
 	
 	public Patient(Integer id, String prenom, String nom) {
 		this.id = id;
@@ -38,7 +49,7 @@ public class Patient implements Serializable{
 		this.nom = nom;
 	}
 
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -73,7 +84,7 @@ public class Patient implements Serializable{
 	public String toString() {
 		return "Patient [id=" + id + ", prenom=" + prenom + ", nom=" + nom + "]";
 	}
-	
-	
-	
+
+
+
 }

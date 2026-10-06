@@ -17,6 +17,8 @@ public class Fournisseur extends Personne {
 	@OneToMany(mappedBy = "fournisseur")
 	private List<Produit> stock;
 	
+	public Fournisseur() {}
+	
 	public Fournisseur(Integer id, String nom, String prenom, Genre civilite, String societe) {
 		super(id, nom, prenom, civilite);
 		this.societe = societe;

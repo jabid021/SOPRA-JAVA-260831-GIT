@@ -7,10 +7,14 @@ import hopital.dao.IDAOCompte;
 import hopital.dao.IDAOPatient;
 import hopital.dao.IDAOVisite;
 import hopital.service.PatientService;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 public class Singleton {
 
 	//Avec le polymorphisme, on pourra switch facilement de JDBC à JPA (les deux etant des IDAOX)
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("contextJPA");
+	
 	private IDAOCompte daoCompte = new DAOCompte();
 	private IDAOVisite daoVisite = new DAOVisite();
 	private IDAOPatient daoPatient = new DAOPatient();
@@ -51,6 +55,11 @@ public class Singleton {
 
 	public PatientService getPatientService() {
 		return patientService;
+	}
+
+
+	public EntityManagerFactory getEmf() {
+		return emf;
 	}
 
 

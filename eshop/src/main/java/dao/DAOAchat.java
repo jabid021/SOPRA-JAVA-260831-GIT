@@ -1,45 +1,45 @@
-package hopital.dao;
+package dao;
 
 import java.util.List;
 
-import hopital.context.Singleton;
-import hopital.model.Patient;
+import context.Singleton;
+import eshop.model.Achat;
 import jakarta.persistence.EntityManager;
 
-public class DAOPatient implements IDAOPatient{
+public class DAOAchat implements IDAOAchat{
 
 	@Override
-	public List<Patient> findAll() {
+	public List<Achat> findAll() {
 		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			List<Patient>patients = em.createQuery("FROM Patient").getResultList();
+			List<Achat>achats = em.createQuery("FROM Achat").getResultList();
 		em.close();
-		return patients;
+		return achats;
 	}
 
 	@Override
-	public Patient findById(Integer id) {
+	public Achat findById(Integer id) {
 		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			Patient patient = em.find(Patient.class, id);
+			Achat achat = em.find(Achat.class, id);
 		em.close();
-		return patient;
+		return achat;
 	}
 
 	@Override
-	public Patient save(Patient patient) {
+	public Achat save(Achat achat) {
 		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
 			em.getTransaction().begin();
-				patient=em.merge(patient);
+				achat=em.merge(achat);
 			em.getTransaction().commit();
 		em.close();
-		return patient;
+		return achat;
 	}
 
 	@Override
-	public void delete(Patient patient) {
+	public void delete(Achat achat) {
 		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
 			em.getTransaction().begin();
-				patient=em.merge(patient);
-				em.remove(patient);
+				achat=em.merge(achat);
+				em.remove(achat);
 			em.getTransaction().commit();
 		em.close();
 	}
@@ -48,10 +48,12 @@ public class DAOPatient implements IDAOPatient{
 	public void deleteById(Integer id) {
 		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
 			em.getTransaction().begin();
-				Patient patient= em.find(Patient.class, id);
-				em.remove(patient);
+				Achat achat= em.find(Achat.class, id);
+				em.remove(achat);
 			em.getTransaction().commit();
 		em.close();
 	}
+
+	
 
 }
