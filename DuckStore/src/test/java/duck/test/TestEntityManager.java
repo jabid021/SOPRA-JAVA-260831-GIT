@@ -68,7 +68,7 @@ public class TestEntityManager {
 		
 		//Boutique paris = new Boutique(null,"DuckStore Paris-UPDATE2", "42", "Rue du Canard", "Paris", "75001");
 		//Boutique paris2 = new Boutique(15,"DuckStore Paris-UPDATE3", "42", "Rue du Canard", "Paris", "75001");
-		Boutique boutiqueDelete = new Boutique(9, null, null, null, null, null);
+		//Boutique boutiqueDelete = new Boutique(9, null, null, null, null, null);
 		
 		
 		

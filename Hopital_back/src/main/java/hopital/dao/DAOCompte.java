@@ -53,6 +53,7 @@ public class DAOCompte implements IDAOCompte {
 			em.getTransaction().commit();
 		em.close();
 	}
+	
 	@Override
 	public Compte findByLoginAndPassword(String login, String password) {
 		Compte connected = null;

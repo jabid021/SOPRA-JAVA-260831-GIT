@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -305,7 +306,7 @@ public class App {
 			System.out.println("----SAUVEGARDE DES VISITES : -------");
 			for(Visite v : medecin.getVisites()) 
 			{
-				daoVisite.save(v);
+				v=daoVisite.save(v);
 				System.out.println(v);
 			}
 			medecin.getVisites().clear();
@@ -328,10 +329,11 @@ public class App {
 		System.out.println("Affichage du CA sur la periode : "+debut+" - "+fin);
 		
 		
-		/*double somme = daoVisite.findSumByMedecinIdAndDateVisiteBetween(connected.getId(), debut,fin);
-		System.out.println(somme+"€");*/
+		double somme = daoVisite.findSumByMedecinIdAndDateVisiteBetween(connected.getId(), debut,fin);
+		System.out.println(somme+"€");
 		
-		List<Visite> visites = daoVisite.findByMedecinIdAndDateVisiteBetween(connected.getId(), debut,fin);
+		
+		List<Visite> visites = daoVisite.findByMedecinIdAndDateVisiteBetween(connected.getId(), LocalDate.parse(debut),LocalDate.parse(fin));
 		
 		/*double total = 0;
 		for(Visite v : visites) 
