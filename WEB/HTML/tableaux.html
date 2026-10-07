@@ -1,0 +1,184 @@
+<style>
+
+body
+{
+  background-color:#b4b250;
+  /*background-image: url("assets/image/duck.jfif");
+  background-size:100% 100%;*/
+  cursor:url("assets/image/curseur.png"),auto;
+  margin:0;
+}
+
+h1
+{
+ background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+}
+
+table
+{
+  background-image:url("assets/image/Grass.png");
+}
+
+td
+{
+  font-family:Roboto;
+}
+
+tr:nth-of-type(odd)
+{
+  font-size:28px;
+}
+
+tr:nth-of-type(even)
+{
+  color:#0b258a;
+}
+
+tr:nth-of-type(3n)
+{
+  text-align:center;
+}
+
+::selection
+{
+color:green;
+background-color:#0b258a;
+}
+
+
+
+
+</style>
+
+
+<h1 align="center">Liste des personnes</h1>
+
+<table border width="80%" align="center">
+
+  <!--
+  <tr>
+  <td align="center" colspan="6">La liste est vide</td>
+</tr>
+-->
+<thead>
+  <tr>
+    <th>Index-haut</th>
+    <th>Numero</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Age</th>
+    <th>Ordinateur</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <th>1</th>
+    <td >7456</td>
+    <td>Abid</td>
+    <td>Jordan</td>
+    <td>33</td>
+    <td>1</td>
+  </tr>
+
+  <tr >
+    <th>2</th>
+    <td>1234</td>
+    <td rowspan="2">Doe</td>
+    <td>John</td>
+    <td>42</td>
+    <td>12</td>
+  </tr>
+
+  <tr align="center">
+    <th>3</th>
+    <td>354</td>
+    <!--<td>Doe</td>-- Deja affiché avec le rowspan 2 de John Doe-->
+    <td>Jane</td>
+    <td colspan="2">42</td>
+    <!--<td>42</td> Deja affiché avec le colspan 2-->
+  </tr>
+  <tr>
+    <th>4</th>
+    <td >1234</td>
+    <td>Toto</td>
+    <td>Titi</td>
+    <td>33</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td >1234</td>
+    <td>Toto</td>
+    <td>Titi</td>
+    <td>33</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td >1234</td>
+    <td>Toto</td>
+    <td>Titi</td>
+    <td>33</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td >1234</td>
+    <td>Toto</td>
+    <td>Titi</td>
+    <td>33</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td >1234</td>
+    <td>Toto</td>
+    <td>Titi</td>
+    <td>33</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td >1234</td>
+    <td>Toto</td>
+    <td>Titi</td>
+    <td>33</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td >1234</td>
+    <td>Toto</td>
+    <td>Titi</td>
+    <td>33</td>
+    <td>1</td>
+  </tr>
+</tbody>
+
+<tfoot>
+  <tr>
+    <th>Index</th>
+    <th>Numero</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Age</th>
+    <th>Ordinateur</th>
+  </tr>
+</tfoot>
+</table>
+
+
+
+
+<hr>
+
+<table border>
+  <tr>
+    <td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></td>
+    <td><img src="assets/image/makers-logo.png" width="200"></td>
+    <td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2627.654744627922!2d2.3752424!3d48.8075677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e15fbf7bbff%3A0x2075eacac1e9b69!2sAJC%20Ing%C3%A9nierie!5e0!3m2!1sfr!2sfr!4v1791368126482!5m2!1sfr!2sfr" width="150"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></td>
+    <td><iframe width="150" src="https://www.youtube.com/embed/pZw9veQ76fo?si=g06HbmYpev-ZgEU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+  </tr>
+
+</table>
