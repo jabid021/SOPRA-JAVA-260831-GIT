@@ -1,0 +1,124 @@
+
+<!--
+Balise custom pour le
+  inline => span, n'importe quel nom de balise
+  block => div
+
+
+  enfants direct => x > y (toutes les balises y qui se trouvent au 1er niveau dans la balsie x)
+  enfants descendants => x y (toutes les balises y qui se trouvent dans une balise x)
+  balises suivantes => x y (la balise y qui se trouve apres une balise x)
+
+-->
+
+<style>
+
+body{margin:0}
+  #spanAModif
+  {
+    color:red;
+    font-weight:bold;
+  }
+
+  /*
+  CODE TRES NUL AVANT DISPLAY FLEX....
+
+  #demoPosition div
+  {
+    background-color:green;
+    width:24.8%;
+    height:100px;
+    border:solid black 2px;
+    display:inline-block;
+    margin-left:-4px;
+  }
+
+  div span
+  {
+    position:relative;
+    top:40px;
+  }
+
+  */
+
+#demoPosition
+{
+  display:flex;
+}
+
+#demoPosition div
+{
+    background-color:green;
+    width:25%;
+    height:100px;
+    border:solid black 2px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+#demoPointeur
+{
+
+  background-color:cyan;
+}
+
+#demoPointeur div
+{
+  color : red;
+}
+
+#demoPointeur>div
+{
+  border:solid black 1px;
+}
+
+ #demoPointeur>div>div
+ {
+   font-size:30px;
+ }
+
+ #demoPointeur+div
+ {
+   background-color:yellow;
+ }
+ #demoPointeur+div+div
+ {
+   background-color:orange;
+ }
+
+
+</style>
+
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, <span id="spanAModif">sed do eiusmod</span> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+
+<div id="demoPosition">
+  <div>Ma 1ere div</div>
+  <div>Ma 2e div</div>
+  <div>Ma 3e div</div>
+  <div>Ma 4e div</div>
+</div>
+
+
+
+
+
+
+<div>Avant</div>
+<div id="demoPointeur">
+  <div>Enfant direct 1</div>
+  <div>Enfant direct 2</div>
+  <div>Enfant direct 3</div>
+  <div>
+    <div> + enfant4 A</div>
+    <div> + enfant4 B</div>
+  </div>
+  <div>Enfant direct 5</div>
+</div>
+
+<div>Apres 1</div>
+<div>Apres 2</div>
