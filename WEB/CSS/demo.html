@@ -49,8 +49,6 @@ h2
   color:orange;
 }
 
-
-
 .uneAutreClasse
 {
   font-size:28px;
@@ -75,7 +73,7 @@ input:focus
 
 p:active
 {
-  font-size:35px;
+  //font-size:35px;
 }
 
 p:hover
@@ -89,6 +87,27 @@ img:hover
   transition-duration:0.8s;
 }
 
+#dernierP a
+{
+      text-decoration: unset;
+      color:red;
+      cursor:unset;
+}
+
+
+a:visited
+{
+  color:orange;
+}
+
+#premierParag:first-line{color:blue;}
+
+
+p:first-letter
+{
+  font-size:60px;
+  font-family:fantasy;
+}
 
 </style>
 
@@ -101,6 +120,7 @@ img:hover
 
 
 <a href="../HTML/demo2.html">Retour vers demo2 du dossier HTML</a>
+<a href="../HTML/demo3.html">Nouveau lien</a>
 
 <h1 align="center">Grand titre</h1>
 
@@ -109,7 +129,7 @@ img:hover
 <h4>Plus petit Titre</h4>
 
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p id="premierParag">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 <p style="color:purple;background-color:cyan">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
@@ -127,7 +147,7 @@ img:hover
 <h6 class="cssImportant">Tout petit titre</h6>
 
 <p class="uneAutreClasse">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p id="dernierP">Lorem ipsum dolor sit amet, consectetur <a href="lienCache.html">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 
 <input type="text" placeholder="Saisir Login"><br>
