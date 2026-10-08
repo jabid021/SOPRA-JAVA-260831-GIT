@@ -10,18 +10,58 @@ Liste deroulante => (Select / Option)
 
 Buttons => submit / reset / button
 
+<input type="submit" value="Valider"> => Valider et envoyer un formulaire (ne marche que dans un formulaire)
+<input type="reset" value="Reset"> => Remet toutes les values d'origines dans le formulaire (ne marche que dans un formulaire)
+<input type="button" value="Envoyer"> => Uniquement a coupler avec du JS
+<button>Envoyer</button>  => Si on est dans un formulaire, fait office de submut, si en dehors d'un formulaire, à coupler avec du JS
+
+
+
+regex => regular expresion => permet de definir un pattern dans nos input
+
+
+Attributs de la balise form :
+
+action => page vers laquelle sont sent les données du formulaire
+method =>
+enctype=> par default : application/x-www-form-urlencoded , Si on veut envoyer un fichier => multipart/form-data
+
+
+
+Requete vers une serveur :
+[protocol]://[domaine]/[chemin][params?]          [methode]
+
+https://www.google.fr
+https://www.ajc-ingenierie.fr/formations.html
+https://www.ajc-ingenierie.fr/ficheFormation.html?id=1
+http://localhost:8080/monProjet/matieres.jsp
+
+protocol => http / https (secure)
+domaine => www.google.fr / www.ajc-ingenierie.fr / localhost:8080/monProjet
+chemin => mesFormation.html / matieres.jsp
+params => donnes sent vers le serveur, si dans l'url : https://www.ajc-ingenierie.fr/formations.html?param1=value1&param2=value2...
+methode =>
+  - GET (par defaut, un lien, un form) => les données sont envoyees dans l'url (via un form ou un a href="")
+  - POST (uniquement via un formulaure) => les données sont sent directement au serveur dans passer par l'url
+
+  - PUT / PATCH / DELETE (pas disponibles avec html)
+
+
 -->
 <h1>Formulaire d'ajout</h1>
 
-<form>
-
+<form method="POST" action="pageCible.html" >
   <fieldset>
     <legend>Bloc 1</legend>
     <table>
-      <tr><td>Login*</td><td><input required type="text" value="Jordan" placeholder="Saisir votre login"></td></tr>
-      <tr><td>Password</td><td><input type="password" placeholder="Saisir votre password"></td></tr>
+      <tr><td>Login*</td><td><input required name="login" type="text" size="30" minlength="3" maxlength="10"  value="Jordan" placeholder="Saisir votre login"></td></tr>
+      <tr><td>Password</td><td><input type="password" value="aBc123456€!" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9\s])\S{10,}$" placeholder="Saisir votre password"></td></tr>
       <tr><td>Email</td><td><input type="email" placeholder="Saisir votre email"></td></tr>
-      <tr><td>Age</td><td><input type="number" value="33" placeholder="Saisir votre age"></td></tr>
+      <tr><td>Age</td><td><input required type="number" min="1" max="120" value="33" placeholder="Saisir votre age"></td></tr>
+      <tr><td>Salaire</td><td><input type="number" value="1999.99" step="0.01" placeholder="Saisir votre salaire"></td></tr>
+
+
+      <tr><td>Note</td><td><input id="inputRange" name="note" min="0" max="20" type="range" ><tpt id="afficheRange">10</tpt></td></tr>
     </table>
   </fieldset>
 
@@ -29,9 +69,9 @@ Buttons => submit / reset / button
   <fieldset>
     <legend>Bloc 2</legend>
     <table>
-      <tr><td>Date du Rdv</td><td><input type="date"></td></tr>
-      <tr><td>Heure du Rdv</td><td><input type="time" value="08:55" ></td></tr>
-      <tr><td>Semaine de conges</td><td><input type="week"></td></tr>
+      <tr><td>Date du Rdv</td><td><input type="date" min="2026-10-08" max="2027-04-08" step="7"></td></tr>
+      <tr><td>Heure du Rdv</td><td><input type="time" min="08:45" max="17:30"  step="900"></td></tr>
+      <tr><td>Semaine de conges</td><td><input type="week" value="2026-W03"></td></tr>
       <tr><td>Annee Naissance</td>
         <td>
           <select>
@@ -46,6 +86,43 @@ Buttons => submit / reset / button
 
       <tr><td>Choix de votre OS</td>
         <td>
+          <select autofocus>
+            <optgroup label="UNIX">
+              <option>MacOs</option>
+              <option selected>Linux</option>
+            </optgroup>
+
+          <optgroup label="MSDOS">
+              <option>Windows</option>
+            </optgroup>
+          </select>
+        </td>
+      </tr>
+
+
+      <tr><td>Choix de vos OS<br> (vous pouvez en prendre <br>plusieurs avec la touche ctrl)</td>
+        <td>
+          <select multiple name="os-multiple">
+            <optgroup label="UNIX">
+              <option>MacOs</option>
+              <option selected>Linux</option>
+            </optgroup>
+
+          <optgroup label="MSDOS">
+              <option>Windows</option>
+            </optgroup>
+          </select>
+        </td>
+      </tr>
+
+
+
+
+
+
+
+      <tr><td>Choix de votre OS</td>
+        <td>
           <select>
             <option>MacOs</option>
             <option selected>Linux</option>
@@ -53,31 +130,42 @@ Buttons => submit / reset / button
           </select>
         </td>
       </tr>
+
+
+      <tr><td>Matiere en cours</td>
+        <td>
+          <select required name="matiere">
+            <option value="">Choisir une matiere</option>
+            <option value="5">Java</option>
+            <option selected value="41">HTML</option>
+            <option value="12">Spring</option>
+          </select>
+        </td>
+      </tr>
     </table>
 
   </fieldset>
 
-
   <fieldset>
     <legend>Bloc 3</legend>
     <table>
-      <tr><td>Commentaire</td><td><textarea cols="80" rows="5" placeholder="Saisir votre commentaire"></textarea></td></tr>
+      <tr><td>Commentaire</td><td><textarea cols="80" rows="5" placeholder="Saisir votre commentaire">Commentaire du client</textarea></td></tr>
       <tr><td>Civilite</td>
         <td>
-          <input checked id="civ-homme" name="civ" type="radio"><label for="civ-homme">Homme</label>
-          <input id="civ-femme" name="civ" type="radio"><label for="civ-femme">Femme</label>
-          <input id="civ-nb" name="civ" type="radio"> <label for="civ-nb">NB</label>
+          <input checked id="civ-homme" name="civ" value="Homme" type="radio"><label for="civ-homme">Homme</label>
+          <input id="civ-femme" name="civ"  value="Femme" type="radio"><label for="civ-femme">Femme</label>
+          <input id="civ-nb" name="civ"  value="NB" type="radio"> <label for="civ-nb">NB</label>
         </td>
       </tr>
-
       <tr><td>Langage Pref</td>
         <td>
-          <input id="lng-java" type="checkbox"><label for="lng-java">JAVA</label>
-          <input id="lng-sql" type="checkbox"><label for="lng-sql">SQL</label>
-          <input checked id="lng-jpa" type="checkbox"> <label for="lng-jpa">JPA</label>
+          <input id="lng-java" name="lng" value="java" type="checkbox"><label for="lng-java">JAVA</label>
+          <input id="lng-sql" name="lng" value="sql" type="checkbox"><label for="lng-sql">SQL</label>
+          <input checked id="lng-jpa" value="jpa" name="lng" type="checkbox"> <label for="lng-jpa">JPA</label>
         </td>
       </tr>
 
+      <tr><td>Choix couleur</td><td><input type="color" value="#2c4f7d"></td></tr>
 
       <tr>
         <td>Votre CV</td>
@@ -86,4 +174,25 @@ Buttons => submit / reset / button
     </table>
   </fieldset>
   <input value="Envoyer" type="submit">
+  <input value="Reset" type="reset">
 </form>
+
+
+<h1>Modif Personne</h1>
+
+<form>
+  <input name="id" type="hidden" value="15"><br>
+  <input name="login" type="text" placeholder="Saisir login"><br>
+  <input  name="password" type="password" placeholder="Saisir password"><br>
+  <input type="submit" value="Modifier">
+</form>
+
+
+<script>
+
+inputRange.oninput=function()
+{
+  afficheRange.innerHTML=inputRange.value;
+};
+
+</script>

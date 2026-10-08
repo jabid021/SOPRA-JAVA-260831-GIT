@@ -1,0 +1,135 @@
+<!--
+
+Comment faire du CSS
+
+prop : value
+
+1) css inline (directement dans une balise html avec style="prop1:value1;prop2:value2...") (A EVITER)
+2) css interne (une balise <style> a part dans la page .html, dispo QUE sur cette page)
+3) css externe (un fichier .css a part, reutilisable sur plusieurs page, contient le css global du site)
+
+plusieurs facons de pointer sur mes balises pour leur affecter du CSS :
+
+1) tags => le nom de la balise : p, h1, ul, li
+2) class => .nomDeLaClasse (plusieurs element qui ont cette classe, un element peut cumuler plusieurs classes)
+3) id => #nomDeLid (Un seul element doit pointer sur cette id (unique) / un element ne peut pas avoir plusieurs ID)
+
+
+S'il y a des conflits sur les props :
+
+h2{color : x} à la ligne 2 puis h2{color : y } à la ligne 5, la couleur finale sera y
+
+tag < class < id < inline
+
+-->
+
+<style>
+
+  .cssImportant
+  {
+    border:solid black 2px;
+    color:green;
+  }
+
+#parag3, .cssImportant,h6
+{
+  cursor:not-allowed;
+}
+
+
+
+h2
+{
+  color:salmon;
+}
+
+
+h2
+{
+  color:orange;
+}
+
+
+
+.uneAutreClasse
+{
+  font-size:28px;
+}
+
+#parag3
+{
+  font-family:Roboto;
+}
+
+
+input
+{
+  color:orange
+}
+
+input:focus
+{
+  color:green;
+  background-color:lightblue;
+}
+
+p:active
+{
+  font-size:35px;
+}
+
+p:hover
+{
+    background-color:lightgrey;
+}
+
+img:hover
+{
+  transform : scale(1.5) rotate(180deg);
+  transition-duration:0.8s;
+}
+
+
+</style>
+
+
+
+
+
+
+<link rel="stylesheet" href="tpt.css">
+
+
+<a href="../HTML/demo2.html">Retour vers demo2 du dossier HTML</a>
+
+<h1 align="center">Grand titre</h1>
+
+<h2 class="cssImportant">Zog Zog</h2>
+
+<h4>Plus petit Titre</h4>
+
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p style="color:purple;background-color:cyan">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p id="parag3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="cssImportant">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="cssImportant uneAutreClasse">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<h6 class="cssImportant">Tout petit titre</h6>
+
+<p class="uneAutreClasse">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<input type="text" placeholder="Saisir Login"><br>
+
+<img src="../HTML/assets/image/makers-logo.png" width="200"><br>
