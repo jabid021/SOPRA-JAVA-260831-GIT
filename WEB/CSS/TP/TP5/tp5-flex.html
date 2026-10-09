@@ -1,0 +1,198 @@
+<!--
+Balises semantiques : header, main, content, nav, aside, footer
+
+
+Le site complet doit avoir une hauteur de 120% de l'ecran
+Le header fait 15% de hauteur
+Le footer fait 10% de hauteur
+Le main prend le reste de la hauteur
+
+*header*
+La zone du logo fait 15% de largeur
+La zone accueil fait 85% de largeur
+La taille du texte Logo est de 60px et doit être en gras
+La taille du texte Accueil est de 40px, doit être en majuscule et avoir un fond "grey"
+
+*main*
+La zone de navigation fait 17% de largeur
+La zone de contenu principal fait 68% de largeur
+La zone d'archives fait 15% de largeur
+
+
+*footer*
+La zone de navigation fait 30% de largeur
+La zone copyright fait 50% de largeur
+La zone vide fait le reste de la largeur
+-->
+
+<style>
+
+  body{margin:0;}
+
+
+  header
+  {
+    display:flex;
+    height:15%;
+    border:solid black 2px;
+  }
+
+  header div
+  {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  header div:nth-of-type(1)
+  {
+    width:15%;
+    font-weight:bold;
+    font-size:60px;
+  }
+  header div:nth-of-type(2)
+  {
+    width:85%;
+    background-color:grey;
+    font-size:40px;
+    text-transform:uppercase;
+  }
+
+  main
+  {
+    height:95%;
+    display:flex;
+  }
+
+  main>nav
+  {
+    width:17%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:10px;
+  }
+
+  main>content
+  {
+    width:68%;
+  }
+
+  main>aside
+  {
+    width:15%:
+  }
+  main aside ul
+  {
+    list-style-type: none;
+  }
+
+  footer
+  {
+    height: 10%;
+    background-color:yellow;
+    display:flex;
+  }
+
+footer>nav
+{
+  width:30%;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+
+}
+
+footer>div
+{
+  width:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+</style>
+
+<header>
+  <div>Logo</div>
+  <div>accueil</div>
+</header>
+
+<main>
+
+  <nav>
+    <a href="">Accueil</a>
+    <a href="">Item 1</a>
+    <a href="">Item 2</a>
+    <a href="">Item 3</a>
+    <a href="">Contact</a>
+  </nav>
+
+  <content>
+    <h1>Sujet de la page</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco</p>
+
+
+      <h3>Article 1</h3>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco</p>
+
+        <h3>Article 2</h3>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco rcitation ullamco</p>
+
+
+          <h3>Article 3</h3>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco</p>
+
+            <h3>Article 4</h3>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco</p>
+
+              <h3>Article 5</h3>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco</p>
+
+                <h3>Article 6</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco</p>
+
+                </content>
+                <aside>
+                  <p>Archives</p>
+                  <nav>
+                    <ul>
+                      <li><a href="">Août 2019</a></li>
+                      <li><a href="">Juillet 2019</a></li>
+                      <li><a href="">Juin 2019</a></li>
+                      <li><a href="">Mai 2019</a></li>
+                    </ul>
+                  </nav>
+                </aside>
+              </main>
+              <footer>
+                <nav>
+                  <a href="">Accueil</a>
+                  <a href="">Plan</a>
+                  <a href="">Contact</a>
+                  <a href="">CGU</a>
+                </nav>
+                <div>
+                  Gabarit - Copyrigth &#8471; 2019-2026
+                </div>
+              </footer>
