@@ -1,3 +1,6 @@
+<style>
+/*Commentaire CSS */
+</style>
 <meta charset="utf-8">
 
 <!--
@@ -17,10 +20,59 @@ BOM => Browser Object Model (Comment modifier le navigateur)
 -->
 
 <h1>Demo JS Dialogues</h1>
-
+<!--Commentaire HTML -->
 <script charset="utf-8">
 
-alert("Ceci est une alert");
+  //Commentaire JS
+  /*
+  Bloc de commentaire JS
+  */
+
+
+  var prenom = "Jordan"; // var est l'equivalent de static en java, cette variable est globale à l'ensemble de la page
+  let nom = "Abid";
+  const pi = 3.14; //variable constante, equivalent de final en java
+
+
+  for(let i=0;i<=10;i++) //variable avec un scope temporaire, est suppr de la memoire avec la boucle
+  {
+    console.log(i);
+  }
+
+
+  console.log("Apparait dans la console du navigateur");
+  console.log(prenom);
+
+
+  //alert("Hello "+prenom);
+  alert(`Hello ${prenom}`);
+  let age = prompt("Saisir votre age");
+  alert(`Vous avez ${age}ans`);
+  age = parseInt(age);
+  console.log("Dans 10ans vous aurez "+(age+10));
+
+if(confirm("EST CE QUE C'EST BON POUR VOUS ?!"))
+{
+  alert("C'est oui");
+}
+else
+{
+  alert("C'est non");
+}
+
+
+
+
+  alert("Ceci est une alert");
+
+  carre(10);
+
+function carre(nb)
+{
+  let resultat = nb*nb;
+  console.log("le carre de "+nb+" vaut "+resultat);
+  console.log(`le carre de ${nb} vaut ${resultat}`); //les magic quote `` alt gr + 7
+}
 
 
 </script>
