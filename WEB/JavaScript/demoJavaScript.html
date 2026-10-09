@@ -1,0 +1,80 @@
+<meta charset="utf-8">
+<h1>Demo JavaScript</h1>
+
+<script charset="utf-8">
+
+  let nb = "10";
+
+  if(nb===10) // == check le contenu de la variable (10 == "10" est ok)  / === check le contenu + le type (10 != "10")
+  {
+    console.log(`nb vaut 10`);
+  }
+  else
+  {
+    console.log(`nb ne vaut pas 10`);
+  }
+
+  console.log(nb);
+
+  let prenom="Jordan";
+  console.log(prenom.toUpperCase());
+  console.log(prenom.length);
+
+  let age = "33";
+  age+=1; //age etant un String("33") => age +1 => 331
+  age = parseInt(age);
+  age+=1; //331 + 1 => 332;
+  console.log(age);
+
+
+  switch(prenom)
+  {
+    case "Jordan": console.log("C'est ok, Jordan");break;
+    default : console.log("Prenom pas ok...");break;
+  }
+
+  age=33;
+
+  console.log((age>=18)?"Majeur":"Mineur");
+
+  try{
+    console.log(min + " vaut min");
+  }
+  catch(e)
+  {
+    console.log(e);
+  }
+  console.log("Suite du script");
+
+
+/*  let choix = prompt("Saisir OK");
+  while(choix!="OK")
+  {
+    choix = prompt("Saisir OK (C'EST OK ?!)");
+  }
+
+
+do
+{}while(prompt("Saisir YES")!="YES");*/
+
+for(let i=0;i<=10;i++)
+{
+  console.log(i);
+}
+
+
+console.log("------");
+
+//for(String lettre : prenom){}
+for(indice in prenom)
+{
+  console.log(indice+" - "+prenom[indice]);
+}
+
+for(lettre of prenom)
+{
+  console.log(lettre);
+}
+
+
+</script>

@@ -1,0 +1,16 @@
+<meta charset="utf-8">
+<h1>TP 6 - Changement de password</h1>
+
+
+
+<script charset="utf-8">
+  let message = "Mot de passe non changé";
+
+  if(confirm("Changer le password ?"))
+  {
+    let newPassword = prompt("Saisir le nouveau password");
+    message = `Mot de passe changé ${newPassword}`;
+    alert(message);
+  }
+    console.log(message);
+</script>
