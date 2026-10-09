@@ -1,0 +1,146 @@
+
+<!--
+En Css, 5* positions sur les elements :
+
+inherit (par defaut dans le navigateur, les elements block se suivent les un apres les autres)
+relative, absolute, fixed, sticky => donnent accès aux props : top, left, right, bottom
+
+
+  position relative : l'element peut etre déplacé sans impacter le reste de la page qui se comporte comme si l'element etait toujours present
+  position absolute : l'element peut etre déplacé sur la page, le reste des balises vont se placer comme si l'element n'existait pas
+    par defaut => top : 0 left 0 = le coin sup gauche du navigateur
+    si le conteneur est en position relative, top : 0 left 0 => le coin sup gauche du conteneur
+  position fixed : l'element peut etre deplacé sur la page et restera fixe à l'ecran (meme en scroll) top : 0 left 0 => coin sup gauche de l'ecran, le reste des balises vont se placer comme si l'element n'existait pas
+
+position sticky :
+  En CSS, position: sticky permet à un élément de rester visible à une position précise de l'écran lorsqu'on fait défiler la page (scroll).
+  C'est un mélange entre position: relative et position: fixed.
+  1. Le principe
+  Imagine une barre de navigation en haut d'une page.
+  - Au départ, elle se comporte comme un élément normal de la page.
+  - Quand tu scrolles, elle suit le défilement.
+  - Lorsqu'elle atteint une limite définie (par exemple top: 0), elle reste collée à cet endroit.
+  - Quand son conteneur parent arrive à sa fin, elle cesse d'être collée et repart avec son parent.
+  -->
+
+<style>
+
+body
+{
+  height:300vh;
+}
+content
+{
+  display:block;
+  height:150vh;
+  background-color:grey;
+  width:80vw;
+  margin-left:10%;
+  margin-top:100px;
+  position:relative;
+}
+
+content div
+{
+  height:70px;
+
+}
+
+div:nth-of-type(1)
+{
+  background-color: green;
+}
+
+div:nth-of-type(2)
+{
+  background-color: cyan;
+}
+
+div:nth-of-type(3)
+{
+  background-color: orange;
+  position : relative;
+  top:20px;
+  left:20px;
+}
+
+div:nth-of-type(4)
+{
+  background-color: brown;
+}
+
+div:nth-of-type(5)
+{
+  background-color: pink;
+  position:absolute;
+  width:80vw;
+  top:120px;
+  left:67px;
+}
+
+div:nth-of-type(6)
+{
+  background-color: purple;
+}
+
+div:nth-of-type(7)
+{
+  background-color: blue;
+  position:sticky;
+  top:200px;
+}
+
+div:nth-of-type(8)
+{
+  background-color: yellow;
+}
+
+div:nth-of-type(9)
+{
+  background-color: red;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+}
+
+div:nth-of-type(10)
+{
+  background-color: salmon;
+}
+
+
+#chat
+{
+  background-color:grey;
+  border-radius:50%;
+  height : 75px;
+  width:75px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:fixed;
+  bottom: 70px;
+  right:70px;
+}
+
+</style>
+
+
+
+
+<content>
+  <div>Element 1</div>
+  <div>Element 2</div>
+  <div>Element 3 (relative)</div>
+  <div>Element 4</div>
+  <div>Element 5 (absolute)</div>
+  <div>Element 6</div>
+  <div>Element 7 (sticky)</div>
+  <div>Element 8</div>
+  <div>Element 9 (fixed)</div>
+  <div>Element 10</div>
+</content>
+
+
+<div id="chat">?</div>
