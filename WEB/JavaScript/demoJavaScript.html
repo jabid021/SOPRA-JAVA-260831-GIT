@@ -77,4 +77,75 @@ for(lettre of prenom)
 }
 
 
+let bigblue = ["Tpt","Jordan","John" ,"Jane","Alexis","Axel","Celia"];
+
+let notes = [10,18,15,2,4,20,7];
+
+//let tab = [10,15,"Jordan",true,["isformateur"]];
+
+
+bigblue[6] = "Corentin";
+bigblue[bigblue.length]="Felix";
+
+bigblue.push("Frederic"); // Ajoute à la fin du tableau;
+bigblue.push("Toto");
+bigblue.shift(); //Retire le premier element
+bigblue.unshift("Guilhem"); //Ajoute au debut du tableau
+bigblue.pop();//Retire le dernier element
+
+
+//bigblue[100]="Jane";
+//bigblue.length=2000;
+
+
+
+console.log(bigblue);
+bigblue.sort(triNbLettre);
+bigblue.reverse();
+console.log(bigblue);
+
+console.log(notes);
+notes.sort(triNumerique);
+console.log(notes);
+
+
+let personne1 = new Object();
+personne1.prenom="Jordan";
+personne1.nom="Abid";
+personne1.age=33;
+personne1["formateur"] = true;
+
+
+let personne2 = {prenom:"John",nom:"Doe",age:42};
+personne2.formateur=false;
+console.log(personne2);
+console.log(personne2.prenom);
+
+
+let saisie = "nom";
+//console.log(personne2.saisie); //Ne marche pas, js va chercher un attribut "saisie" => personne2.saisie
+console.log(personne2[saisie]); //Js va regarder s'il trouve un index avec le contenu de la var saisie => personne2["nom"];
+
+
+let tabObj = [personne1,personne2,{prenom:"Jane",nom:"Doe",age:42}];
+
+console.log(tabObj);
+for(p of tabObj)
+{
+  console.log(p.prenom);
+}
+
+
+
+
+function triNumerique(nbDroite,nbGauche)
+{
+  return nbDroite - nbGauche;
+}
+
+function triNbLettre(prenom1,prenom2)
+{
+  return  prenom1.length - prenom2.length;
+}
+
 </script>
