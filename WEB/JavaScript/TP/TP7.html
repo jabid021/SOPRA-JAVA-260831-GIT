@@ -1,0 +1,39 @@
+<meta charset="utf-8"/>
+<h1>TP 7 - Quizz Pays </h1>
+
+
+<script charset="utf-8">
+
+  let tabPays = [
+    {pays:"France",capitale:"Paris"},
+    {pays:"Espagne",capitale:"Madrid"},
+    {pays:"Luxembourg",capitale:"Luxembourg"},
+    {pays:"UK",capitale:"Londres"},
+    {pays:"Italie",capitale:"Rome"}
+  ];
+
+  let question=1;
+
+  score=0;
+  for(p of tabPays)
+  {
+    let reponse = prompt(`Question ${question}/${tabPays.length} : Quelle est la capitale du pays : ${p.pays}`);
+    if(reponse.toLowerCase()==p.capitale.toLowerCase())
+    {
+      alert("Bonne réponse !");
+      score++;
+    }
+    else
+    {
+      alert(`Mauvaise réponse, c'était ${p.capitale}`);
+    }
+    question++;
+  }
+
+  let message = (score==tabPays.length) ? "C'est un sans faute !" : `Votre score est de ${score}/${tabPays.length}`;
+
+  alert(message);
+  console.log(message);
+
+
+</script>

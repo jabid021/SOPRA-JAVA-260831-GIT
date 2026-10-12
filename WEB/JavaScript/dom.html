@@ -1,0 +1,207 @@
+<style>
+
+.uneClasse
+{
+  color:blue;
+  border:solid black 2px;
+  background-color:yellow;
+}
+
+</style>
+<html>
+<meta charset="utf-8"/>
+<title>Demo DOM</title>
+<h1 class="demoPointeur" id="titre1">Gestion du DOM (Document Object Model)</h1>
+
+<p class="demoPointeur">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h2 class="demoPointeur">Sous titre</h2>
+
+<div id="divParags">
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p class="demoPointeur">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<div id="divParags2">Vide pour l'instant...</div>
+
+<img id="logo" src="../HTML/assets/image/makers.png" width="150"><hr>
+
+<input type="text" id="inputLogin" value="Jordan"><br>
+<input  type="checkbox" id="inputCheckBox">C'est OK ?<br>
+<select id="selectDemo">
+  <option value="windows">Windows</option>
+  <option value="mac">MacOs</option>
+  <option value="linux">Linux</option>
+</select>
+
+<input type="submit" id="btnValidate">
+
+</html>
+<script charset="utf-8">
+
+  /*
+Qu'est ce qu'on peut manipuler dans le dom :
+
+- le style (tout le css)
+- attributs (ajouter / retirer / modifier)
+- contenu html dans une balise
+- class (ajouter / modifier / retirer une classe d'une balise)
+- value (modifier la value d'un formulaire, le reset)
+
+
+En JS on peut pointer nos elements de 3* facons sur notre page :
+  id => document.getElementById("logo");
+  class => document.getElementsByClassName("demoPointeur");
+  tag => document.getElementsByTagName("p");
+
+  Pour les id uniquement, 2 facons de pointer l'element :
+    document.getElementById("inputLogin").style....
+    inputLogin.style...
+      (Uniquement possible si l'id ne comporte pas de tiret, pas d'espace, pas de underscore)
+      Attention à ne pas avoir de variable ou de fonction avec le meme nom coté js
+
+
+
+  Il y'a une derniere facon de pointer nos elements sur la page via des selecteur semblables au css :
+
+  document.querySelector("#divParags p"); //return le premier p qui est dans #divParags
+ document.querySelectorAll("#divParags p") //return TOUS les p qui sont dans #divParags;
+   */
+
+console.log(document.getElementById("logo"));
+console.log(document.getElementsByTagName("p"));
+console.log(document.querySelector("#divParags p"));
+console.log(document.querySelectorAll("#divParags .demoPointeur"));
+
+
+let balise  = document.getElementById("titre1");
+console.log(balise);
+
+//------------Modifier le css :------------
+
+/*let saisie = "font-size";
+balise.style.color="red";
+balise.style.backgroundColor="cyan";
+balise.style.border="solid black 2px";
+balise.style.saisie="35px";
+balise.style.setProperty("background-color","green");
+balise.style.setProperty(saisie,"35px");
+*/
+//balise.style.setProperty(prompt("Quelle prop ?"),prompt("Quelle value ?"));
+
+
+//------------Modifier le HTML :------------
+
+console.log(balise.innerHTML);
+balise.innerHTML="Nouveau titre de la page";
+
+document.getElementById("divParags2").innerHTML="<ul><li>Lien1</li></ul><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>";
+
+document.getElementById("divParags2").innerHTML+="<p>Un autre parag</p>";
+
+//saisie = prompt("Saisir le contenu du parag");
+
+
+//document.getElementById("divParags2").innerHTML+=`<p>${saisie}</p>`; //Risque de faille XSS (injection de JavaScript)
+document.getElementById("divParags2").innerText = "<ul><li>Item1</li></ul>";
+
+
+//------------Modifier les values dans un form :------------
+
+//document.getElementById("inputLogin");
+console.log(inputLogin.value);
+inputLogin.value="TPT";
+//reset un formulaire :
+inputLogin.value="";
+
+
+console.log(selectDemo.value);
+selectDemo.value="mac";
+
+//------------Modifier les attributs :------------
+
+  //inputCheckBox.setAttribute("checked","checked"); //setAttribute ajoute un attribut s'il n'existe pas; replace s'il existe deja
+  inputCheckBox.setAttribute("tpt","canard");
+  inputCheckBox.setAttribute("tpt","canard2");
+  console.log(inputCheckBox.getAttribute("tpt")); //getAttribute return la value d'un attribut s'il existe, sinon null
+  inputCheckBox.removeAttribute("tpt"); //retire l'attribut et sa value
+
+  if(confirm("C'est ok ?"))
+  {
+    inputCheckBox.checked=true; //fait la meme chose que inputCheckBox.setAttribute("checked","checked");
+  }
+  else
+  {
+    inputCheckBox.checked=false;
+  }
+
+  btnValidate.disabled=true;
+
+//------------Modifier les class d'une balise :------------
+
+console.log(balise.classList);
+balise.classList.add("uneClasse");
+balise.classList.remove("uneClasse");
+
+balise.classList.toggle("uneClasse"); // toggle ajoute la classe si non presente / sinon la remove
+
+
+//----------Interact avec des classes / tags ----------
+
+console.log(document.getElementsByTagName("p"));
+for(b of document.getElementsByTagName("p"))
+{
+  b.style.color="blue";
+}
+
+
+for(b of document.getElementsByClassName("demoPointeur"))
+{
+  b.style.color="purple";
+}
+
+
+
+
+
+setInterval(changeTitle,2000);
+
+setInterval(changeImg,2000);
+
+
+function changeImg()
+{
+  if(logo.getAttribute("src")=="../HTML/assets/image/makers.png")
+  {
+    logo.setAttribute("src","../HTML/assets/image/duck.jfif");
+  }
+    else
+    {
+        logo.setAttribute("src","../HTML/assets/image/makers.png");
+    }
+}
+
+function changeTitle()
+{
+    if(document.title=="Demo DOM")
+    {
+      document.title="NEW MESSAGE(1)";
+    }
+    else
+    {
+      document.title="Demo DOM";
+    }
+
+    if(document.hasFocus()==false)
+    {
+      document.title="REVIENS...Quack";
+    }
+}
+
+
+//document.body.innerHTML="";
+
+
+</script>
