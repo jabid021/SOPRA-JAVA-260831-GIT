@@ -1,0 +1,66 @@
+<style>
+
+  #conteneur
+  {
+    display:flex;
+
+  }
+#bulle1
+{
+  display:flex;
+  width:450px;
+  height:250px;
+  border-radius:50%;
+  border:solid black 2px;
+  justify-content:center;
+  align-items:center;
+}
+#bulle2
+{
+  justify-content:center;
+  align-items:center;
+  display:flex;
+  width:450px;
+  height:250px;
+  border-radius:50%;
+  border:solid black 2px;
+}
+</style>
+
+<div id="conteneur" >
+  <div id="bulle1"></div>
+
+  <div id="bulle2"></div>
+</div>
+
+<audio id="omae" src="omae.mp3" ></audio>
+<audio id="nani" src="nani.mp3"></audio>
+
+<script>
+
+
+setTimeout(
+  function(){
+    omae.play();
+    bulle1.innerHTML="Omae wa mou shindeiru";
+  }
+,2000);
+
+
+var decompte=setTimeout(bulle,5000);
+
+function bulle()
+{
+nani.play();
+bulle1.innerHTML="";
+bulle2.innerHTML="NANI ?!";
+bulle2.style.color="red";
+
+setTimeout(function()
+  {
+    bulle2.style.fontSize="30px";
+  },2000);
+}
+
+
+</script>

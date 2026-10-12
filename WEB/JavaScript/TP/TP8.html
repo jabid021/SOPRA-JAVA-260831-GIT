@@ -19,4 +19,36 @@
 
 <script charset="utf-8">
 
+let typeElement = prompt("Quel type d'element modifier ? (id/tag/class)");
+let nomElement;
+let prop = "color";
+let valueProp = prompt(`Quelle value pour la prop ${prop}`);
+
+if(typeElement=="id")
+{
+  nomElement="paragPrinci";
+  document.getElementById(nomElement).style.setProperty(prop,valueProp);
+}
+else if(typeElement=="class")
+{
+  nomElement="secondaire";
+  for(b of document.getElementsByClassName(nomElement))
+  {
+    b.style.setProperty(prop,valueProp);
+  }
+}
+else if(typeElement=="tag")
+{
+  nomElement="p";
+  for(b of document.getElementsByTagName(nomElement))
+  {
+    b.style.setProperty(prop,valueProp);
+  }
+}
+else
+{
+  alert("type d'element invalide");
+}
+
+
 </script>

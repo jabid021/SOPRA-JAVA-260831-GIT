@@ -1,0 +1,66 @@
+<meta charset="utf-8">
+
+<body style="background-color: lightyellow;">
+
+  <p id="paragPrinci" class="secondaire">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <p class="secondaire">Parag secondaire</p>
+
+  <p>Parag milieu</p>
+
+  <h3 class="secondaire">Titre secondaire</h3>
+
+  <p class="secondaire">Parag secondaire</p>
+  <p>Parag fin</p>
+
+<select id="selectTypeElement">
+  <option>id</option>
+  <option>class</option>
+  <option>tag</option>
+</select>
+<input id="inputNomElement" type="text" placeholder="Saisir le nom de l'element">
+<input id="inputPropElement" type="text" placeholder="Saisir la prop de l'element">
+<input id="inputValueElement" type="text" placeholder="Saisir la value de l'element">
+<input id="btnModif" type="button" value="Modifier">
+</body>
+
+
+<script charset="utf-8">
+
+  btnModif.onclick=faireModif;
+
+
+
+function faireModif(){
+
+  let typeElement = selectTypeElement.value;
+  let nomElement = inputNomElement.value;
+  let prop = inputPropElement.value;
+  let valueProp = inputValueElement.value;
+
+  if(typeElement=="id")
+  {
+    document.getElementById(nomElement).style.setProperty(prop,valueProp);
+  }
+  else if(typeElement=="class")
+  {
+    for(b of document.getElementsByClassName(nomElement))
+    {
+      b.style.setProperty(prop,valueProp);
+    }
+  }
+  else if(typeElement=="tag")
+  {
+    for(b of document.getElementsByTagName(nomElement))
+    {
+      b.style.setProperty(prop,valueProp);
+    }
+  }
+
+  selectTypeElement.value="id";
+  inputNomElement.value="";
+  inputPropElement.value="";
+  inputValueElement.value="";
+}
+
+</script>
