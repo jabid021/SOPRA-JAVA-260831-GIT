@@ -1,0 +1,101 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
+
+
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gestion des.....</title>
+</head>
+<body>
+
+  <content>
+  	<table>
+  		<tr>
+  			<th>Id</th>
+  			<th>X</th>
+  			<th>Y</th>
+  			<th>Adresse</th>
+  			<th>Departement</th>
+  			<th>Actions</th>
+  		</tr>
+  		<!--<tr><td align="center" colspan="6">AUCUN ELEMENT</td></tr>-->
+
+  	   <tr>
+  				<td>1</td>
+  				<td>...</td>
+  				<td>...</td>
+  				<td>161 Avenue de Verdun, 94200 Ivry Sur Seine</td>
+  				<td>10 - SALES </td>
+  				<td>
+  					<a class="btn btn-warning" href="">Modifier</a>
+  					<a class="btn btn-danger" href="">Supprimer</a>
+  				</td>
+  			</tr>
+
+        <tr>
+   				<td>2</td>
+   				<td>...</td>
+   				<td>...</td>
+   				<td>162 Avenue de Verdun, 94200 Ivry Sur Seine</td>
+   				<td>Pas de departement</td>
+   				<td>
+   					<a class="btn btn-warning" href="">Modifier</a>
+   					<a class="btn btn-danger" href="">Supprimer</a>
+   				</td>
+   			</tr>
+
+  	</table>
+  		<div class="message-form">Formulaire d'ajout / update</div>
+
+  	<form action="" method="post" class="form-clean">
+  	  <input type="hidden" name="id" value="">
+
+  	  <label for="x">X</label>
+  	  <input required="required" id="x" type="text" name="x" placeholder="Saisir x" value="">
+
+
+  	  <label>OS</label>
+  		<div class="choice-group">
+  				<div class="choice-item">
+  							<input type="radio" id="mac" name="os" value="MacOs"><label for="mac">MacOs</label>
+                <input type="radio" id="linux" name="os" value="MacOs"><label for="linux">Linux</label>
+                <input type="radio" id="windows" checked="checked"  name="os" value="Windows"><label for="windows">Windows</label>
+  				</div>
+  		</div>
+
+  	  <h2>Adresse</h2>
+  	  <label for="numero">Numero</label>
+  	  <input required="required" id="numero" type="text" name="adresse.numero" placeholder="Saisir le numero" value="">
+
+  	   <label for="voie">Voie</label>
+  	  <input required="required" id="voie" type="text" name="adresse.voie" placeholder="Saisir la voie" value="">
+
+  	   <label for="ville">Ville</label>
+  	  <input required="required" id="ville" type="text" name="adresse.ville" placeholder="Saisir la ville" value="">
+
+  	   <label for="cp">CP</label>
+  	  <input required="required" id="cp" type="text" name="adresse.cp" placeholder="Saisir le cp" value="">
+
+  	  <label for="departement">Departement</label>
+  	  <select id="departement" required="required" name="departement.deptno">
+  	 	  <option value="">Choisir un departement</option>
+  		 	  <option selected="selected" value="10">Departement 10 - Sales</option>
+  		 	  <option value="20">Departement 20 - Formation</option>
+  	  </select>
+
+
+  	  <div class="form-actions">
+  	    <input type="submit" value="Sauvegarder" class="btn btn-success">
+  	    <a href="" class="btn btn-primary">Annuler</a>
+  	  </div>
+  	</form>
+
+  	<br><br>
+  	<a class="btn btn-info" href="menuAdmin.html">Retour</a>
+  </content>
+
+</body>
+</html>
