@@ -1,0 +1,85 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
+
+
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Gestion des ordinateurs</title>
+</head>
+
+<body>
+
+	<content>
+		<table>
+			<tr>
+				<th>Numero</th>
+				<th>Marque</th>
+				<th>Ram</th>
+				<th>Utilisateur</th>
+				<th>Actions</th>
+			</tr>
+			<!--<tr><td align="center" colspan="6">AUCUN ELEMENT</td></tr>-->
+
+			<tr>
+				<td>1</td>
+				<td>Asus</td>
+				<td>16</td>
+				<td>1 - John Doe</td>
+				<td>
+					<a class="btn btn-warning" href="">Modifier</a>
+					<a class="btn btn-danger" href="">Supprimer</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td>2</td>
+				<td>Asus</td>
+				<td>16</td>
+				<td>Pas d'utilisateur</td>
+				<td>
+					<a class="btn btn-warning" href="">Modifier</a>
+					<a class="btn btn-danger" href="">Supprimer</a>
+				</td>
+			</tr>
+		</table>
+		<div class="message-form">Formulaire d'ajout / update</div>
+
+		<form action="" method="post" class="form-clean">
+			<input type="hidden" name="numero" value="">
+
+			<label for="marque">Marque</label>
+			<input required="required" id="marque" type="text" name="marque" placeholder="Saisir la marque" value="">
+
+			<label for="ram">Ram</label>
+			<input required="required" id="ram" type="number" name="ram" placeholder="Saisir la ram" value="">
+
+
+
+			<label for="utilisateur">Utilisateur</label>
+			<select name="utillisateur.id">
+				<option value="">Pas d'utilisateur</option>
+				<option value="1">1 - John Doe</option>
+				<option value="2">2 - Jane Doe</option>
+			</select>
+
+
+			<div class="form-actions">
+				<input type="submit" value="Sauvegarder" class="btn btn-success">
+				<a href="" class="btn btn-primary">Annuler</a>
+			</div>
+		</form>
+
+		<br><br>
+		<a class="btn btn-info" href="menuAdmin.html">Retour</a>
+	</content>
+
+</body>
+
+</html>

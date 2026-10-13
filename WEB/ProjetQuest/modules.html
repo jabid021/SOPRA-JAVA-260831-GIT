@@ -1,0 +1,90 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
+
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gestion des Modules</title>
+</head>
+<body>
+  <content>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Quest</th>
+        <th>Debut</th>
+        <th>Fin</th>
+        <th>Matiere</th>
+        <th>Formateur</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1234</td>
+        <td>2026-09-07</td>
+        <td>2026-09-18</td>
+        <td>1 - JAVA</td>
+        <td>1 - John Doe</td>
+        <td>
+          <a class="btn btn-warning" href="">Modifier</a>
+          <a class="btn btn-danger" href="">Supprimer</a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>4567</td>
+        <td>2026-09-09</td>
+        <td>2026-12-18</td>
+        <td>2 - SQL</td>
+        <td>2 - Jordan Abid</td>
+          <td>
+            <a class="btn btn-warning" href="">Modifier</a>
+            <a class="btn btn-danger" href="">Supprimer</a>
+          </td>
+        </tr>
+        </table>
+          <div class="message-form">Formulaire d'ajout / update</div>
+
+          <form action="" method="post" class="form-clean">
+            <input type="hidden" name="id" value="">
+            <input type="hidden" name="filiere.id" value="">
+
+
+            <label for="quest">Quest</label>
+            <input required="required" id="quest" type="number" name="quest" placeholder="Saisir le quest" value="">
+
+            <label for="debut">Debut</label>
+            <input required="required" id="debut" type="date" name="debut" value="">
+
+            <label for="fin">Fin</label>
+            <input required="required" id="fin" type="date" name="fin" value="">
+
+
+            <label for="matiere">Matiere</label>
+                  <select id="matiere" required="required" name="matiere.id">
+                    <option value="">Choisir une matiere</option>
+                    <option value="1">1 - JavaScript</option>
+                    <option value="2">2 - SQL</option>
+                  </select>
+
+              <label for="formateur">Formateur</label>
+              <select id="formateur" name="formateur.id">
+                <option value="">Pas de formateur</option>
+                <option value="1">1 - John Doe</option>
+                <option value="2">2 - Jordan Abid</option>
+              </select>
+
+              <div class="form-actions">
+                <input type="submit" value="Sauvegarder" class="btn btn-success">
+                <a href="" class="btn btn-primary">Annuler</a>
+              </div>
+            </form>
+
+            <br><br>
+            <a class="btn btn-info" href="menuAdmin.html">Retour</a>
+          </content>
+
+        </body>
+        </html>

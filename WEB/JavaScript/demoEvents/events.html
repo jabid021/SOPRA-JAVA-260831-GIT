@@ -1,0 +1,202 @@
+<!--
+
+events souris => click, mousedown (quand le click gauche est press), mouseup (quand le clic est relaché), dblclick, mouseover, mouseout, mousemove
+events clavier => keypress, keydown, keyup
+events formulaire => change, focus, blur (on enleve le focus), input
+
+-->
+
+<style>
+#content
+{
+  background-color:lightgrey;
+}
+
+p:nth-of-type(1):hover
+{
+  color:red;
+}
+
+td
+{
+  height:150px;
+  text-align:center;
+}
+
+#affichePersonneH1
+{
+  width:50%;
+  text-align:center;
+}
+
+#forms-ajout
+{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+#statutForm
+{
+ display: inline-block;
+ width: 20px;
+ height: 20px;
+ border-radius: 50%;
+ background-color: red;
+}
+
+
+#piste
+{
+  height:50vh;
+  position:relative;
+  background-image:url("pistes1.gif");
+  background-size:100% 100%;
+  display:none;
+}
+
+#carImg
+{
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+</style>
+
+<script charset="utf-8" src="eventSouris.js" defer></script>
+<script charset="utf-8" src="tabs.js" defer></script>
+
+<meta charset="utf-8"/>
+
+<div id="content">
+
+  <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p id="pModifCouleur">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+  <h1 id="titrePrincipal" title="Titre de la page"> Ici pour zoom le parag d'en dessous</h1>
+
+  <p id="paragPrincipal" title="C'est le parag principal de la page">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <input type="color" id="choixColor">
+  <input type="button" id="btnResetColor" value="Reset">
+
+</div>
+
+
+<hr>
+
+<div style="display:flex">
+  <table id="idTab" border width="50%">
+
+
+    <tr><th>ID</th><th>Prenom</th><th>Nom</th><th>Afficher</th></tr>
+    <tr><td>1</td><td>Jordan</td><td>Abid</td><td><input onClick="affichePersonne(1)" class="btnAfficher" type="button" value="Afficher"></td></tr>
+    <tr><td>2</td><td>John</td><td>Abid</td><td><input onClick="affichePersonne(2)" type="button" value="Afficher"></td></tr>
+    <tr><td>3</td><td>Jane</td><td>Abid</td><td><input onClick="affichePersonne(3)" type="button" value="Afficher"></td></tr>
+    <tr><td>4</td><td>Tpt</td><td>Canard</td><td><input onClick="affichePersonne(4)" type="button" value="Afficher"></td></tr>
+  </table>
+
+  <h1 id="affichePersonneH1">...</h1>
+</div>
+
+<br><br>
+<div id="forms-ajout">
+  <input id="input-id" class="input-tab" type="number" placeholder="Saisir id">
+  <input id="input-prenom" class="input-tab" type="text" placeholder="Saisir prenom">
+  <input id="input-nom" class="input-tab" type="text" placeholder="Saisir nom">
+  <input type="button" class="input-tab" value="Ajouter" id="btnAjouter" disabled>
+  <div id="statutForm"></div>
+</div>
+
+
+<hr>
+
+<input type="button" value="Vroum vroum" id="btnVroum">
+<input type="button" value="Stop vroum" id="btnStop" disabled>
+
+
+<div id="piste">
+  <img id="carImg" src="blue.gif">
+</div>
+
+
+
+<script charset="utf-8">
+
+let posX = 0;
+let posY = 0;
+let mouvement = 30;
+let color="blue";
+
+btnVroum.onclick=function()
+{
+  document.body.onkeydown = deplacement;
+  btnVroum.disabled=true;
+  btnStop.disabled=false;
+  piste.style.display="block";
+}
+btnStop.onclick=function()
+{
+  document.body.onkeydown =null;
+  btnVroum.disabled=false;
+  btnStop.disabled=true;
+  piste.style.display="none";
+}
+
+
+
+carImg.ondblclick=function()
+{
+  color = (color=="blue") ? "red": "blue";
+  carImg.setAttribute("src",color+".gif");
+}
+
+function deplacement(event)
+{
+  event.preventDefault();
+
+  mouvement = (event.ctrlKey)? 60 : 30;
+
+  let touche = event.key;
+  if(touche=="y")
+  {
+    carImg.style.transform="rotate(45deg)";
+    setTimeout(function(){carImg.style.transform="rotate(0deg)";},300);
+  }
+
+  else if(touche=="ArrowUp" || touche=="z")
+  {
+    posY+=mouvement;
+    carImg.style.transform="rotate(90deg)";
+  }
+  else if(touche=="ArrowDown" || touche=="s")
+  {
+    posY-=mouvement;
+    carImg.style.transform="rotate(-90deg)";
+  }
+  else if(touche=="ArrowLeft" || touche=="q")
+  {
+    posX+=mouvement;
+    carImg.style.transform="scaleX(1)";
+  }
+  else if(touche=="ArrowRight" || touche=="d")
+  {
+    posX-=mouvement;
+    carImg.style.transform="scaleX(-1)";
+
+  }
+
+  carImg.style.right=posX+"px";
+  carImg.style.bottom=posY+"px";
+
+
+}
+
+
+
+
+
+
+</script>

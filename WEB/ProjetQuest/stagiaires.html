@@ -3,11 +3,10 @@
 <link rel="stylesheet" href="style.css">
 
 
-
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Gestion des.....</title>
+  <title>Gestion des Stagiaires</title>
 </head>
 <body>
 
@@ -15,20 +14,26 @@
   	<table>
   		<tr>
   			<th>Id</th>
-  			<th>X</th>
-  			<th>Y</th>
+  			<th>Login</th>
+  			<th>Password</th>
+			  <th>Nom</th>
+			  <th>Prenom</th>
+			  <th>Civilité</th>
   			<th>Adresse</th>
-  			<th>Departement</th>
+  			<th>Filiere</th>
   			<th>Actions</th>
   		</tr>
   		<!--<tr><td align="center" colspan="6">AUCUN ELEMENT</td></tr>-->
 
   	   <tr>
   				<td>1</td>
-  				<td>...</td>
-  				<td>...</td>
-  				<td>161 Avenue de Verdun, 94200 Ivry Sur Seine</td>
-  				<td>10 - SALES </td>
+  				<td>JDoe</td>
+ 				  <td>ridicule</td>
+  				<td>DOE</td>
+  				<td>Jane</td>
+				  <td>Femme</td>
+				  <td>74 allée de la boustifaille Ivry-sur-Seine 94200</td>
+  				<td>Pas de filiere</td>
   				<td>
   					<a class="btn btn-warning" href="">Modifier</a>
   					<a class="btn btn-danger" href="">Supprimer</a>
@@ -37,10 +42,13 @@
 
         <tr>
    				<td>2</td>
-   				<td>...</td>
-   				<td>...</td>
-   				<td>162 Avenue de Verdun, 94200 Ivry Sur Seine</td>
-   				<td>Pas de departement</td>
+   				<td>JDoe</td>
+  				  <td>ridicule</td>
+   				<td>DOE</td>
+   				<td>Jane</td>
+ 				  <td>Femme</td>
+ 				  <td>74 allée de la boustifaille Ivry-sur-Seine 94200</td>
+   				<td>1 - SOPRA-JAVA-260831</td>
    				<td>
    					<a class="btn btn-warning" href="">Modifier</a>
    					<a class="btn btn-danger" href="">Supprimer</a>
@@ -53,16 +61,26 @@
   	<form action="" method="post" class="form-clean">
   	  <input type="hidden" name="id" value="">
 
-  	  <label for="x">X</label>
-  	  <input required="required" id="x" type="text" name="x" placeholder="Saisir x" value="">
+  	  <h2>Personne</h2>
 
+  	  <label for="nom">Nom</label>
+  	  <input required="required" id="nom" type="text" name="nom" placeholder="Saisir nom" value="">
 
-  	  <label>OS</label>
+	  <label for="prenom">Prenom</label>
+  	  <input required="required" id="prenom" type="text" name="prenom" placeholder="Saisir prenom" value="">
+
+	  <label for="login">Login</label>
+  	  <input required="required" id="login" type="text" name="login" placeholder="Saisir login" value="">
+
+	  <label for="password">Password</label>
+  	  <input required="required" id="password" type="password" name="password" placeholder="Saisir password" value="">
+
+  	  <label>Civilité</label>
   		<div class="choice-group">
   				<div class="choice-item">
-  							<input type="radio" id="mac" name="os" value="MacOs"><label for="mac">MacOs</label>
-                <input type="radio" id="linux" name="os" value="MacOs"><label for="linux">Linux</label>
-                <input type="radio" id="windows" checked="checked"  name="os" value="Windows"><label for="windows">Windows</label>
+  		<input type="radio" id="Homme" name="civilite" value="Homme"><label for="Homme">Homme</label>
+                <input type="radio" id="Femme" name="civilite" value="Femme"><label for="Femme">Femme</label>
+                <input type="radio" id="NB" checked="checked"  name="civilite" value="NB"><label for="NB">NB</label>
   				</div>
   		</div>
 
@@ -79,11 +97,13 @@
   	   <label for="cp">CP</label>
   	  <input required="required" id="cp" type="text" name="adresse.cp" placeholder="Saisir le cp" value="">
 
-  	  <label for="departement">Departement</label>
-  	  <select id="departement" required="required" name="departement.deptno">
-  	 	  <option value="">Choisir un departement</option>
-  		 	  <option selected="selected" value="10">Departement 10 - Sales</option>
-  		 	  <option value="20">Departement 20 - Formation</option>
+	  <h2>Filiere</h2>
+
+<label for="filiere">Filiere</label>
+  	  <select id="filiere" required="required" name="filiere.id">
+        <option value="">Choisir une filiere</option>
+  	 	 	  <option value="1">1 - SOPRA-JAVA-260831</option>
+  		 	  <option value="2">2 - SOPRA-IA-260407</option>
   	  </select>
 
 

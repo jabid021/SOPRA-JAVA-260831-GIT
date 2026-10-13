@@ -1,0 +1,95 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
+
+
+
+
+
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gestion des Formateurs</title>
+</head>
+<body>
+
+  <content>
+  	<table>
+  		<tr>
+  			<th>Id</th>
+  			<th>Login</th>
+  			<th>Password</th>
+			  <th>Nom</th>
+			  <th>Prenom</th>
+			  <th>Civilité</th>
+  			<th>Admin</th>
+			  <th>ACTION</th>
+
+    		</tr>
+  		<!--<tr><td align="center" colspan="6">AUCUN ELEMENT</td></tr>-->
+
+  	   <tr>
+  				<td>1</td>
+  				<td>JDoe</td>
+  				<td>ridicule</td>
+  				<td>DOE</td>
+  				<td>Jane</td>
+  				<td>Femme</td>
+  				<td>False</td>
+  				<td>
+  					<a class="btn btn-warning" href="">Modifier</a>
+  					<a class="btn btn-danger" href="">Supprimer</a>
+  				</td>
+  			</tr>
+
+  	</table>
+  		<div class="message-form">Formulaire d'ajout / update</div>
+
+  	<form action="" method="post" class="form-clean">
+  	  <input type="hidden" name="id" value="">
+
+  	  <h2>Personne</h2>
+
+  	  <label for="nom">Nom</label>
+  	  <input required="required" id="nom" type="text" name="nom" placeholder="Saisir nom" value="">
+
+	  <label for="prenom">Prenom</label>
+  	  <input required="required" id="prenom" type="text" name="prenom" placeholder="Saisir prenom" value="">
+
+	  <label for="login">Login</label>
+  	  <input required="required" id="login" type="text" name="login" placeholder="Saisir login" value="">
+
+	  <label for="password">Password</label>
+  	  <input required="required" id="password" type="password" name="password" placeholder="Saisir password" value="">
+
+  	  <label>civilité</label>
+  		<div class="choice-group">
+  				<div class="choice-item">
+  		<input type="radio" id="Homme" name="civilite" value="Homme"><label for="Homme">Homme</label>
+                <input type="radio" id="Femme" name="civilite" value="Femme"><label for="Femme">Femme</label>
+                <input type="radio" id="NB" checked="checked"  name="civilite" value="NB"><label for="NB">NB</label>
+  				</div>
+  		</div>
+
+	<label>Admin</label>
+  		<div class="choice-group">
+  				<div class="choice-item">
+  		<input type="checkbox" id="admin" name="admin" value="true"><label for="admin">Yes</label>
+      				</div>
+  		</div>
+
+
+
+  	  <div class="form-actions">
+  	    <input type="submit" value="Sauvegarder" class="btn btn-success">
+  	    <a href="" class="btn btn-primary">Annuler</a>
+  	  </div>
+  	</form>
+
+  	<br><br>
+  	<a class="btn btn-info" href="menuAdmin.html">Retour</a>
+  </content>
+
+</body>
+</html>
