@@ -10,7 +10,7 @@ var posMiaoussX=miaouss.style.width.content;
 var posMiaoussY=miaouss.style.top.content;
 
 var posPikaX=0;
-var posPikaY=100;
+var posPikaY=50;
 var posMiaoussX=0;
 var posMiaoussY=0;
 
@@ -41,8 +41,8 @@ btnStart.onclick=function()
 
     posPikaX=330;
     posPikaY=330;
-    posMiaoussX=posPikaX-30;
-    posMiaoussY=posPikaY-30;
+    posMiaoussX=posPikaX;
+    posMiaoussY=posPikaY;
 
     pikachu.style.top=posPikaY+"px";
     pikachu.style.left=posPikaX+"px";
