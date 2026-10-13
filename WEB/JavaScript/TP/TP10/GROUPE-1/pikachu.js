@@ -13,25 +13,72 @@ imgPikachu.setAttribute("src","assets/img/"+pokemon+direction+".png");
 
 
 
+
+btnStart.onclick=function()
+{
+  EnterPokemonName();
+}
+
+formStart.onkeyup=function(event)
+{
+  btnStart.disabled=false;
+    if(event.key=="Enter")
+        {
+          EnterPokemonName();
+        }
+}
+
+function EnterPokemonName()
+{
+  document.body.onkeydown = deplacement;
+  btnStart.disabled=true;
+  grass.style.display="block";
+  formStart.style.display="none";
+  pikachu.title=inputName.value;
+}
+
 function deplacement(event)
 {
   if(event.key=="ArrowDown" || event.key=="s" )
   {
+    posY+=mouvement;
+    direction="Down";
+
 
   }
   else if(event.key=="ArrowRight" || event.key=="d" )
   {
+      posX+=mouvement;
+      direction="Right";
 
   }
 
   else if(event.key=="ArrowLeft" || event.key=="q")
   {
+      posX-=mouvement;
+      direction="Left";
 
   }
 
   else if(event.key=="ArrowUp" || event.key=="z")
   {
 
+      posY-=mouvement;
+      direction="Up";
+
+  }
+  if(posY>=660)
+  {
+    posY=660;
+  }
+  else if(posY<=0)
+  {posY=0;}
+  if(posX>=660)
+  {
+    posX=660;
+  }
+  else if (posX<=0) {
+      posX=0;
   }
   pikachu.style.top=posY+"px";
   pikachu.style.left=posX+"px";
