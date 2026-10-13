@@ -1,0 +1,134 @@
+<style>
+  #horloge{display:none;}
+
+  #game{display:none;}
+</style>
+
+
+<h1 id="horloge">00:00</h1>
+
+
+<input type="button" value="Play" id="btnPlay">
+<input type="button" disabled value="Pause" id="btnPause">
+
+<div id="game">
+  <h2 id="question"></h2>
+  <input type="text" id="reponse" placeholder="capitale ?"><input type="button"  disabled id="btnValidate" value="Valider">
+  <div id="resultat"></div>
+</div>
+
+<div id="points"></div>
+
+
+
+<script>
+
+  btnPlay.onclick=lancer;
+  btnPause.onclick=stopTimer;
+  btnValidate.onclick=verifReponse;
+  reponse.onkeyup=function(event)
+  {
+
+    if(reponse.value=="")
+    {
+        btnValidate.disabled=true;
+    }
+    else
+    {
+        btnValidate.disabled=false;
+        if(event.key=="Enter")
+        {
+          verifReponse();
+        }
+    }
+  }
+
+
+  var minute=0;
+  var seconde=0;
+  var timer;
+
+
+  var p1 = {"nom":"France","capitale":"Paris"};
+  var p2 = {"nom":"Angleterre","capitale":"Londres"};
+  var p3 = {"nom":"Espagne","capitale":"Madrid"};
+  var p4 = {"nom":"Portugal","capitale":"Lisbonne"};
+
+  var pays = [p1,p2,p3,p4];
+
+  var index=0;
+  var score=0;
+  var total=pays.length;
+
+
+  function lancer()
+  {
+    game.style.display="block";
+    horloge.style.display="block";
+    btnPlay.disabled=true;
+    btnPause.disabled=false;
+    timer=setInterval(modifHorloge,1000);
+    nextQuestion();
+  }
+
+  function nextQuestion()
+  {
+    if(index==pays.length)
+    {
+      game.style.display="none";
+      stopTimer();
+      btnPlay.disabled=true;
+    }
+
+    reponse.value="";
+    question.innerHTML="Quelle est la capitale du pays suivant : "+pays[index].nom+" ("+(index+1)+"/"+total+")";
+  }
+
+  function verifReponse()
+  {
+    if(reponse.value==pays[index].capitale)
+    {
+      score++;
+      resultat.innerHTML="Bonne réponse <img width='80' src='img/content.png'>";
+      resultat.style.color="green";
+    }
+    else
+    {
+      resultat.innerHTML="Mauvaise réponse <img width='80' src='img/angry.png'>";
+      resultat.style.color="red";
+    }
+
+    setTimeout(function(){resultat.innerHTML=""},3000);
+
+    points.innerHTML="Score : "+score+"/"+total;
+    index++;
+    nextQuestion();
+  }
+  function stopTimer()
+  {
+    game.style.display="none";
+    btnPlay.disabled=false;
+    btnPause.disabled=true;
+    clearInterval(timer);
+  }
+
+  function modifHorloge()
+  {
+    seconde++;
+    if(seconde==60)
+    {
+      seconde=0;
+      minute++;
+    }
+    let minAffiche=(minute<10)?"0"+minute:minute;
+    let secondeAffiche=(seconde<10)?"0"+seconde:seconde;
+
+    horloge.innerHTML=minAffiche+":"+secondeAffiche;
+  }
+
+
+
+
+
+
+</script>
