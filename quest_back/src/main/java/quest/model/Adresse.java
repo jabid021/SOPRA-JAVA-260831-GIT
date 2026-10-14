@@ -14,6 +14,8 @@ public class Adresse {
 	@Column(length = 15)
 	private String cp;
 
+	public Adresse() {}
+	
 	public Adresse(String numero, String voie, String ville, String cp) {
 		this.numero = numero;
 		this.voie = voie;

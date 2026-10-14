@@ -18,13 +18,13 @@ public class Salle {
 	private String nom;
 	
 	@Embedded
-	private Adresse addrese;
+	private Adresse adresse;
 	
 	public Salle() {}
 	public Salle(Integer id, String nom, String numero, String voie, String ville, String cp) {
 		this.id = id;
 		this.nom = nom;
-		this.addrese = new Adresse(numero, voie, ville,  cp);
+		this.adresse = new Adresse(numero, voie, ville,  cp);
 		
 	}
 
@@ -49,19 +49,19 @@ public class Salle {
 	}
 
 
-	public Adresse getAddrese() {
-		return addrese;
+	public Adresse getAdresse() {
+		return adresse;
 	}
 
 
-	public void setAddrese(Adresse addrese) {
-		this.addrese = addrese;
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Salle [id=" + id + ", nom=" + nom + ", addrese=" + addrese + "]";
+		return "Salle [id=" + id + ", nom=" + nom + ", adresse=" + adresse + "]";
 	}
 	
 }

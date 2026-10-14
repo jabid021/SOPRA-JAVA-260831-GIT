@@ -1,4 +1,4 @@
-package quest.servlet;
+package demo.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
