@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.util.List;
 
 
-@WebServlet("")
+@WebServlet("/matiere")
 public class MatiereController extends HttpServlet {
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("id")==null) 
 		{
@@ -44,35 +44,36 @@ public class MatiereController extends HttpServlet {
 			modifier(request, response);
 		}
 	}
-	
-	
-	
-	
-	
-	public void afficherTous(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+
+
+
+
+
+	public void afficherTous(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		//EXERCICE 1
-	}
-	
-	
-	public void afficherParId(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
-	{
-		
-	}
-	
-	public void supprimer(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
-	{
-		
+		request.setAttribute("matieres", Singleton.getInstance().getDaoMatiere().findAll());
+		this.getServletContext().getRequestDispatcher("/matieres.jsp").forward(request, response);
 	}
 
-	public void ajouter(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+
+	public void afficherParId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		
+
 	}
-		
-	public void modifier(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+
+	public void supprimer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		
+
+	}
+
+	public void ajouter(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+
+	}
+
+	public void modifier(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+
 	}
 
 }

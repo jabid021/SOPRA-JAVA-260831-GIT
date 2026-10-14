@@ -30,8 +30,8 @@
   				<td>${salle.nom}</td>
   				<td>${salle.adresse.numero} ${salle.adresse.voie}, ${salle.adresse.cp} ${salle.adresse.ville}</td>
   				<td>
-  					<a class="btn btn-warning" href="">Modifier</a>
-  					<a class="btn btn-danger" href="">Supprimer</a>
+  					<a class="btn btn-warning" href="salle?id=${salle.id}">Modifier</a>
+  					<a class="btn btn-danger" href="salle?id=${salle.id}&delete">Supprimer</a>
   				</td>
   			</tr>
 
@@ -41,25 +41,25 @@
   	</table>
   		<div class="message-form">Formulaire d'ajout / update</div>
 
-  	<form action="" method="post" class="form-clean">
-  	  <input type="hidden" name="id" value="">
+  	<form action="salle" method="post" class="form-clean">
+  	  <input type="hidden" name="id" value="${salle.id}">
 
   	  <label for="nom">Nom</label>
-  	  <input required="required" id="nom" type="text" name="nom" placeholder="Saisir nom" value="">
+  	  <input required="required" id="nom" type="text" name="nom" placeholder="Saisir nom" value="${salle.nom}">
 
 
   	  <h2>Adresse</h2>
   	  <label for="numero">Numero</label>
-  	  <input required="required" id="numero" type="text" name="adresse.numero" placeholder="Saisir le numero" value="">
+  	  <input required="required" id="numero" type="text" name="adresse.numero" placeholder="Saisir le numero" value="${salle.adresse.numero}">
 
   	   <label for="voie">Voie</label>
-  	  <input required="required" id="voie" type="text" name="adresse.voie" placeholder="Saisir la voie" value="">
+  	  <input required="required" id="voie" type="text" name="adresse.voie" placeholder="Saisir la voie" value="${salle.adresse.voie}">
 
   	   <label for="ville">Ville</label>
-  	  <input required="required" id="ville" type="text" name="adresse.ville" placeholder="Saisir la ville" value="">
+  	  <input required="required" id="ville" type="text" name="adresse.ville" placeholder="Saisir la ville" value="${salle.adresse.ville}">
 
   	   <label for="cp">CP</label>
-  	  <input required="required" id="cp" type="text" name="adresse.cp" placeholder="Saisir le cp" value="">
+  	  <input required="required" id="cp" type="text" name="adresse.cp" placeholder="Saisir le cp" value="${salle.adresse.cp}">
 
   	  <div class="form-actions">
   	    <input type="submit" value="Sauvegarder" class="btn btn-success">

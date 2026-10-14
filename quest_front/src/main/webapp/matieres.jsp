@@ -20,29 +20,24 @@
   		<tr>
   			<th>Id</th>
   			<th>libelle</th>
-        <th>Actions</th>
+        	<th>Actions</th>
   		</tr>
-  		<!--<tr><td align="center" colspan="6">AUCUN ELEMENT</td></tr>-->
-
-  	   <tr>
-  				<td>1</td>
-  				<td>Javascript</td>
+  		<c:if test="${matieres.isEmpty()}">
+  			<tr><td align="center" colspan="3">Aucune matiere</td></tr>
+  		</c:if>
+  		
+		<c:forEach items="${matieres}" var="matiere">
+			<tr>
+  				<td>${matiere.id}</td>
+  				<td>${matiere.libelle}</td>
   				<td>
   					<a class="btn btn-warning" href="">Modifier</a>
   					<a class="btn btn-danger" href="">Supprimer</a>
   				</td>
   			</tr>
-
-        <tr>
-   				<td>2</td>
-   				<td>HTML</td>
-
-   				<td>
-   					<a class="btn btn-warning" href="">Modifier</a>
-   					<a class="btn btn-danger" href="">Supprimer</a>
-   				</td>
-   			</tr>
-
+			
+		</c:forEach>
+  
   	</table>
   		<div class="message-form">Formulaire d'ajout / update</div>
 

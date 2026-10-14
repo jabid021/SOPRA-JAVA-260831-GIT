@@ -48,7 +48,7 @@ public class SalleController extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("id")==null) 
+		if(request.getParameter("id")=="") 
 		{
 			ajouter(request, response);
 		}
@@ -63,7 +63,7 @@ public class SalleController extends HttpServlet {
 	
 	////ON CHANGE LE CODE A PARTIR D'ICI DANS LES AUTRES CONTROLLERS
 	
-	public void afficherTous(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+	public void afficherTous(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		List<Salle> salles = Singleton.getInstance().getDaoSalle().findAll();
 		request.setAttribute("salles", salles);
@@ -72,24 +72,53 @@ public class SalleController extends HttpServlet {
 	}
 	
 	
-	public void afficherParId(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+	public void afficherParId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		Salle salle = Singleton.getInstance().getDaoSalle().findById(id);
+		List<Salle> salles = Singleton.getInstance().getDaoSalle().findAll();
+		request.setAttribute("salles", salles);
+		request.setAttribute("salle", salle);
+		request.getServletContext().getRequestDispatcher("/salles.jsp").forward(request, response);
 	}
 	
-	public void supprimer(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+	public void supprimer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		Singleton.getInstance().getDaoSalle().deleteById(id);
 		
+		response.sendRedirect("salle");
 	}
 
-	public void ajouter(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+	public void ajouter(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		String nom = request.getParameter("nom");
+		String numero = request.getParameter("adresse.numero");
+		String voie = request.getParameter("adresse.voie");
+		String ville = request.getParameter("adresse.ville");
+		String cp = request.getParameter("adresse.cp");
+		
+		Salle salle = new Salle(null,nom,numero,voie,ville,cp);
+		Singleton.getInstance().getDaoSalle().save(salle);
+		
+		response.sendRedirect("salle");
 		
 	}
 		
-	public void modifier(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+	public void modifier(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		String nom = request.getParameter("nom");
+		String numero = request.getParameter("adresse.numero");
+		String voie = request.getParameter("adresse.voie");
+		String ville = request.getParameter("adresse.ville");
+		String cp = request.getParameter("adresse.cp");
 		
+		Salle salle = new Salle(id,nom,numero,voie,ville,cp);
+		
+		Singleton.getInstance().getDaoSalle().save(salle);
+		
+		response.sendRedirect("salle");
 	}
 	
 	
