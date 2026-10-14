@@ -9,11 +9,13 @@ var posPikaY=pikachu.style.top;
 var posMiaoussX=miaouss.style.width.content;
 var posMiaoussY=miaouss.style.top.content;
 
+console.log(posPikaX);
+
 var posPikaX=0;
 var posPikaY=50;
 var posMiaoussX=0;
 var posMiaoussY=0;
-
+const var nbPikachu=14;
 
 
 var mouvement1=30;
@@ -24,40 +26,63 @@ var direction="Down";
 imgPikachu.setAttribute("src","assets/img/"+pokemon1+direction+".png");
 imgMiaouss.setAttribute("src","assets/img/"+pokemon2+direction+".png");
 
-console.log(posPikaX);
-console.log(posPikaY);
-console.log(posMiaoussX);
-console.log(posMiaoussY);
+
 
 var varTimer;
 
+function Game_Over()
+{
+  posPikaX=330;
+  posPikaY=330;
+  posMiaoussX=posPikaX;
+  posMiaoussY=posPikaY;
 
+  imgPikachu.style.top=posPikaY+"px";
+  imgPikachu.style.left=posPikaX+"px";
+  miaouss.style.top=posMiaoussY+"px";
+  miaouss.style.left=posMiaoussX+"px";
+
+  imgPikachu.setAttribute("src","assets/img/"+pokemon1+direction+".png");
+  imgMiaouss.setAttribute("src","assets/img/"+pokemon2+direction+".png");
+
+  document.body.onkeydown = "none";
+
+  //DEATH.style.display="block";
+
+
+    imgMiaouss.setAttribute("src","assets/img/"+pokemon2+"Up.png");
+    imgPikachu.setAttribute("src","assets/img/"+pokemon1+"Down.png");
+
+    //pikachu.style.top=0+"px"; ///
+    //pikachu.style.left=0+"px";
+
+    let step=46;
+    let pix=50;
+
+  //  pika=document.getElementsByClassName("pikachu");
+    //console.log(pika);
+
+    for (let i=1; i<=nbPikachu; i++)
+    {
+      pikachu.innerHTML+=`<img class="Pikachu" src="assets/img/pikachuDown.png"  style="left:${pix}px;">`;
+      pix+=step;
+
+    }
+
+
+
+    /*for(pika of document.getElementsByClassName("pikachu"))
+    {
+
+
+    }*/
+
+}
 
 btnStart.onclick=function()
 {
   EnterPokemonName();
-  varTimer = setTimeout(function()
-  {
-
-    posPikaX=330;
-    posPikaY=330;
-    posMiaoussX=posPikaX;
-    posMiaoussY=posPikaY;
-
-    pikachu.style.top=posPikaY+"px";
-    pikachu.style.left=posPikaX+"px";
-    miaouss.style.top=posMiaoussY+"px";
-    miaouss.style.left=posMiaoussX+"px";
-
-    imgPikachu.setAttribute("src","assets/img/"+pokemon1+direction+".png");
-    imgMiaouss.setAttribute("src","assets/img/"+pokemon2+direction+".png");
-
-    document.body.onkeydown = "none";
-
-    DEATH.style.display="block";
-
-
-  }, 10000);
+  varTimer = setTimeout(Game_Over, 5000);
 
 }
 
@@ -67,6 +92,7 @@ formStart.onkeyup=function(event)
     if(event.key=="Enter")
         {
           EnterPokemonName();
+          varTimer = setTimeout(Game_Over, 5000);
         }
 
 }
@@ -145,8 +171,16 @@ function deplacement(event)
       posMiaoussX=0;
   }
 
-  pikachu.style.top=posPikaY+"px";
+  /*pikachu.style.top=posPikaY+"px";
   pikachu.style.left=posPikaX+"px";
+  miaouss.style.top=posMiaoussY+"px";
+  miaouss.style.left=posMiaoussX+"px";
+  imgPikachu.setAttribute("src","assets/img/"+pokemon1+direction+".png");
+  imgMiaouss.setAttribute("src","assets/img/"+pokemon2+direction+".png");*/
+
+
+  imgPikachu.style.top=posPikaY+"px";
+  imgPikachu.style.left=posPikaX+"px";
   miaouss.style.top=posMiaoussY+"px";
   miaouss.style.left=posMiaoussX+"px";
   imgPikachu.setAttribute("src","assets/img/"+pokemon1+direction+".png");
