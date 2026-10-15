@@ -39,7 +39,11 @@ public class Matiere {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-
+	
+	public String getInfos() 
+	{
+		return id+" - "+libelle;
+	}
 
 	public String toString() {
 		return "Matiere [id=" + id + ", libelle=" + libelle + "]";

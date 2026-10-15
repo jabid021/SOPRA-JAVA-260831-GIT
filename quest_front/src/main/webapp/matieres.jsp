@@ -25,32 +25,42 @@
   		<c:if test="${matieres.isEmpty()}">
   			<tr><td align="center" colspan="3">Aucune matiere</td></tr>
   		</c:if>
-  		
-		<c:forEach items="${matieres}" var="matiere">
+		<c:forEach items="${matieres}" var="m">
 			<tr>
-  				<td>${matiere.id}</td>
-  				<td>${matiere.libelle}</td>
+  				<td>${m.id}</td>
+  				<td>${m.libelle}</td>
   				<td>
-  					<a class="btn btn-warning" href="">Modifier</a>
-  					<a class="btn btn-danger" href="">Supprimer</a>
+  					<a class="btn btn-warning" href="matiere?id=${m.id}">Modifier</a>
+  					<a class="btn btn-danger" href="matiere?id=${m.id}&delete">Supprimer</a>
   				</td>
   			</tr>
 			
 		</c:forEach>
   
   	</table>
-  		<div class="message-form">Formulaire d'ajout / update</div>
+  		<c:choose>
+  			<c:when test="${matiere==null}">
+  				<c:set var="operation" value="ajout"/>
+  				<c:set var="submitText" value="Ajouter"/>
+  			</c:when>
+  			<c:otherwise>
+  				<c:set var="operation" value="update"/>
+  				<c:set var="submitText" value="Modifier"/>
+  			</c:otherwise>
+  		</c:choose>
+  	
+  		<div class="message-form">Formulaire d'${operation}</div>
 
-  	<form action="" method="post" class="form-clean">
-  	  <input type="hidden" name="id" value="">
+  	<form action="matiere" method="post" class="form-clean">
+  	  <input type="hidden" name="id" value="${matiere.id}">
 
   	  <label for="libelle">libelle</label>
-  	  <input required="required" id="libelle" type="text" name="libelle" placeholder="Saisir libelle" value="">
+  	  <input required="required" id="libelle" type="text" name="libelle" placeholder="Saisir libelle" value="${matiere.libelle}">
 
 
   	  <div class="form-actions">
-  	    <input type="submit" value="Sauvegarder" class="btn btn-success">
-  	    <a href="" class="btn btn-primary">Annuler</a>
+  	    <input type="submit" value="${submitText}" class="btn btn-success">
+  	    <a href="matiere" class="btn btn-primary">Annuler</a>
   	  </div>
   	</form>
 
