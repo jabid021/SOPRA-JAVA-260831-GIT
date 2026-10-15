@@ -26,56 +26,55 @@
                 <th>Salle</th>
                 <th>Actions</th>
             </tr>
-            <!--<tr><td align="center" colspan="6">AUCUN ELEMENT</td></tr>-->
+            <c:if test="${modules.isEmpty()}">
+  				<tr><td align="center" colspan="6">Aucune filiere</td></tr>
+  			</c:if>
 
+	<c:forEach items="${filieres}" var="f">
             <tr>
-                <td>1</td>
-                <td>SOPRA-JAVA-260209</td>
-                <td>2026-02-09</td>
-                <td>2026-05-12</td>
-                <td>1 - Violet</td>
+                <td>${f.id}</td>
+                <td>${f.libelle}</td>
+                <td>${f.debut}</td>
+                <td>${f.fin}</td>
+                <c:choose>
+	        		<c:when test="${f.salle==null}">
+		        		<td>Pas de salle</td>
+		        	</c:when>
+		        	<c:otherwise>
+		        		<td>${f.salle.infos}</td>
+		        	</c:otherwise>
+		        </c:choose>
                 <td>
-                    <a class="btn btn-info" href="module?filiere=1">Modules</a>
-                    <a class="btn btn-warning" href="">Modifier</a>
-  					<a class="btn btn-danger" href="">Supprimer</a>
+                    <a class="btn btn-info" href="module?filiere=${f.id}">Modules</a>
+                    <a class="btn btn-warning" href="filiere?id=${f.id}">Modifier</a>
+  					<a class="btn btn-danger" href="filiere?id=${f.id}&delete">Supprimer</a>
                 </td>
             </tr>
-
-            <tr>
-                <td>2</td>
-                <td>SOPRA-JAVA-260407</td>
-                <td>2026-04-07</td>
-                <td>2026-07-15</td>
-                <td>Pas de salle</td>
-                <td>
-                    <a class="btn btn-info" href="">Modules</a>
-                    <a class="btn btn-warning" href="">Modifier</a>
-  					<a class="btn btn-danger" href="">Supprimer</a>
-                </td>
-            </tr>
-
+	</c:forEach>
+           
         </table>
         <div class="message-form">Formulaire d'ajout / update</div>
 
         <form action="filiere" method="post" class="form-clean">
-            <input type="hidden" name="id" value="">
+            <input type="hidden" name="id" value="${filiere.id}">
 
             <label for="libelle">Libellé</label>
-            <input required="required" id="libelle" type="text" name="libelle" placeholder="Saisir libellé" value="">
+            <input required="required" id="libelle" type="text" name="libelle" placeholder="Saisir libellé" value="${filiere.libelle}">
 
             <label for="debut">Date début</label>
-            <input type="date" id="debut" name="debut" value="">
+            <input type="date" id="debut" name="debut" value="${filiere.debut}">
 
             <label for="fin">Date fin</label>
-            <input type="date" id="fin" name="fin" value="">
+            <input type="date" id="fin" name="fin" value="${filiere.fin}">
    
 
             <label for="salle">Salle</label>
             <select id="salle" name="salle.id">
                 <option value="">Pas de salle</option>
-                <option value="1">1 - Violet</option>
-            </select>
-
+                 <c:forEach items="${salles}" var="s">
+                     <option <c:if test="${s.id==filiere.salle.id}">selected</c:if> value="${s.id}">${s.infos}</option>
+                 </c:forEach>
+              </select>
 
             <div class="form-actions">
                 <input type="submit" value="Sauvegarder" class="btn btn-success">

@@ -58,7 +58,7 @@ public class ModuleController extends HttpServlet {
 		request.setAttribute("modules", Singleton.getInstance().getDaoModule().findAllByFiliereId(idFiliere));
 		request.setAttribute("matieres", Singleton.getInstance().getDaoMatiere().findAll());
 		request.setAttribute("formateurs", Singleton.getInstance().getDaoPersonne().findAllFormateurs());
-		this.getServletContext().getRequestDispatcher("/modules.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/modules.jsp").forward(request, response);
 	}
 
 
@@ -72,7 +72,7 @@ public class ModuleController extends HttpServlet {
 		request.setAttribute("modules", Singleton.getInstance().getDaoModule().findAllByFiliereId(idFiliere));
 		request.setAttribute("matieres", Singleton.getInstance().getDaoMatiere().findAll());
 		request.setAttribute("formateurs", Singleton.getInstance().getDaoPersonne().findAllFormateurs());
-		this.getServletContext().getRequestDispatcher("/modules.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/modules.jsp").forward(request, response);
 	}
 
 	public void supprimer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 

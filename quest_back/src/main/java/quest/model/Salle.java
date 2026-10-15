@@ -58,6 +58,10 @@ public class Salle {
 		this.adresse = adresse;
 	}
 
+	public String getInfos() 
+	{
+		return id+" - "+nom;
+	}
 
 	@Override
 	public String toString() {

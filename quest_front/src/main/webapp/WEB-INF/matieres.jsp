@@ -16,6 +16,7 @@
 <body>
 
   <content>
+  <form class="form-clean"><input type="text" id="inputFilter" placeholder="Filtrer tableau"></form>
   	<table>
   		<tr>
   			<th>Id</th>

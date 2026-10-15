@@ -51,7 +51,7 @@ public class MatiereController extends HttpServlet {
 	public void afficherTous(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		request.setAttribute("matieres", Singleton.getInstance().getDaoMatiere().findAll());
-		this.getServletContext().getRequestDispatcher("/matieres.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/matieres.jsp").forward(request, response);
 	}
 
 
@@ -61,7 +61,7 @@ public class MatiereController extends HttpServlet {
 		Matiere matiere = Singleton.getInstance().getDaoMatiere().findById(id);
 		request.setAttribute("matiere", matiere);
 		request.setAttribute("matieres", Singleton.getInstance().getDaoMatiere().findAll());
-		this.getServletContext().getRequestDispatcher("/matieres.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/matieres.jsp").forward(request, response);
 	}
 
 	public void supprimer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 

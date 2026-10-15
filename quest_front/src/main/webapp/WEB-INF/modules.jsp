@@ -13,6 +13,10 @@
 </head>
 <body>
   <content>
+  
+  <h1 align="center">Gestion des modules de la filiere ${param.filiere}</h1>
+  
+  <br>
     <table>
       <tr>
         <th>Id</th>
@@ -99,7 +103,7 @@
             </form>
 
             <br><br>
-            <a class="btn btn-info" href="filieres.jsp">Retour</a>
+            <a class="btn btn-info" href="filiere">Retour</a>
           </content>
 
         </body>
