@@ -1,6 +1,7 @@
 package quest.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,7 +18,15 @@ public class MatiereController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("id")==null) 
 		{
-			afficherTous(request, response);
+			if(request.getParameter("filter")==null) 
+			{
+				afficherTous(request, response);
+			}
+			else 
+			{
+				filtrerAjax(request, response);
+			}
+
 		} 
 		else 
 		{
@@ -47,6 +56,29 @@ public class MatiereController extends HttpServlet {
 
 
 
+	public void filtrerAjax(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		String recherche = request.getParameter("texte");
+		List<Matiere> matieres = Singleton.getInstance().getDaoMatiere().findByLibelleContaining(recherche);
+		
+		if(matieres.isEmpty()) 
+		{
+			response.getWriter().println("<tr><td align='center' colspan='3'>Aucune matiere</td></tr>");
+		}
+		
+			
+		for(Matiere m : matieres) {
+			response.getWriter().println("<tr>");
+			response.getWriter().println("<td>"+m.getId()+"</td>");
+			response.getWriter().println("<td>"+m.getLibelle()+"</td>");
+			response.getWriter().println("<td>");
+			response.getWriter().println("<a class='btn btn-warning' href='matiere?id="+m.getId()+"'>Modifier</a>");
+			response.getWriter().println("<a class='btn btn-danger' href='matiere?id="+m.getId()+"&delete'>Supprimer</a>");
+			response.getWriter().println("</td>");
+			response.getWriter().println("</tr>");		
+		}
+	}
+
 
 	public void afficherTous(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
@@ -68,7 +100,7 @@ public class MatiereController extends HttpServlet {
 	{
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		Singleton.getInstance().getDaoMatiere().deleteById(id);
-		
+
 		response.sendRedirect("matiere");
 	}
 

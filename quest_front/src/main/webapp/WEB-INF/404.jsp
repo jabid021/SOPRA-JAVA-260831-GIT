@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<base href="/quest_front/">
 <meta charset="UTF-8">
 <style>
 	body
@@ -14,7 +15,7 @@
 </style>
 
 <link rel="stylesheet" href="style.css">
-<title>Insert title here</title>
+<title>Page 404</title>
 </head>
 <body>
 
