@@ -15,6 +15,7 @@
 
 <body>
 
+<h1>Welcome ${connected.login} (${connected.id} - ${connected.prenom} ${connected.nom})</h1>
 	<content>
 
 		<a class="btn btn-info" href="formateur">Formateurs</a>

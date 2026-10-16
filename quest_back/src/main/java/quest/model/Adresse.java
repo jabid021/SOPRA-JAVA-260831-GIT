@@ -56,6 +56,11 @@ public class Adresse {
 	public void setCp(String cp) {
 		this.cp = cp;
 	}
+	
+	public String getFullAdresse() 
+	{
+		return numero+" "+voie+", "+ville+" "+cp;
+	}
 
 	@Override
 	public String toString() {

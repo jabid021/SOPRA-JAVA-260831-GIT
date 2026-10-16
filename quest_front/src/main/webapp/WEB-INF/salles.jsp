@@ -43,7 +43,7 @@
 
   	<form action="salle" method="post" class="form-clean">
   	  <input type="hidden" name="id" value="${salle.id}">
-
+	  <input type="hidden" name="version" value="${salle.version}">
   	  <label for="nom">Nom</label>
   	  <input required="required" id="nom" type="text" name="nom" placeholder="Saisir nom" value="${salle.nom}">
 

@@ -1,6 +1,7 @@
 package quest.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,6 +27,10 @@ public class Filiere {
     @ManyToOne
     @JoinColumn(name="salle")
     private Salle salle;
+    
+    @OneToMany(mappedBy = "filiere")
+    private List<Stagiaire> stagiaires;
+    
     
     public Filiere() {}
     
@@ -67,7 +73,21 @@ public class Filiere {
 	public void setSalle(Salle salle) {
 		this.salle = salle;
 	}
+	
+	public String getInfos() 
+	{
+		return id+" - "+libelle;
+	}
 
+	
+
+	public List<Stagiaire> getStagiaires() {
+		return stagiaires;
+	}
+
+	public void setStagiaires(List<Stagiaire> stagiaires) {
+		this.stagiaires = stagiaires;
+	}
 
 	@Override
 	public String toString() {

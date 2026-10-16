@@ -113,8 +113,10 @@ public class SalleController extends HttpServlet {
 		String voie = request.getParameter("adresse.voie");
 		String ville = request.getParameter("adresse.ville");
 		String cp = request.getParameter("adresse.cp");
+		int version = Integer.parseInt(request.getParameter("version"));
 		
 		Salle salle = new Salle(id,nom,numero,voie,ville,cp);
+		salle.setVersion(version);
 		
 		Singleton.getInstance().getDaoSalle().save(salle);
 		

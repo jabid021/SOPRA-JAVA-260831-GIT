@@ -84,4 +84,12 @@ public class DAOPersonne implements IDAOPersonne{
 		return connected;
 	}
 
+	@Override
+	public List<Stagiaire> findByOrdinateurIsNull() {
+		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
+		List<Stagiaire> personnes = em.createQuery("SELECT s FROM Stagiaire s where s.ordinateur is null").getResultList();
+		em.close();
+		return personnes;
+	}
+
 }
