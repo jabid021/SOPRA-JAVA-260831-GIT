@@ -1,8 +1,6 @@
 package orchestre.model;
 
-import org.springframework.stereotype.Component;
-
-@Component
+//@Component
 public class Guitare implements IInstrument{
 
 	@Override

@@ -31,9 +31,11 @@
 	<property name="instrument" ref="guitare"/>
 	<property name="prenom" value="Jordan"/>
 </bean>
--->
 
 <context:component-scan base-package="orchestre.model"/>
+
+-->
+
 </beans>
 
 
