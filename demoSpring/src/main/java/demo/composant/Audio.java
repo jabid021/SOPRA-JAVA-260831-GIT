@@ -1,5 +1,8 @@
 package demo.composant;
 
+import org.springframework.stereotype.Component;
+
+@Component //Par defaut, spring va creer un bean ayant le nom de la classe en minuscule (<bean id="audio"/>)
 public class Audio implements IConfig{
 
 	private int volume;
@@ -8,6 +11,7 @@ public class Audio implements IConfig{
 	public Audio() 
 	{
 		this.typeSortie="Stereo";
+		this.volume=67;
 	}
 
 	public int getVolume() {

@@ -1,13 +1,25 @@
 package demo.composant;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Game {
 	
+	@Autowired
 	private IConfig audio;
+	
+	@Autowired
+	@Qualifier("graphisme")
 	private IConfig configGraphisme;
 	
 	private String nom;
 	
-	public Game() {}
+	public Game() 
+	{
+		this.nom="My Music Monsters";
+	}
 
 	public IConfig getAudio() {
 		return audio;

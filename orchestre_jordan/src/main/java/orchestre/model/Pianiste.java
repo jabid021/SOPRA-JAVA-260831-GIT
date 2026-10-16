@@ -7,7 +7,9 @@ public class Pianiste implements IMusicien {
 	private Piano instrument;
 	
 	public Pianiste() 
-	{}
+	{
+		this.prenom="Eric";
+	}
 	
 
 	public String getPrenom() {

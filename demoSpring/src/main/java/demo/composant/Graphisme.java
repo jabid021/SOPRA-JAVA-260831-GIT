@@ -1,5 +1,8 @@
 package demo.composant;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Graphisme implements IConfig{
 
 	private boolean fenetre;

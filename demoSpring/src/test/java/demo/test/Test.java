@@ -17,9 +17,9 @@ public class Test {
 		
 		Graphisme gr = ctx.getBean(Graphisme.class);
 		
-		Audio audio2 = ctx.getBean("audio2",Audio.class);
+		//Audio audio2 = ctx.getBean("audio2",Audio.class);
 		
-		System.out.println(audio2);
+		//System.out.println(audio2);
 
 		Game game = ctx.getBean(Game.class);
 		
