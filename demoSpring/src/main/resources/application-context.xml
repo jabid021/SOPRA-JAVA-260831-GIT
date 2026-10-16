@@ -32,10 +32,10 @@
 		<property name="configGraphisme" ref="graphisme"/>
 		<property name="nom" value="My Music Monsters"></property>
 	</bean>
--->
+
 
 <context:component-scan base-package="demo.composant"/>
-
+-->
 
 </beans>
 

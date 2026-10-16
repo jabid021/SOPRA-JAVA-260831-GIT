@@ -1,5 +1,8 @@
 package orchestre.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Flute implements IInstrument{
 
 	@Override
