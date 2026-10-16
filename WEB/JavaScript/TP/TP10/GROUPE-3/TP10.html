@@ -1,0 +1,46 @@
+<style>
+
+  body
+  {
+    margin:0;
+    height:100vh;
+    background-image : url("assets/img/water.png");
+    background-size:100% 130%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  #grass
+  {
+    display:flex;
+    position:relative;
+    width:700px;
+    height:700px;
+    background-image : url("assets/img/Grass.png")
+  }
+
+  #pikachu
+  {
+    position:absolute;
+    top:0;
+    left:0;
+  }
+
+
+</style>
+<!-- n élément en position: relative ne bouge pas :
+il reste à sa place normale. Son rôle ici, c’est d’être le point de repère de ses enfants en absolute.
+#grass en relative devient le repère : son coin en haut à gauche est le point (0, 0). -->
+
+<script defer src="pikachu.js" charset="utf-8"></script>
+  <audio id="themePokemon" src="assets/audio/theme.mp3"></audio>
+  <audio id="raycri" src="assets/audio/rayquazacri.mp3"></audio>
+  <audio id="pikacri" src="assets/audio/pikacri.mp3"></audio>
+  <audio id="psychocri" src="assets/audio/psychocri.mp3"></audio>
+<div id="formStart">
+  <input id="inputName" type="text" placeholder="pikachu"><input id="btnStart" disabled type="button" value="Start !">
+</div>
+
+<div id="grass">
+  <div id="pikachu"><img id="imgPikachu" src="assets/img/rayquazaDown.png"></div>
+</div>
