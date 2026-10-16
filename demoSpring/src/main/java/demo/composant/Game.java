@@ -1,7 +1,7 @@
 package demo.composant;
 
 public class Game {
-
+	
 	private IConfig audio;
 	private IConfig configGraphisme;
 	

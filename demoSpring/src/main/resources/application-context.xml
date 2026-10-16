@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+ 	xmlns:tx="http://www.springframework.org/schema/tx"
+   	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+  		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       		
+
+
+	<bean id="audio" class="demo.composant.Audio">
+		<property name="volume" value="67"/>	
+	</bean>
+	
+	<bean id="audio2" class="demo.composant.Audio">
+		<property name="volume" value="10"/>
+		<property name="typeSortie" value="Mono"></property>	
+	</bean>
+
+	<bean id="graphisme" class="demo.composant.Graphisme"/>
+	
+	<bean id="jeu" class="demo.composant.Game">
+		<property name="audio" ref="audio"/>
+		<property name="configGraphisme" ref="graphisme"/>
+		<property name="nom" value="My Music Monsters"></property>
+	</bean>
+
+
+
+
+</beans>
+
+
+
+
+	
+
+
+

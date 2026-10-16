@@ -3,10 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="/quest_front/">
 <meta charset="UTF-8">
 <style>
-	body
+	content
 	{
 	background-image:url("assets/images/404.gif");
 	background-size:100% 100%;
@@ -14,15 +13,15 @@
 	}
 </style>
 
-<link rel="stylesheet" href="style.css">
 <title>Page 404</title>
 </head>
 <body>
+<content>
 
 	<h1>ERROR 404, cette page n'existe pas....</h1>
 	
 
-	<a href="index.html">Retour à l'accueil</a>
-
+	<a href="home">Retour à l'accueil</a>
+</content>
 </body>
 </html>

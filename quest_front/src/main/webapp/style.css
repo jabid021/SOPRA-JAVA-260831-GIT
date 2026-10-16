@@ -2,7 +2,51 @@
   body
   {
   	background-color :#F4EFE7;
+  	margin:0;
   }
+  
+  header
+  {
+    display:flex;
+    height:15%;
+    border:solid black 2px;
+  }
+
+  header div
+  {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  header div:nth-of-type(1)
+  {
+    width:25%;
+    font-weight:bold;
+    font-size:60px;
+  }
+  
+  header div:nth-of-type(1) img
+  {
+  	width:80%;
+  	margin-left:10%;
+  }
+  
+  header div:nth-of-type(2)
+  {
+    width:75%;
+    background-color:grey;
+    font-size:40px;
+    text-transform:uppercase;
+  }
+  
+  #btnDisconnect
+  {
+  position:absolute;
+  right:50px;
+  top :50px;
+  }
+  
 
   content
   {

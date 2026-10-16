@@ -3,7 +3,7 @@
   <display-name>quest_front</display-name>
  
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>home</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
@@ -12,5 +12,15 @@
   	<location>/WEB-INF/404.jsp</location>
   </error-page>
 
+  
+  <jsp-config>
+  	<jsp-property-group>
+  		<url-pattern>*.jsp</url-pattern>
+  		<include-prelude>/WEB-INF/header.jsp</include-prelude>
+  		<!--  <include-coda></include-coda> include à la fin des fichiers (un footer)-->
+  	</jsp-property-group>
+  
+  
+  </jsp-config>
   
 </web-app>
