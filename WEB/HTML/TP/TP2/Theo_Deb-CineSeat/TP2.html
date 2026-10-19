@@ -1,0 +1,244 @@
+<!--
+ _____           _                     
+|  _  \         (_)                    
+| | | |_ __ ___  _ ___ ___  _   _               
+| | | | '__/ _ \| |_  / _ \| | | |              
+| |_| | | |  __/| |/ /| __/| |_| |              
+|____/|_|  \___||_/___\___|\___  |              
+                             __/ |              
+    tpt                     |___/                                                              
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<header id="header_main">
+    <div id="header_logo">
+        <img src="img/popcorn_emoji.png" alt="popcorn_emoji" onclick="createPopcornShower()">
+        <button class="back_button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">CineSeat</button>
+    </div>
+    <div id="header_nav">
+        <button class="nav_button" onclick="document.getElementById('carte').scrollIntoView({behavior: 'smooth'})">Map</button>
+        <button class="nav_button" onclick="document.getElementById('top').scrollIntoView({behavior: 'smooth'})">Top</button>
+        
+    </div>
+    <div id="header_burger"><!--No bruger menu--></div> 
+</header>
+
+<main>
+    <div id="intro">
+        <h1>
+            Never Book a <br><em>Bad Seat</em> Again.
+        </h1>
+        <p>
+            Real reviews. Precise sightlines. Find the perfect seat<br>before the trailers even start.
+        </p>
+    </div>
+    
+    <div id="carte">
+        <div id="carte_heading">
+            <h2>
+                Your best view, <br><em>mapped.</em>
+            </h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Fuga quam tenetur iste itaque doloremque sequi
+            </p>
+        </div>
+        <div id="carte_visualizer">
+            <header class="screen-area">
+                <span class="screen-label">SCREEN</span>
+                <div class="screen"></div>
+            </header>
+
+            <section class="seating-area">
+                <div id="seat-grid" class="seat-grid"></div>
+            </section>
+
+            <aside id="seat-info" class="seat-info">
+            </aside> 
+        </div>
+    </div>
+
+    <div id="top">
+        <div id="top_heading">
+            <h2>
+                Top rated <em>places.</em>
+            </h2>
+        </div>
+        <div id="grid_table">
+  
+            <!-- Header -->
+                <div class="grid_cell">
+                    <div class="header_rank">rank / name</div>
+                    <div class="header_score">score</div>
+                    <div class="header_rating">rating</div>
+                </div>
+            
+            
+            <!-- Ligne 1 -->
+                <div class="grid_cell">
+                    <div class="rank">
+                        <p>01</p>
+                        <div class="name">Row K · Seat 14</div>
+                    </div>
+                    <div class="score">
+                        <div class="score_line">
+                            <span class="score_label">Comfort</span>
+                            <div class="progress_bar">
+                                <div class="fill" style="width: 97%;"></div>
+                            </div>
+                            <span class="score_number">97</span>
+                        </div>
+
+                        <div class="score_line">
+                            <span class="score_label">Vision</span>
+                            <div class="progress_bar">
+                                <div class="fill" style="width: 99%;"></div>
+                            </div>
+                            <span class="score_number">99</span>
+                         </div>
+                    </div>
+                    <div class="rating">
+                        <div id="rating_star">★</div>
+                        <div id="rating_note">4,9</div>
+                        <p>/5</p>
+                    </div>
+                </div>
+
+            <!-- Ligne 2 -->
+                <div class="grid_cell">
+                    <div class="rank">
+                        <p>02</p>
+                        <div class="name">Row K · Seat 14</div>
+                    </div>
+                    <div class="score">
+                        <div class="score_line">
+                            <span class="score_label">Comfort</span>
+                            <div class="progress_bar">
+                                <div class="fill" style="width: 95%;"></div>
+                            </div>
+                            <span class="score_number">95</span>
+                        </div>
+
+                        <div class="score_line">
+                            <span class="score_label">Vision</span>
+                            <div class="progress_bar">
+                                <div class="fill" style="width: 97%;"></div>
+                            </div>
+                            <span class="score_number">97</span>
+                         </div>
+                    </div>
+                    <div class="rating">
+                        <div id="rating_star">★</div>
+                        <div id="rating_note">4,8</div>
+                        <p>/5</p>
+                    </div>
+                </div>
+
+            <!-- Ligne 3 -->
+                <div class="grid_cell">
+                    <div class="rank">
+                        <p>03</p>
+                        <div class="name">Row K · Seat 14</div>
+                    </div>
+                    <div class="score">
+                        <div class="score_line">
+                            <span class="score_label">Comfort</span>
+                            <div class="progress_bar">
+                                <div class="fill" style="width: 92%;"></div>
+                            </div>
+                            <span class="score_number">92</span>
+                        </div>
+
+                        <div class="score_line">
+                            <span class="score_label">Vision</span>
+                            <div class="progress_bar">
+                                <div class="fill" style="width: 96%;"></div>
+                            </div>
+                            <span class="score_number">96</span>
+                         </div>
+                    </div>
+                    <div class="rating">
+                        <div id="rating_star">★</div>
+                        <div id="rating_note">4,7</div>
+                        <p>/5</p>
+                    </div>
+                </div>
+
+            <!-- Ligne 4 -->
+                <div class="grid_cell">
+                    <div class="rank">
+                        <p>04</p>
+                        <div class="name">Row K · Seat 14</div>
+                    </div>
+                    <div class="score">
+                        <div class="score_line">
+                            <span class="score_label">Comfort</span>
+                            <div class="progress_bar">
+                                <div class="fill" style="width: 94%;"></div>
+                            </div>
+                            <span class="score_number">94</span>
+                        </div>
+
+                        <div class="score_line">
+                            <span class="score_label">Vision</span>
+                            <div class="progress_bar">
+                                <div class="fill" style="width: 90%;"></div>
+                            </div>
+                            <span class="score_number">90</span>
+                         </div>
+                    </div>
+                    <div class="rating">
+                        <div id="rating_star">★</div>
+                        <div id="rating_note">4,6</div>
+                        <p>/5</p>
+                    </div>
+                </div>
+
+            <!-- Ligne 5 -->
+                <div class="grid_cell">
+                    <div class="rank">
+                        <p>05</p>
+                        <div class="name">Row K · Seat 14</div>
+                    </div>
+                    <div class="score">
+                        <div class="score_line">
+                            <span class="score_label">Comfort</span>
+                            <div class="progress_bar">
+                                <div class="fill" style="width: 89%;"></div>
+                            </div>
+                            <span class="score_number">89</span>
+                        </div>
+
+                        <div class="score_line">
+                            <span class="score_label">Vision</span>
+                            <div class="progress_bar">
+                                <div class="fill" style="width: 91%;"></div>
+                            </div>
+                            <span class="score_number">91</span>
+                         </div>
+                    </div>
+                    <div class="rating">
+                        <div id="rating_star">★</div>
+                        <div id="rating_note">4,5</div>
+                        <p>/5</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div id="footer_logo">
+        <p>CineSeat</p>
+    </div>
+    <div id="footer_baseline">
+        <p>Click on the popcorn bucket five times !</p>
+    </div>
+    <div id="footer_signature">© 2026 - CineSeat</div>
+</footer>

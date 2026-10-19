@@ -1,0 +1,60 @@
+/* --- Style du Header Existant --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #ffffff;
+    z-index: 9999; /* Reste au-dessus de tout */
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logo-container:active {
+    transform: scale(0.9); /* Effet d'enfoncement au clic */
+}
+
+.logo-popcorn {
+    height: 50px; /* Ajustez la taille de votre logo */
+    width: auto;
+}
+
+main {
+    padding-top: 80px;
+}
+
+/* --- Style et Animation des Pop-corns qui tombent --- */
+.popcorn-particle {
+    position: fixed;
+    top: -50px; /* Démarre juste au-dessus de l'écran */
+    z-index: 9998; /* Juste en dessous du header pour donner l'impression qu'ils sortent du sceau */
+    pointer-events: none; /* Empêche les pop-corns de bloquer les clics sur la page */
+    width: 40px; /* Taille moyenne d'un pop-corn */
+    height: auto;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        top: -50px;
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        /* Tombe jusqu'en bas de l'écran avec une légère déviation latérale et une rotation */
+        top: 105vh;
+        transform: translateX(var(--drift)) rotate(var(--rotation));
+        opacity: 0;
+    }
+}

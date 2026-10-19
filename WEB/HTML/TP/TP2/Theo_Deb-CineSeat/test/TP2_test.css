@@ -1,0 +1,169 @@
+* 
+{
+    box-sizing: border-box;
+}
+
+body 
+{
+    margin: 0;
+    min-height: 100vh;
+    background-color: #111113;
+    color: #f5f2e9;
+    font-family: Arial, sans-serif;
+}
+
+.cinema 
+{
+    min-height: 100vh;
+    padding: 50px 20px 30px;
+    background-size: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.screen-area 
+{
+    width: min(510px, 90vw);
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.screen-label 
+{
+    display: block;
+    font-size: 7px;
+    letter-spacing: 4px;
+    color: #88847b;
+    margin-bottom: 14px;
+}
+
+.screen 
+{
+    height: 24px;
+    border-top: 3px solid #d9d4c5;
+    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+    filter: drop-shadow(0 -5px 12px #d8cba51c);
+}
+
+.seat-grid 
+{
+    display: grid;
+    grid-template-columns:
+        16px
+        repeat(4, 36px)
+        36px
+        repeat(4, 36px);
+    column-gap: 11px;
+    row-gap: 16px;
+    align-items: center;
+}
+
+.row-label 
+{
+    grid-column: 1;
+    text-align: center;
+    color: #817d75;
+    font-size: 10px;
+}
+
+
+.seat 
+{
+    height: 25px;
+    border: 0;
+    border-radius: 7px 7px 4px 4px;
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow 180ms ease;
+}
+
+.seat::after 
+{
+    content: "";
+    position: absolute;
+    height: 5px;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    border-radius: 0 0 4px 4px;
+    background: #00000040;
+    pointer-events: none;
+}
+
+.seat.red 
+{
+    background: #b84048;
+    --seat-color: #b84048;
+    box-shadow: inset 0 -5px #862c35;
+}
+
+.seat.orange 
+{
+    background: #c36c30;
+    --seat-color: #c36c30;
+    box-shadow: inset 0 -5px #8d4b24;
+}
+
+.seat.yellow 
+{
+    background: #c0b04f;
+    --seat-color: #c0b04f;
+    box-shadow: inset 0 -5px #91823b;
+}
+
+.seat.green 
+{
+    background: #439e6c;
+    --seat-color: #439e6c;
+    box-shadow: inset 0 -5px #2c7950;
+}
+
+.seat:hover 
+{
+    box-shadow:
+        inset 0 -5px color-mix(in srgb, var(--seat-color) 65%, black),
+            0 0 8px var(--seat-color),
+            0 0 18px color-mix(in srgb, var(--seat-color) 65%, transparent);
+}
+
+.seat.selected 
+{
+    box-shadow:
+        inset 0 -5px color-mix(in srgb, var(--seat-color) 65%, black),
+            0 0 0 1px var(--seat-color),
+            0 0 10px var(--seat-color),
+            0 0 22px color-mix(in srgb, var(--seat-color) 65%, transparent);
+}
+
+.seat-info 
+{
+    width: min(390px, 90vw);
+    margin-top: 24px;
+    padding: 20px;
+    border: 1px solid #424147;
+    border-radius: 12px;
+    background: #202023;
+    box-shadow: 0 12px 30px #00000030;
+}
+
+.seat-info small 
+{
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    color: #99949e;
+}
+
+.seat-info h3 
+{
+    margin: 9px 0 18px;
+    font-size: 13px;
+}
+
+.seat-info blockquote 
+{
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
