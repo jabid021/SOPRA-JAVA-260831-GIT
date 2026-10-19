@@ -1,57 +1,47 @@
-package dao;
+package eshop.dao;
 
 import java.util.List;
 
-import context.Singleton;
+import org.springframework.stereotype.Repository;
+
 import eshop.model.Achat;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
+@Repository 
+@Transactional
 public class DAOAchat implements IDAOAchat{
+	
+	@PersistenceContext
+	private EntityManager em;
 
 	@Override
 	public List<Achat> findAll() {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			List<Achat>achats = em.createQuery("FROM Achat").getResultList();
-		em.close();
-		return achats;
+		return em.createQuery("FROM Achat").getResultList();
 	}
 
 	@Override
 	public Achat findById(Integer id) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			Achat achat = em.find(Achat.class, id);
-		em.close();
-		return achat;
+		return em.find(Achat.class, id);
 	}
 
 	@Override
 	public Achat save(Achat achat) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			em.getTransaction().begin();
-				achat=em.merge(achat);
-			em.getTransaction().commit();
-		em.close();
-		return achat;
+		return em.merge(achat);
 	}
 
 	@Override
 	public void delete(Achat achat) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			em.getTransaction().begin();
-				achat=em.merge(achat);
-				em.remove(achat);
-			em.getTransaction().commit();
-		em.close();
+		Achat a=em.merge(achat);
+		em.remove(a);
 	}
 
 	@Override
 	public void deleteById(Integer id) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			em.getTransaction().begin();
-				Achat achat= em.find(Achat.class, id);
-				em.remove(achat);
-			em.getTransaction().commit();
-		em.close();
+		Achat achat= em.find(Achat.class, id);
+		em.remove(achat);
+		
 	}
 
 	

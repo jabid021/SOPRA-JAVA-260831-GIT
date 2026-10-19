@@ -2,17 +2,26 @@ package eshop.test;
 
 import java.time.LocalDate;
 
-import dao.IDAOPersonne;
-import dao.IDAOProduit;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import eshop.dao.IDAOAchat;
+import eshop.dao.IDAOPersonne;
+import eshop.dao.IDAOProduit;
 import eshop.model.Client;
+import eshop.model.Fournisseur;
 import eshop.model.Genre;
 import eshop.model.Produit;
 
 public class TestSpring {
 
+	@Autowired
 	IDAOProduit daoProduit;
 	
+	@Autowired
 	IDAOPersonne daoPersonne;
+	
+	@Autowired
+	IDAOAchat daoAchat;
 	
 	public void run() 
 	{
@@ -27,9 +36,9 @@ public class TestSpring {
 		daoPersonne.save(client);
 		
 		
-		for(Client c : daoPersonne.findAllClient()) 
+		for(Fournisseur f : daoPersonne.findAllFournisseur()) 
 		{
-			System.out.println(c);
+			System.out.println(f);
 		}
 	}
 }
