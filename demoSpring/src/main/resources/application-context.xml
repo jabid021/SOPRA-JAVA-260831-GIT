@@ -35,7 +35,7 @@
 
 
 <context:component-scan base-package="demo.composant"/>
--->
+
 
 <bean id="idDemo" class="demo.aspect.DemoAspect"/>
 
@@ -48,16 +48,12 @@
 		<aop:after method="seLanceApresLaDemo2" pointcut-ref="monPointCutCustom"/>
 		<aop:after-returning method="seLanceApresLeSuccesDemo2" returning="resultatDansDemo2" pointcut-ref="monPointCutCustom"/>
 		<aop:after-returning method="seLanceApresLeSuccesDemo2" returning="resultatDansDemo2" pointcut="execution(public String demo.composant.Game.demoMetier3ExceptionPossible())"/>
-		<!--<aop:before method="seLanceAvantLes2Demos" pointcut="execution(public String demo.composant.Game.demoMetier2())"/>
-		-->
-		<aop:after method="seLanceApresLaDemo2" pointcut="execution(public String demo.composant.Graphisme.toString())"/>
-		
-		
+
 		<aop:after method="seLanceApresToStringGame" pointcut="execution(public String demo.composant.Game.toString())"/>
 		<aop:after-throwing method="seLanceSiEchec" throwing="e" pointcut="execution(public String demo.composant.Game.demoMetier3ExceptionPossible())" />
 	</aop:aspect>
 
-</aop:config>
+</aop:config>-->
 
 </beans>
 

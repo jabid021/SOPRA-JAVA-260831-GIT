@@ -1,5 +1,7 @@
 package orchestre.model;
 
+import java.util.Random;
+
 //@Component
 public class Guitariste implements IMusicien{
 
@@ -31,6 +33,12 @@ public class Guitariste implements IMusicien{
 
 	@Override
 	public void jouer() {
+		Random random = new Random();
+		if(random.nextInt(3)==0)
+		{
+			System.out.println("le guitariste "+prenom+" joue mais fait une fausse note !");
+			throw new RuntimeException("Fausse note....");
+		}
 		System.out.println("le guitariste "+prenom+" joue ! "+instrument.son());
 	}
 

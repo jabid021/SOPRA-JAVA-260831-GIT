@@ -10,7 +10,7 @@ import orchestre.model.Pianiste;
 public class Test {
 
 @Autowired
-Guitariste guitariste; //Va planter pendant AOP (il faut passer par un objet de type IMusicien
+IMusicien guitariste; //Va planter pendant AOP (il faut passer par un objet de type IMusicien
 
 @Autowired
 Pianiste pianiste;
@@ -29,10 +29,34 @@ IMusicien olivier;
 		/*IMusicien guitariste = ctx.getBean(Guitariste.class);
 		Pianiste pianiste = ctx.getBean(Pianiste.class); //Ne marchera plus avec AOP...
 		IMusicien flutiste = (Flutiste) ctx.getBean("flutiste");*/
-		guitariste.jouer();
-		pianiste.jouer();
-		olivier.jouer();
 		
+		try{
+			guitariste.jouer();
+		}
+		catch(Exception e) 
+		{}
+
+		
+		/*
+		 * 
+		 Si tout se passe bien : 
+		 
+			 Le public s'installe
+			 le guitariste Jordan joue ! La guitare fait glink glink
+			 Le public applaudit
+		
+		
+		Si fausse note : 
+			Le public s'installe
+			Fausse note....
+			le guitariste Jordan joue mais fait une fausse note !
+			Le public jette des tomates
+		 * 
+		 * */
+		
+		
+		//pianiste.jouer();
+		//olivier.jouer();
 		
 		//guitariste.toString();
 	}

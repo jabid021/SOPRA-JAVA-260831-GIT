@@ -2,7 +2,10 @@ package orchestre.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.ImportResource;
 
+import orchestre.aspect.PublicAspect;
 import orchestre.model.Flute;
 import orchestre.model.Flutiste;
 import orchestre.model.Guitare;
@@ -12,6 +15,8 @@ import orchestre.model.Pianiste;
 import orchestre.model.Piano;
 
 @Configuration
+//@ImportResource("classpath:application-context.xml")
+@EnableAspectJAutoProxy
 public class AppConfig {
 
 	@Bean
@@ -49,4 +54,8 @@ public class AppConfig {
 		return flutiste ;
 	}
 
+	@Bean PublicAspect monAspect() 
+	{
+		return new PublicAspect();
+	}
 }

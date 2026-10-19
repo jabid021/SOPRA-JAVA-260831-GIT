@@ -34,8 +34,18 @@
 
 <context:component-scan base-package="orchestre.model"/>
 
--->
 
+
+<bean id="monAspect" class="orchestre.aspect.PublicAspect"/>
+
+<aop:config>
+
+	<aop:aspect ref="monAspect">
+			<aop:after-returning method="afterToStringGuitariste"  returning="variable"  pointcut="execution(public String orchestre.model.Guitariste.toString()))"/>
+	</aop:aspect>
+
+</aop:config>
+-->
 </beans>
 
 
