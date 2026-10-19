@@ -1,0 +1,423 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
+<style>
+
+body
+{
+  background-image:url("assets/image/background_hiragana.png");
+  background-size: cover;          /* remplit l'écran sans déformer */
+  background-position: center;     /* centre l'image */
+  background-repeat: no-repeat;    /* pas de répétition en mosaïque */
+  background-attachment: fixed;    /* le fond reste fixe au défilement */
+
+  margin:0;
+}
+
+h1
+{
+
+ font-size:80px;
+ font-family: "Cherry Bomb One", system-ui;
+font-weight: 400;
+font-style: normal;
+color:#2e282d;
+}
+
+td:first-of-type
+{
+  font-family: "Cherry Bomb One", system-ui;
+font-weight: 400;
+font-style: normal;
+  font-size:70px;
+  color:#2e282d;
+}
+td:nth-of-type(2)
+{
+  font-family: "Cherry Bomb One", system-ui;
+font-weight: 400;
+font-style: normal;
+  font-size:42px;
+  color:#2e282d;
+}
+
+th
+{
+  font-family: "Cherry Bomb One", system-ui;
+font-weight: 100;
+font-style: normal;
+  font-size:100px;
+  color:#2e282d;
+}
+
+img:hover
+{
+transform: scale(1.4);
+}
+audio
+{
+  width:275px;
+}
+th
+{
+  font-size:large;
+}
+
+</style>
+
+<body>
+
+<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>-->
+<h1 align="center">Tableau des Hiragana</h1>
+
+<!--<div class="border rounded overflow-hidden">
+<table border width="40%" align="center" class="table table-striped mb-0">-->
+<table border width="40%" align="center" >
+<thead>
+  <tr>
+    <th>HIRAGANA</th>
+    <th>LECTURE</th>
+    <th>PRONONCIATION</th>
+    <th>ECRITURE</th>
+    <th>EXEMPLE</th>
+  </tr>
+</thead>
+
+  <tbody>
+    <tr align="center">
+        <td>あ</td>
+        <td>A</td>
+        <td><audio src="assets/audio/audio_hiragana/a.mp3" controls>Audio de la prononciation de あ (a) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/a.gif" alt="Ordre des traits de l'hiragana a" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/a.png" alt="Exemple de mot avec l'hiragana a" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>い</td>
+        <td>I</td>
+        <td><audio src="assets/audio/audio_hiragana/i.mp3" controls>Audio de la prononciation de い (i) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/i.gif" alt="Ordre des traits de l'hiragana i" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/i.png" alt="Exemple de mot avec l'hiragana i" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>う</td>
+        <td>U</td>
+        <td><audio src="assets/audio/audio_hiragana/u.mp3" controls>Audio de la prononciation de う (u) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/u.gif" alt="Ordre des traits de l'hiragana u" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/u.png" alt="Exemple de mot avec l'hiragana u" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>え</td>
+        <td>E</td>
+        <td><audio src="assets/audio/audio_hiragana/e.mp3" controls>Audio de la prononciation de え (e) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/e.gif" alt="Ordre des traits de l'hiragana e" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/e.png" alt="Exemple de mot avec l'hiragana e" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>お</td>
+        <td>O</td>
+        <td><audio src="assets/audio/audio_hiragana/o.mp3" controls>Audio de la prononciation de お (o) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/o.gif" alt="Ordre des traits de l'hiragana o" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/o.png" alt="Exemple de mot avec l'hiragana o" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>か</td>
+        <td>KA</td>
+        <td><audio src="assets/audio/audio_hiragana/ka.mp3" controls>Audio de la prononciation de か (ka) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ka.gif" alt="Ordre des traits de l'hiragana ka" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ka.png" alt="Exemple de mot avec l'hiragana ka" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>き</td>
+        <td>KI</td>
+        <td><audio src="assets/audio/audio_hiragana/ki.mp3" controls>Audio de la prononciation de き (ki) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ki.gif" alt="Ordre des traits de l'hiragana ki" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ki.png" alt="Exemple de mot avec l'hiragana ki" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>く</td>
+        <td>KU</td>
+        <td><audio src="assets/audio/audio_hiragana/ku.mp3" controls>Audio de la prononciation de く (ku) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ku.gif" alt="Ordre des traits de l'hiragana ku" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ku.png" alt="Exemple de mot avec l'hiragana ku" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>け</td>
+        <td>KE</td>
+        <td><audio src="assets/audio/audio_hiragana/ke.mp3" controls>Audio de la prononciation de け (ke) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ke.gif" alt="Ordre des traits de l'hiragana ke" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ke.png" alt="Exemple de mot avec l'hiragana ke" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>こ</td>
+        <td>KO</td>
+        <td><audio src="assets/audio/audio_hiragana/ko.mp3" controls>Audio de la prononciation de こ (ko) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ko.gif" alt="Ordre des traits de l'hiragana ko" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ko.png" alt="Exemple de mot avec l'hiragana ko" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>さ</td>
+        <td>SA</td>
+        <td><audio src="assets/audio/audio_hiragana/sa.mp3" controls>Audio de la prononciation de さ (sa) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/sa.gif" alt="Ordre des traits de l'hiragana sa" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/sa.png" alt="Exemple de mot avec l'hiragana sa" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>し</td>
+        <td>SHI</td>
+        <td><audio src="assets/audio/audio_hiragana/shi.mp3" controls>Audio de la prononciation de し (shi) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/shi.gif" alt="Ordre des traits de l'hiragana shi" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/shi.png" alt="Exemple de mot avec l'hiragana shi" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>す</td>
+        <td>SU</td>
+        <td><audio src="assets/audio/audio_hiragana/su.mp3" controls>Audio de la prononciation de す (su) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/su.gif" alt="Ordre des traits de l'hiragana su" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/su.png" alt="Exemple de mot avec l'hiragana su" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>せ</td>
+        <td>SE</td>
+        <td><audio src="assets/audio/audio_hiragana/se.mp3" controls>Audio de la prononciation de せ (se) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/se.gif" alt="Ordre des traits de l'hiragana se" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/se.png" alt="Exemple de mot avec l'hiragana se" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>そ</td>
+        <td>SO</td>
+        <td><audio src="assets/audio/audio_hiragana/so.mp3" controls>Audio de la prononciation de そ (so) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/so.gif" alt="Ordre des traits de l'hiragana so" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/so.png" alt="Exemple de mot avec l'hiragana so" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>た</td>
+        <td>TA</td>
+        <td><audio src="assets/audio/audio_hiragana/ta.mp3" controls>Audio de la prononciation de た (ta) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ta.gif" alt="Ordre des traits de l'hiragana ta" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ta.png" alt="Exemple de mot avec l'hiragana ta" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ち</td>
+        <td>CHI</td>
+        <td><audio src="assets/audio/audio_hiragana/chi.mp3" controls>Audio de la prononciation de ち (chi) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/chi.gif" alt="Ordre des traits de l'hiragana chi" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/chi.png" alt="Exemple de mot avec l'hiragana chi" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>つ</td>
+        <td>TSU</td>
+        <td><audio src="assets/audio/audio_hiragana/tsu.mp3" controls>Audio de la prononciation de つ (tsu) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/tsu.gif" alt="Ordre des traits de l'hiragana tsu" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/tsu.png" alt="Exemple de mot avec l'hiragana tsu" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>て</td>
+        <td>TE</td>
+        <td><audio src="assets/audio/audio_hiragana/te.mp3" controls>Audio de la prononciation de て (te) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/te.gif" alt="Ordre des traits de l'hiragana te" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/te.png" alt="Exemple de mot avec l'hiragana te" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>と</td>
+        <td>TO</td>
+        <td><audio src="assets/audio/audio_hiragana/to.mp3" controls>Audio de la prononciation de と (to) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/to.gif" alt="Ordre des traits de l'hiragana to" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/to.png" alt="Exemple de mot avec l'hiragana to" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>な</td>
+        <td>NA</td>
+        <td><audio src="assets/audio/audio_hiragana/na.mp3" controls>Audio de la prononciation de な (na) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/na.gif" alt="Ordre des traits de l'hiragana na" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/na.png" alt="Exemple de mot avec l'hiragana na" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>に</td>
+        <td>NI</td>
+        <td><audio src="assets/audio/audio_hiragana/ni.mp3" controls>Audio de la prononciation de に (ni) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ni.gif" alt="Ordre des traits de l'hiragana ni" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ni.png" alt="Exemple de mot avec l'hiragana ni" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ぬ</td>
+        <td>NU</td>
+        <td><audio src="assets/audio/audio_hiragana/nu.mp3" controls>Audio de la prononciation de ぬ (nu) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/nu.gif" alt="Ordre des traits de l'hiragana nu" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/nu.png" alt="Exemple de mot avec l'hiragana nu" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ね</td>
+        <td>NE</td>
+        <td><audio src="assets/audio/audio_hiragana/ne.mp3" controls>Audio de la prononciation de ね (ne) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ne.gif" alt="Ordre des traits de l'hiragana ne" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ne.png" alt="Exemple de mot avec l'hiragana ne" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>の</td>
+        <td>NO</td>
+        <td><audio src="assets/audio/audio_hiragana/no.mp3" controls>Audio de la prononciation de の (no) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/no.gif" alt="Ordre des traits de l'hiragana no" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/no.png" alt="Exemple de mot avec l'hiragana no" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>は</td>
+        <td>HA</td>
+        <td><audio src="assets/audio/audio_hiragana/ha.mp3" controls>Audio de la prononciation de は (ha) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ha.gif" alt="Ordre des traits de l'hiragana ha" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ha.png" alt="Exemple de mot avec l'hiragana ha" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ひ</td>
+        <td>HI</td>
+        <td><audio src="assets/audio/audio_hiragana/hi.mp3" controls>Audio de la prononciation de ひ (hi) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/hi.gif" alt="Ordre des traits de l'hiragana hi" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/hi.png" alt="Exemple de mot avec l'hiragana hi" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ふ</td>
+        <td>FU</td>
+        <td><audio src="assets/audio/audio_hiragana/fu.mp3" controls>Audio de la prononciation de ふ (fu) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/fu.gif" alt="Ordre des traits de l'hiragana fu" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/fu.png" alt="Exemple de mot avec l'hiragana fu" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>へ</td>
+        <td>HE</td>
+        <td><audio src="assets/audio/audio_hiragana/he.mp3" controls>Audio de la prononciation de へ (he) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/he.gif" alt="Ordre des traits de l'hiragana he" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/he.png" alt="Exemple de mot avec l'hiragana he" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ほ</td>
+        <td>HO</td>
+        <td><audio src="assets/audio/audio_hiragana/ho.mp3" controls>Audio de la prononciation de ほ (ho) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ho.gif" alt="Ordre des traits de l'hiragana ho" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ho.png" alt="Exemple de mot avec l'hiragana ho" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ま</td>
+        <td>MA</td>
+        <td><audio src="assets/audio/audio_hiragana/ma.mp3" controls>Audio de la prononciation de ま (ma) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ma.gif" alt="Ordre des traits de l'hiragana ma" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ma.png" alt="Exemple de mot avec l'hiragana ma" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>み</td>
+        <td>MI</td>
+        <td><audio src="assets/audio/audio_hiragana/mi.mp3" controls>Audio de la prononciation de み (mi) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/mi.gif" alt="Ordre des traits de l'hiragana mi" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/mi.png" alt="Exemple de mot avec l'hiragana mi" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>む</td>
+        <td>MU</td>
+        <td><audio src="assets/audio/audio_hiragana/mu.mp3" controls>Audio de la prononciation de む (mu) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/mu.gif" alt="Ordre des traits de l'hiragana mu" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/mu.png" alt="Exemple de mot avec l'hiragana mu" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>め</td>
+        <td>ME</td>
+        <td><audio src="assets/audio/audio_hiragana/me.mp3" controls>Audio de la prononciation de め (me) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/me.gif" alt="Ordre des traits de l'hiragana me" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/me.png" alt="Exemple de mot avec l'hiragana me" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>も</td>
+        <td>MO</td>
+        <td><audio src="assets/audio/audio_hiragana/mo.mp3" controls>Audio de la prononciation de も (mo) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/mo.gif" alt="Ordre des traits de l'hiragana mo" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/mo.png" alt="Exemple de mot avec l'hiragana mo" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>や</td>
+        <td>YA</td>
+        <td><audio src="assets/audio/audio_hiragana/ya.mp3" controls>Audio de la prononciation de や (ya) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ya.gif" alt="Ordre des traits de l'hiragana ya" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ya.png" alt="Exemple de mot avec l'hiragana ya" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ゆ</td>
+        <td>YU</td>
+        <td><audio src="assets/audio/audio_hiragana/yu.mp3" controls>Audio de la prononciation de ゆ (yu) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/yu.gif" alt="Ordre des traits de l'hiragana yu" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/yu.png" alt="Exemple de mot avec l'hiragana yu" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>よ</td>
+        <td>YO</td>
+        <td><audio src="assets/audio/audio_hiragana/yo.mp3" controls>Audio de la prononciation de よ (yo) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/yo.gif" alt="Ordre des traits de l'hiragana yo" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/yo.png" alt="Exemple de mot avec l'hiragana yo" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ら</td>
+        <td>RA</td>
+        <td><audio src="assets/audio/audio_hiragana/ra.mp3" controls>Audio de la prononciation de ら (ra) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ra.gif" alt="Ordre des traits de l'hiragana ra" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ra.png" alt="Exemple de mot avec l'hiragana ra" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>り</td>
+        <td>RI</td>
+        <td><audio src="assets/audio/audio_hiragana/ri.mp3" controls>Audio de la prononciation de り (ri) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ri.gif" alt="Ordre des traits de l'hiragana ri" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ri.png" alt="Exemple de mot avec l'hiragana ri" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>る</td>
+        <td>RU</td>
+        <td><audio src="assets/audio/audio_hiragana/ru.mp3" controls>Audio de la prononciation de る (ru) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ru.gif" alt="Ordre des traits de l'hiragana ru" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ru.png" alt="Exemple de mot avec l'hiragana ru" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>れ</td>
+        <td>RE</td>
+        <td><audio src="assets/audio/audio_hiragana/re.mp3" controls>Audio de la prononciation de れ (re) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/re.gif" alt="Ordre des traits de l'hiragana re" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/re.png" alt="Exemple de mot avec l'hiragana re" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ろ</td>
+        <td>RO</td>
+        <td><audio src="assets/audio/audio_hiragana/ro.mp3" controls>Audio de la prononciation de ろ (ro) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/ro.gif" alt="Ordre des traits de l'hiragana ro" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/ro.png" alt="Exemple de mot avec l'hiragana ro" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>わ</td>
+        <td>WA</td>
+        <td><audio src="assets/audio/audio_hiragana/wa.mp3" controls>Audio de la prononciation de わ (wa) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/wa.gif" alt="Ordre des traits de l'hiragana wa" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/wa.png" alt="Exemple de mot avec l'hiragana wa" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>を</td>
+        <td>WO</td>
+        <td><audio src="assets/audio/audio_hiragana/wo.mp3" controls>Audio de la prononciation de を (wo) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/wo.gif" alt="Ordre des traits de l'hiragana wo" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/wo.png" alt="Exemple de mot avec l'hiragana wo" width="120" loading="lazy"></td>
+      </tr>
+      <tr align="center">
+        <td>ん</td>
+        <td>N</td>
+        <td><audio src="assets/audio/audio_hiragana/n.mp3" controls>Audio de la prononciation de ん (n) : votre navigateur ne peut pas le lire.</audio></td>
+        <td><img src="assets/image/gif_hiragana/n.gif" alt="Ordre des traits de l'hiragana n" width="80" loading="lazy"></td>
+        <td><img src="assets/image/exemple_hiragana/n.png" alt="Exemple de mot avec l'hiragana n" width="120" loading="lazy"></td>
+      </tr>
+
+  </tbody>
+
+<tfoot>
+  <tr>
+    <th>HIRAGANA</th>
+    <th>LECTURE</th>
+    <th>PRONONCIATION</th>
+    <th>ECRITURE</th>
+    <th>EXEMPLE</th>
+  </tr>
+</tfoot>
+</table>
+</body>
