@@ -1,4 +1,4 @@
-package dao;
+package eshop.dao;
 
 import eshop.model.Achat;
 
