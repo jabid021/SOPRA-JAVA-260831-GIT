@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Petit crabe vert pixel art</title>
+
+    <style>
+
+        /* ==================================================
+           RÉGLAGES GÉNÉRAUX
+        ================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #061a2b;
+            overflow: hidden;
+        }
+
+
+        /* ==================================================
+           PETIT CRABE VERT
+        ================================================== */
+
+        .crabe-jaune {
+            position: fixed;
+
+            top: 250px;
+            left: 50%;
+
+            width: 80px;
+            height: 64px;
+
+            animation:
+                marche 6s ease-in-out infinite,
+                saut 0.4s steps(2) infinite;
+        }
+
+
+        /* ==================================================
+           PIXELS
+        ================================================== */
+
+        .pixel {
+            position: absolute;
+
+            width: 8px;
+            height: 8px;
+        }
+
+
+        /* ==================================================
+           COULEURS
+        ================================================== */
+
+        .sable {
+            background: #669966;
+        }
+
+        .sable-clair {
+            background: #8fba8f;
+        }
+
+        .sable-fonce {
+            background: #3f6f4f;
+        }
+
+        .noir {
+            background: #132b1f;
+        }
+
+
+        /* ==================================================
+           DÉPLACEMENT GAUCHE <-> DROITE
+        ================================================== */
+
+        @keyframes marche {
+
+            /* Position gauche */
+            0% {
+                margin-left: -150px;
+            }
+
+            /* Position droite */
+            50% {
+                margin-left: 150px;
+            }
+
+            /* Retour à gauche */
+            100% {
+                margin-left: -150px;
+            }
+
+        }
+
+
+        /* ==================================================
+           PETIT REBOND PENDANT LA MARCHE
+        ================================================== */
+
+        @keyframes saut {
+
+            0% {
+                top: 250px;
+            }
+
+            50% {
+                top: 254px;
+            }
+
+            100% {
+                top: 250px;
+            }
+
+        }
+
+
+        /* ==================================================
+           PINCE GAUCHE
+        ================================================== */
+
+        .pince-gauche {
+            animation: pinceGauche 0.6s steps(2) infinite;
+        }
+
+        @keyframes pinceGauche {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-4px, 4px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+
+        /* ==================================================
+           PINCE DROITE
+        ================================================== */
+
+        .pince-droite {
+            animation: pinceDroite 0.6s steps(2) infinite;
+        }
+
+        @keyframes pinceDroite {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(4px, 4px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+
+        /* ==================================================
+           PATTES
+        ================================================== */
+
+        .patte1 {
+            animation: patte1 0.5s steps(2) infinite;
+        }
+
+        .patte2 {
+            animation: patte2 0.5s steps(2) infinite;
+        }
+
+        .patte3 {
+            animation: patte3 0.5s steps(2) infinite;
+        }
+
+        .patte4 {
+            animation: patte4 0.5s steps(2) infinite;
+        }
+
+
+        /* Patte 1 */
+
+        @keyframes patte1 {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-4px, 4px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+
+        /* Patte 2 */
+
+        @keyframes patte2 {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(4px, 2px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+
+        /* Patte 3 */
+
+        @keyframes patte3 {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-3px, 3px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+
+        /* Patte 4 */
+
+        @keyframes patte4 {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(3px, 4px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         CRABE VERT
+    ================================================== -->
+
+    <div class="crabe-jaune">
+
+
+        <!-- ==================================================
+             YEUX
+        ================================================== -->
+
+        <div
+            class="pixel noir"
+            style="left:24px; top:8px;">
+        </div>
+
+        <div
+            class="pixel noir"
+            style="left:48px; top:8px;">
+        </div>
+
+
+        <!-- ==================================================
+             CORPS
+        ================================================== -->
+
+        <div
+            class="pixel sable"
+            style="left:24px; top:16px;">
+        </div>
+
+        <div
+            class="pixel sable"
+            style="left:32px; top:16px;">
+        </div>
+
+        <div
+            class="pixel sable"
+            style="left:40px; top:16px;">
+        </div>
+
+        <div
+            class="pixel sable"
+            style="left:48px; top:16px;">
+        </div>
+
+
+        <div
+            class="pixel sable"
+            style="left:16px; top:24px;">
+        </div>
+
+        <div
+            class="pixel sable-clair"
+            style="left:24px; top:24px;">
+        </div>
+
+        <div
+            class="pixel sable-clair"
+            style="left:32px; top:24px;">
+        </div>
+
+        <div
+            class="pixel sable-clair"
+            style="left:40px; top:24px;">
+        </div>
+
+        <div
+            class="pixel sable-clair"
+            style="left:48px; top:24px;">
+        </div>
+
+        <div
+            class="pixel sable"
+            style="left:56px; top:24px;">
+        </div>
+
+
+        <div
+            class="pixel sable"
+            style="left:16px; top:32px;">
+        </div>
+
+        <div
+            class="pixel sable-clair"
+            style="left:24px; top:32px;">
+        </div>
+
+        <div
+            class="pixel sable-clair"
+            style="left:32px; top:32px;">
+        </div>
+
+        <div
+            class="pixel sable-clair"
+            style="left:40px; top:32px;">
+        </div>
+
+        <div
+            class="pixel sable-clair"
+            style="left:48px; top:32px;">
+        </div>
+
+        <div
+            class="pixel sable"
+            style="left:56px; top:32px;">
+        </div>
+
+
+        <div
+            class="pixel sable"
+            style="left:24px; top:40px;">
+        </div>
+
+        <div
+            class="pixel sable"
+            style="left:32px; top:40px;">
+        </div>
+
+        <div
+            class="pixel sable"
+            style="left:40px; top:40px;">
+        </div>
+
+        <div
+            class="pixel sable"
+            style="left:48px; top:40px;">
+        </div>
+
+
+        <!-- ==================================================
+             PINCE GAUCHE
+        ================================================== -->
+
+        <div class="pince-gauche">
+
+            <div
+                class="pixel sable"
+                style="left:8px; top:24px;">
+            </div>
+
+            <div
+                class="pixel sable"
+                style="left:0px; top:16px;">
+            </div>
+
+            <div
+                class="pixel sable"
+                style="left:0px; top:8px;">
+            </div>
+
+            <div
+                class="pixel sable"
+                style="left:8px; top:8px;">
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             PINCE DROITE
+        ================================================== -->
+
+        <div class="pince-droite">
+
+            <div
+                class="pixel sable"
+                style="left:64px; top:24px;">
+            </div>
+
+            <div
+                class="pixel sable"
+                style="left:72px; top:16px;">
+            </div>
+
+            <div
+                class="pixel sable"
+                style="left:72px; top:8px;">
+            </div>
+
+            <div
+                class="pixel sable"
+                style="left:64px; top:8px;">
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             PATTE GAUCHE 1
+        ================================================== -->
+
+        <div class="patte1">
+
+            <div
+                class="pixel sable-fonce"
+                style="left:8px; top:40px;">
+            </div>
+
+            <div
+                class="pixel sable-fonce"
+                style="left:0px; top:48px;">
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             PATTE GAUCHE 2
+        ================================================== -->
+
+        <div class="patte2">
+
+            <div
+                class="pixel sable-fonce"
+                style="left:16px; top:40px;">
+            </div>
+
+            <div
+                class="pixel sable-fonce"
+                style="left:8px; top:48px;">
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             PATTE DROITE 1
+        ================================================== -->
+
+        <div class="patte3">
+
+            <div
+                class="pixel sable-fonce"
+                style="left:48px; top:40px;">
+            </div>
+
+            <div
+                class="pixel sable-fonce"
+                style="left:56px; top:48px;">
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             PATTE DROITE 2
+        ================================================== -->
+
+        <div class="patte4">
+
+            <div
+                class="pixel sable-fonce"
+                style="left:56px; top:40px;">
+            </div>
+
+            <div
+                class="pixel sable-fonce"
+                style="left:64px; top:48px;">
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crabe des cocotiers</title>
+
+    <style>
+
+        /* =========================================================
+           PAGE
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 70%,
+                    #25445a 0%,
+                    #182b39 45%,
+                    #101a23 100%
+                );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* =========================================================
+           SCÈNE
+        ========================================================= */
+
+        .scene {
+            position: relative;
+
+            width: 650px;
+            height: 520px;
+        }
+
+
+        /* =========================================================
+           OMBRE
+        ========================================================= */
+
+        .ombre {
+            position: absolute;
+
+            left: 50%;
+            bottom: 55px;
+
+            width: 380px;
+            height: 55px;
+
+            transform: translateX(-50%);
+
+            background: rgba(0, 0, 0, 0.35);
+
+            border-radius: 50%;
+
+            filter: blur(8px);
+        }
+
+
+        /* =========================================================
+           NOIX DE COCO
+        ========================================================= */
+
+        .coco {
+            position: absolute;
+
+            left: 50%;
+            bottom: 75px;
+
+            width: 330px;
+            height: 270px;
+
+            transform: translateX(-50%);
+
+            border-radius: 48% 52% 50% 50% / 45% 45% 55% 55%;
+
+            background:
+                radial-gradient(
+                    circle at 35% 25%,
+                    #8f6a45 0%,
+                    #68472e 25%,
+                    #49301f 55%,
+                    #2e2118 100%
+                );
+
+            box-shadow:
+                inset 20px 15px 0 rgba(170, 125, 70, 0.15),
+                inset -25px -25px 0 rgba(0, 0, 0, 0.22),
+                0 20px 20px rgba(0,0,0,0.25);
+
+            overflow: hidden;
+
+            animation: coco-balance 3s ease-in-out infinite;
+        }
+
+
+        /* Fibres de la noix */
+
+        .fibre {
+            position: absolute;
+
+            width: 90px;
+            height: 10px;
+
+            background: #9a7047;
+
+            border-radius: 50%;
+
+            opacity: 0.55;
+
+            transform: rotate(-20deg);
+        }
+
+        .f1 {
+            left: 30px;
+            top: 45px;
+        }
+
+        .f2 {
+            left: 110px;
+            top: 80px;
+            transform: rotate(15deg);
+        }
+
+        .f3 {
+            left: 185px;
+            top: 45px;
+            transform: rotate(-30deg);
+        }
+
+        .f4 {
+            left: 50px;
+            top: 145px;
+            transform: rotate(20deg);
+        }
+
+        .f5 {
+            left: 170px;
+            top: 150px;
+            transform: rotate(-15deg);
+        }
+
+        .f6 {
+            left: 105px;
+            top: 205px;
+            transform: rotate(8deg);
+        }
+
+
+        /* Trois petits trous */
+
+        .oeil-coco {
+            position: absolute;
+
+            width: 27px;
+            height: 27px;
+
+            background: #24170f;
+
+            border-radius: 50%;
+        }
+
+        .coco-oeil1 {
+            left: 125px;
+            top: 45px;
+        }
+
+        .coco-oeil2 {
+            left: 165px;
+            top: 50px;
+        }
+
+        .coco-oeil3 {
+            left: 145px;
+            top: 75px;
+        }
+
+
+        /* =========================================================
+           CRABE
+        ========================================================= */
+
+        .crabe {
+            position: absolute;
+
+            left: 50%;
+            bottom: 245px;
+
+            width: 470px;
+            height: 260px;
+
+            transform: translateX(-50%);
+
+            z-index: 5;
+
+            /*
+             * 32 secondes :
+             *
+             * 0-25%   : reste sur la noix
+             * 25-35%  : descend
+             * 35-55%  : marche au sol
+             * 55-65%  : revient vers la noix
+             * 65-75%  : remonte
+             * 75-100% : reste sur la noix
+             */
+            animation: promenade 32s ease-in-out infinite;
+        }
+
+
+        /* =========================================================
+           PIXELS
+        ========================================================= */
+
+        .pixel {
+            position: absolute;
+
+            width: 14px;
+            height: 14px;
+        }
+
+
+        /* =========================================================
+           COULEURS
+        ========================================================= */
+
+        .ombre-crabe {
+            background: #301d17;
+        }
+
+        .brun-fonce {
+            background: #4b2b20;
+        }
+
+        .brun {
+            background: #75402a;
+        }
+
+        .brun-clair {
+            background: #995637;
+        }
+
+        .orange {
+            background: #b96a3c;
+        }
+
+        .orange-clair {
+            background: #d9894b;
+        }
+
+        .sable {
+            background: #c49a68;
+        }
+
+        .sable-clair {
+            background: #e0bd83;
+        }
+
+        .noir {
+            background: #17110f;
+        }
+
+        .reflet {
+            background: #f0d29a;
+        }
+
+
+        /* =========================================================
+           DÉPLACEMENT DU CRABE
+           ========================================================= */
+
+        @keyframes promenade {
+
+            /* -------------------------------------------------
+               RESTE SUR LA NOIX
+               ------------------------------------------------- */
+
+            0% {
+                transform:
+                    translateX(-50%)
+                    translateY(0);
+            }
+
+            18% {
+                transform:
+                    translateX(-50%)
+                    translateY(0);
+            }
+
+            25% {
+                transform:
+                    translateX(-50%)
+                    translateY(0);
+            }
+
+
+            /* -------------------------------------------------
+               DESCENTE
+               ------------------------------------------------- */
+
+            32% {
+                transform:
+                    translateX(-50%)
+                    translateY(75px);
+            }
+
+
+            /* -------------------------------------------------
+               MARCHE AU SOL
+               ------------------------------------------------- */
+
+            40% {
+                transform:
+                    translateX(-50%)
+                    translateY(125px);
+            }
+
+            48% {
+                transform:
+                    translateX(-58%)
+                    translateY(125px);
+            }
+
+            55% {
+                transform:
+                    translateX(-42%)
+                    translateY(125px);
+            }
+
+
+            /* -------------------------------------------------
+               RETOUR VERS LA NOIX
+               ------------------------------------------------- */
+
+            60% {
+                transform:
+                    translateX(-50%)
+                    translateY(125px);
+            }
+
+            66% {
+                transform:
+                    translateX(-50%)
+                    translateY(75px);
+            }
+
+
+            /* -------------------------------------------------
+               REMONTÉE
+               ------------------------------------------------- */
+
+            72% {
+                transform:
+                    translateX(-50%)
+                    translateY(0);
+            }
+
+
+            /* -------------------------------------------------
+               REPOS
+               ------------------------------------------------- */
+
+            80% {
+                transform:
+                    translateX(-50%)
+                    translateY(0);
+            }
+
+            100% {
+                transform:
+                    translateX(-50%)
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================================
+           RESPIRATION
+        ========================================================= */
+
+        .corps {
+            animation: respiration 2.8s ease-in-out infinite;
+        }
+
+        @keyframes respiration {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================================================
+           PATTES
+        ========================================================= */
+
+        .patte-gauche-1 {
+            transform-origin: 115px 165px;
+            animation: patte1 0.8s ease-in-out infinite alternate;
+        }
+
+        .patte-gauche-2 {
+            transform-origin: 135px 170px;
+            animation: patte2 0.8s ease-in-out infinite alternate;
+        }
+
+        .patte-gauche-3 {
+            transform-origin: 150px 175px;
+            animation: patte3 0.8s ease-in-out infinite alternate;
+        }
+
+        .patte-droite-1 {
+            transform-origin: 355px 165px;
+            animation: patte2 0.8s ease-in-out infinite alternate;
+        }
+
+        .patte-droite-2 {
+            transform-origin: 335px 170px;
+            animation: patte3 0.8s ease-in-out infinite alternate;
+        }
+
+        .patte-droite-3 {
+            transform-origin: 320px 175px;
+            animation: patte1 0.8s ease-in-out infinite alternate;
+        }
+
+        @keyframes patte1 {
+
+            from {
+                transform: rotate(-3deg);
+            }
+
+            to {
+                transform: rotate(8deg);
+            }
+        }
+
+        @keyframes patte2 {
+
+            from {
+                transform: rotate(5deg);
+            }
+
+            to {
+                transform: rotate(-8deg);
+            }
+        }
+
+        @keyframes patte3 {
+
+            from {
+                transform: rotate(-6deg);
+            }
+
+            to {
+                transform: rotate(5deg);
+            }
+        }
+
+
+        /* =========================================================
+           PINCES
+        ========================================================= */
+
+        .pince-gauche {
+            transform-origin: 110px 125px;
+
+            animation:
+                pince-gauche 1.6s ease-in-out infinite;
+        }
+
+        .pince-droite {
+            transform-origin: 360px 125px;
+
+            animation:
+                pince-droite 1.6s ease-in-out infinite;
+        }
+
+        @keyframes pince-gauche {
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            35% {
+                transform: rotate(-5deg);
+            }
+
+            60% {
+                transform: rotate(3deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes pince-droite {
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            35% {
+                transform: rotate(5deg);
+            }
+
+            60% {
+                transform: rotate(-3deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+
+        /* =========================================================
+           MOUVEMENT DE LA NOIX
+        ========================================================= */
+
+        @keyframes coco-balance {
+
+            0% {
+                transform:
+                    translateX(-50%)
+                    rotate(-1deg);
+            }
+
+            50% {
+                transform:
+                    translateX(-50%)
+                    rotate(1deg);
+            }
+
+            100% {
+                transform:
+                    translateX(-50%)
+                    rotate(-1deg);
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="scene">
+
+
+    <!-- =====================================================
+         OMBRE
+         ===================================================== -->
+
+    <div class="ombre"></div>
+
+
+    <!-- =====================================================
+         NOIX DE COCO
+         ===================================================== -->
+
+    <div class="coco">
+
+        <div class="fibre f1"></div>
+        <div class="fibre f2"></div>
+        <div class="fibre f3"></div>
+        <div class="fibre f4"></div>
+        <div class="fibre f5"></div>
+        <div class="fibre f6"></div>
+
+        <div class="oeil-coco coco-oeil1"></div>
+        <div class="oeil-coco coco-oeil2"></div>
+        <div class="oeil-coco coco-oeil3"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CRABE
+         ===================================================== -->
+
+    <div class="crabe">
+
+
+        <!-- =================================================
+             CORPS
+             ================================================= -->
+
+        <div class="corps">
+
+
+            <!-- Haut -->
+
+            <div class="pixel brun-fonce"
+                 style="left:160px; top:55px;"></div>
+
+            <div class="pixel brun"
+                 style="left:174px; top:48px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:188px; top:48px;"></div>
+
+            <div class="pixel orange"
+                 style="left:202px; top:48px;"></div>
+
+            <div class="pixel orange"
+                 style="left:216px; top:48px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:230px; top:48px;"></div>
+
+            <div class="pixel brun"
+                 style="left:244px; top:48px;"></div>
+
+            <div class="pixel brun-fonce"
+                 style="left:258px; top:55px;"></div>
+
+
+            <!-- Deuxième rangée -->
+
+            <div class="pixel brun"
+                 style="left:145px; top:69px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:160px; top:62px;"></div>
+
+            <div class="pixel orange"
+                 style="left:174px; top:62px;"></div>
+
+            <div class="pixel orange-clair"
+                 style="left:188px; top:62px;"></div>
+
+            <div class="pixel sable"
+                 style="left:202px; top:62px;"></div>
+
+            <div class="pixel orange-clair"
+                 style="left:216px; top:62px;"></div>
+
+            <div class="pixel orange"
+                 style="left:230px; top:62px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:244px; top:62px;"></div>
+
+            <div class="pixel brun"
+                 style="left:258px; top:62px;"></div>
+
+            <div class="pixel brun-fonce"
+                 style="left:273px; top:69px;"></div>
+
+
+            <!-- Centre -->
+
+            <div class="pixel brun-fonce"
+                 style="left:145px; top:83px;"></div>
+
+            <div class="pixel orange"
+                 style="left:160px; top:83px;"></div>
+
+            <div class="pixel sable"
+                 style="left:174px; top:83px;"></div>
+
+            <div class="pixel orange-clair"
+                 style="left:188px; top:83px;"></div>
+
+            <div class="pixel sable-clair"
+                 style="left:202px; top:83px;"></div>
+
+            <div class="pixel sable-clair"
+                 style="left:216px; top:83px;"></div>
+
+            <div class="pixel orange-clair"
+                 style="left:230px; top:83px;"></div>
+
+            <div class="pixel sable"
+                 style="left:244px; top:83px;"></div>
+
+            <div class="pixel orange"
+                 style="left:258px; top:83px;"></div>
+
+            <div class="pixel brun-fonce"
+                 style="left:273px; top:83px;"></div>
+
+
+            <!-- Bas -->
+
+            <div class="pixel brun-fonce"
+                 style="left:160px; top:104px;"></div>
+
+            <div class="pixel brun"
+                 style="left:174px; top:104px;"></div>
+
+            <div class="pixel orange"
+                 style="left:188px; top:104px;"></div>
+
+            <div class="pixel orange-clair"
+                 style="left:202px; top:104px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:216px; top:104px;"></div>
+
+            <div class="pixel orange-clair"
+                 style="left:230px; top:104px;"></div>
+
+            <div class="pixel orange"
+                 style="left:244px; top:104px;"></div>
+
+            <div class="pixel brun"
+                 style="left:258px; top:104px;"></div>
+
+            <div class="pixel brun-fonce"
+                 style="left:273px; top:104px;"></div>
+
+
+            <!-- Ventre -->
+
+            <div class="pixel brun-fonce"
+                 style="left:174px; top:125px;"></div>
+
+            <div class="pixel brun"
+                 style="left:188px; top:125px;"></div>
+
+            <div class="pixel sable"
+                 style="left:202px; top:125px;"></div>
+
+            <div class="pixel sable-clair"
+                 style="left:216px; top:125px;"></div>
+
+            <div class="pixel sable-clair"
+                 style="left:230px; top:125px;"></div>
+
+            <div class="pixel sable"
+                 style="left:244px; top:125px;"></div>
+
+            <div class="pixel brun"
+                 style="left:258px; top:125px;"></div>
+
+
+            <!-- Yeux -->
+
+            <div class="pixel brun-fonce"
+                 style="left:160px; top:25px;"></div>
+
+            <div class="pixel brun-fonce"
+                 style="left:244px; top:25px;"></div>
+
+            <div class="pixel noir"
+                 style="left:160px; top:32px;"></div>
+
+            <div class="pixel noir"
+                 style="left:244px; top:32px;"></div>
+
+            <div class="pixel reflet"
+                 style="left:174px; top:32px;"></div>
+
+            <div class="pixel reflet"
+                 style="left:258px; top:32px;"></div>
+
+
+            <!-- Antennes -->
+
+            <div class="pixel brun"
+                 style="left:145px; top:25px;"></div>
+
+            <div class="pixel brun"
+                 style="left:132px; top:18px;"></div>
+
+            <div class="pixel brun"
+                 style="left:118px; top:12px;"></div>
+
+            <div class="pixel brun"
+                 style="left:258px; top:25px;"></div>
+
+            <div class="pixel brun"
+                 style="left:272px; top:18px;"></div>
+
+            <div class="pixel brun"
+                 style="left:286px; top:12px;"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             PATTES GAUCHES
+             ================================================= -->
+
+        <div class="patte-gauche-1">
+
+            <div class="pixel brun-fonce"
+                 style="left:145px; top:135px;"></div>
+
+            <div class="pixel brun"
+                 style="left:125px; top:145px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:105px; top:155px;"></div>
+
+            <div class="pixel brun"
+                 style="left:85px; top:165px;"></div>
+
+            <div class="pixel sable"
+                 style="left:65px; top:160px;"></div>
+
+        </div>
+
+
+        <div class="patte-gauche-2">
+
+            <div class="pixel brun-fonce"
+                 style="left:145px; top:150px;"></div>
+
+            <div class="pixel brun"
+                 style="left:125px; top:170px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:105px; top:190px;"></div>
+
+            <div class="pixel sable"
+                 style="left:80px; top:195px;"></div>
+
+        </div>
+
+
+        <div class="patte-gauche-3">
+
+            <div class="pixel brun-fonce"
+                 style="left:160px; top:165px;"></div>
+
+            <div class="pixel brun"
+                 style="left:140px; top:185px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:120px; top:205px;"></div>
+
+            <div class="pixel sable"
+                 style="left:100px; top:215px;"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             PATTES DROITES
+             ================================================= -->
+
+        <div class="patte-droite-1">
+
+            <div class="pixel brun-fonce"
+                 style="left:275px; top:135px;"></div>
+
+            <div class="pixel brun"
+                 style="left:295px; top:145px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:315px; top:155px;"></div>
+
+            <div class="pixel brun"
+                 style="left:335px; top:165px;"></div>
+
+            <div class="pixel sable"
+                 style="left:355px; top:160px;"></div>
+
+        </div>
+
+
+        <div class="patte-droite-2">
+
+            <div class="pixel brun-fonce"
+                 style="left:275px; top:150px;"></div>
+
+            <div class="pixel brun"
+                 style="left:295px; top:170px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:315px; top:190px;"></div>
+
+            <div class="pixel sable"
+                 style="left:340px; top:195px;"></div>
+
+        </div>
+
+
+        <div class="patte-droite-3">
+
+            <div class="pixel brun-fonce"
+                 style="left:260px; top:165px;"></div>
+
+            <div class="pixel brun"
+                 style="left:280px; top:185px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:300px; top:205px;"></div>
+
+            <div class="pixel sable"
+                 style="left:320px; top:215px;"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             PINCE GAUCHE
+             ================================================= -->
+
+        <div class="pince-gauche">
+
+            <div class="pixel brun-fonce"
+                 style="left:125px; top:115px;"></div>
+
+            <div class="pixel brun"
+                 style="left:105px; top:105px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:85px; top:95px;"></div>
+
+            <div class="pixel orange"
+                 style="left:65px; top:85px;"></div>
+
+            <div class="pixel brun"
+                 style="left:45px; top:75px;"></div>
+
+            <div class="pixel brun-fonce"
+                 style="left:35px; top:55px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:20px; top:45px;"></div>
+
+            <div class="pixel sable"
+                 style="left:5px; top:45px;"></div>
+
+            <div class="pixel brun-fonce"
+                 style="left:35px; top:85px;"></div>
+
+            <div class="pixel orange"
+                 style="left:20px; top:95px;"></div>
+
+            <div class="pixel sable"
+                 style="left:5px; top:95px;"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             PINCE DROITE
+             ================================================= -->
+
+        <div class="pince-droite">
+
+            <div class="pixel brun-fonce"
+                 style="left:295px; top:115px;"></div>
+
+            <div class="pixel brun"
+                 style="left:315px; top:105px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:335px; top:95px;"></div>
+
+            <div class="pixel orange"
+                 style="left:355px; top:85px;"></div>
+
+            <div class="pixel brun"
+                 style="left:375px; top:75px;"></div>
+
+            <div class="pixel brun-fonce"
+                 style="left:385px; top:55px;"></div>
+
+            <div class="pixel brun-clair"
+                 style="left:400px; top:45px;"></div>
+
+            <div class="pixel sable"
+                 style="left:415px; top:45px;"></div>
+
+            <div class="pixel brun-fonce"
+                 style="left:385px; top:85px;"></div>
+
+            <div class="pixel orange"
+                 style="left:400px; top:95px;"></div>
+
+            <div class="pixel sable"
+                 style="left:415px; top:95px;"></div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

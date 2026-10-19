@@ -1,0 +1,583 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head> <meta charset="UTF-8"> <title>Les crabes du panier</title>
+<link rel="icon" href="data:image/svg+xml,
+<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦀</text></svg>">
+<!-- _____________________________________________________________________________________________________-->
+
+<style>
+
+body {
+      margin: 0; background-color: #061a2b; color: #b9ecff; font-family: "Trebuchet MS", Arial, sans-serif;
+    }
+
+
+    #banniere{
+    /*  background: linear-gradient(red, blue);
+    height: 300px; COMMENTAIRE CSS */
+    background-image: url("imago/ban.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 300px auto;
+    height: 300px;
+    position: relative;
+    transform: translateX(140px) translateY(20px) ;
+
+
+    }
+
+    #image-fond {
+    position: fixed; /*absolute*/
+    left: 0;
+    top: 55%;
+    transform: translateY(-50%);
+
+    width: 700px; /* taille de l'image */
+    height: 700px;
+
+    background-image: url("imago/Fondu.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+    #titre {
+        position: absolute;
+        left: calc(50% + 170px);
+        top: 50%;
+        transform: translateY(-50%);
+
+        color: #669966;
+        font-family: "Courier New", monospace;
+        font-size: 42px;
+        font-weight: bold;
+        line-height: 1.1;
+        text-align: left;
+        /*transform: translateY(-50%) translateX(30px);*
+        /* effet pixelisé */
+        text-shadow: 3px 3px 0px #333;
+    }
+
+    #titre span {
+        display: block;
+    }
+
+
+    #crabes {
+      margin: 200px auto 0 auto; /* ici space */
+      /* LARGEUR tableau : */
+      width: 50%;
+      text-align: center;
+      border-collapse: collapse;
+    /*  border-collapse: separate;
+      border-spacing: 0.4;*/
+      position: relative;
+      z-index: 10;
+
+      background: rgba(40, 40, 40, 0.4); /* gris foncé transparent */
+      border-radius: 10px;
+  }
+
+  #crabes td {
+      border: none;
+      padding: 12px;
+    width: 30%;
+  }
+
+  #crabes tr {
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 12px;
+      width: 33.33%;
+      transition: border-color 0.2s ease;
+      font-size: 20px;
+
+  }
+  #crabes tr:hover td {
+      border-top: 1px solid #669966;
+  }
+  #crabes tr:hover {
+      border-color: #669966;
+  }
+
+  #crabes tr:hover td:nth-child(2) {
+font-family: 'Press Start 2P', monospace;
+color: #669966;
+text-shadow: 3px 3px 0px #333;
+text-align:left;
+vertical-align: middle;
+font-size: 25px;
+
+}
+
+#crabes td:nth-child(2) {
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.rank {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    font-family: 'Press Start 2P', monospace;
+    color: #669966;
+    text-shadow: 3px 3px 0px #333;
+    font-size: 12px;
+
+    text-align: right;
+    z-index: 2;
+    pointer-events: none;
+}
+#crabes td:first-child {
+    text-align: left;
+    padding-left: 0.1;
+    vertical-align: middle;
+}
+
+/*_______________________________INFOS______________________________*/
+/* Fond qui recouvre la page */
+.modal-overlay {
+display: none;
+position: fixed;
+inset: 0;
+z-index: 9999;
+
+background: rgba(0, 0, 0, 0.65);
+
+justify-content: center;
+align-items: center;
+padding: 20px;
+}
+
+/* Fenêtre */
+.modal-contenu {
+position: relative;
+width: 500px;
+max-width: 100%;
+max-height: 89vh;
+overflow-y: auto;
+box-sizing: border-box;
+
+padding: 30px;
+border: 1px solid #669966;
+border-radius: 16px;
+
+background: rgba(35, 35, 35, 0.97);
+color: #669966;
+text-align: center;
+
+box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Titre */
+.modal-contenu h2 {
+font-family: 'Press Start 2P', monospace;
+font-size: 20px;
+line-height: 1.8;
+margin: 10px 25px 25px;
+}
+
+/* Sous-titre */
+.modal-contenu h3 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: normal;
+    color: #669966;
+    text-align: center;
+    margin: -15px 0 25px;
+    text-shadow: 2px 2px 0px #333;
+}
+/* Image */
+.modal-contenu img {
+display: block;
+max-width: 100%;
+max-height: 300px;
+width: auto;
+height: auto;
+margin: 0 auto 20px;
+border-radius: 8px;
+}
+/* Image #2 */
+#modal-image2 {
+max-width: 100%;
+max-height: 250px;
+width: auto;
+height: auto;
+margin: 20px auto 0;
+border-radius: 8px;
+}
+
+/* Texte */
+.modal-contenu p {
+font-family: 'Courier New', monospace;
+font-size: 20px;
+line-height: 1.6;
+text-align: left;
+}
+
+/* Croix de fermeture */
+.modal-croix {
+position: absolute;
+top: 8px;
+right: 12px;
+
+background: transparent;
+border: none;
+color: #669966;
+
+font-size: 32px;
+cursor: pointer;
+}
+
+.modal-croix:hover {
+color: white;
+}
+  </style>
+</head>
+
+<!-- ______________________________JS________________________________________________-->
+<script>
+function synchroniserPosition() {
+    const crabe = document.getElementById("crabicrabi");
+    const cocotic = document.getElementById("cocotic");
+
+    const position = crabe.getBoundingClientRect();
+
+    cocotic.style.left = position.left + "px";
+    cocotic.style.right = "auto";
+}
+
+window.addEventListener("load", synchroniserPosition);
+window.addEventListener("resize", synchroniserPosition);
+</script>
+<!-- _____________________________________________________________________________________________________-->
+
+<body>
+  <div id="image-fond"></div>
+  <div class="fond"></div>
+
+
+<div id="banniere">
+    <div id="titre">
+        <span>Le Panier</span>
+        <span>de Crabe</span>
+    </div>
+</div>
+
+<table id="crabes">
+  <tr id="oc"><td><img src="imago/X_ocypode.png" width="200"><br></td> <td>Ocypode ryderi</td>   </tr>
+  <tr id="lith"><td><img src="imago/X_lithodeMurrayi.png" width="200"></td> <td>Lithode murrayi</td></tr>
+  <tr id="cal"> <td><img src="imago/X_Callapa.png" width="200"></td><td>Calappa calappa</td> </tr>
+   <tr id="minu"> <td><img src="imago/X_minutus.png" width="200"></td><td>Planes minutus</td></tr>
+   <tr id="bern"> <td><img src="imago/X_hermi.png" width="200"></td><td>Pagurus bernhardus</td></tr>
+   <tr id="lybi"> <td><img src="imago/X_POMPOM2.png" width="200"></td><td> Lybia tessellata </td>  </tr>
+   <tr id="mega"> <td><img src="imago/X_MEGALOP.png" width="200"></td><td>Mégalope</td>  </tr>
+   <tr id="kiwa"><td><img src="imago/X_galatee.png" width="200"></td> <td>Kiwa hirsuta</td>  </tr>
+   <tr id="uca"> <td><img src="imago/X_Violon.png" width="200"></td><td> Uca tetragonon </td>  </tr>
+     <tr id="trap"><td><img src="imago/X_Trapezia.png" width="200"></td> <td>Trapezia rufopunctata</td>  </tr>
+     <tr id="nucia"><td><img src="imago/X_Heteronuc.png" width="200"></td> <td>Heteronucia perlata </td> </tr>
+     <tr id="birg"><td><img src="imago/X_coco1.png" width="200"></td> <td> Birgus latro</td> </tr>
+</table>
+
+<!-- Fenêtre modale -->
+<div id="crabe-modal" class="modal-overlay">
+<div class="modal-contenu">
+    <button id="fermer-modal" class="modal-croix"
+            aria-label="Fermer">&times;</button>
+
+    <h2 id="modal-titre">Nom du crabe</h2>
+    <h3 id="modal-sous-titre"> Nom vernaculaire</h3>
+
+    <img id="modal-image" src="" alt="">
+
+    <p id="modal-texte">
+        Description du crabe.
+    </p>
+
+    <img id="modal-image2" src="" alt=""
+    style="display:none;">
+</div>
+</div>
+
+<!--_________________________________________________________________________________________-->
+<!--
+ POUR GERER LA TAILLE : transform-->
+
+<div id="cocotic" style="position:fixed; right:20px; bottom:110px; width:210px; height:210px; overflow:hidden; border:1px solid #669966; box-sizing:border-box;">
+
+    <iframe
+        src="animate/cocotic.html"
+        style="width:700px; height:700px; border:none; transform:scale(0.3); transform-origin:top left;">
+    </iframe>
+
+</div>
+
+<div style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+">
+
+    <!-- Fenêtre -->
+    <div style="
+        width: 380px;
+        height: 100px;
+        overflow: visible;
+        position: relative;
+    ">
+        <!-- Animation -->
+        <iframe
+            src="animate/crabicrabi_vert.html"
+            style="
+                position: absolute;
+                width: 490px;
+                height: 420px;
+                border: none;
+                left: -80px;
+                top: -200px;
+                transform:scale(0.5);
+            ">
+        </iframe>
+    </div>
+
+    <!-- Texte -->
+    <div style="color:#669966; margin-left: -100px;">
+        <p>© 2026 - OS - Module HTML-CSS - TP2</p>
+    </div>
+
+</div>
+<div style="
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 3;
+">
+    <a href="https://www.crabdatabase.info/en/educational-gallery"
+       style="
+           display: inline-block;
+           color: #669966;
+           font-family: 'Press Start 2P', monospace;
+           font-size: 20px;
+           font-weight: bold;
+           text-decoration: none;
+           border: 1px solid #669966;
+           border-radius: 8px;
+           padding: 15px 20px;
+           text-shadow: 3px 3px 0px #333;
+       ">
+        PLUS DE CRABES !
+    </a>
+    </div>
+<!--
+<div style="
+    text-align:center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 3;
+    font-family: 'Courier New', monospace;
+font-size: 42px;
+font-weight: bold;
+line-height: 1.1;
+color: #669966;
+text-shadow: 3px 3px 0px #333;"
+>
+    <a href="https://www.crabdatabase.info/en/educational-gallery"
+       style="
+           color:#669966;
+           font-family:'Press Start 2P', monospace;
+           text-decoration:none;
+       ">
+         PLUS DE CRABES !
+    </a>
+</div>
+-->
+
+
+<div  id="crabicrabi" style="position:absolute; right:20px; bottom:20px; width:300px; height:300px; overflow:hidden;">
+    <iframe
+        src="animate/crabicrabi.html"
+        style="width:700px; height:700px; border:none; transform:scale(0.3); transform-origin:top left;">
+    </iframe>
+</div>
+
+
+<!-- __________________________________________________________________________ -->
+<script>
+    const data_description = {
+        oc: {
+            image: "imago/ocypoderyderi.jpg",
+            texte: "Avec ses petits yeux, il surveille tout ce qui passe, une vraie comère.",
+            image2: "imago/ocyri.jpeg",
+            rank: "#01"
+
+        },
+
+        lith: {
+            image: "imago/murrayi.jpg",
+            texte: "Il est plus beau qu'un pokemon et il le sait.",
+            rank: "#02"
+        },
+
+        minu: {
+          image: "imago/planes.png",
+            texte: "Minus !"
+        },
+        bern: {
+            image: "imago/hermii.png",
+            texte: "Trimballe sa maison sur son dos.",
+            image2: "imago/bernardo.png",
+            sousTitre: "Bernard l'Hermite"
+
+
+        },
+        uca: {
+            image: "imago/violon.png",
+            texte: "Musicien à ses heures perdues.",
+            image2: "imago/tetragonon.jpg",
+            sousTitre: "Crabe Violoniste"
+
+
+        },
+
+        mega: {
+            image: "imago/megaa.png",
+            texte: "Baby crabe, provient d'une larve planctonique : la Zoé.",
+            image2: "imago/megimeg.png",
+            sousTitre: "Stade postlarvaire"
+        },
+
+        kiwa: {
+            image: "imago/ye.png",
+            texte: "Hirsute mais sympathique.",
+            sousTitre: "Crabe Yéti"
+
+        },
+
+        cal: {
+            image2: "imago/callap.png",
+            texte: "Tellement timide qu'il se cache dans ses pinces !",
+            image: "imago/callapcall.jpg",
+            sousTitre: "Crabe Honteux",
+            rank: "#03"
+
+
+        },
+
+        lybi: {
+          image2: "imago/pompom.png",
+          texte: "La star. Il vous boxe avec ses anémones.",
+          image: "imago/po.png",
+          sousTitre: "Pompom Crabe"
+        },
+
+        trap: {
+          image2: "imago/tr.png",
+          image: "imago/trapitrap.png",
+          texte: "Très beau costume, il ne refile pas la varicelle."
+        },
+
+        nucia: {
+            image: "imago/heteronucia.jpg",
+            texte: "Une vraie perle."
+        },
+
+        birg: {
+            image: "imago/coco.jpg",
+            texte: "Voleur et hargneux... laissez sa noix de coco tranquille.",
+            sousTitre: "Crabe des cocotiers"
+        }
+    };
+
+    // 2. Éléments de la fenêtre
+    const modal = document.getElementById("crabe-modal");
+    const modalTitre = document.getElementById("modal-titre");
+    const modalSousTitre = document.getElementById("modal-sous-titre");
+    const modalImage = document.getElementById("modal-image");
+    const modalTexte = document.getElementById("modal-texte");
+    const modalImage2 = document.getElementById("modal-image2");
+    const fermerModal = document.getElementById("fermer-modal");
+
+    // Afficher le rang en haut à droite de la cellule
+    document.querySelectorAll("#crabes tr").forEach(ligne => {
+        const crabe = data_description[ligne.id];
+        const celluleNom = ligne.querySelector("td:nth-child(2)");
+
+        if (crabe?.rank && celluleNom) {
+            const rang = document.createElement("span");
+            rang.className = "rank";
+            rang.textContent = crabe.rank;
+            celluleNom.appendChild(rang);
+        }
+    });
+    // 3. Clic sur une ligne du tableau
+    document.querySelectorAll("#crabes tr").forEach(ligne => {
+        ligne.style.cursor = "pointer";
+
+        ligne.addEventListener("click", () => {
+            const cellules = ligne.querySelectorAll("td");
+            const image = ligne.querySelector("img");
+            const crabe = data_description[ligne.id];
+
+            if (!image || cellules.length < 2) return;
+
+            // Titre
+            modalTitre.textContent =
+    crabe?.titre || cellules[1].childNodes[0].textContent.trim();
+
+            // Sous-titre
+            modalSousTitre.textContent = crabe?.sousTitre || "";
+            modalSousTitre.style.display = crabe?.sousTitre ? "block" : "none";
+
+            // Description
+            modalTexte.textContent =
+                crabe?.texte || "Description à venir.";
+
+            // Image principale : personnalisée ou celle du tableau
+            modalImage.src = crabe?.image || image.src;
+            modalImage.alt = modalTitre.textContent;
+
+            // Image supplémentaire facultative
+            if (crabe?.image2) {
+                modalImage2.src = crabe.image2;
+                modalImage2.alt =
+                    "Image complémentaire de " + modalTitre.textContent;
+                modalImage2.style.display = "block";
+            } else {
+                modalImage2.removeAttribute("src");
+                modalImage2.style.display = "none";
+            }
+
+            // Ouverture de la fenêtre
+            modal.style.display = "flex";
+        });
+    });
+
+    // 4. Fermeture avec la croix
+    fermerModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // 5. Fermeture en cliquant sur le fond sombre
+    modal.addEventListener("click", event => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // 6. Fermeture avec Échap
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            modal.style.display = "none";
+        }
+    });
+</script>
+</body>
+
+</html>
