@@ -41,5 +41,19 @@ public class Test {
 		System.out.println(gr);
 		
 		System.out.println(game);
+		
+		System.out.println("\n--------Debut DEMO AOP-----------\n");
+		game.demoMetier();
+		
+		
+		game.demoMetier2();
+		
+		try {
+		game.demoMetier3ExceptionPossible();
+		}catch(Exception e) {e.printStackTrace();}
+		
+		System.out.println("\n--------FIN DEMO AOP-----------\n");
+		
+		game.toString();
 	}
 }

@@ -1,5 +1,7 @@
 package demo.composant;
 
+import java.util.Random;
+
 //@Component
 public class Game {
 	
@@ -39,6 +41,36 @@ public class Game {
 		this.nom = nom;
 	}
 
+	
+	
+	public void demoMetier() 
+	{
+		System.out.println("----------Traitement de la methode demoMetier dans un objet game----------");
+		
+	}
+	
+	public String demoMetier2() 
+	{
+		System.out.println("----------Traitement de la methode demoMetier2 dans un objet game----------");
+		return "Resultat de la methode demoMetier2";
+	}
+	
+	
+	public String demoMetier3ExceptionPossible() throws Exception
+	{
+		Random r = new Random();
+		int alea= r.nextInt(10);
+		if(alea%2==0) 
+		{
+			throw new Exception("Pas de chance, c'est pair...");
+		}
+		System.out.println("Fin de la methode");
+		return "TOUT EST OK "+alea;
+	}
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Game [audio=" + audio + ", configGraphisme=" + configGraphisme + ", nom=" + nom + "]";
