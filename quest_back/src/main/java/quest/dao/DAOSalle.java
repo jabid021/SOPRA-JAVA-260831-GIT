@@ -2,56 +2,45 @@ package quest.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import jakarta.persistence.EntityManager;
-import quest.context.Singleton;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import quest.model.Salle;
 
+@Repository 
+@Transactional
 public class DAOSalle implements IDAOSalle{
+	
+	@PersistenceContext
+	private EntityManager em;
 
 	@Override
 	public List<Salle> findAll() {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			List<Salle>salles = em.createQuery("FROM Salle").getResultList();
-		em.close();
-		return salles;
+		return em.createQuery("FROM Salle").getResultList();
 	}
 
 	@Override
 	public Salle findById(Integer id) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			Salle salle = em.find(Salle.class, id);
-		em.close();
-		return salle;
+		return em.find(Salle.class, id);
 	}
 
 	@Override
 	public Salle save(Salle salle) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			em.getTransaction().begin();
-				salle=em.merge(salle);
-			em.getTransaction().commit();
-		em.close();
-		return salle;
+		return em.merge(salle);
 	}
 
 	@Override
 	public void delete(Salle salle) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			em.getTransaction().begin();
-				salle=em.merge(salle);
-				em.remove(salle);
-			em.getTransaction().commit();
-		em.close();
+		salle=em.merge(salle);
+		em.remove(salle);
 	}
 
 	@Override
 	public void deleteById(Integer id) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			em.getTransaction().begin();
-				Salle salle= em.find(Salle.class, id);
-				em.remove(salle);
-			em.getTransaction().commit();
-		em.close();
+		Salle salle= em.find(Salle.class, id);
+		em.remove(salle);
 	}
 
 }

@@ -3,9 +3,7 @@ package orchestre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import orchestre.model.Guitariste;
 import orchestre.model.IMusicien;
-import orchestre.model.Pianiste;
 
 public class Test {
 
@@ -13,7 +11,7 @@ public class Test {
 IMusicien guitariste; //Va planter pendant AOP (il faut passer par un objet de type IMusicien
 
 @Autowired
-Pianiste pianiste;
+IMusicien pianiste;
 
 @Autowired
 @Qualifier("flutiste")
@@ -31,7 +29,7 @@ IMusicien olivier;
 		IMusicien flutiste = (Flutiste) ctx.getBean("flutiste");*/
 		
 		try{
-			guitariste.jouer();
+			pianiste.jouer();
 		}
 		catch(Exception e) 
 		{}

@@ -2,56 +2,45 @@ package quest.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import jakarta.persistence.EntityManager;
-import quest.context.Singleton;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import quest.model.Ordinateur;
 
+@Repository 
+@Transactional
 public class DAOOrdinateur implements IDAOOrdinateur{
+
+	@PersistenceContext
+	private EntityManager em;
 
 	@Override
 	public List<Ordinateur> findAll() {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			List<Ordinateur>ordinateurs = em.createQuery("FROM Ordinateur").getResultList();
-		em.close();
-		return ordinateurs;
+		return em.createQuery("FROM Ordinateur").getResultList();
 	}
 
 	@Override
 	public Ordinateur findById(Integer id) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			Ordinateur ordinateur = em.find(Ordinateur.class, id);
-		em.close();
-		return ordinateur;
+		return em.find(Ordinateur.class, id);
 	}
 
 	@Override
 	public Ordinateur save(Ordinateur ordinateur) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			em.getTransaction().begin();
-				ordinateur=em.merge(ordinateur);
-			em.getTransaction().commit();
-		em.close();
-		return ordinateur;
+		return em.merge(ordinateur);
 	}
 
 	@Override
 	public void delete(Ordinateur ordinateur) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			em.getTransaction().begin();
-				ordinateur=em.merge(ordinateur);
-				em.remove(ordinateur);
-			em.getTransaction().commit();
-		em.close();
+		ordinateur=em.merge(ordinateur);
+		em.remove(ordinateur);
 	}
 
 	@Override
 	public void deleteById(Integer id) {
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-			em.getTransaction().begin();
-				Ordinateur ordinateur= em.find(Ordinateur.class, id);
-				em.remove(ordinateur);
-			em.getTransaction().commit();
-		em.close();
+		Ordinateur ordinateur= em.find(Ordinateur.class, id);
+		em.remove(ordinateur);
 	}
 
 }
