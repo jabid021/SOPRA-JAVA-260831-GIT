@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Galerie - Hedgehog Kingdom</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Ressources -->
+    <link href="../assets/css/style.css" rel="stylesheet" >
+    <script defer src="../assets/js/script.js" charset="UTF-8"></script>
+    <script defer src="../assets/js/gallery.js" charset="UTF-8"></script>
+    <link rel="icon" href="../favicon.ico" />
+    
+    <!-- Métadonnées générales -->
+    <meta name="description" content="Bienvenue dans Hedgehog Kingdom ! Découvrez l'univers fascinant des hérissons, leurs différentes espèces et une galerie de photos pleine de piquant et de douceur.">
+    
+    <!-- Open Graph : Discord, Facebook, WhatsApp, LinkedIn... -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hedgehog Kingdom 🦔 | Galerie">
+    <meta property="og:description" content="Découvrez l'univers fascinant des hérissons : espèces, photos et bien plus encore !">
+    <meta property="og:image" content="https://wanderinghedgie.github.io/hedgehog-kingdom/assets/images/banners/eye-to-eye-hedgehog-child-young-hedgehog.jpg">
+    <meta property="og:image:width" content="450">
+    <meta property="og:image:height" content="300">
+    <meta property="og:url" content="https://wanderinghedgie.github.io/hedgehog-kingdom">
+    <meta property="og:site_name" content="Hedgehog Kingdom">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hedgehog Kingdom 🦔 | Galerie">
+    <meta name="twitter:description" content="Découvrez l'univers fascinant des hérissons : espèces, photos et bien plus encore !">
+    <meta name="twitter:image" content="https://wanderinghedgie.github.io/hedgehog-kingdom/assets/images/banners/eye-to-eye-hedgehog-child-young-hedgehog.jpg">
+    
+</head>
+<body>
+    <header>
+        <nav id="nav">
+            <div>
+                <img id="nav-hedgehog" src="../assets/images/icons/hedgehog_icon.svg" alt="Dessin d'un hérisson se tenant sur ses deux pattes arrière."/>
+                <h1>Hedgehog <span id="end-title">Kingdom</span></h1>
+            </div>
+            <ul>
+                <li>
+                    <a id="accueil" href="../index.html">accueil</a>
+                </li>
+                <li>
+                    <a id="galerie" href="gallery.html"">galerie</a>
+                </li>
+            </ul>
+            <div id="icons"></div>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Galerie</h1>
+        <section class="gallery" id="gallery"></section>
+        
+        <div id="lightbox">
+            <img id="lightbox-img" alt="">
+            <p id="lightbox-description"></p>
+        </div>
+    </main>
+    
+    <footer>
+        <div>
+            <p id="hedge-text">
+                <span id="footer-message">Parce que l'on a tous besoin de piquant et de douceur dans la vie </span> 
+                <span id="footer-hedgehog">
+                    <span id="footer-hedgehog"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Animer le hérisson"
+                    aria-disabled="false">🦔</span>
+                </span>
+            </p>
+            <audio id="sonic-ring" src="../assets/audio/sonic-ring-sound-effect-in-stereo.mp3" />
+        </div>
+        <img class="footer-leaf" src="../assets/images/icons/leaf.png" alt="Icône de feuille"/>
+    </footer>
+</body>
+</html>

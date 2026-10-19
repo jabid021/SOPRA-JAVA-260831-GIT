@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Accueil - Hedgehog Kingdom</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Ressources -->
+    <link href="assets/css/style.css" rel="stylesheet" >
+    <script defer src="assets/js/script.js" charset="UTF-8"></script>
+    <link rel="icon" href="favicon.ico" />
+    
+    <!-- Métadonnées générales -->
+    <meta name="description" content="Bienvenue dans Hedgehog Kingdom ! Découvrez l'univers fascinant des hérissons, leurs différentes espèces et une galerie de photos pleine de piquant et de douceur.">
+    
+    <!-- Open Graph : Discord, Facebook, WhatsApp, LinkedIn... -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hedgehog Kingdom 🦔 | Accueil">
+    <meta property="og:description" content="Découvrez l'univers fascinant des hérissons : espèces, photos et bien plus encore !">
+    <meta property="og:image" content="https://wanderinghedgie.github.io/hedgehog-kingdom/assets/images/banners/eye-to-eye-hedgehog-child-young-hedgehog.jpg">
+    <meta property="og:image:width" content="450">
+    <meta property="og:image:height" content="300">
+    <meta property="og:url" content="https://wanderinghedgie.github.io/hedgehog-kingdom">
+    <meta property="og:site_name" content="Hedgehog Kingdom">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hedgehog Kingdom 🦔 | Accueil">
+    <meta name="twitter:description" content="Découvrez l'univers fascinant des hérissons : espèces, photos et bien plus encore !">
+    <meta name="twitter:image" content="https://wanderinghedgie.github.ioassets/images/banners/eye-to-eye-hedgehog-child-young-hedgehog.jpg">
+</head>
+<body>
+    <header>
+        <nav id="nav">
+            <div>
+                <img id="nav-hedgehog" src="assets/images/icons/hedgehog_icon.svg" alt="Dessin d'un hérisson se tenant sur ses deux pattes arrière."/>
+                <h1>Hedgehog <span id="end-title">Kingdom</span></h1>
+            </div>
+            <ul>
+                <li>
+                    <a id="accueil" href="index.html">accueil</a>
+                </li>
+                <li>
+                    <a id="galerie" href="pages/gallery.html">galerie</a>
+                </li>
+            </ul>
+            <div id="icons"></div>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h1>Espèces de hérissons</h1>
+            <p>
+                Voici un tableau présentant quelques espèces de hérissons, leurs caractéristiques, leur répartition géographique et leur statut de conservation. 
+            </p>
+        </div>
+        
+        <div class="table-aside">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <th></th>
+                        <th>Espèce</th>
+                        <th>Nom scientifique</th>
+                        <th>Longueur</th>
+                        <th>Poids</th>
+                        <th>Traits distinctifs</th>
+                        <th>Répartition</th>
+                        <th>Statut de conservation UICN</th>
+                    </thead>
+                    <tbody>
+                        <tr id="echinops-telfairi">
+                            <td>
+                                <img 
+                                src="assets/images/hedgehogs_species/echinops_telfairi.jpg" 
+                                alt="Photo d'un tenrec-hérisson. Un hérisson se repose au ras du sol, parmi la paille et les rochers, ses piquants sombres et serrés hérissés le long de son dos et son museau pointu tourné vers la droite."
+                                class="zoomable"
+                                class="zoomable"
+                                />
+                            </td>
+                            <td>Tenrec-hérisson</td>
+                            <td>Echinops telfairi</td>
+                            <td>14 à 18 cm</td>
+                            <td>110 à 230 g</td>
+                            <td>Pas de queue, dos recouvert de piquants, couleur des piquants variable du blanchâtre au brun foncé, museau long et pointu, grandes oreilles.</td>
+                            <td>Madagascar</td>
+                            <td>
+                                <img class="iucn-picture zoomable" src="assets/images/iucn_status/Status_iucn3.1_LC-fr.png" alt="Statut de conservation UICN - Préoccupation mineure"/> <br>
+                                Préoccupation mineure
+                            </td>
+                        </tr>
+                        <tr id="erinaceus-europaeus">
+                            <td>
+                                <img
+                                src="assets/images/hedgehogs_species/erinaceus-europaeus.jpg"
+                                alt="Photo d'un hérisson commun, ou hérisson d'Europe. Un petit hérisson cherche sa nourriture parmi l'herbe verte et les feuilles mortes d'automne, le dos hérissé de piquants tandis qu'il renifle le sol de la forêt."
+                                class="zoomable"
+                                />
+                            </td>
+                            <td>Hérisson commun, hérisson d'Europe</td>
+                            <td>Erinaceus europaeus</td>
+                            <td>20 à 30 cm</td>
+                            <td>300 g à 2 kg</td>
+                            <td>Masque sombre autour des yeux et du nez, couleur gris brun foncé avec l'extrémité des poils claire.</td>
+                            <td>Europe</td>
+                            <td>
+                                <img class="iucn-picture zoomable" src="assets/images/iucn_status/Status_iucn3.1_NT-fr.png" alt="Statut de conservation UICN - Quasi menacé"/>
+                                Quasi menacé
+                            </td>
+                        </tr>
+                        <tr id="mesechinus-dauuricus">
+                            <td>
+                                <img
+                                src="assets/images/hedgehogs_species/mesechinus_dauuricus.png"
+                                alt="Photo d'un hérisson daourien. Un petit hérisson cherche sa nourriture parmi la terre sèche et les plantes clairsemées, le dos hérissé de piquants, reniflant le sol dans un paysage calme et ensoleillé."
+                                class="zoomable"
+                                />
+                            </td>
+                            <td>Hérisson daourien</td>
+                            <td>Mesechinus dauuricus</td>
+                            <td>15 à 20 cm</td>
+                            <td>600 g environ</td>
+                            <td>Petite espèce, pelage brun clair ou sable consistant.</td>
+                            <td>Réserve naturelle de Daourie - Russie</td>
+                            <td>
+                                <img class="iucn-picture zoomable" src="assets/images/iucn_status/Status_iucn3.1_LC-fr.png" alt="Statut de conservation UICN - Préoccupation mineure"/> <br>
+                                Préoccupation mineure
+                            </td>  
+                        </tr>
+                        <tr id="paraechinus-aethiopicus">
+                            <td>
+                                <img
+                                src="assets/images/hedgehogs_species/paraechinus_aethiopicus.jpg"
+                                alt="Photo d'un hérisson du désert. Un minuscule hérisson repose dans une main ouverte, son visage et ses pattes roses encadrés par des piquants à l'aspect doux; Son expression curieuse est douce et attachante."
+                                class="zoomable"
+                                />
+                            </td>
+                            <td>Hérisson du désert</td>
+                            <td>Paraechinus aethiopicus</td>
+                            <td>14 à 28 cm</td>
+                            <td>280 à 510 g</td>
+                            <td>Petite espèce, museau noir, possibles bandes couleurs sur leurs piquants.</td>
+                            <td>Afrique du Nord, péninsule Arabique</td>
+                            <td>
+                                <img class="iucn-picture zoomable" src="assets/images/iucn_status/Status_iucn3.1_LC-fr.png" alt="Statut de conservation UICN - Préoccupation mineure"/> <br>
+                                Préoccupation mineure
+                            </td>  
+                        </tr>
+                        <tr id="paraechinus-micropus">
+                            <td>
+                                <img
+                                src="assets/images/hedgehogs_species/paraechinus_micropus.jpg"
+                                alt="Photo d'un hérisson indien. Dans une scène d'intérieur paisible, un petit hérisson recouvert d'épines brunes et blanches denses repose sur un tissu à motifs colorés, délicatement tenu par la main d'une personne."
+                                class="zoomable"
+                                />
+                            </td>
+                            <td>Hérisson indien</td>
+                            <td>Paraechinus micropus</td>
+                            <td>15 à 31 cm</td>
+                            <td>312 à 435 g</td>
+                            <td>Masque noir sur la tête semblable à un raton-laveur, piquant plus nombreux que le hérisson d'Europe, zone de peau chauve sur la tête, peut vivre jusqu'à 700m d'altitude.</td>
+                            <td>Inde, Pakistan</td>
+                            <td>
+                                <img class="iucn-picture zoomable" src="assets/images/iucn_status/Status_iucn3.1_LC-fr.png" alt="Statut de conservation UICN - Préoccupation mineure"/> <br>
+                                Préoccupation mineure
+                            </td>
+                        </tr>
+                        <tr id="tenrec-ecaudatus">
+                            <td>
+                                <img
+                                src="assets/images/hedgehogs_species/tenrec_ecaudatus.jpg"
+                                alt="Photo d'un tangue ou hérisson malgache. Un petit mammifère brun et hérissé se repose sur un sol sec et jonché de feuilles, à côté d'une plante verte, son museau pointu abaissé tandis qu'il cherche tranquillement sa nourriture." 
+                                class="zoomable"
+                                />
+                            </td>
+                            <td>Tangue ou hérisson malgache</td>
+                            <td>Tenrec ecaudatus</td>
+                            <td>26 à 39 cm</td>
+                            <td>1 à 2 kg</td>
+                            <td>Animal nocturne, pas de queue, long museau.</td>
+                            <td>Madagascar, Comores, La Réunion, Maurice, Mayotte, Seychelles</td>
+                            <td>
+                                <img class="iucn-picture zoomable" src="assets/images/iucn_status/Status_iucn3.1_LC-fr.png" alt="Statut de conservation UICN - Préoccupation mineure"/> <br>
+                                Préoccupation mineure
+                            </td>
+                        </tr>
+                        <tr id="atelerix-sclateri">
+                            <td>
+                                <img 
+                                src="assets/images/hedgehogs_species/atelerix_sclateri.jpg" 
+                                alt="Photo d'un hérisson de Somalie ou hérisson de Sclater. Un petit hérisson jette un coup d'œil par-dessus le bord d'un bol brun, son pelage hérissé encadrant un visage curieux sur un fond chaud et légèrement flou."
+                                class="zoomable"
+                                />
+                            </td>
+                            <td>Hérisson de Somalie, hérisson de Sclater</td>
+                            <td>Atelerix sclateri</td>
+                            <td>16 à 28 cm</td>
+                            <td>298 à 496g</td>
+                            <td>Petite taille, oreilles poilues, museau allongé, gros orteil présent, ventre blanc avec de la fourrure noire sur leur abdomen inférieur.</td>
+                            <td>Somalie</td>
+                            <td>
+                                <img class="iucn-picture zoomable" src="assets/images/iucn_status/Status_iucn3.1_LC-fr.png" alt="Statut de conservation UICN - Préoccupation mineure"/> <br>
+                                Préoccupation mineure
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <aside>
+                <img 
+                id="aside-banner" 
+                title="Je suis tout mignon, non ?" 
+                src="assets/images/banners/eye-to-eye-hedgehog-child-young-hedgehog.jpg" 
+                class="zoomable"
+                alt="Un petit hérisson brun aux yeux sombres et au museau pointu est photographié en gros plan, regardant droit devant lui. Il est entouré de feuilles d'un vert éclatant, sur un fond plus sombre et flou suggérant un environnement naturel, peut-être ombragé, en extérieur.">
+                
+                <div>
+                    <div id="aside-header">
+                        <img id="light-bulb" src="assets/images/icons/light_bulb.png" alt="Icône d'ampoule">
+                        <h2>Le saviez-vous <span id="qmark">?</span></h2>
+                    </div>
+                    
+                    <p>
+                        Le hérisson est immunisé contre la plupart des poisons et peut tolérer des volumes de toxines importants. Il est 45 fois plus résistant aux poisons que d’autres mammifères de taille similaire. Le hérisson survit à la plupart des morsures de serpents, à moins d’être mordu sur le museau ou le ventre. Les serpents attaquent en se fondant sur les mouvements de chaleur, donc sans voir les piquants acérés du hérisson.
+                    </p>
+                </div>
+            </aside>
+            
+        </div>
+        
+        <div id="lightbox">
+            <img id="lightbox-img" alt="">
+            <p id="lightbox-description"></p>
+        </div>
+        
+    </main>
+    <footer>
+        <div>
+            <p id="hedge-text">
+                <span id="footer-message">Parce que l'on a tous besoin de piquant et de douceur dans la vie </span> 
+                <span id="footer-hedgehog">
+                    <span id="footer-hedgehog"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Animer le hérisson"
+                    aria-disabled="false">🦔</span>
+                </span>
+            </p>
+            <audio id="sonic-ring" src="assets/audio/sonic-ring-sound-effect-in-stereo.mp3" />
+        </div>
+        <img class="footer-leaf" src="assets/images/icons/leaf.png" alt="Icône de feuille"/>
+    </footer>
+</body>
+</html>
