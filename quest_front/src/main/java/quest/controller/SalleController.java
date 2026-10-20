@@ -3,18 +3,31 @@ package quest.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
+
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import quest.context.Singleton;
 import quest.model.Salle;
+import quest.service.SalleService;
 
 
 @WebServlet("/salle")
 public class SalleController extends HttpServlet {
 
+	@Autowired 
+	SalleService salleSrv;
+	
+	public void init(ServletConfig config) throws ServletException 
+	{
+		super.init(config);
+		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+	}
+	
 	/*
 	 * 
 	 GET =>
@@ -65,7 +78,7 @@ public class SalleController extends HttpServlet {
 	
 	public void afficherTous(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		List<Salle> salles = Singleton.getInstance().getSalleService().getAll();
+		List<Salle> salles = salleSrv.getAll();
 		request.setAttribute("salles", salles);
 		
 		request.getServletContext().getRequestDispatcher("/WEB-INF/salles.jsp").forward(request, response);
@@ -75,8 +88,8 @@ public class SalleController extends HttpServlet {
 	public void afficherParId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		Salle salle = Singleton.getInstance().getSalleService().getById(id);
-		List<Salle> salles = Singleton.getInstance().getSalleService().getAll();
+		Salle salle = salleSrv.getById(id);
+		List<Salle> salles = salleSrv.getAll();
 		request.setAttribute("salles", salles);
 		request.setAttribute("salle", salle);
 		request.getServletContext().getRequestDispatcher("/WEB-INF/salles.jsp").forward(request, response);
@@ -85,7 +98,7 @@ public class SalleController extends HttpServlet {
 	public void supprimer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		Singleton.getInstance().getSalleService().deleteById(id);
+		salleSrv.deleteById(id);
 		
 		response.sendRedirect("salle");
 	}
@@ -99,7 +112,7 @@ public class SalleController extends HttpServlet {
 		String cp = request.getParameter("adresse.cp");
 		
 		Salle salle = new Salle(null,nom,numero,voie,ville,cp);
-		Singleton.getInstance().getSalleService().insert(salle);
+		salleSrv.insert(salle);
 		
 		response.sendRedirect("salle");
 		
@@ -118,7 +131,7 @@ public class SalleController extends HttpServlet {
 		Salle salle = new Salle(id,nom,numero,voie,ville,cp);
 		salle.setVersion(version);
 		
-		Singleton.getInstance().getSalleService().update(salle);
+		salleSrv.update(salle);
 		
 		response.sendRedirect("salle");
 	}

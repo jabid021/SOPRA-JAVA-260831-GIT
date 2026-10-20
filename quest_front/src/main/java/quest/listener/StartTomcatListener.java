@@ -3,18 +3,17 @@ package quest.listener;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
-import quest.context.Singleton;
 
 @WebListener
 public class StartTomcatListener implements ServletContextListener {
 
 	
     public void contextInitialized(ServletContextEvent sce)  { 
-        Singleton.getInstance();
+        //Singleton.getInstance();
     }
 
     public void contextDestroyed(ServletContextEvent sce)  { 
-        Singleton.getInstance().getEmf().close();
+        //Singleton.getInstance().getEmf().close();
     }
 	
 }

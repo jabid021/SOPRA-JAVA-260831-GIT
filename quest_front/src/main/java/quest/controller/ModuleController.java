@@ -3,12 +3,19 @@ package quest.controller;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
+
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import quest.context.Singleton;
+import quest.dao.IDAOFiliere;
+import quest.dao.IDAOMatiere;
+import quest.dao.IDAOModule;
+import quest.dao.IDAOPersonne;
 import quest.model.Filiere;
 import quest.model.Formateur;
 import quest.model.Matiere;
@@ -18,6 +25,24 @@ import quest.model.Module;
 @WebServlet("/module")
 public class ModuleController extends HttpServlet {
 
+	@Autowired
+	IDAOPersonne daoPersonne;
+	
+	@Autowired
+	IDAOModule daoModule;
+	
+	@Autowired
+	IDAOFiliere daoFiliere;
+	
+	@Autowired
+	IDAOMatiere daoMatiere;
+	
+	public void init(ServletConfig config) throws ServletException 
+	{
+		super.init(config);
+		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("id")==null) 
 		{
@@ -55,9 +80,9 @@ public class ModuleController extends HttpServlet {
 	public void afficherTous(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		Integer idFiliere = Integer.parseInt(request.getParameter("filiere")); 
-		request.setAttribute("modules", Singleton.getInstance().getDaoModule().findAllByFiliereId(idFiliere));
-		request.setAttribute("matieres", Singleton.getInstance().getDaoMatiere().findAll());
-		request.setAttribute("formateurs", Singleton.getInstance().getDaoPersonne().findAllFormateurs());
+		request.setAttribute("modules", daoModule.findAllByFiliereId(idFiliere));
+		request.setAttribute("matieres", daoMatiere.findAll());
+		request.setAttribute("formateurs", daoPersonne.findAllFormateurs());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/modules.jsp").forward(request, response);
 	}
 
@@ -67,11 +92,11 @@ public class ModuleController extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		Integer idFiliere = Integer.parseInt(request.getParameter("filiere")); 
 
-		Module module = Singleton.getInstance().getDaoModule().findById(id);
+		Module module = daoModule.findById(id).orElse(null);
 		request.setAttribute("module", module);
-		request.setAttribute("modules", Singleton.getInstance().getDaoModule().findAllByFiliereId(idFiliere));
-		request.setAttribute("matieres", Singleton.getInstance().getDaoMatiere().findAll());
-		request.setAttribute("formateurs", Singleton.getInstance().getDaoPersonne().findAllFormateurs());
+		request.setAttribute("modules", daoModule.findAllByFiliereId(idFiliere));
+		request.setAttribute("matieres", daoMatiere.findAll());
+		request.setAttribute("formateurs", daoPersonne.findAllFormateurs());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/modules.jsp").forward(request, response);
 	}
 
@@ -80,7 +105,7 @@ public class ModuleController extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		Integer idFiliere = Integer.parseInt(request.getParameter("filiere")); 
 
-		Singleton.getInstance().getDaoModule().deleteById(id);
+		daoModule.deleteById(id);
 		
 		response.sendRedirect("module?filiere="+idFiliere);
 	}
@@ -99,18 +124,18 @@ public class ModuleController extends HttpServlet {
 		LocalDate fin = LocalDate.parse(request.getParameter("fin"));
 		
 		Integer idFiliere = Integer.parseInt(request.getParameter("filiere.id")); 
-		Filiere filiere = Singleton.getInstance().getDaoFiliere().findById(idFiliere);
+		Filiere filiere = daoFiliere.findById(idFiliere).orElse(null);
 		Integer idMatiere = Integer.parseInt(request.getParameter("matiere.id")); 
-		Matiere matiere = Singleton.getInstance().getDaoMatiere().findById(idMatiere);
+		Matiere matiere = daoMatiere.findById(idMatiere).orElse(null);
 		Formateur formateur = null;
 		if(request.getParameter("formateur.id")!="") 
 		{
 			Integer idFormateur = Integer.parseInt(request.getParameter("formateur.id"));
-			formateur = (Formateur) Singleton.getInstance().getDaoPersonne().findById(idFormateur);
+			formateur = (Formateur) daoPersonne.findById(idFormateur).orElse(null);
 		}
 		
 		Module module = new Module(null,quest,debut,fin,matiere,filiere,formateur);
-		Singleton.getInstance().getDaoModule().save(module);
+		daoModule.save(module);
 		response.sendRedirect("module?filiere="+idFiliere);
 	}
 
@@ -129,18 +154,18 @@ public class ModuleController extends HttpServlet {
 		LocalDate fin = LocalDate.parse(request.getParameter("fin"));
 		
 		Integer idFiliere = Integer.parseInt(request.getParameter("filiere.id")); 
-		Filiere filiere = Singleton.getInstance().getDaoFiliere().findById(idFiliere);
+		Filiere filiere = daoFiliere.findById(idFiliere).orElse(null);
 		Integer idMatiere = Integer.parseInt(request.getParameter("matiere.id")); 
-		Matiere matiere = Singleton.getInstance().getDaoMatiere().findById(idMatiere);
+		Matiere matiere = daoMatiere.findById(idMatiere).orElse(null);
 		Formateur formateur = null;
 		if(request.getParameter("formateur.id")!="") 
 		{
 			Integer idFormateur = Integer.parseInt(request.getParameter("formateur.id"));
-			formateur = (Formateur) Singleton.getInstance().getDaoPersonne().findById(idFormateur);
+			formateur = (Formateur) daoPersonne.findById(idFormateur).orElse(null);
 		}
 		
 		Module module = new Module(id,quest,debut,fin,matiere,filiere,formateur);
-		Singleton.getInstance().getDaoModule().save(module);
+		daoModule.save(module);
 		response.sendRedirect("module?filiere="+idFiliere);
 	}
 

@@ -29,5 +29,12 @@ public class TestSpring {
 		{
 			System.out.println(c);
 		}
+		
+		System.out.println("--------");
+		
+		System.out.println(daoProduit.findByPrixBetween(2000, 3000));
+		System.out.println(daoProduit.findByPrixBetween(500, 1000));
+		System.out.println(daoProduit.findByPrixLessThan(200));
+		System.out.println(daoProduit.findByPrixLessThan(2000));
 	}
 }
