@@ -18,8 +18,8 @@ public class Test {
 	
 	public void run() 
 	{
-		Matiere m1 = new Matiere(null,"DEMO");
-		daoMatiere.save(m1);
+		//Matiere m1 = new Matiere(null,"DEMO");
+		//daoMatiere.save(m1);
 		
 		System.out.println(daoMatiere.findAll());
 		
