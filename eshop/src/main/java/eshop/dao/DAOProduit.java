@@ -51,7 +51,7 @@ public class DAOProduit implements IDAOProduit{
 
 	
 	@Override
-	public List<Produit> findByLibContaining(String libelle) {
+	public List<Produit> findByLibelleContaining(String libelle) {
 		return em.createQuery("SELECT p FROM Produit p where p.libelle like :lib").setParameter("lib", "%"+libelle+"%") .getResultList();
 	}
 	

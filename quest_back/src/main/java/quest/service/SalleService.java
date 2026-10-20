@@ -1,6 +1,7 @@
 package quest.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,16 @@ public class SalleService {
 	
 	public Salle getById(Integer id) 
 	{
-		return daoSalle.findById(id);
+		/*Optional<Salle> opt = daoSalle.findById(id);
+		if(opt.isPresent()) 
+		{
+			return opt.get();
+		}
+		else 
+		{
+			return null;
+		}*/
+		return daoSalle.findById(id).orElse(null);
 	}
 	
 	public Salle insert(Salle salle) 

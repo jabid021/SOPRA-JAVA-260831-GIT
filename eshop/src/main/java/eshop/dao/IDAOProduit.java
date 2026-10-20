@@ -10,5 +10,5 @@ public interface IDAOProduit extends IDAO<Produit,Integer> {
 
 	public	Produit  findByIdWithVentes(Integer idProduit);
 	
-	public List<Produit> findByLibContaining(String libelle);
+	public List<Produit> findByLibelleContaining(String libelle);
 }

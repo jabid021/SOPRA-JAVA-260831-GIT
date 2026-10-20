@@ -44,7 +44,7 @@ public class DAOMatiereTest {
 		//Act
 		m1 = daoMatiere.save(m1);
 		id=m1.getId();
-		matiereBdd = daoMatiere.findById(id);
+		matiereBdd = daoMatiere.findById(id).orElse(null);
 		//Assert
 		assertNotNull(id);
 		assertNotNull(matiereBdd);
