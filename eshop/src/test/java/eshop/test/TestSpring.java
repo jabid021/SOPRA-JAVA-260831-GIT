@@ -27,7 +27,7 @@ public class TestSpring {
 		
 		Client client= new Client(null,"AbidTPTPTPTP","Jordan",Genre.homme,LocalDate.parse("1993-05-01") ,"1 bis","Rue de paris","Paris","75009");;
 		
-		daoPersonne.save(client);
+		//daoPersonne.save(client);
 		
 		
 		for(Client c : daoPersonne.findAllClient()) 
