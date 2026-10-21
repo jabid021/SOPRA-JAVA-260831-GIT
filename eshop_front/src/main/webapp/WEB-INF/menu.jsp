@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Accueil</h1>
+
+<h1>Bonjour ${login} vous êtes connecté en tant que ${role}</h1>
 </body>
 </html>
