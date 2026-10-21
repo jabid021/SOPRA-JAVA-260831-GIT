@@ -70,7 +70,7 @@ public class MatiereController {
 	}
 
 	@PostMapping
-	public String ajouter(@RequestParam(required = true) String libelle)
+	public String ajouter(@RequestParam String libelle)
 	{
 		Matiere matiere = new Matiere(null,libelle);
 		daoMatiere.save(matiere);
@@ -78,7 +78,7 @@ public class MatiereController {
 	}
 	
 	@PostMapping("/{id}")
-	public String modifier(@PathVariable Integer id,@RequestParam(required = true) String libelle) 
+	public String modifier(@PathVariable Integer id,@RequestParam String libelle) 
 	{
 		Matiere matiere = new Matiere(id,libelle);
 		daoMatiere.save(matiere);
