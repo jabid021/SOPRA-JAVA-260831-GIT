@@ -33,7 +33,7 @@ public class FiliereController {
 	{
 		model.addAttribute("filieres", daoFiliere.findAll());
 		model.addAttribute("salles", salleSrv.getAll());
-		return "/WEB-INF/filieres.jsp";
+		return "filieres.jsp";
 	}
 
 	@GetMapping("/{id}")
@@ -43,7 +43,7 @@ public class FiliereController {
 		model.addAttribute("filiere", filiere);
 		model.addAttribute("filieres", daoFiliere.findAll());
 		model.addAttribute("salles", salleSrv.getAll());
-		return "/WEB-INF/filieres.jsp";
+		return "filieres.jsp";
 	}
 	
 	@GetMapping("/{id}/delete")

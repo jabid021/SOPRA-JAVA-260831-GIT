@@ -50,7 +50,7 @@ public class MatiereController {
 	public String afficherTous(Model model) 
 	{
 		model.addAttribute("matieres", daoMatiere.findAll());
-		return "/WEB-INF/matieres.jsp";
+		return "matieres.jsp";
 	}
 
 	@GetMapping("/{id}")
@@ -59,7 +59,7 @@ public class MatiereController {
 		Matiere matiere = daoMatiere.findById(id).orElse(null);
 		model.addAttribute("matiere", matiere);
 		model.addAttribute("matieres", daoMatiere.findAll());
-		return "/WEB-INF/matieres.jsp";
+		return "matieres.jsp";
 	}
 	
 	@GetMapping("/{id}/delete")
