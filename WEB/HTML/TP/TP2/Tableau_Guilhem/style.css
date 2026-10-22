@@ -1,0 +1,224 @@
+.content-table
+{
+  margin: 25px 0;
+  border-radius:6%;
+  width:100%;
+}
+
+input[type=button] {
+    color:#08233e;
+    cursor:pointer;
+    border-radius:15%;
+}
+
+input[type=button]:hover {
+    background-color:rgba(25,204,0,0.8);
+}
+
+audio::-webkit-media-controls-panel
+{
+  background-image: url("bulles.avif");
+  background-size:100% 5%;
+}
+
+audio::-webkit-media-controls-play-button
+{
+  background-color: #B1D4E0;
+  border-radius: 67%;
+}
+
+audio::-webkit-media-controls-mute-button
+{
+  background-color: #B9C4F0;
+  border-radius: 67%;
+}
+
+@font-face
+{
+  font-family: 'Rocher';
+  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+@font-palette-values --Mint{
+  font-family: Rocher;
+  base-palette: 7;
+}
+@font-palette-values --Purples {
+  font-family: Rocher;
+  base-palette: 6;
+}
+.mint {
+  font-palette: --Mint;
+}
+.purples {
+  font-palette: --Purples;
+}
+
+
+
+audio::-webkit-media-controls-current-time-display
+{
+  color: #B9C4F0;
+  font-weight:bold;
+  font-family: 'Rocher';
+}
+
+audio::-webkit-media-controls-time-remaining-display
+{
+  color: #B9C4F0;
+  font-weight:bold;
+  font-family: 'Rocher';
+}
+
+body
+{
+background: content-box radial-gradient(purple, skyblue);
+  cursor:
+    url(cursor2.png), auto;
+  margin:0;
+  color-interpolation-filters: sRGB;
+  border-radius:6%;
+}
+
+table
+{
+  background: content-box radial-gradient(skyblue, skyblue);
+  table-layout: auto;
+  width: 95%;
+  counter-reset:case;
+  border-style: solid;
+  border-collapse: collapse;
+  font-family:'Helvetica';
+}
+
+h1
+{
+  margin:0;
+  font-family: 'Rocher';
+  font-size: 48px;
+  color: #B9C4F0;
+  background-image: url("bulles.png");
+  background-size:2.67% 89%;
+}
+
+th
+{
+  font-style:normal;
+  writing-mode: horizontal-tb;
+  border-style: dashed;
+  border-left-style:none;
+}
+
+tr
+{
+  text-align:center;
+}
+
+td
+{
+  border-style: dashed;
+  background-image: url("bulles.png");
+}
+
+audio
+{
+    width: 250px;
+    height: 50px;
+    cursor:
+    url(cursor2.png), auto;
+    filter: drop-shadow(0px 0px 25px rgba(0 0 0 / 40%))
+}
+
+#th-numero:before
+{
+  counter-increment:case;
+  content:counter(case);
+}
+
+#artiste
+{
+  font-size:20px;
+}
+
+#titre
+{
+
+}
+
+#album
+{
+  font-style:italic;
+}
+
+#album-img
+{
+  border-radius:3%;
+  filter: drop-shadow(0px 0px 25px rgba(0 34 0 / 60%))
+
+}
+#annee
+{
+  font-weight:bold;
+}
+
+#genre
+{
+
+}
+
+#audio1
+{
+
+}
+
+#btnStop
+{
+  color:mint;
+  background-color:grey;
+  width:150px;
+  height:50px;
+  border-radius:15%;
+  font-size:26px;
+  font-family:'Rocher';
+}
+
+#btnRandom
+{
+  color:mint;
+  background-color:grey;
+  width:150px;
+  height:50px;
+  border-radius:15%;
+  font-size:26px;
+  font-family:'Rocher';
+}
+
+#haut
+{
+  font-weight:400;
+}
+
+#tpt
+{
+  width: 900px;
+  max-width: 100%;
+  aspect-ratio: 1.5/1;
+
+  height: 100%;
+  color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  display:grid;
+  place-items: center;
+
+  position:absolute;
+  top:2000;
+  left:800;
+  style:bottom
+}
+
+#album-img:hover
+{
+  transform: scale(2);
+  position:relative; /*this is the key*/
+    z-index:10;
+}
