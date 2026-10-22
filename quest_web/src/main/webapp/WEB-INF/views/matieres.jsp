@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +40,7 @@
   	</tbody>
   	</table>
   		<c:choose>
-  			<c:when test="${matiere==null}">
+  			<c:when test="${matiere.id==null}">
   				<c:set var="operation" value="ajout"/>
   				<c:set var="submitText" value="Ajouter"/>
   				<c:set var="chemin" value="matiere"/>
@@ -54,18 +54,18 @@
   	
   		<div class="message-form">Formulaire d'${operation}</div>
 
-  	<form action="${chemin}" method="post" class="form-clean">
-  	  <input type="hidden" name="id" value="${matiere.id}">
+  	<form:form action="${chemin}" method="post" class="form-clean" modelAttribute="matiere">
+  	  <form:hidden path="id"/>
 
-  	  <label for="libelle">libelle</label>
-  	  <input required="required" id="libelle" type="text" name="libelle" placeholder="Saisir libelle" value="${matiere.libelle}">
+  	  <form:label path="libelle">libelle</form:label>
+  	  <form:input required="required" type="text" path="libelle" placeholder="Saisir libelle"/>
 
 
   	  <div class="form-actions">
-  	    <input type="submit" value="${submitText}" class="btn btn-success">
+  	    <input type="submit" value="${submitText}" class="btn btn-success"/>
   	    <a href="matiere" class="btn btn-primary">Annuler</a>
   	  </div>
-  	</form>
+  	</form:form>
 
   	<br><br>
   	<a class="btn btn-info" href="home">Retour</a>

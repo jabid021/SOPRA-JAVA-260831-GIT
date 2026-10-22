@@ -50,6 +50,7 @@ public class MatiereController {
 	public String afficherTous(Model model) 
 	{
 		model.addAttribute("matieres", daoMatiere.findAll());
+		model.addAttribute("matiere", new Matiere());
 		return "matieres.jsp";
 	}
 
@@ -57,8 +58,8 @@ public class MatiereController {
 	public String afficherParId(@PathVariable Integer id, Model model) 
 	{
 		Matiere matiere = daoMatiere.findById(id).orElse(null);
-		model.addAttribute("matiere", matiere);
 		model.addAttribute("matieres", daoMatiere.findAll());
+		model.addAttribute("matiere", matiere);
 		return "matieres.jsp";
 	}
 	

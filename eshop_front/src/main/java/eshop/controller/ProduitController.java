@@ -31,7 +31,7 @@ public class ProduitController {
 	{
 		model.addAttribute("produits", daoProduit.findAll());
 		model.addAttribute("fournisseurs",fournisseurSrv.getAll());
-		return "/WEB-INF/produits.jsp";
+		return "produits";
 	}
 
 	@GetMapping("/{id}")
@@ -41,7 +41,7 @@ public class ProduitController {
 		model.addAttribute("produit", produit);
 		model.addAttribute("produits", daoProduit.findAll());
 		model.addAttribute("fournisseurs",fournisseurSrv.getAll());
-		return "/WEB-INF/produits.jsp";
+		return "produits";
 	}
 	
 	@GetMapping("/{id}/delete")

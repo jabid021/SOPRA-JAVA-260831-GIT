@@ -54,19 +54,18 @@ public class FiliereController {
 	}
 
 	@PostMapping
-	public String ajouter(@RequestParam String libelle,LocalDate debut,LocalDate fin,@RequestParam(name="salle.id",required = false)Integer idSalle)
+	public String ajouter(Filiere filiere)
 	{
-		Salle salle = (idSalle==null)? null : salleSrv.getById(idSalle);
-		Filiere filiere = new Filiere(null,libelle,debut,fin,salle);
+		if(filiere.getSalle().getId()==null) {filiere.setSalle(null);}
 		daoFiliere.save(filiere);
 		return "redirect:/filiere";
 	}
 	
 	@PostMapping("/{id}")
-	public String modifier(@PathVariable Integer id,@RequestParam String libelle,LocalDate debut,LocalDate fin,@RequestParam(name="salle.id",required = false)Integer idSalle) 
+	public String modifier(@PathVariable Integer id,Filiere filiere) 
 	{
-		Salle salle = (idSalle==null)? null : salleSrv.getById(idSalle);
-		Filiere filiere = new Filiere(id,libelle,debut,fin,salle);
+		filiere.setId(id);
+		if(filiere.getSalle().getId()==null) {filiere.setSalle(null);}
 		daoFiliere.save(filiere);
 		return "redirect:/filiere";
 	}

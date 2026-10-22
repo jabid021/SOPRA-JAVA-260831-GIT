@@ -4,10 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Menu Stagiaire</title>
 </head>
 <body>
 
-<h1>Bonjour ${login} vous êtes connecté en tant que ${role}</h1>
+<h1>Welcome ${connected.login}</h1>
+
+<h1>SITE EN COURS DE CONSTRUCTION (Espace Stagiaire)</h1>
 </body>
 </html>

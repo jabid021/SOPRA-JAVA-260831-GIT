@@ -41,7 +41,7 @@
 		        	</c:otherwise>
 		        </c:choose>
                 <td>
-                    <a class="btn btn-info" href="module?filiere=${f.id}">Modules</a>
+                    <a class="btn btn-info" href="module/filiere-${f.id}">Modules</a>
                     <a class="btn btn-warning" href="filiere/${f.id}">Modifier</a>
   					<a class="btn btn-danger" href="filiere/${f.id}/delete">Supprimer</a>
                 </td>
