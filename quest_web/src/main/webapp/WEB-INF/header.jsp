@@ -16,6 +16,6 @@
   <div>accueil</div>
   
   <c:if test="${connected!=null}">
-  	<a class="btn btn-danger" id="btnDisconnect" href="home?logout">Deconnexion</a>
+  	<a class="btn btn-danger" id="btnDisconnect" href="logout">Deconnexion</a>
   </c:if>
 </header>

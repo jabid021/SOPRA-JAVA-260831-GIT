@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>    
- 
- 
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+  <%@include file="/WEB-INF/securityAdmin.jsp" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -51,7 +51,7 @@
         </table>
         
         <c:choose>
-  			<c:when test="${filiere==null}">
+  			<c:when test="${filiere.id==null}">
   				<c:set var="chemin" value="filiere"/>
   			</c:when>
   			<c:otherwise>
@@ -61,32 +61,30 @@
   		
         <div class="message-form">Formulaire d'ajout / update</div>
 
-        <form action="${chemin}" method="post" class="form-clean">
-            <input type="hidden" name="id" value="${filiere.id}">
+        <form:form action="${chemin}" method="post" class="form-clean" modelAttribute="filiere">
+            <form:hidden path="id" />
 
-            <label for="libelle">Libellé</label>
-            <input required="required" id="libelle" type="text" name="libelle" placeholder="Saisir libellé" value="${filiere.libelle}">
+            <form:label path="libelle">Libellé</form:label>
+            <form:input required="required" path="libelle" type="text" placeholder="Saisir libellé"/>
 
-            <label for="debut">Date début</label>
-            <input type="date" id="debut" name="debut" value="${filiere.debut}">
+            <form:label path="debut">Date début</form:label>
+            <form:input type="date" path="debut" />
 
-            <label for="fin">Date fin</label>
-            <input type="date" id="fin" name="fin" value="${filiere.fin}">
+            <form:label path="fin">Date fin</form:label>
+            <form:input type="date" path="fin" />
    
 
-            <label for="salle">Salle</label>
-            <select id="salle" name="salle.id">
-                <option value="">Pas de salle</option>
-                 <c:forEach items="${salles}" var="s">
-                     <option <c:if test="${s.id==filiere.salle.id}">selected</c:if> value="${s.id}">${s.infos}</option>
-                 </c:forEach>
-              </select>
+            <form:label path="salle">Salle</form:label>
+            <form:select path="salle.id">
+                <form:option value="">Pas de salle</form:option>
+                 <form:options items="${salles}" itemValue="id" itemLabel="infos"/>
+              </form:select>
 
             <div class="form-actions">
                 <input type="submit" value="Sauvegarder" class="btn btn-success">
                 <a href="filiere" class="btn btn-primary">Annuler</a>
             </div>
-        </form>
+        </form:form>
 
         <br><br>
         <a class="btn btn-info" href="home">Retour</a>

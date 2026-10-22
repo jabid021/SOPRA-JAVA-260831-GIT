@@ -2,6 +2,8 @@ package quest.model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,7 +21,9 @@ public class Module {
 	private Integer id;
 	private int quest;
 	@Column(nullable = false)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate debut;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(nullable = false)
 	private LocalDate fin;
 	

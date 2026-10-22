@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
 
-
+ <%@include file="/WEB-INF/securityAdmin.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>

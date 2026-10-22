@@ -1,3 +1,4 @@
+ <%@include file="/WEB-INF/securityAdmin.jsp" %>
 <html>
 <head>
 	<meta charset="UTF-8">

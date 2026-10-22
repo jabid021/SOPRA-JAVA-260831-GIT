@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,7 @@ public class ProduitController {
 	@GetMapping
 	public String afficherTous(Model model) 
 	{
+		model.addAttribute("produit", new Produit());
 		model.addAttribute("produits", daoProduit.findAll());
 		model.addAttribute("fournisseurs",fournisseurSrv.getAll());
 		return "produits";
@@ -52,19 +54,16 @@ public class ProduitController {
 	}
 
 	@PostMapping
-	public String ajouter(@RequestParam String libelle,@RequestParam double prix,@RequestParam(name="fournisseur.id") Integer idFournisseur)
+	public String ajouter(@ModelAttribute Produit produit)
 	{
-		Fournisseur fournisseur = fournisseurSrv.getById(idFournisseur);
-		Produit produit = new Produit(null,libelle,prix,fournisseur);
 		daoProduit.save(produit);
 		return "redirect:/produit";
 	}
 	
 	@PostMapping("/{id}")
-	public String modifier(@PathVariable Integer id,@RequestParam String libelle,@RequestParam double prix,@RequestParam(name="fournisseur.id") Integer idFournisseur) 
+	public String modifier(@PathVariable Integer id,@ModelAttribute Produit produit) 
 	{
-		Fournisseur fournisseur = fournisseurSrv.getById(idFournisseur);
-		Produit produit = new Produit(id,libelle,prix,fournisseur);
+		produit.setId(id);
 		daoProduit.save(produit);
 		return "redirect:/produit";
 	}
