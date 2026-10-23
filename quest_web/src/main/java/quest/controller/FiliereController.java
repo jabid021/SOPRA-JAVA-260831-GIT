@@ -3,11 +3,13 @@ package quest.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jakarta.validation.Valid;
 import quest.dao.IDAOFiliere;
 import quest.model.Filiere;
 import quest.service.SalleService;
@@ -51,17 +53,33 @@ public class FiliereController {
 	}
 
 	@PostMapping
-	public String ajouter(Filiere filiere)
+	public String ajouter(@Valid Filiere filiere, BindingResult result,Model model)
 	{
+		if(result.hasErrors()) 
+		{
+			model.addAttribute("filiere", filiere);
+			model.addAttribute("filieres", daoFiliere.findAll());
+			model.addAttribute("salles", salleSrv.getAll());
+			return "filieres.jsp";
+		}
 		if(filiere.getSalle().getId()==null) {filiere.setSalle(null);}
 		daoFiliere.save(filiere);
 		return "redirect:/filiere";
 	}
 	
 	@PostMapping("/{id}")
-	public String modifier(@PathVariable Integer id,Filiere filiere) 
+	public String modifier(@PathVariable Integer id,@Valid Filiere filiere, BindingResult result,Model model ) 
 	{
 		filiere.setId(id);
+		if(result.hasErrors()) 
+		{
+			model.addAttribute("filiere", filiere);
+			model.addAttribute("filieres", daoFiliere.findAll());
+			model.addAttribute("salles", salleSrv.getAll());
+			return "filieres.jsp";
+		}
+		
+		
 		if(filiere.getSalle().getId()==null) {filiere.setSalle(null);}
 		daoFiliere.save(filiere);
 		return "redirect:/filiere";

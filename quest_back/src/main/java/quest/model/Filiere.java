@@ -14,6 +14,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="filiere")
@@ -22,6 +24,9 @@ public class Filiere {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(length = 35,nullable = false)
+	
+	@NotBlank
+	@Size(min = 10, max = 20, message = "La taille du libelle n'est pas conforme (entre 10 et 20 stp..) ")
     private String libelle;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate debut;

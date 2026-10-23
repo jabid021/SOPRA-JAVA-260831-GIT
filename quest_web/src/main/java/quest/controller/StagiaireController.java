@@ -15,7 +15,6 @@ import jakarta.servlet.http.HttpSession;
 import quest.dao.IDAOFiliere;
 import quest.dao.IDAOPersonne;
 import quest.model.Genre;
-import quest.model.Personne;
 import quest.model.Stagiaire;
 
 @Controller
@@ -28,7 +27,7 @@ public class StagiaireController {
 	@Autowired
 	IDAOFiliere daoFiliere;
 	
-	@GetMapping
+	@GetMapping //GET
 	public String afficherTous(Model model) 
 	{
 		List<Stagiaire> stagiaires = daoPersonne.findAllStagiaires();
@@ -39,7 +38,7 @@ public class StagiaireController {
 		return "stagiaires.jsp";
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{id}") //GET
 	public String afficherParId(@PathVariable Integer id,  Model model) 
 	{
 		Stagiaire stagiaire = (Stagiaire) daoPersonne.findById(id).orElse(null);
@@ -51,7 +50,7 @@ public class StagiaireController {
 		return "stagiaires.jsp";
 	}
 	
-	@GetMapping("/{id}/delete")
+	@GetMapping("/{id}/delete") //DELETE
 	public String supprimer(@PathVariable Integer id) 
 	{
 		daoPersonne.deleteById(id);
@@ -59,7 +58,7 @@ public class StagiaireController {
 		return "redirect:/stagiaire";
 	}
 	
-	@PostMapping
+	@PostMapping //POST
 	public String ajouter(@ModelAttribute Stagiaire stagiaire){
 		System.out.println(stagiaire);
 		daoPersonne.save(stagiaire);
@@ -79,7 +78,7 @@ public class StagiaireController {
 		
 	}*/
 	
-	@PostMapping("/{id}")
+	@PostMapping("/{id}") //PUT
 	public String modifier(@PathVariable Integer id,Stagiaire stagiaire) 
 	{
 		stagiaire.setId(id);
@@ -87,11 +86,15 @@ public class StagiaireController {
 		return "redirect:/stagiaire";
 	}
 	
-	@PostMapping("/modifLogin")
-	public String modifierLoginAndPassword(HttpSession session) 
+	@PostMapping("/modifLogin") //update partiel (PATCH)
+	public String modifierLoginAndPassword(Integer id,String login, String password, HttpSession session) 
 	{
-		
-		((Stagiaire) session.getAttribute("connected")).setLogin("MettreLePasswordDuFormulaire");
+		Stagiaire stagiaire = (Stagiaire) daoPersonne.findById(id).orElse(null);
+		stagiaire.setLogin(login);
+		stagiaire.setPassword(password);
+		daoPersonne.save(stagiaire); 
+	
+		((Stagiaire) session.getAttribute("connected")).setLogin(login);
 		return "menuStagiaire.jsp";
 	}
 	

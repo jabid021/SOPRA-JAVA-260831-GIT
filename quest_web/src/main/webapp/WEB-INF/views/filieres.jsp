@@ -66,6 +66,7 @@
 
             <form:label path="libelle">Libellé</form:label>
             <form:input required="required" path="libelle" type="text" placeholder="Saisir libellé"/>
+            <form:errors style="color:red" path="libelle"/>
 
             <form:label path="debut">Date début</form:label>
             <form:input type="date" path="debut" />
