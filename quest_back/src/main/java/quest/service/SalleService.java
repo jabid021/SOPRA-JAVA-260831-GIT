@@ -36,6 +36,10 @@ public class SalleService {
 	
 	public Salle insert(Salle salle) 
 	{
+		if(salle.getId()!=null) 
+		{
+			throw new RuntimeException("Une salle ne doit pas avoir d'id en INSERT...");
+		}
 		return daoSalle.save(salle);
 	}
 	
