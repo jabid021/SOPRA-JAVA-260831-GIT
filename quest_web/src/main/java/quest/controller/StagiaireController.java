@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jakarta.servlet.http.HttpSession;
 import quest.dao.IDAOFiliere;
 import quest.dao.IDAOPersonne;
 import quest.model.Genre;
+import quest.model.Personne;
 import quest.model.Stagiaire;
 
 @Controller
@@ -85,6 +87,13 @@ public class StagiaireController {
 		return "redirect:/stagiaire";
 	}
 	
+	@PostMapping("/modifLogin")
+	public String modifierLoginAndPassword(HttpSession session) 
+	{
+		
+		((Stagiaire) session.getAttribute("connected")).setLogin("MettreLePasswordDuFormulaire");
+		return "menuStagiaire.jsp";
+	}
 	
 	
 

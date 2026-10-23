@@ -42,8 +42,8 @@
 			        	</c:otherwise>
 		       		 </c:choose>
 					<td>
-						<a class="btn btn-warning" href="ordinateur?id=${o.numero}">Modifier</a>
-						<a class="btn btn-danger"  href="ordinateur?id=${o.numero}&delete">Supprimer</a>
+						<a class="btn btn-warning" href="ordinateur/${o.numero}">Modifier</a>
+						<a class="btn btn-danger"  href="ordinateur/${o.numero}/delete">Supprimer</a>
 					</td>
 				</tr>
 			</c:forEach>
@@ -51,31 +51,38 @@
 		</table>
 		<div class="message-form">Formulaire d'ajout / update</div>
 
-		<form action="ordinateur" method="post" class="form-clean">
-			<input type="hidden" name="numero" value="${ordinateur.numero}">
+		<c:choose>
+  			<c:when test="${ordinateur.numero==null}">
+  				<c:set var="chemin" value="ordinateur"/>
+  			</c:when>
+  			<c:otherwise>
+  				<c:set var="chemin" value="ordinateur/${ordinateur.numero}"/>
+  			</c:otherwise>
+  		</c:choose>
+  		
+		<form:form action="${chemin}" method="post" class="form-clean" modelAttribute="ordinateur">
+			<form:hidden path="numero"/>
 
-			<label for="marque">Marque</label>
-			<input required="required" id="marque" type="text" name="marque" placeholder="Saisir la marque" value="${ordinateur.marque}">
+			<form:label path="marque">Marque</form:label>
+			<form:input required="required" path="marque" type="text"  placeholder="Saisir la marque" />
 
-			<label for="ram">Ram</label>
-			<input required="required" id="ram" type="number"  min="0" name="ram" placeholder="Saisir la ram" value="${ordinateur.ram}">
+			<form:label path="ram">Ram</form:label>
+			<form:input required="required" path="ram" type="number"  min="0"  placeholder="Saisir la ram" />
 
 
 
-			<label for="utilisateur">Utilisateur</label>
-              <select id="utilisateur" name="utilisateur.id">
+			<form:label path="utilisateur.id">Utilisateur</form:label>
+              <form:select path="utilisateur.id">
                 <option value="">Pas d'utilisateur</option>
-                 <c:forEach items="${utilisateurs}" var="u">
-                     <option <c:if test="${u.id==ordinateur.utilisateur.id}">selected</c:if> value="${u.id}">${u.infos}</option>
-                 </c:forEach>
-              </select>
+                 <form:options items="${utilisateurs}" itemValue="id" itemLabel="infos"/>
+              </form:select>
 
 
 			<div class="form-actions">
 				<input type="submit" value="Sauvegarder" class="btn btn-success">
 				<a href="" class="btn btn-primary">Annuler</a>
 			</div>
-		</form>
+		</form:form>
 
 		<br><br>
 		<a class="btn btn-info" href="home">Retour</a>

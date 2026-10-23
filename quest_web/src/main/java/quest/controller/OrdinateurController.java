@@ -11,28 +11,45 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import quest.dao.IDAOFiliere;
 import quest.dao.IDAOOrdinateur;
-import quest.model.Genre;
+import quest.dao.IDAOPersonne;
 import quest.model.Ordinateur;
+import quest.model.Stagiaire;
 
 @Controller
 @RequestMapping("/ordinateur")
 public class OrdinateurController {
 
+	@Autowired
+	IDAOOrdinateur daoOrdinateur;
+	
+	@Autowired
+	IDAOPersonne daoPersonne;
 	
 	
 	@GetMapping
 	public String afficherTous(Model model) 
 	{
-		//Code ICI
+		model.addAttribute("ordinateur",new Ordinateur());
+		model.addAttribute("ordinateurs",daoOrdinateur.findAll());
+		model.addAttribute("utilisateurs",daoPersonne.findByOrdinateurIsNull());
+		
 		return "ordinateurs.jsp";
 	}
 	
 	@GetMapping("/{id}")
 	public String afficherParId(@PathVariable Integer id,  Model model) 
 	{
-		//Code ICI
+		Ordinateur ordinateur = daoOrdinateur.findById(id).orElse(null);
+		model.addAttribute("ordinateur", ordinateur);
+		model.addAttribute("ordinateurs",daoOrdinateur.findAll());
+		
+		List<Stagiaire> disponibles = daoPersonne.findByOrdinateurIsNull();
+		if(ordinateur.getUtilisateur()!=null)
+		{
+			disponibles.add(ordinateur.getUtilisateur());
+		}
+		model.addAttribute("utilisateurs",disponibles);
 		return "ordinateurs.jsp";
 	}
 	
@@ -45,7 +62,10 @@ public class OrdinateurController {
 	
 	@PostMapping
 	public String ajouter(@ModelAttribute Ordinateur ordinateur){
-		//Verifier si stagiaire null ?
+		if(ordinateur.getUtilisateur().getId()==null) 
+		{
+			ordinateur.setUtilisateur(null);
+		}
 		daoOrdinateur.save(ordinateur);
 		return "redirect:/ordinateur";
 		
@@ -56,7 +76,10 @@ public class OrdinateurController {
 	public String modifier(@PathVariable Integer id,Ordinateur ordinateur) 
 	{
 		ordinateur.setNumero(id);
-		//Verifier si stagiaire null ?
+		if(ordinateur.getUtilisateur().getId()==null) 
+		{
+			ordinateur.setUtilisateur(null);
+		}
 		daoOrdinateur.save(ordinateur);
 		return "redirect:/ordinateur";
 	}
