@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
-@ComponentScan("quest.controller")
+@ComponentScan({"quest.controller","quest.restcontroller"})
 @EnableWebMvc
 @Import(AppConfig.class)
 public class WebConfig  implements WebMvcConfigurer {

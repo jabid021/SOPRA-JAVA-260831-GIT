@@ -3,17 +3,17 @@ package eshop.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import eshop.dao.IDAOProduit;
-import eshop.model.Fournisseur;
 import eshop.model.Produit;
 import eshop.service.FournisseurService;
+import jakarta.validation.Valid;
 
 
 
@@ -54,16 +54,30 @@ public class ProduitController {
 	}
 
 	@PostMapping
-	public String ajouter(@ModelAttribute Produit produit)
+	public String ajouter(@Valid @ModelAttribute Produit produit,BindingResult resultat,Model model)
 	{
+		if(resultat.hasErrors()) 
+		{
+			model.addAttribute("produit", produit);
+			model.addAttribute("produits", daoProduit.findAll());
+			model.addAttribute("fournisseurs",fournisseurSrv.getAll());
+			return "produits";
+		}
 		daoProduit.save(produit);
 		return "redirect:/produit";
 	}
 	
 	@PostMapping("/{id}")
-	public String modifier(@PathVariable Integer id,@ModelAttribute Produit produit) 
+	public String modifier(@PathVariable Integer id,@Valid @ModelAttribute Produit produit,BindingResult resultat,Model model) 
 	{
 		produit.setId(id);
+		if(resultat.hasErrors()) 
+		{
+			model.addAttribute("produit", produit);
+			model.addAttribute("produits", daoProduit.findAll());
+			model.addAttribute("fournisseurs",fournisseurSrv.getAll());
+			return "produits";
+		}
 		daoProduit.save(produit);
 		return "redirect:/produit";
 	}

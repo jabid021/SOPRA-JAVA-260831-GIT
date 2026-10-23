@@ -53,10 +53,13 @@
 
   	  <form:label path="libelle">Libelle</form:label>
   	  <form:input required="required" path="libelle" type="text" placeholder="Saisir libelle" />
-
+	  <form:errors style="color:red" path="libelle"/>
+	
+	
 	  <form:label path="prix">Prix</form:label>
   	  <form:input required="required" path="prix" type="number" step="0.01" placeholder="Saisir prix" />
-
+	  <form:errors  path="prix"><span style="color:red">error custom</span></form:errors>
+	  
  	<form:select required="required" path="fournisseur.id">
           <form:option value="">Choisir un fournisseur</form:option>
           <form:options items="${fournisseurs}" itemValue="id" itemLabel="infos" />
