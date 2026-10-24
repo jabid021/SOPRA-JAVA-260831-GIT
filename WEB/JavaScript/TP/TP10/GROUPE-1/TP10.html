@@ -49,15 +49,48 @@
     left:0px;
   }
 
+  #btnSubtitution
+  {
+
+    display:none;
+    position:absolute;
+
+  }
+  #btnTerra
+  {
+
+    display:none;
+    position:absolute;
+
+  }
+  #btnMulticlonage
+  {
+
+    display:none;
+    position:absolute;
+
+  }
+
+  #chrono
+  {
+    display:none;
+  }
+
 </style>
 
 
 <script defer src="pikachu.js" charset="utf-8"></script>
   <audio id="themePokemon" src="assets/audio/theme.mp3"></audio>
+  <audio id="themeSNK" src="assets/audio/terrassement.mp3"></audio>
+  <audio id="themeNaruto" src="assets/audio/naruto.mp3"></audio>
+  <audio id="multiclonage" src="assets/audio/multiclonage.mp3"></audio>
 
 <div id="formStart">
   <input id="inputNamePokemon1" type="text" placeholder="pikachu">
-  <input id="inputNamePokemon2" type="text" placeholder="miaouss"><input id="btnStart" disabled type="button" value="Start !">
+  <input id="inputNamePokemon2" type="text" placeholder="miaouss">
+  <label for="chronoTime">Temps pour chasser du pikachu (min:sec)</label>
+  <input id="chronoTime" type="time">
+  <input id="btnStart" disabled type="button" value="Start !">
 </div>
 
 <div id="grass">
@@ -65,6 +98,9 @@
   <div id="miaouss"><img id="imgMiaouss" src="assets/img/miaoussDown.png"></div>
 </div>
 
+<h1 id="chrono">00:00</h1>
 
-<input id="btnTerra" disabled type="button" value=" Grand Terrassement !">
+<input id="btnTerra"  type="button" value=" Grand Terrassement !">
+<input id="btnMulticlonage"  type="button" value=" kabujin no jutsu !">
+<input id="btnSubtitution"  type="button" value=" Substitution !">
 <img id="DEATH" src="assets/img/craneUwU.png">
