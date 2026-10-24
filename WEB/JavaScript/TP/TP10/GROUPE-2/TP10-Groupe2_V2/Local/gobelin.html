@@ -2,17 +2,17 @@
 
 <style>
 
-  body
-  {
+body {
+  background-image: url("assets/img/water-gobelin.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    background-image : url("assets/img/water.png");
-    background-size:100% 100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-  }
   #grass
   {
     display:none;
@@ -23,11 +23,10 @@
     background-image : url("assets/img/Grass.png")
   }
 
-  #gobelin
-  {
-    position:absolute;
-    top:0;
-    left:0;
+  #personnage {
+      position: absolute;
+      top: 0;
+      left: 0;
   }
 
   @font-face {
@@ -419,13 +418,31 @@ input[type="number"] {
 <script defer src="gobelin.js" charset="utf-8"></script>
   <audio id="themePokemon" src="assets/audio/theme.mp3"></audio>
 
-<div id="formStart">
-  <input id="inputName" type="text" placeholder="gobelin" opacity = O.5 ><input id="btnStart" disabled type="button" value="Start !">
-</div>
+  <div id="formStart">
+      <input
+          id="inputName"
+          type="text"
+          placeholder="gobelin"
+          autocomplete="off"
+      >
 
-<div id="grass">
-  <div id="gobelin"><img id="imgGobelin" src="./assets/img/gobDown.png"></div>
-</div>
+      <input
+          id="btnStart"
+          disabled
+          type="button"
+          value="Start !"
+      >
+  </div>
+
+  <div id="grass">
+      <div id="personnage">
+          <img
+              id="imgPersonnage"
+              src="assets/img/gobelinDown.png"
+              alt="Personnage"
+          >
+      </div>
+  </div>
 
 
 <div id="modalEchange" class="modal">

@@ -4,9 +4,10 @@ var posX = 0;
 var posY = 0;
 var mouvement = 30;
 
-var pokemon = "gob";
+var nomPersonnage = "gobelin";
 var direction = "Down";
-var surnom = "";
+
+var personnagesDisponibles = ["gobelin", "licorne"];
 
 var inputName = document.getElementById("inputName");
 var btnStart = document.getElementById("btnStart");
@@ -24,6 +25,10 @@ var messageAmelioration =
 document.getElementById("messageAmelioration");
 var messageAttaque = document.getElementById("messageAttaque");
 var selectRoyaume = document.getElementById("royaume");
+
+var personnage = document.getElementById("personnage");
+var imgPersonnage = document.getElementById("imgPersonnage");
+
 
 var royaumes = [
   "Bouboule - Royaume des canards",
@@ -47,8 +52,8 @@ for (var i = 0; i < royaumes.length; i++) {
 }
 
 
-imgGobelin.style.width = "96px";
-imgGobelin.style.height = "96px";
+imgPersonnage.style.width = "96px";
+imgPersonnage.style.height = "96px";
 
 document.body.style.margin = "0";
 document.body.style.width = "100%";
@@ -61,7 +66,7 @@ grass.style.backgroundSize = "100% 100%";
 grass.style.backgroundRepeat = "no-repeat";
 grass.style.backgroundPosition = "center";
 
-imgGobelin.src = "assets/img/" + pokemon + direction + ".png";
+actualiserSprite();
 
 inputName.addEventListener("input", function () {
   btnStart.disabled = inputName.value.trim() === "";
@@ -75,30 +80,77 @@ inputName.addEventListener("keydown", function (event) {
   }
 });
 
+function actualiserSprite() {
+    imgPersonnage.src =
+        "assets/img/" +
+        nomPersonnage +
+        direction +
+        ".png";
+}
+
+function actualiserFond() {
+    document.body.style.backgroundImage =
+        'url("assets/img/water-' +
+        nomPersonnage +
+        '.png")';
+}
+
+function verifierImage(cheminImage) {
+    return new Promise(function (resolve, reject) {
+        var imageTest = new Image();
+
+        imageTest.onload = function () {
+            resolve();
+        };
+
+        imageTest.onerror = function () {
+            reject();
+        };
+
+        imageTest.src = cheminImage;
+    });
+}
 
 function startGame() {
-  surnom = inputName.value.trim();
+    var nomSaisi = inputName.value
+        .trim()
+        .toLowerCase();
 
-  if (surnom !== "gobelin") {
-    alert("Vous devez saisir 'gobelin' pour entrer dans le jeu.");
-    return;
-  }
+    if (nomSaisi === "") {
+        return;
+    }
 
-  formStart.style.display = "none";
-  grass.style.display = "block";
-  gobelin.title = surnom;
+    if (!personnagesDisponibles.includes(nomSaisi)) {
+        alert(
+            "Le personnage '" +
+            nomSaisi +
+            "' n'existe pas."
+        );
 
-  posX = 0;
-  posY = 0;
-  direction = "Down";
+        inputName.focus();
+        return;
+    }
 
-  gobelin.style.left = posX + "px";
-  gobelin.style.top = posY + "px";
+    nomPersonnage = nomSaisi;
 
-  imgGobelin.src =
-  "assets/img/gob" + direction + ".png";
+    posX = 0;
+    posY = 0;
+    direction = "Down";
 
-  document.addEventListener("keydown", deplacement);
+    personnage.style.left = posX + "px";
+    personnage.style.top = posY + "px";
+
+    personnage.title = nomPersonnage;
+    imgPersonnage.alt = nomPersonnage;
+
+    actualiserSprite();
+    actualiserFond();
+
+    formStart.style.display = "none";
+    grass.style.display = "block";
+
+    document.removeEventListener("keydown", deplacement);
+    document.addEventListener("keydown", deplacement);
 }
 
 function estSurLaTable(x, y) {
@@ -255,11 +307,10 @@ function estSurLaTapisserie(x, y) {
       posY = nouvellePosY;
     }
 
-    gobelin.style.left = posX + "px";
-    gobelin.style.top = posY + "px";
+    personnage.style.left = posX + "px";
+personnage.style.top = posY + "px";
 
-    imgGobelin.src =
-    "assets/img/gob" + direction + ".png";
+actualiserSprite();
   }
 
   function estAdjacentAZone(caseGobelin, ligneGobelin,caseDebut,caseFin,ligneDebut,ligneFin) {
@@ -279,30 +330,45 @@ function estSurLaTapisserie(x, y) {
   }
 
   function interaction() {
-    var caseGobelin = posX / mouvement;
-    var ligneGobelin = posY / mouvement;
+    var casePersonnage = posX / mouvement;
+    var lignePersonnage = posY / mouvement;
 
-    // Table : ligne 0, cases 7 à 14
-    var presDeLaTable = estAdjacentAZone(caseGobelin,ligneGobelin,7,14,0,0);
+    var presDeLaTable = estAdjacentAZone(
+        casePersonnage,
+        lignePersonnage,
+        7,
+        14,
+        0,
+        0
+    );
 
-    // Carte : lignes 6 à 9, cases 1 à 3
-    var presDeLaCarte = estAdjacentAZone(caseGobelin,ligneGobelin,0,3,6,9);
+    var presDeLaCarte = estAdjacentAZone(
+        casePersonnage,
+        lignePersonnage,
+        0,
+        3,
+        6,
+        9
+    );
 
-    // Armes : lignes 5 à 9, cases 17 à 20
-    var presDesArmes = estAdjacentAZone(caseGobelin,ligneGobelin,17,20,5,9);
+    var presDesArmes = estAdjacentAZone(
+        casePersonnage,
+        lignePersonnage,
+        17,
+        20,
+        5,
+        9
+    );
 
     if (presDeLaTable) {
-      ouvrirModal(modalEchange);
+        ouvrirModal(modalEchange);
+    } else if (presDeLaCarte) {
+        ouvrirModal(modalAmelioration);
+    } else if (presDesArmes) {
+        ouvrirModal(modalAttaque);
     }
+}
 
-    else if (presDeLaCarte) {
-      ouvrirModal(modalAmelioration);
-    }
-
-    else if (presDesArmes) {
-      ouvrirModal(modalAttaque);
-    }
-  }
   function ouvrirModal(modal) {
     modal.style.display = "flex";
   }
