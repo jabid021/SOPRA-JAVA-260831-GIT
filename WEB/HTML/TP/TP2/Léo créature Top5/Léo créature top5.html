@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Top 5 des créatures mythologiques</title>
+
+  <link rel="stylesheet" href="creatures.css">
+</head>
+
+
+
+<body>
+
+<img src="assets/pilier.png" class="pilier pilier-gauche" >
+<img src="assets/pilier.png" class="pilier pilier-droite" >
+
+  <header>
+
+<div class="titre-avec-lauriers">
+  <img src="assets/lauriers.png" class="laurier laurier-gauche">
+    <h1>Top 5 des créatures mythologiques</h1>
+
+    <img src="assets/lauriers.png" class="laurier laurier-droite">
+</div>
+    <p>Ce classement est purement subjectif; pour toute réclamation, veuillez cliquer <a id="lienflemme">ici</a></p>
+
+  </header>
+
+  <main>
+    <h2>Le classement</h2>
+    <p class="intro">
+      Voici mon top 5 de mes créatures mythologiques préférées,<br> venues des quatre coins du monde.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Rang</th>
+          <th>Créature</th>
+          <th>Origine</th>
+          <th>Apparence</th>
+          <th>Pouvoir principal</th>
+          <th>Puissance</th>
+          <th>Illustration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="premier">
+          <td>1</td>
+          <td class="nom">Phénix</td>
+          <td>Égypte ancienne, repris par les Grecs</td>
+          <td>Grand oiseau au plumage rouge et or, entouré de flammes</td>
+          <td>Renaître de ses cendres après sa mort</td>
+          <td>4,5/5</td>
+          <td class="Phénix"><img src="assets/phenix.png"></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="nom">Le canard TPT (version swag) </td>
+          <td>inconnue (sûrement depuis l'origine de ce monde)</td>
+          <td>Canard pas si banale que ça</td>
+          <td>Personne ne saît mais apparament il peut tous faire</td>
+          <td>10/5</td>
+          <td class="TPT"><img src="assets/TPT.png"></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="nom">Cerbère</td>
+          <td>Grèce antique</td>
+          <td>Chien géant à trois têtes, queue de serpent</td>
+          <td>Garder l'entrée des Enfers (force brute)</td>
+          <td>4/5</td>
+          <td class="Cerbère"><img src="assets/cerbere.png"></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="nom">Kraken</td>
+          <td>Scandinavie (légendes de marins)</td>
+          <td>Monstre marin gigantesque à tentacules</td>
+          <td>Faire couler des navires entiers</td>
+          <td>5/5</td>
+          <td class="Kraken"><img src="assets/kraken.png"></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="nom">Kitsune</td>
+          <td>Japon</td>
+          <td>Renard à plusieurs queues (jusqu'à neuf)</td>
+          <td>La métamorphose, l'illusion et la manipulation des pensées </td>
+          <td>3,5/5</td>
+          <td class="Kitsune"><img src="assets/kitsune.png" ></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>Une créature à ajouter ? n'hésitez pas à m'en faire part.</p>
+  </footer>
+
+  <p id="messageReclamation" hidden>Je ne suis pas payé donc je ne vais vraiment pas modifier le tableau.</p>
+
+
+  <script>
+
+  //Du java script car c'est cool
+    const lienFlemme = document.getElementById("lienflemme");
+    const message = document.getElementById("messageReclamation");
+
+    document.addEventListener("click", function (event) {
+      if (event.target === lienFlemme && message.hidden) {
+        message.hidden = false;  // clic sur "ici" alors que le message est caché : on l'affiche
+      } else {
+        message.hidden = true;   // clic on cache le message
+      }
+  });
+
+
+
+//Mon idée mais réalisation par ia
+
+  // Clic sur le phénix : une copie traverse l'écran de gauche à droite
+  const imgPhenix = document.querySelector(".Phénix img");
+
+  imgPhenix.addEventListener("click", function () {
+    if (imgPhenix.style.opacity === "0") return; // ignore les clics pendant le vol
+
+    imgPhenix.style.opacity = 0;                 // l'image du tableau disparaît
+
+    const vol = document.createElement("img");   // crée la copie
+    vol.src = imgPhenix.src;
+    vol.className = "phenixVolant";
+    document.body.appendChild(vol);
+
+    vol.addEventListener("animationend", function () {
+      vol.remove();                              // la copie est supprimée à la fin du vol
+      imgPhenix.style.opacity = 1;               // l'image du tableau revient en fondu
+    });
+  });
+  </script>
+
+
+</body>
