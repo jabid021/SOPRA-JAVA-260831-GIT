@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Accueil</title>
+  <style>
+    body{margin:0;
+    background-color: #262422;}
+
+    header{
+      height:15vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    #tpt img{
+      height:100px;
+    }
+
+    #tpt img:hover{
+      animation: rotate 4s linear infinite;
+    }
+
+    main {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:75vh;
+    }
+
+    #cub img{
+      height:300px;
+    }
+
+    #cub img:hover{
+      animation: spin 13s linear infinite;
+      cursor:url("img/wii-cursor64.png"), pointer;
+    }
+
+    footer{
+      height:10vh;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes rotate
+    {
+    0% {transform:rotate(-10deg);}
+    25% {transform:rotate(10deg);}
+    75% {transform:rotate(-10deg);}
+    100%{transform:rotate(10deg);}
+    }
+
+    @keyframes spin
+    {
+    from {transform: rotate(0deg); }
+    to {transform: rotate(360deg); }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <di id="tpt">
+      <img src ="img/duckmario.png">
+    </div>
+  </header>
+
+  <main>
+    <div id="cub" class="cub hidden">
+      <a href="mkw-top.html">
+        <img id="cubImg" src ="img/cub.png">
+      </a>
+      <audio id="cubAudio"src="audio/mario-kart-wii-circuit.mp3"></audio>
+    </div>
+  </main>
+
+  <footer>
+  </footer>
+
+  <script charset="utf-8">
+
+    let cubAudio = document.getElementById("cubAudio");
+    let cub = document.getElementById("cub");
+
+    tpt.onclick=function(){
+        alert(`It's a me Mario`);
+        cub.classList.remove("hidden");
+        tpt.classList.add("hidden")
+    }
+
+    cubImg.onmouseover=function(){
+        cubAudio.play();
+    }
+
+    cubImg.onmouseout = function() {
+        cubAudio.pause();
+        cubAudio.currentTime = 0;
+    }
+
+  </script>
+
+</body>

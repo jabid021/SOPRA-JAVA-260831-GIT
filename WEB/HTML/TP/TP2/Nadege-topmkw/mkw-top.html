@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>MKWTop</title>
+  <style>
+    body{margin:0;
+      background-image: url("img/mkwbk.jpg");
+      background-size:cover;
+    }
+
+    @font-face {
+        font-family: 'Archivo_Black';
+        src: url('fonts/Archivo_Black/ArchivoBlack-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Inter';
+        src: url('fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    }
+
+    header{
+      height:10vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #title{
+      background-color: #eaeaea;
+      border: 3px solid #7aa0ff;
+      box-shadow: 0 0 12px #7aa0ff80;
+      padding: 18px 40px;
+      border-radius: 14px;
+    }
+
+    #title h1 {
+      font-family: "Inter", sans-serif;
+      font-size: 32px;
+      color: #3a3a3a;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    #title:hover {
+      animation: zoom 1s ease-out;
+    }
+
+    main{
+      display:flex;
+      flex-direction:column;
+      height:75vh;
+      margin-top:10px;
+      margin-right: 10vw;
+      margin-left:10vw;
+    }
+
+    .table-container {
+      background-color: #FFFFFF40;
+      border-radius: 25px;
+      padding: 25px;
+      border: 2px solid #FFFFFF66;
+      backdrop-filter: blur(5px);
+      animation: slideIn 0.6s ease-out;
+    }
+
+    .table{
+      display: flex;
+      border-collapse: collapse;
+      justify-content: center;
+    }
+
+    tr{
+      background-color: #262422;
+    }
+
+    th {
+      text-align: center;
+      color: black;
+      font-family: "Inter", sans-serif;
+      font-size:15px;
+    }
+
+    td img{
+       display: block;
+       width: 100%;
+    }
+
+    td img:hover{
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 12px black);
+      transition: 0.2s;
+    }
+
+    .card {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #1f1f1f;
+      opacity: 0.95;
+      padding: 20px;
+      border-radius: 20px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 0 20px black;
+    }
+
+    .card img {
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    #card h3{
+      font-family:"Archivo_Black";
+      font-size: 20px;
+      letter-spacing: 1px;
+      color: #eaeaea;
+    }
+
+    #card p{
+      font-family: sans-serif;
+      color: #eaeaea;
+    }
+
+    #cardAudio{
+      display: block;
+      margin: 0 auto;
+    }
+
+    #cardClose {
+      color: black;
+      font-size: 15px;
+      font-family: sans-serif;
+      height: 30px;
+      border-radius: 5px;
+      background-image: linear-gradient(135deg, #ff99ff 25%, #99ffff 85%);
+      outline: none;
+      border: none;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    #cardDesc{
+      font-size:15px;
+    }
+
+    #cardClose:hover {
+      transform: translateY(3px);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer{
+      height:15vh;
+    }
+
+    @keyframes slideIn {
+      from {transform: translateY(40px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    @keyframes zoom {
+      from {font-size: 50px;}
+      to {font-size: 55px;}
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div id="title">
+      <h1>Mario Kart Wii Top Tier</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="table-container">
+      <table class="table">
+
+      <thead>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th style="background-color:#ffff99">Complete Masterclass</th>
+
+          <td><img src="img/circuits/bois-vermeil.png"  class="circuit"
+             data-sticker="img/cup/etoile.png"
+             data-cup-name="Coupe Étoile"
+             data-title="Bois Vermeil"
+             data-desc="PERFECTION."
+             data-audio="audio/boisvermeil.mp3"></td>
+
+           <td><img src="img/circuits/supermarche-coco.png" class="circuit"
+               data-sticker="img/cup/fleur.png"
+               data-cup-name="Coupe Fleur"
+               data-title="Supermarché Coco"
+               data-desc="LE grand classique ! Bonne ambiance centre commercial avec des petits passages secrets qui font plaisir. Bref un incontournable !"
+               data-audio="audio/supermarchecoco.mp3"></td>
+
+          <td><img src="img/circuits/cap-koopa.png"  class="circuit"
+             data-sticker="img/cup/etoile.png"
+             data-cup-name="Coupe Étoile"
+             data-title="Cap Koopa"
+             data-desc="Un super circuit aquatique avec son passage sous l'eau et les décors variés. Ne déçois jamais !"
+             data-audio="audio/capkoopa.mp3"></td>
+
+          <td><img src="img/circuits/route-arc-en-ciel.png" class="circuit"
+            data-sticker="img/cup/speciale.png"
+            data-cup-name="Coupe Spéciale"
+            data-title="Route Arc-en-ciel"
+            data-desc="Es que j'ai vraiment besoin de parler. Franchement meilleurs circuits en terme de gameplay, d'ambiance.. le tout avec une bonne difficulté !!"
+            data-audio="audio/routearcenciel.mp3"></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <th style="background: linear-gradient(#ffff99,#ffcccc)">OST Masterclass</th>
+
+          <td><img src="img/circuits/quartier-delfino.png"class="circuit"
+            data-sticker="img/cup/banane.png"
+            data-cup-name="Coupe Banane"
+            data-title="DS Quartier Delfino"
+            data-desc="Le cadre en mode balade dans une ambiance portuaire m'a eu. Le gameplay est bien cool et chill avec un OST qui nous met dans l'ambiance"
+            data-audio="audio/delfino.mp3">
+          </td>
+
+          <td><img src="img/circuits/circuit-luigi.png"class="circuit"
+            data-sticker="img/cup/fleur.png"
+            data-cup-name="Coupe Fleur"
+            data-title="Circuit Luigi"
+            data-desc=" Circuit efficace simple je vous l'accorde mais en tant que circuit d'ouverture il met directement dans le rythme de MKW. Et j'aime bien l'OST donc c'était obligé qu'il soit là..."
+            data-audio="audio/luigi.mp3">
+          </td>
+
+          <td><img src="img/circuits/usine-toad.png"class="circuit"
+            data-sticker="img/cup/fleur.png"
+            data-cup-name="Coupe Fleur"
+            data-title="Usine Toad"
+            data-desc="En vrai j'aurais du le mettre plus haut... Ce circuit est TOP avec un beau flow rapide, les virages, les tapis roulants, les machines. Le design et l'OST sont WAW. Merci Toad.."
+            data-audio="audio/toads.mp3">
+          </td>
+
+          <td><img src="img/circuits/pic-dk.png"class="circuit"
+            data-sticker="img/cup/fleur.png"
+            data-cup-name="Coupe Fleur"
+            data-title="Pic DK"
+            data-desc="Un bon circuit neige fun avec l'ambiance snowboard, les sauts et les virages. Et l'OST est banger"
+            data-audio="audio/dk.mp3">
+          </td>
+
+          <td><img src="img/circuits/prairie-meuhmeuh.png"class="circuit"
+            data-sticker="img/cup/champi.png"
+            data-cup-name="Coupe Champignon"
+            data-title="Prairie Meuh Meuh"
+            data-desc="Circuit simple mais cool à faire avec la musique et l’ambiance meuh meuh"
+            data-audio="audio/moomoo.mp3">
+          </td>
+
+          <td></td>
+        </tr>
+
+        <tr>
+          <th style="background: linear-gradient(#ffcccc,#ffcc99)">DA Masterclass</th>
+          <td><img src="img/circuits/jardin-peach.png" class="circuit"
+            data-sticker="img/cup/eclair.png"
+            data-cup-name="Coupe Éclair"
+            data-title="DS Jardin Peach"
+            data-desc="Très beau circuit avec un rythme chill et une belle ambiance vibe jardin royale. Même les chomps se fondent dans le décor"></td>
+
+          <td><img src="img/circuits/jungle-dk.png" class="circuit"
+            data-sticker="img/cup/feuille.png"
+            data-cup-name="Coupe Feuille"
+            data-title="N64 Jungle DK"
+            data-desc="Le décor tropical est TOP avec un super beau couché de soleil"></td>
+
+          <td><img src="img/circuits/n64-chateau-bowser.png" class="circuit"
+            data-sticker="img/cup/eclair.png"
+            data-cup-name="Coupe Éclair"
+            data-title="N64 Château de Bowser"
+            data-desc="Une bonne ambiance qui représente bien l'hôte du château. Le gameplay est cool... j'ai plus trop d'inspi mais notez que les décors sont super beaux"></td>
+
+          <td><img src="img/circuits/circuit-daisy.png" class="circuit"
+            data-sticker="img/cup/etoile.png"
+            data-cup-name="Coupe Étoile"
+            data-title="Circuit Daisy"
+            data-desc="Un très beau circuit avec un esthétique bord de mer et château de Daisy. C'est vraiment un circuit sympas"></td>
+
+          <td><img src="img/circuits/montagne-dk.png" class="circuit"
+            data-sticker="img/cup/eclair.png"
+            data-cup-name="Coupe Éclair"
+            data-title="GCN Montagne DK"
+            data-desc="Un très bon flow et rythme dynamique avec la montée puis la descente de la montagne. Les décors sont biens beaux. J'ai failli le mettre dans la caté hardocore à cause du pont et de la carapace bleue..."></td>
+
+          <td></td>
+        </tr>
+
+        <tr>
+          <th style="background: linear-gradient(#ffcc99,#99ff99)">Best Hardcore</th>
+
+          <td><img src="img/circuits/mine-wario.png" class="circuit"
+            data-sticker="img/cup/fleur.png"
+            data-cup-name="Coupe Fleur"
+            data-title="Mine Wario"
+            data-desc="De base je ne pouvais pas me le voir mais j'ai appris à apprécier sa difficulté et j'arrive tjr top 1 sans tomber une seule fois eheh"></td>
+
+          <td><img src="img/circuits/volcan-grondant.png" class="circuit"
+            data-sticker="img/cup/etoile.png"
+            data-cup-name="Coupe Étoile"
+            data-title="Volcan Grondant"
+            data-desc="L'un des circuits les plus intenses avec les eruptions, les plateformes instables, le sol qui s'effondre... Mais c'est un circuit que j'affectionne pour ces raisons"></td>
+
+          <td><img src="img/circuits/route-claire-de-lune.png" class="circuit"
+            data-sticker="img/cup/speciale.png"
+            data-cup-name="Coupe Spéciale"
+            data-title="Route Clair de Lune"
+            data-desc="Bon il est pas vraiment hardcore mais j'ai rencontré pas mal de soucis avec les voitures et les bombes qui m'ont amener à péter des câbles parfois donc je le met ici. Et j'aime bien la vibe du circuit"></td>
+
+          <td><img src="img/circuits/chateau-bowser.png" class="circuit"
+            data-sticker="img/cup/speciale.png"
+            data-cup-name="Coupe Spéciale"
+            data-title="Château de Bowser"
+            data-desc="Vraiment très stylé. Le flow, l'ambiance il y a une bonne tension sur le circuit. Pas aussi difficile que les premiers mais il a son level"></td>
+
+          <td></td>
+          <td></td>
+        </tr>
+
+
+        <tr>
+          <th style="background: linear-gradient(#99ff99,#99ffff)">Rage Quit Zone ;-;</th>
+
+          <td><img src="img/circuits/stade-waluigi.png" class="circuit"
+            data-sticker="img/cup/banane.png"
+            data-cup-name="Coupe Banane"
+            data-title="GCN Stade Waluigi"
+            data-desc="Le circuit est beaucoup trop acrobatique avec les virages compliqués parfois..."></td>
+
+          <td><img src="img/circuits/royaume-sorbet.png" class="circuit"
+            data-sticker="img/cup/banane.png"
+            data-cup-name="Coupe Banane"
+            data-title="N64 Royaume Sorbet"
+            data-desc="C'est un circuit chill mais il glisse énormément avec des virages souvent assez serrés, ça plus la collision avec les pingouins je monte en pression rapidement mdrr"></td>
+
+          <td><img src="img/circuits/plage-maskass.png" class="circuit"
+            data-sticker="img/cup/banane.png"
+            data-cup-name="Coupe Banane"
+            data-title="GBA Plage Maskass"
+            data-desc="Les crâbes et les bombes ont eu raison de moi..."></td>
+
+          <td><img src="img/circuits/plage-peach.png" class="circuit"
+            data-sticker="img/cup/koopa.png"
+            data-cup-name="Coupe Carapace"
+            data-title="GCN Plage Peach"
+            data-desc="J'aime bien les tpt de base mais les catacouac non."></td>
+
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <th style="background: linear-gradient(#99ffff,#99b3ff)">Mid-Zone</th>
+
+          <td><img src="img/circuits/ruines-secsec.png" class="circuit"
+            data-sticker="img/cup/speciale.png"
+            data-cup-name="Coupe Spéciale"
+            data-title="Ruines Sec Sec"
+            data-desc="Le circuit est assez simple mais je souligne l'effort avec le désert et les ruines qui sont quand même stylés"></td>
+
+          <td><img src="img/circuits/gcn-circuit-mario.png" class="circuit"
+            data-sticker="img/cup/feuille.png"
+            data-cup-name="Coupe Feuille"
+            data-title="GCN Circuit Mario"
+            data-desc="Circuit agréable mais un peu trop basique."></td>
+
+          <td><img src="img/circuits/circuit-mario.png" class="circuit"
+            data-sticker="img/cup/fleur.png"
+            data-cup-name="Coupe Fleur"
+            data-title="Circuit Mario"
+            data-desc="C'est un bon circuit chill mais très basique"></td>
+
+          <td><img src="img/circuits/cascade-yoshi.png" class="circuit"
+            data-sticker="img/cup/koopa.png"
+            data-cup-name="Coupe Carapace"
+            data-title="DS Cascade Yoshi"
+            data-desc="C'est un circuit qu'on aime bien faire mais on peut le dire il est hyper simple"></td>
+
+          <td><img src="img/circuits/autodrome-mario.png" class="circuit"
+            data-sticker="img/cup/koopa.png"
+            data-cup-name="Coupe Carapace"
+            data-title="N64 Autodrome Mario"
+            data-desc="Le circuit est un peu plus cool que les circuits mario mais on souffle"></td>
+
+          <td><img src="img/circuits/gorge-champignon.png" class="circuit"
+            data-sticker="img/cup/champi.png"
+            data-cup-name="Coupe Champignon"
+            data-title="Gorge Champignon"
+            data-desc="De base c'était l'un de mes préférés grâce aux flow aérien mais je sais pas il y a eu une rupture.."></td>
+        </tr>
+
+        <tr>
+          <th style="background: linear-gradient(#99b3ff,#ff99ff)">Meh-Zone</th>
+
+          <td><img src="img/circuits/fantome-valley.png" class="circuit"
+            data-sticker="img/cup/koopa.png"
+            data-cup-name="Coupe Carapace"
+            data-title="SNES Vallée Fantôme 2"
+            data-desc="Le gameplay est vraiment pas fou"></td>
+
+          <td><img src="img/circuits/gba-chateau-bowser-3.png" class="circuit"
+            data-sticker="img/cup/feuille.png"
+            data-cup-name="Coupe Feuille"
+            data-title="GBA Château de Bowser 3"
+            data-desc="Circuit plat et la course peut devenir très vite chaotique #carapacerouge + #lave"></td>
+
+          <td><img src="img/circuits/desert-soleil.png" class="circuit"
+            data-sticker="img/cup/feuille.png"
+            data-cup-name="Coupe Feuille"
+            data-title="DS Désert du Soleil"
+            data-desc="La musique est bien mais je sais pas le circuit reste assez simple"></td>
+
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <th style="background: linear-gradient(#ff99ff,#ff99b3)">Hard Skip</th>
+
+          <td><img src="img/circuits/circuit-mario-3.png" class="circuit"
+            data-sticker="img/cup/eclair.png"
+            data-cup-name="Coupe Éclair"
+            data-title="SNES Circuit Mario 3"
+            data-desc="Je suis peut être trop dure.... non non il a sa place ici"></td>
+
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </tbody>
+
+      <tfoot>
+      </tfoot>
+    </table>
+    </div>
+  </main>
+
+  <footer>
+  </footer>
+
+  <div id="toad" hidden>
+    <img id="toadImg" src ="img/toad.png">
+  </div>
+
+  <div id="card" class="card hidden">
+    <img id="cardImg">
+    <h3 id="cardTitle"></h3>
+    <audio id="cardAudio" controls></audio>
+    <p id="cardDesc"></p>
+    <button id="cardClose">Fermer</button>
+  </div>
+
+  <script charset="utf-8">
+
+    let circuits = document.querySelectorAll(".circuit");
+
+    let card = document.getElementById("card");
+    let cardImg = document.getElementById("cardImg");
+    let cardTitle = document.getElementById("cardTitle");
+    let cardAudio = document.getElementById("cardAudio");
+    let cardDesc = document.getElementById("cardDesc");
+    let cardClose = document.getElementById("cardClose");
+
+    let cardToad = document.getElementById("toadImg");
+
+    let varTimerToad;
+
+    circuits.forEach(circuit => {circuit.onclick = function() {
+      cardImg.src = circuit.src;
+      cardTitle.textContent = circuit.dataset.title;
+      cardDesc.textContent = circuit.dataset.desc;
+
+      if (circuit.dataset.audio) {
+      cardAudio.src = circuit.dataset.audio;
+      cardAudio.style.display = "block";
+      } else {
+        cardAudio.src = "";
+        cardAudio.style.display = "none";
+      }
+      card.classList.remove("hidden");
+      }
+    })
+
+    cardClose.onclick = function() {
+      card.classList.add("hidden");
+    }
+
+    varTimerToad = setTimeout(function() {
+      cardImg.src = cardToad.src;
+      cardTitle.textContent = "";
+      cardDesc.textContent = "Salut humain... Bienvenue sur LE classement ultime des circuits Mario Kart Wii. Attache ta ceinture et c'est partiiiit!!!";
+      cardAudio.style.display = "none";
+      card.classList.remove("hidden");
+    }, 1000);
+
+  </script>
+
+</body>
