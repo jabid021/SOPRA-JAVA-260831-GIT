@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<style>
+
+body {
+  background-image: url("assets/img/water-gobelin.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  #grass
+  {
+    display:none;
+    position:relative;
+    width:700px;
+    height:700px;
+    zoom: 0.9;
+    background-image : url("assets/img/Grass.png")
+  }
+
+  #personnage {
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+
+  @font-face {
+      font-family: "Cinzel";
+      src: url("fonts/Cinzel-VariableFont_wght.ttf") format("truetype");
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: "Medieval Sharp";
+      src: url("fonts/MedievalSharp-Regular.ttf") format("truetype");
+      font-display: swap;
+  }
+  @font-face {
+      font-family: "Cinzel Decoration";
+      src: url("fonts/EagleLake-Regular.ttf") format("truetype");
+      font-display: swap;
+  }
+
+  .enluminure {
+      font-family: "Cinzel Decoration", serif;
+      font-size: 3.5rem;
+      color: #8b1e16;
+      line-height: 1;
+  }
+  /* =========================================
+     FENÊTRES MODALES — STYLE MÉDIÉVAL
+  ========================================= */
+
+  /* Fond sombre derrière la fenêtre */
+  .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+
+      justify-content: center;
+      align-items: center;
+
+      padding: 20px;
+
+      background: rgba(8, 6, 4, 0.85);
+      backdrop-filter: blur(4px);
+  }
+
+  /* Contenu de la fenêtre */
+  .bulle {
+      position: relative;
+
+      width: 100%;
+      max-width: 500px;
+      max-height: 85vh;
+      overflow-y: auto;
+
+      padding: 35px;
+
+      color: #f5e2b4;
+      font-family: "Cinzel", serif;
+      text-align: center;
+
+      background: linear-gradient(
+          rgba(32, 23, 15, 0.97),
+          rgba(17, 12, 8, 0.98)
+      );
+
+      border: 2px solid #b89a5a;
+      outline: 1px solid rgba(184, 154, 90, 0.35);
+      outline-offset: 5px;
+
+      box-shadow: 0 0 35px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Titres */
+  .bulle h2 {
+      margin: 0 30px 25px;
+
+      color: #e8c982;
+      font-family: "Medieval Sharp", cursive;
+      font-size: 1.8rem;
+      line-height: 1.5;
+  }
+
+  /* Formulaires */
+  .bulle form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      text-align: left;
+  }
+
+  /* Libellés */
+  .bulle label {
+      color: #e0bd7a;
+      font-family: "Cinzel", serif;
+      font-size: 0.95rem;
+  }
+
+  /* Champs de saisie et listes */
+  .bulle input:not([type="checkbox"]),
+  .bulle select {
+      width: 100%;
+      min-height: 42px;
+      padding: 10px;
+
+      color: #f5e2b4;
+      font-family: "Cinzel", serif;
+      font-size: 0.95rem;
+
+      background: #21170f;
+      border: 1px solid #8d7141;
+      border-radius: 2px;
+  }
+
+  /* Options des listes déroulantes */
+  .bulle select option {
+      color: #f5e2b4;
+      background: #21170f;
+  }
+
+  /* Focus sur les champs */
+  .bulle input:focus,
+  .bulle select:focus {
+      outline: 2px solid #b89a5a;
+      outline-offset: 2px;
+  }
+
+  /* Boutons d'action */
+  .bulle form button {
+      margin-top: 12px;
+      padding: 13px 18px;
+
+      color: #f5e2b4;
+      font-family: "Cinzel", serif;
+      font-size: 0.95rem;
+
+      background: linear-gradient(
+          145deg,
+          #352719,
+          #17110c
+      );
+
+      border: 2px solid #b89a5a;
+      cursor: pointer;
+
+      transition:
+          color 0.3s ease,
+          background 0.3s ease,
+          border-color 0.3s ease,
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+  }
+
+  .bulle form button:hover {
+      color: #fff1cc;
+      background: #594226;
+      border-color: #f5d78b;
+      box-shadow: 0 0 15px rgba(201, 166, 91, 0.3);
+      transform: translateY(-2px);
+  }
+
+  /* Croix de fermeture */
+  .fermer {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+
+      width: 35px;
+      height: 35px;
+      padding: 0;
+
+      color: #e8c982;
+      font-family: serif;
+      font-size: 1.8rem;
+      line-height: 1;
+
+      background: transparent;
+      border: none;
+      cursor: pointer;
+
+      transition: color 0.2s, transform 0.2s;
+  }
+
+  .fermer:hover {
+      color: #ffffff;
+      transform: scale(1.1);
+  }
+
+  /* Ligne de confirmation de l'attaque */
+  .ligne-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+
+      line-height: 1.6;
+  }
+
+  .ligne-checkbox input[type="checkbox"] {
+      margin-top: 5px;
+      accent-color: #b89a5a;
+      flex-shrink: 0;
+  }
+
+  /* Messages de confirmation */
+  .message {
+      margin-top: 18px;
+
+      color: #d8c58c;
+      font-family: "Cinzel", serif;
+      font-size: 0.95rem;
+      font-weight: bold;
+      line-height: 1.6;
+      text-align: center;
+  }
+
+  /* Adaptation aux téléphones */
+  @media (max-width: 600px) {
+      .modal {
+          padding: 15px;
+      }
+
+      .bulle {
+          padding: 30px 20px;
+          max-height: 80vh;
+      }
+
+      .bulle h2 {
+          font-size: 1.4rem;
+          margin-bottom: 22px;
+      }
+
+      .bulle label,
+      .bulle input:not([type="checkbox"]),
+      .bulle select,
+      .bulle form button {
+          font-size: 0.85rem;
+      }
+  }
+  /* =========================================
+     ÉCRAN DE DÉPART — STYLE MÉDIÉVAL
+  ========================================= */
+
+  #formStart {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+
+      padding: 25px;
+      box-sizing: border-box;
+
+      /* Fond sombre et ambiance médiévale */
+      background:
+          radial-gradient(
+              ellipse at center,
+              rgba(80, 56, 31, 0.85) 0%,
+              rgba(35, 24, 15, 0.94) 55%,
+              rgba(8, 6, 4, 0.98) 100%
+          );
+
+      /* Cadre doré */
+      border: 3px solid #79552e;
+      outline: 1px solid #b89a5a;
+      outline-offset: -10px;
+
+      box-shadow:
+          inset 0 0 60px rgba(0, 0, 0, 0.7),
+          0 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Champ du nom du gobelin */
+  #inputName {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 320px;
+
+      padding: 16px 20px;
+
+      color: #f5e2b4;
+      font-family: "Medieval Sharp", cursive;
+      font-size: 1.3rem;
+      text-align: center;
+
+      background: rgba(17, 12, 8, 0.9);
+
+      border: 2px solid #b89a5a;
+      border-radius: 3px;
+
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+
+      transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  /* Texte proposé dans le champ */
+  #inputName::placeholder {
+      color: #e0bd7a;
+      opacity: 0.3;
+  }
+
+  /* Effet lorsque le champ est sélectionné */
+  #inputName:focus {
+      outline: none;
+      border-color: #f5d78b;
+
+      box-shadow:
+          0 0 5px #b89a5a,
+          0 0 20px rgba(201, 166, 91, 0.3);
+  }
+
+  /* Bouton Start */
+  #btnStart {
+      padding: 14px 35px;
+      max-width: 100%;
+
+      color: #f5e2b4;
+      font-family: "Cinzel", serif;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+
+      background: linear-gradient(
+          145deg,
+          #352719,
+          #17110c
+      );
+
+      border: 2px solid #b89a5a;
+      outline: 1px solid rgba(184, 154, 90, 0.35);
+      outline-offset: 4px;
+
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+  }
+
+  /* Survol du bouton actif */
+  #btnStart:hover:not(:disabled) {
+      color: #fff1cc;
+      background: #594226;
+      border-color: #f5d78b;
+
+      box-shadow: 0 0 18px rgba(201, 166, 91, 0.35);
+
+      transform: translateY(-2px);
+  }
+
+  /* Bouton désactivé */
+  #btnStart:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+  }
+
+  /* Adaptation aux petits écrans */
+  @media (max-width: 600px) {
+      #formStart {
+          gap: 22px;
+          padding: 20px;
+      }
+
+      #inputName {
+          max-width: 280px;
+          font-size: 1.1rem;
+      }
+
+      #btnStart {
+          padding: 12px 25px;
+          font-size: 0.95rem;
+      }
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+</style>
+
+
+<script defer src="gobelin.js" charset="utf-8"></script>
+  <audio id="themePokemon" src="assets/audio/theme.mp3"></audio>
+
+  <div id="formStart">
+      <input
+          id="inputName"
+          type="text"
+          placeholder="gobelin"
+          autocomplete="off"
+      >
+
+      <input
+          id="btnStart"
+          disabled
+          type="button"
+          value="Start !"
+      >
+  </div>
+
+  <div id="grass">
+      <div id="personnage">
+          <img
+              id="imgPersonnage"
+              src="assets/img/gobelinDown.png"
+              alt="Personnage"
+          >
+      </div>
+  </div>
+
+
+<div id="modalEchange" class="modal">
+    <div class="bulle">
+        <button type="button" class="fermer">X</button>
+
+        <h2><span class="enluminure">M</span>arché des ressources</h2>
+
+        <form id="formEchange">
+
+
+            <label for="ressourceDemandee">Ressource demandée :</label>
+            <select id="ressourceDemandee" required>
+                <option value="">Choisir</option>
+                <option value="or">Or</option>
+                <option value="fer">Fer</option>
+                <option value="sable">Sable</option>
+                <option value="gemme">Gemme</option>
+            </select>
+
+            <label for="quantiteDemandee">Quantité demandée :</label>
+            <input
+                id="quantiteDemandee"
+                type="number"
+                min="1"
+                required
+            >
+
+
+            <label for="ressourceProposee">Ressource proposée :</label>
+            <select id="ressourceProposee" required>
+                <option value="">Choisir</option>
+                <option value="or">Or</option>
+                <option value="fer">Fer</option>
+                <option value="sable">Sable</option>
+                <option value="gemme">Gemme</option>
+            </select>
+
+            <label for="quantiteProposee">Quantité proposée :</label>
+            <input
+                id="quantiteProposee"
+                type="number"
+                min="1"
+                required
+            >
+
+            <button type="submit">Poster l'annonce</button>
+        </form>
+
+        <p id="messageEchange" class="message"></p>
+    </div>
+</div>
+
+
+<div id="modalAmelioration" class="modal">
+    <div class="bulle">
+        <button type="button" class="fermer">X</button>
+
+        <h2><span class="enluminure">A</span>mélioration du royaume</h2>
+
+        <form id="formAmelioration">
+    <label for="batiment">Bâtiment à améliorer :</label>
+
+    <select id="batiment" required>
+        <option value="">Choisir un bâtiment</option>
+        <option value="la caserne">Caserne</option>
+        <option value="la forge">Forge</option>
+        <option value="la mairie">Mairie</option>
+    </select>
+
+    <button type="submit">Améliorer</button>
+
+    <p id="messageAmelioration"></p>
+</form>
+
+        <p id="messageAmelioration" class="message"></p>
+    </div>
+</div>
+
+
+<div id="modalAttaque" class="modal">
+    <div class="bulle">
+        <button type="button" class="fermer">X</button>
+
+        <h2><span class="enluminure">D</span>éclarer une attaque</h2>
+
+        <form id="formAttaque">
+            <label for="royaume">Royaume à attaquer :</label>
+
+            <select id="royaume" required>
+                <option value="">Choisir un royaume</option>
+            </select>
+
+            <label class="ligne-checkbox">
+                <input id="confirmationAttaque" type="checkbox" required>
+                Je confirme vouloir attaquer ce royaume
+            </label>
+
+            <button type="submit">Attaquer</button>
+        </form>
+
+        <p id="messageAttaque" class="message"></p>
+    </div>
+</div>
