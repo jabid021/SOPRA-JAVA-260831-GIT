@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 5 des versions de Windows</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- PAGE DU TOP 5             -->
+    <!-- ========================= -->
+
+    <div id="page-top">
+
+        <h1>Top 5 des versions de <span title="linux c'est mieux">Windows</span></h1>
+
+        <p class="introduction">
+            Classement des versions de Windows parce que j'avais pas d'inspi.
+            Cliquez sur une version pour aller sur son bureau!
+        </p>
+
+
+        <table>
+          <thead>
+            <tr>
+                <th>#</th>
+                <th>Avis</th>
+                <th>Windows</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <!-- WINDOWS XP -->
+            <tr>
+                <td>1</td>
+                <td>iconique sur tellement d'aspects, c'est pour moi la meilleur version.</td>
+                <td>
+                    <button onclick="changerWindows('xp')">
+                        Windows XP
+                    </button>
+                </td>
+            </tr>
+
+            <!-- WINDOWS 95 -->
+            <tr>
+                <td>2</td>
+                <td>j'apprécie pour le côté vintage, bien que j'ai pas tellement eu l'occasion de manipuler cette version</td>
+                <td>
+                    <button onclick="changerWindows('95')">
+                        Windows 95
+                    </button>
+                </td>
+            </tr>
+
+
+            <!-- WINDOWS VISTA -->
+            <tr>
+                <td>3</td>
+                <td>dans mes souvenirs c'était ok, rien de plus à dire</td>
+                <td>
+                    <button onclick="changerWindows('vista')">
+                        Windows Vista
+                    </button>
+                </td>
+            </tr>
+
+
+            <!-- WINDOWS 10 -->
+            <tr>
+                <td>4</td>
+                <td>ça fait le taf</td>
+                <td>
+                    <button onclick="changerWindows('10')">
+                        Windows 10
+                    </button>
+                </td>
+            </tr>
+
+
+            <!-- WINDOWS 11 -->
+            <tr>
+                <td>5</td>
+                <td>jsp mon pc est trop vieux pour supporter cette version, c'est donc une derniere place pour win11</td>
+                <td>
+                    <button onclick="changerWindows('11')">
+                        Windows 11
+                    </button>
+                </td>
+            </tr>
+          </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- FAUX BUREAU WINDOWS       -->
+    <!-- ========================= -->
+
+    <div id="bureau">
+
+        <!-- Icônes du bureau -->
+
+
+        <div class="icones-bureau">
+
+            <div class="icone">
+                <div class="icone-image">🖥️</div>
+                <p>Ce PC</p>
+            </div>
+
+            <div class="icone">
+                <div class="icone-image">📁</div>
+                <p>Documents</p>
+            </div>
+
+
+<!--
+            <div class="icone">
+                <div class="icone-image">🌐</div>
+                <p>Internet</p>
+            </div>
+-->
+<div class="icone">
+<div class="icone-image icone-internet"></div>
+<p id="texte-internet">Internet</p>
+</div>
+
+
+
+            <div class="icone">
+                <div class="icone-image">🗑️</div>
+                <p>Corbeille</p>
+            </div>
+
+        </div>
+
+
+
+        <!-- ========================= -->
+        <!-- MENU DEMARRER             -->
+        <!-- ========================= -->
+
+<!--        <div id="menu-demarrer">
+
+            <div class="menu-titre">
+                Windows
+            </div>
+
+            <div class="menu-option">
+                📁 Programmes
+            </div>
+
+            <div class="menu-option">
+                📄 Documents
+            </div>
+
+            <div class="menu-option">
+                ⚙️ Paramètres
+            </div>
+
+            <div class="menu-option">
+                🔍 Rechercher
+            </div>
+
+            <div class="menu-option">
+                ❓ Aide
+            </div>
+
+            <hr>
+
+            <div class="menu-option">
+                ⏻ Arrêter
+            </div>
+
+        </div>
+-->
+
+<div id="menu-demarrer"></div>
+
+        <!-- ========================= -->
+        <!-- BARRE DES TACHES          -->
+        <!-- ========================= -->
+
+        <div id="barre-taches">
+
+            <button id="bouton-demarrer" onclick="ouvrirMenu()">
+                Démarrer
+            </button>
+
+            <div class="applications">
+
+                <div class="application">
+                    🌐
+                </div>
+
+                <div class="application">
+                    📁
+                </div>
+
+                <div class="application">
+                    📝
+                </div>
+
+            </div>
+
+            <div id="horloge">
+                12:00
+            </div>
+
+        </div>
+
+
+        <!-- Bouton pour retourner au classement -->
+
+        <button id="retour" onclick="retourTop()">
+            ← Retour au Top 5
+        </button>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

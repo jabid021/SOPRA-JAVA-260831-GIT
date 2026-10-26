@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import quest.dao.IDAOOrdinateur;
 import quest.model.Ordinateur;
+import quest_dto.OrdinateurDTO;
 
 @RestController
 @RequestMapping("/api/ordinateur")
@@ -24,15 +25,15 @@ public class OrdinateurRestController {
 	IDAOOrdinateur daoOrdinateur;
 	
 	@GetMapping
-	public List<Ordinateur> afficherTous() 
+	public List<OrdinateurDTO> afficherTous() 
 	{
-	  return daoOrdinateur.findAll();
+	  return daoOrdinateur.findAll().stream().map(o->OrdinateurDTO.convert(o)).toList();
 	}
 
 	@GetMapping("/{id}")
-	public Ordinateur afficherParId(@PathVariable Integer id) 
+	public OrdinateurDTO afficherParId(@PathVariable Integer id) 
 	{
-		return daoOrdinateur.findById(id).orElse(null);
+		return  OrdinateurDTO.convert(daoOrdinateur.findById(id).orElse(null));
 	}
 	
 	@DeleteMapping("/{id}")

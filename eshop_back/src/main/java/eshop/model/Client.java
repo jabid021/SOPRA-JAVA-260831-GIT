@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Embedded;
@@ -11,18 +14,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
+import view.Views;
 
 @Entity
 @DiscriminatorValue("customer")
 public class Client extends Personne {
 
 	@Column(name="birthdate")
+	@JsonView(Views.Common.class)
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate dateNaissance;
 	
 	@Embedded
+	@JsonView(Views.Common.class)
 	private Adresse adresse;
 	
 	@OneToMany(mappedBy = "acheteur")
+	@JsonView(Views.ClientWithAchats.class)
 	//@JoinTable(name="achats",joinColumns =@JoinColumn(name="acheteur"),inverseJoinColumns = @JoinColumn(name="produit"))
 	private List<Achat> achats = new ArrayList();
 	
