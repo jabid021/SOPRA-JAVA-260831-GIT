@@ -1,0 +1,107 @@
+<style>
+
+  body
+  {
+    background-image : url("assets/img/water.png");
+    background-size:100% 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  #grass
+  {
+    display:none;
+    position:relative;
+    width:700px;
+    height:700px;
+    background-image : url("assets/img/Grass.png")
+  }
+
+  #pikachu
+  {
+    position:absolute;
+    top:0px;
+    left:0;
+  }
+
+  .Pikachu
+  {
+
+    position:absolute;
+    top:0px;
+  }
+
+  #miaouss
+  {
+    position:absolute;
+    top:0px;
+    left:0;
+  }
+
+
+  #btnSubtitution
+  {
+
+    display:none;
+    position:absolute;
+    top:300px;
+    left:675px;
+
+  }
+  #btnTerra
+  {
+
+    display:none;
+    position:absolute;
+    top:200px;
+    left:800px;
+
+  }
+  #btnMulticlonage
+  {
+
+    display:none;
+    position:absolute;
+    top:200px;
+    left:600px;
+
+  }
+
+  #chrono
+  {
+    display:none;
+      position:absolute;
+      color: springgreen;
+      font-size:5em;
+    top:330px;
+    left:330px;
+  }
+
+</style>
+
+
+<script defer src="pikachu.js" charset="utf-8"></script>
+  <audio id="themePokemon" src="assets/audio/theme.mp3"></audio>
+  <audio id="themeSNK" src="assets/audio/terrassement.mp3"></audio>
+  <audio id="themeNaruto" src="assets/audio/naruto.mp3"></audio>
+  <audio id="multiclonage" src="assets/audio/multiclonage.mp3"></audio>
+
+<div id="formStart">
+  <input id="inputNamePokemon1" type="text" placeholder="pikachu">
+  <input id="inputNamePokemon2" type="text" placeholder="miaouss">
+  <label for="chronoTime">Temps pour chasser du pikachu (min:sec)</label>
+  <input id="chronoTime" type="time">
+  <input id="btnStart" disabled type="button" value="Start !">
+</div>
+
+<div id="grass">
+  <div id="pikachu"><img id="imgPikachu" src="assets/img/pikachuDown.png"></div>
+  <div id="miaouss"><img id="imgMiaouss" src="assets/img/miaoussDown.png"></div>
+  <h1 id="chrono">00:00</h1>
+</div>
+
+
+
+<input id="btnTerra"  type="button" value=" Grand Terrassement !">
+<input id="btnMulticlonage"  type="button" value=" kabujin no jutsu !">
+<input id="btnSubtitution"  type="button" value=" Substitution !">
