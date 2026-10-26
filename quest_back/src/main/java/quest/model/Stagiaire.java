@@ -1,25 +1,32 @@
 package quest.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import view.Views;
 
 @Entity
 public class Stagiaire extends Personne {
 	
 	@Column(length = 35)
+	@JsonView(Views.Common.class)
 	private String email;
 	@Embedded
+	@JsonView(Views.Common.class)
 	private Adresse adresse;
 	@ManyToOne
 	@JoinColumn(name="filiere")
+	@JsonView(Views.Stagiaire.class)
 	private Filiere filiere;
 	
 	
 	@OneToOne(mappedBy = "utilisateur")
+	@JsonView(Views.Stagiaire.class)
 	private Ordinateur ordinateur;
 
 	public Stagiaire() {}
