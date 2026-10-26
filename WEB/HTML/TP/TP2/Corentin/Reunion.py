@@ -23,7 +23,7 @@ IGNORES = {".git", ".venv", "node_modules"}
 
 # Fichiers générés ou de support, à ne jamais prendre pour un tableau
 # Noms exacts à exclure (minuscules)
-EXCLUS = {"fichierfinal.html", "modele.html"}
+EXCLUS = {"fichierfinal.html", "modele.html", "objets.html"}
 
 # Motifs sur le NOM du fichier (minuscules, * autorisé)
 MOTIFS_NOMS = [
