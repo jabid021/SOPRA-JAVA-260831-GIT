@@ -6,6 +6,9 @@ public class Views {
 	
 	public class Stagiaire extends Common{}
 	
+	
+	public class Filiere extends Common{}
 
+	public class FiliereWithStagiaires extends Filiere{}
 	
 }
