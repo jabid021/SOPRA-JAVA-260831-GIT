@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>World Food</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+
+  body
+  {
+    font-family: Georgia, serif;
+    /*background-color:#FFF8ED;*/
+    background-image: url("img/Monde.jpeg");
+    background-size: cover;
+    background-position: center;
+    /*background-repeat: no-repeat;*/
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  h1
+  {
+    font-size:3em;
+    color:#8F4931;
+  }
+
+  table
+  {
+    width: 60%;
+    margin:30px auto;
+    border-spacing:0;
+    border: solid 1px #E8DCCB;
+    /*background-color:#FFF8ED*/
+    background-color: rgba(255, 248, 237, 0.85);
+  }
+
+  th, td
+  {
+    padding: 10px;
+  }
+
+  thead th
+  {
+    color: #8F4931;
+    background-color: #F5E5D0;
+  }
+
+  tbody tr:hover
+  {
+    background-color: #F5E5D0;
+  }
+
+  /* Drapeaux */
+  tbody td:nth-child(2) img
+  {
+    margin-right: 5px;
+  }
+
+  /* Plats */
+  tbody td:nth-child(4) img
+  {
+    border-radius: 8px;
+  }
+
+  tbody td:nth-child(4) img:hover
+  {
+    transform: scale(1.25);
+  }
+
+  tfoot td
+  {
+    text-align: center;
+    background-color: #F5E5D0;
+  }
+
+  /* Lien */
+  tfoot a {
+    color: #8F4931;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  tfoot a:hover
+  {
+    text-decoration: underline;
+  }
+
+  /* Section cachée */
+  section > header {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 28px;
+    color: #8F4931
+  }
+
+  section > header > p {
+    color: black;
+  }
+
+  section > main {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 90%;
+    margin: 30px auto;
+  }
+
+  .globe {
+    flex: 0 0 150px;
+    text-align: center;
+  }
+
+  .Autresplats {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .Autresplats > div {
+    text-align: center;
+  }
+
+  .drapeau:hover {
+    transform: scale(1.25);
+  }
+
+  .nomdrapeau {
+    text-align: center;
+  }
+
+  .plat {
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .plat:hover {
+    transform: scale(1.25);
+  }
+
+  #btnclose {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 24px;
+  background-color: #F5E5D0;
+  border: 1px solid #8F4931;
+  border-radius: 8px;
+  font-family: Georgia, sans-serif;
+  color: #8F4931;
+  font-weight: bold;
+  cursor: pointer;
+  }
+
+</style>
+</head>
+
+<!--- HTML --------------->
+
+<body>
+
+  <h1 align="center"> 🌍 World Food</h1>
+  <p align="center"><i>Un voyage autour des meilleures spécialités culinaires (selon moi ...)</i></p>
+
+  <table border align="center">
+    <thead>
+      <tr>
+        <th>Rang</th>
+        <th>Pays</th>
+        <th>Spécialité</th>
+        <th>Image</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+
+    <tbody align="center">
+      <tr>
+        <th>1</th>
+        <td><img src="img/Italie.jpg" alt="drapeauItalie" width="30"> Italie</td>
+        <td>Pizza</td>
+        <td><img src="img/pizza.jpg" alt="pizza" width="100"></td>
+        <td>⭐⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td><img src="img/Portugal.jpg" alt="drapeauPortugal" width="30"> Portugal</td>
+        <td>Bacalhau à bras</td>
+        <td><img src="img/bacalhau.jpg" alt="bacalhau" width="100"></td>
+        <td>⭐⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td><img src="img/France.jpg" alt="drapeauFrance" width="30"> France</td>
+        <td>Crêpes</td>
+        <td><img src="img/galette.jpg" alt="crepes" width="100"></td>
+        <td>⭐⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td><img src="img/Mexique.jpg" alt="drapeauMexique" width="30"> Mexique</td>
+        <td>Tacos</td>
+        <td><img src="img/tacos.jpg" alt="tacos" width="100"></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <th>5</th>
+        <td><img src="img/Etats-Unis.jpg" alt="drapeauUSA" width="30"> Etats-Unis</td>
+        <td>Hamburger</td>
+        <td><img src="img/hamburger.jpg" alt="hamburger" width="100"></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <th>6</th>
+        <td><img src="img/Japon.jpg" alt="drapeauJapon" width="30"> Japon</td>
+        <td>Sushi</td>
+        <td><img src="img/sushi.jpg" alt="sushi" width="100"></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <th>7</th>
+        <td><img src="img/Inde.jpg" alt="drapeauInde" width="30"> Inde</td>
+        <td>Butter Chicken</td>
+        <td><img src="img/butterchicken.jpg" alt="butterchicken" width="100"></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <th>8</th>
+        <td><img src="img/Vietnam.jpg" alt="drapeauVietnam" width="30"> Vietnam</td>
+        <td>Bo bun</td>
+        <td><img src="img/bobun.jpg" alt="bobun" width="100"></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <th>9</th>
+        <td><img src="img/Turquie.jpg" alt="drapeauTurquie" width="30"> Turquie</td>
+        <td>Lahmacun</td>
+        <td><img src="img/lahmacun.jpg" alt="lahmacun" width="100"></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <th>10</th>
+        <td><img src="img/Espagne.jpg" alt="drapeauEspagne" width="30"> Espagne</td>
+        <td>Paella</td>
+        <td><img src="img/paella.jpg" alt="paella" width="100"></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td colspan="5"><a href="#explore" id="link"> D'autres plats.... ▼ </a></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <!--- Section cachée HTML ------->
+  <section id="explore" hidden>
+    <header>
+      <h2> Le voyage continue..... </h2>
+      <p><i>Clique sur les différents pays pour découvrir leur meilleures spécilaités</i></p>
+    </header>
+
+    <main>
+      <div class="globe">
+        <img src="img/globe.gif" alt="Globe en rotation" width="150"/>
+      </div>
+
+      <div class="Autresplats">
+        <div>
+          <img class="drapeau" src="img/Corée.jpg" alt="drapeauCoree" width="100">
+          <h5 class="nomdrapeau">Corée du Sud</h5>
+          <img class="plat" src="img/bibimbap.jpg" alt="bibimbap" width="100" hidden>
+          <h5 class="nomplat" hidden>Bibimbap</h5>
+        </div>
+        <div>
+          <img class="drapeau" src="img/Maroc.jpg" alt="drapeauMaroc" width="100">
+          <h5 class="nomdrapeau">Maroc</h5>
+          <img class="plat" src="img/couscous.png" alt="couscous" title="Couscous marocain" width="100" hidden>
+          <h5 class="nomplat" hidden>Couscous</h5>
+        </div>
+        <div>
+          <img class="drapeau" src="img/Thailande.jpg" alt="drapeauThailande" width="100">
+          <h5 class="nomdrapeau">Thailande</h5>
+          <img class="plat" src="img/padthai.jpg" alt="padthai" width="100" hidden>
+          <h5 class="nomplat" hidden>Padthai</h5>
+        </div>
+        <div>
+          <img class="drapeau" src="img/Australie.jpg" alt="drapeauAsutralie" width="100">
+          <h5 class="nomdrapeau">Australie</h5>
+          <img class="plat" src="img/meatpie.jpg" alt="meatpie" width="100" hidden>
+          <h5 class="nomplat" hidden>Meatpie</h5>
+        </div>
+        <div>
+          <img class="drapeau" src="img/Canada.jpg" alt="drapeauCanada" width="100">
+          <h5 class="nomdrapeau">Canada</h5>
+          <img class="plat" src="img/poutine.jpg" alt="poutine" width="100" hidden>
+          <h5 class="nomplat" hidden>Poutine</h5>
+        </div>
+        <div>
+          <img class="drapeau" src="img/Bresil.jpg" alt="drapeauBresil" width="100">
+          <h5 class="nomdrapeau">Brésil</h5>
+          <img class="plat" src="img/picanha.jpg" alt="picanha" width="100" hidden>
+          <h5 class="nomplat" hidden>Picanha</h5>
+        </div>
+        <div>
+          <img class="drapeau" src="img/Argentine.jpg" alt="drapeauArgentine" width="100">
+          <h5 class="nomdrapeau">Argentine</h5>
+          <img class="plat" src="img/empanadas.png" alt="empanadas" width="100" hidden>
+          <h5 class="nomplat" hidden>Empanadas</h5>
+        </div>
+        <div>
+          <img class="drapeau" src="img/Chine.jpg" alt="drapeauChine" width="100">
+          <h5 class="nomdrapeau">Chine</h5>
+          <img class="plat" src="img/hotpot.jpg" alt="hotpot" width="100" hidden>
+          <h5 class="nomplat" hidden>Hot pot (ou fondue chinoise)</h5>
+        </div>
+        <div>
+          <img class="drapeau" src="img/Grece.jpg" alt="drapeauGrece" width="100">
+          <h5 class="nomdrapeau">Grèce</h5>
+          <img class="plat" src="img/gyros.jpg" alt="gyros" width="100" hidden>
+          <h5 class="nomplat" hidden>Gyros</h5>
+        </div>
+        <div>
+          <img class="drapeau" src="img/Italie.jpg" alt="drapeauItalie" width="100">
+          <h5 class="nomdrapeau">Italie</h5>
+          <img class="plat" src="img/lasagne.png" alt="lasagne" width="100" hidden>
+          <h5 class="nomplat" hidden>Lasagne</h5>
+        </div>
+      </div>
+    </main>
+
+
+    <button id="btnclose" type="button"> Retour au classement ▲ </button>
+  </section>
+
+  <!--- JAVASCRIPT ------->
+  <script>
+
+  let link = document.getElementById("link");
+  let section = document.getElementById("explore");
+  let btnclose = document.getElementById("btnclose")
+
+  //Ouvrir la section en cliquant sur le lien
+  link.onclick = function(event)
+  {
+    event.preventDefault();
+    section.hidden=false;
+  }
+
+  //Fermer la section
+  btnclose.onclick = function()
+  {
+    section.hidden=true;
+  }
+
+  //Découverte nouveaux plats
+  let drapeaux = document.querySelectorAll(".drapeau");
+
+  drapeaux.forEach(function(drapeau) {
+    let carte = drapeau.parentElement;
+    let plat = carte.querySelector(".plat");
+    let nomdrapeau = carte.querySelector(".nomdrapeau");
+    let nomplat = carte.querySelector(".nomplat");
+
+    drapeau.onclick = function() {
+      drapeau.hidden = true;
+      nomdrapeau.hidden = true;
+      plat.hidden = false;
+      nomplat.hidden = false;
+  };
+
+    plat.onclick = function() {
+      drapeau.hidden = false;
+      nomdrapeau.hidden = false;
+      plat.hidden = true;
+      nomplat.hidden = true;
+  };
+});
+
+
+  </script>
+
+</body>
+</html>
