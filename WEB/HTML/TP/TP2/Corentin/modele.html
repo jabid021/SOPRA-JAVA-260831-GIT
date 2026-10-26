@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <title>Tableaux des stagiaires</title>
+    <style>
+        :root {
+            /* VARIABLES */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <header>
+            <h1>Tableaux des stagiaires</h1>
+            <p>Clique sur une vignette pour ouvrir le tableau complet</p>
+        </header>
+
+        <div class="barre">
+            <span id="statut-notes"></span>
+            <button id="enregistrer">Enregistrer les notes</button>
+            <button id="trier">Trier par note</button>
+            <button id="reinit">Remettre l'ordre d'origine</button>
+        </div>
+
+        <div class="carte">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>N°</th>
+                        <th>Prénom</th>
+                        <th>Note</th>
+                        <th>Tableau</th>
+                    </tr>
+                </thead>
+                <tbody id="corps">
+                    <!-- VIGNETTES -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
