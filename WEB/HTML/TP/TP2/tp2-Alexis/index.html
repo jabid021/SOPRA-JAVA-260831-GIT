@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bienvenue dans le Spider-Verse ">
+  <title>Spider-Verse — Les spiders</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#personnages">Aller au tableau des personnages</a>
+<main>
+    <section class="archives" id="personnages" aria-labelledby="archives-title">
+      <div class="section-heading"><div><p class="eyebrow red">LES ARCHIVES DU MULTIVERS / 07 DOSSIERS</p><h1 id="archives-title">SPIDER<span>VERSE.</span></h1></div><p class="section-intro">Six héros. Une anomalie.<br>Survole un portrait pour l’animer,<br>puis clique pour découvrir son histoire.</p></div>
+      <!-- Ces contrôles sont affichés quand le JavaScript est disponible. -->
+      <div class="table-tools" id="table-tools" hidden>
+        <div class="search-field">
+          <label for="character-search">RECHERCHER UN PERSONNAGE</label>
+          <input type="search" id="character-search" placeholder="Ex. : Gwen, Peter Parker…" autocomplete="off" aria-controls="character-rows">
+        </div>
+        <div class="sort-field">
+          <label for="character-sort">TRIER PAR</label>
+          <select id="character-sort" aria-controls="character-rows">
+            <option value="original">Ordre des dossiers</option>
+            <option value="oldest">Année : du plus ancien au plus récent</option>
+            <option value="newest">Année : du plus récent au plus ancien</option>
+          </select>
+        </div>
+        <button type="button" class="reset-button" id="reset-table">Réinitialiser</button>
+      </div>
+      <p class="result-count" id="result-count" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div class="table-scroll" role="region" aria-label="Tableau des personnages, défilement horizontal possible" tabindex="0">
+        <!-- Un vrai tableau HTML : chaque ligne présente un personnage. -->
+        <table>
+          <caption class="sr-only">Les personnages Spider-Man, leur identité et leur première apparition dans les comics.</caption>
+          <thead><tr><th scope="col">PERSONNAGE</th><th scope="col">IDENTITÉ SECRÈTE</th><th scope="col">PREMIÈRE APPARITION</th><th scope="col">PORTRAIT INTERACTIF</th></tr></thead>
+          <tbody id="character-rows">
+            <tr class="character-row" data-character="peter">
+              <th scope="row"><span class="file-number">DOSSIER / 001</span><span class="character-name">SPIDER-MAN</span><span class="character-tag">L’ORIGINAL</span></th>
+              <td><span class="identity">Peter Parker</span><span class="secondary peter-description">L'araignée sympa du quartier</span></td>
+              <td><time datetime="1962-08" class="year">1962</time><span class="secondary">Amazing Fantasy #15<br>Août · date de couverture</span></td>
+              <td><button class="portrait-button" data-open="peter" aria-label="Découvrir Spider-Man" aria-haspopup="dialog"><img src="assets/spider-man.png" data-still="assets/spider-man.png" data-gif="assets/spider-man.gif" alt="Les trois Spider-Man réunis dans No Way Home" width="420" height="240"><span class="portrait-label">SURVOLE & EXPLORE <span aria-hidden="true">↗</span></span></button></td>
+            </tr>
+            <tr class="character-row" data-character="ham">
+              <th scope="row"><span class="file-number">DOSSIER / 002</span><span class="character-name">SPIDER-HAM</span><span class="character-tag pink">ALIAS SPIDER-COCHON</span></th>
+              <td><span class="identity">Peter Porker</span><span class="secondary">Un héros pas comme les autres</span></td>
+              <td><time datetime="1983-11" class="year">1983</time><span class="secondary">Marvel Tails #1<br>Novembre · date de couverture</span></td>
+              <td><button class="portrait-button" data-open="ham" aria-label="Découvrir Spider-Ham" aria-haspopup="dialog"><img src="assets/spider-ham.png" data-still="assets/spider-ham.png" data-gif="assets/spider-ham.gif" alt="Spider-Ham, le cochon en costume de Spider-Man" width="420" height="240"><span class="portrait-label">SURVOLE & EXPLORE <span aria-hidden="true">↗</span></span></button></td>
+            </tr>
+            <tr class="character-row" data-character="hulk">
+              <th scope="row"><span class="file-number">DOSSIER / 003</span><span class="character-name">SPIDER-HULK</span><span class="character-tag green">ALERTE GAMMA</span></th>
+              <td><span class="identity">Peter Parker</span><span class="secondary">Version transformée par les rayons gamma</span></td>
+              <td><time datetime="1990-11" class="year">1990</time><span class="secondary">Web of Spider-Man #70<br>Novembre · date de couverture</span></td>
+              <td><button class="portrait-button hulk-portrait" data-open="hulk" aria-label="Découvrir Spider-Hulk" aria-haspopup="dialog"><img src="assets/spider-hulk.jpg" alt="Couverture de Web of Spider-Man numéro 70 présentant Spider-Hulk" width="420" height="240"><span class="portrait-label">EFFET IMPACT AU SURVOL <span aria-hidden="true">↗</span></span></button></td>
+            </tr>
+            <tr class="character-row" data-character="miles">
+              <th scope="row">
+                <span class="file-number">DOSSIER / 004</span>
+                <span class="character-name">MILES MORALES</span>
+                <span class="character-tag orange">LE HÉROS DE BROOKLYN</span>
+              </th>
+              <td><span class="identity">Miles Morales</span><span class="secondary">Un nouveau masque, sa propre voie</span></td>
+              <td><time datetime="2011-08" class="year">2011</time><span class="secondary">Ultimate Fallout #4<br>Août · date de couverture</span></td>
+              <td>
+                <button class="portrait-button miles-portrait" data-open="miles" aria-label="Découvrir Miles Morales" aria-haspopup="dialog">
+                  <img src="assets/miles-morales.png" data-still="assets/miles-morales.png" data-gif="assets/miles-morales.gif" alt="Miles Morales en costume noir et rouge" width="480" height="270">
+                  <span class="portrait-label">SURVOLE & EXPLORE <span aria-hidden="true">↗</span></span>
+                </button>
+              </td>
+            </tr>
+            <tr class="character-row" data-character="gwen">
+              <th scope="row">
+                <span class="file-number">DOSSIER / 005</span>
+                <span class="character-name">SPIDER-GWEN</span>
+                <span class="character-tag pink">ALIAS GHOST-SPIDER</span>
+              </th>
+              <td><span class="identity">Gwen Stacy</span><span class="secondary">Une héroïne au rythme de son univers</span></td>
+              <td><time datetime="2014-11" class="year">2014</time><span class="secondary">Edge of Spider-Verse #2<br>Novembre · date de couverture</span></td>
+              <td>
+                <button class="portrait-button gwen-portrait" data-open="gwen" aria-label="Découvrir Spider-Gwen" aria-haspopup="dialog">
+                  <img src="assets/spider-gwen.png" data-still="assets/spider-gwen.png" data-gif="assets/spider-gwen.gif" alt="Gwen Stacy dans son costume blanc et noir de Spider-Gwen" width="480" height="270">
+                  <span class="portrait-label">SURVOLE & EXPLORE <span aria-hidden="true">↗</span></span>
+                </button>
+              </td>
+            </tr>
+            <tr class="character-row" data-character="miguel">
+              <th scope="row">
+                <span class="file-number">DOSSIER / 006</span>
+                <span class="character-name">SPIDER-MAN 2099</span>
+                <span class="character-tag blue">LE SPIDER DU FUTUR</span>
+              </th>
+              <td><span class="identity">Miguel O’Hara</span><span class="secondary">Direction Nueva York, en 2099</span></td>
+              <td><time datetime="1992-08" class="year">1992</time><span class="secondary">Amazing Spider-Man #365<br>Août · date de couverture<br>Aperçu du personnage</span></td>
+              <td>
+                <button class="portrait-button miguel-portrait" data-open="miguel" aria-label="Découvrir Spider-Man 2099" aria-haspopup="dialog">
+                  <img src="assets/spider-man-2099.png" data-still="assets/spider-man-2099.png" data-gif="assets/spider-man-2099.gif" alt="Miguel O’Hara en costume bleu et rouge de Spider-Man 2099" width="480" height="270">
+                  <span class="portrait-label">SURVOLE & EXPLORE <span aria-hidden="true">↗</span></span>
+                </button>
+              </td>
+            </tr>
+            <tr class="character-row" data-character="spooder">
+              <th scope="row">
+                <span class="file-number">DOSSIER / 007</span>
+                <span class="character-name">SPOODER-MAN</span>
+                <span class="character-tag yellow">ANOMALIE DU MULTIVERS · MÈME</span>
+              </th>
+              <td><span class="identity">Péter Parkour ?</span><span class="secondary">Alias inventé pour la blague. Identité non officielle.</span></td>
+              <td><span class="year">????</span><span class="secondary">Mème Internet<br>Pas de parution comics officielle</span></td>
+              <td>
+                <button class="portrait-button spooder-portrait" data-open="spooder" aria-label="Découvrir Spooder-Man" aria-haspopup="dialog">
+                  <img src="assets/spooder-man.png" data-still="assets/spooder-man.png" data-gif="assets/spooder-man.gif" alt="Spooder-Man, dessin parodique et déformé de Spider-Man" width="320" height="240">
+                  <span class="portrait-label">SURVOLE À TES RISQUES <span aria-hidden="true">↗</span></span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="no-results" class="no-results" hidden>Aucun personnage trouvé. Essaie un autre nom ou réinitialise la recherche.</p>
+    </section>
+
+</main>
+
+
+
+  <!-- La balise dialog gère la fenêtre et le focus clavier. -->
+  <dialog id="character-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-layout"><div class="dialog-visual">
+        <figure class="dialog-figure">
+          <img id="dialog-image" src="assets/spider-man.png" alt="">
+          <figcaption id="dialog-caption" hidden></figcaption>
+        </figure>
+      </div><div class="dialog-content"><button class="close-button" aria-label="Fermer la fiche">✕</button><p class="eyebrow red" id="dialog-label"></p><h2 id="dialog-title"></h2><p class="dialog-identity" id="dialog-identity"></p><p id="dialog-description"></p><div class="debut"><span>PREMIÈRE APPARITION</span><strong id="dialog-debut"></strong></div><a id="dialog-source" target="_blank" rel="noopener noreferrer">EN SAVOIR PLUS <span aria-hidden="true">↗</span></a></div></div>
+  </dialog>
+</body>
+</html>

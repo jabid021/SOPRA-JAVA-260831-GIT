@@ -1,0 +1,668 @@
+/* 1. Police et couleurs du thème */
+@font-face {
+  font-family:Bangers;
+  src:url('assets/bangers.ttf') format('truetype');
+  font-display:swap;
+}
+
+:root {
+  --bg:#0a0a0e;
+  --panel:#121218;
+  --white:#f2efe8;
+  --muted:#a6a5af;
+  --red:#ff2949;
+  --cyan:#3ce8ed;
+  --line:#303039;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+
+body {
+  margin:0;
+  overflow-x:clip;
+  background:var(--bg);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+button {
+  font:inherit;
+}
+
+button,a {
+  -webkit-tap-highlight-color:transparent;
+}
+
+a:focus-visible,button:focus-visible,summary:focus-visible,.table-scroll:focus-visible {
+  outline:3px solid var(--cyan);
+  outline-offset:5px;
+}
+
+::selection {
+  background:var(--red);
+  color:white;
+}
+
+.red {
+  color:var(--red);
+}
+
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+.skip-link {
+  position:fixed;
+  top:-100px;
+  left:20px;
+  z-index:30;
+  background:var(--white);
+  color:var(--bg);
+  padding:15px;
+}
+
+.skip-link:focus {
+  top:15px;
+}
+
+.eyebrow {
+  font-family:monospace;
+  letter-spacing:2px;
+  font-size:11px;
+  line-height:1.8;
+  font-weight:bold;
+}
+
+.archives {
+  padding:48px 5% 60px;
+  max-width:1600px;
+  margin:auto;
+}
+
+.section-heading {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:30px;
+  margin-bottom:42px;
+}
+
+h1, h2 {
+  font-family:Bangers,Impact,sans-serif;
+  font-size:clamp(45px,6vw,80px);
+  font-weight:400;
+  line-height:.97;
+  letter-spacing:1px;
+  margin:18px 0 0;
+}
+
+h1 span, h2 span {
+  color:var(--red);
+}
+
+.section-intro {
+  line-height:1.8;
+  color:var(--muted);
+  font-size:14px;
+  border-left:2px solid var(--red);
+  padding-left:20px;
+  margin-bottom:3px;
+}
+
+.table-scroll {
+  overflow-x:auto;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+  text-align:left;
+  min-width:840px;
+}
+
+th,td {
+  padding:25px 20px;
+  border-bottom:1px solid var(--line);
+}
+
+thead {
+  background:#1c1c24;
+}
+
+thead th {
+  font-family:monospace;
+  font-size:10px;
+  letter-spacing:1.5px;
+  font-weight:400;
+  padding-block:19px;
+  color:#c6c4cf;
+}
+
+thead th:first-child {
+  border-left:3px solid var(--red);
+}
+
+thead th:last-child {
+  width:29%;
+}
+
+tbody th {
+  width:24%;
+  font-weight:400;
+}
+
+tbody tr {
+  background:rgba(18,18,24,.94);
+  transition:background .2s;
+}
+
+tbody tr:nth-child(even) {
+  background:rgba(14,14,20,.94);
+}
+
+tbody tr:hover,tbody tr:focus-within {
+  background:#1b171f;
+}
+
+.file-number {
+  display:block;
+  font-size:9px;
+  color:var(--muted);
+  letter-spacing:2px;
+  font-family:monospace;
+  margin-bottom:14px;
+}
+
+.character-name {
+  font-family:Bangers,Impact,sans-serif;
+  font-size:clamp(25px,2.8vw,40px);
+  display:block;
+  white-space:nowrap;
+  transition: color 0.25s ease;
+}
+
+.character-tag {
+  color:var(--red);
+  font-family:monospace;
+  letter-spacing:1px;
+  font-size:9px;
+  display:block;
+  margin-top:11px;
+}
+
+/* Spider-Man : rouge */
+.character-row[data-character="peter"]:hover .character-name {
+  color: var(--red);
+}
+
+/* Spider-Ham : rose */
+.character-row[data-character="ham"]:hover .character-name {
+  color: #fca4cc;
+}
+
+/* Spider-Hulk : vert */
+.character-row[data-character="hulk"]:hover .character-name {
+  color: #bbf459;
+}
+
+.pink {
+  color:#fca4cc;
+}
+
+.green {
+  color:#bbf459;
+}
+
+.identity {
+  font-size:16px;
+  font-weight:bold;
+  display:block;
+}
+
+.secondary {
+  display:block;
+  color: var(--muted);
+  font-size: 11px;
+  line-height:1.7;
+  margin-top:9px;
+  max-width:190px;
+}
+
+.peter-description {
+  color: var(--red);
+  font-size: 13px;
+}
+
+.year {
+  font-family:Bangers,Impact,sans-serif;
+  font-size:38px;
+  color:var(--white);
+}
+
+.portrait-button {
+  display:block;
+  width:100%;
+  max-width:340px;
+  height:157px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid #41414b;
+  background:#0a0a0e;
+  cursor:pointer;
+  padding:0;
+  text-align:left;
+  color:white;
+}
+
+.portrait-button img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:filter .25s,transform .25s;
+  filter:saturate(.8);
+}
+
+.portrait-button:hover img,.portrait-button:focus-visible img {
+  filter:saturate(1.15);
+}
+
+.portrait-label {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  background:linear-gradient(transparent,#09090be6);
+  padding:26px 12px 10px;
+  font-family:monospace;
+  font-size:8px;
+  letter-spacing:1px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.portrait-label span {
+  font-size:20px;
+  color:var(--cyan);
+}
+
+.hulk-portrait img {
+  object-position:center 39%;
+}
+
+.hulk-portrait:hover img,.hulk-portrait:focus-visible img {
+  animation:impact .5s steps(2) infinite;
+  filter:saturate(1.5);
+}
+
+@keyframes impact {
+  0%,100% {
+    transform:scale(1.1) translate(0);
+  }
+  25% {
+    transform:scale(1.12) translate(-3px,2px);
+  }
+  50% {
+    transform:scale(1.1) translate(2px,-2px);
+  }
+  75% {
+    transform:scale(1.12) translate(-1px,-1px);
+  }
+}
+
+.archive-note {
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.8;
+  margin-top:22px;
+}
+
+.archive-note span {
+  color:var(--cyan);
+  margin-right:10px;
+}
+
+dialog {
+  padding:0;
+  width:min(880px,92vw);
+  max-height:90svh;
+  border:1px solid #555;
+  background:var(--panel);
+  color:var(--white);
+  box-shadow:8px 8px 0 var(--red);
+  overflow:auto;
+}
+
+dialog::backdrop {
+  background:#03030be8;
+  backdrop-filter:blur(7px);
+}
+
+body:has(dialog[open]) {
+  overflow:hidden;
+}
+
+.dialog-layout {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.dialog-visual {
+  background:#07070b;
+  min-height:480px;
+  display:flex;
+  align-items:center;
+}
+
+.dialog-visual img {
+  width:100%;
+  max-height:70svh;
+  object-fit:contain;
+}
+
+.dialog-content {
+  padding:56px 35px 38px;
+  position:relative;
+}
+
+.close-button {
+  position:absolute;
+  right:15px;
+  top:15px;
+  background:none;
+  border:1px solid #555;
+  color:white;
+  font-size:20px;
+  width:35px;
+  height:35px;
+  cursor:pointer;
+}
+
+.close-button:hover {
+  background:var(--red);
+}
+
+.dialog-content h2 {
+  font-size:52px;
+}
+
+.dialog-identity {
+  color:var(--cyan);
+  font-weight:bold;
+}
+
+#dialog-description {
+  color:#c5c2cb;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.debut {
+  border-top:1px solid var(--line);
+  padding-top:20px;
+  margin-top:25px;
+}
+
+.debut span {
+  font-family:monospace;
+  display:block;
+  letter-spacing:1px;
+  font-size:9px;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+.debut strong {
+  font-size:13px;
+  line-height:1.8;
+}
+
+#dialog-source {
+  display:inline-block;
+  font-size:10px;
+  letter-spacing:1px;
+  margin-top:25px;
+  color:var(--red);
+}
+
+@media(max-width:800px) {
+  .archives {
+    padding-top:70px;
+  }
+  .section-intro {
+    font-size:12px;
+  }
+  .section-heading {
+    align-items:start;
+  }
+  .dialog-content {
+    padding:55px 25px 30px;
+  }
+}
+
+@media(max-width:520px) {
+  .eyebrow {
+    font-size:9px;
+    letter-spacing:1.2px;
+  }
+  .section-heading {
+    display:block;
+  }
+  .section-intro {
+    margin-top:25px;
+  }
+  .archives {
+    padding-inline:5%;
+  }
+  .dialog-layout {
+    grid-template-columns:1fr;
+  }
+  .dialog-visual {
+    min-height:0;
+    height:210px;
+  }
+  .dialog-visual img {
+    height:100%;
+    object-fit:contain;
+  }
+  .dialog-content {
+    padding:30px 24px;
+  }
+  .dialog-content h2 {
+    font-size:45px;
+  }
+  .close-button {
+    position:fixed;
+    top:14px;
+    right:14px;
+    background:#101014;
+  }
+  dialog {
+    max-height:88svh;
+  }
+  .archive-note {
+    font-size:10px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior:auto;
+  }
+  *,*:before,*:after {
+    animation:none!important;
+    transition:none!important;
+  }
+}
+
+
+/* Le fond Spider-Geddon reste présent, derrière le tableau. */
+body {
+  min-height: 100svh;
+  position: relative;
+  isolation: isolate;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(rgba(10,10,14,.82), rgba(10,10,14,.94)),
+              url('assets/spider-geddon.webp') center / cover no-repeat;
+  pointer-events: none;
+}
+h1 {
+  margin: 12px 0 0;
+  text-shadow: 2px 2px 0 rgba(60,232,237,.45);
+}
+.orange { color: #ff9055; }
+.blue { color: #6caaff; }
+.character-row[data-character="miles"]:hover .character-name,
+.character-row[data-character="miles"]:focus-within .character-name { color: #ff9055; }
+.character-row[data-character="gwen"]:hover .character-name,
+.character-row[data-character="gwen"]:focus-within .character-name { color: #fca4cc; }
+.character-row[data-character="miguel"]:hover .character-name,
+.character-row[data-character="miguel"]:focus-within .character-name { color: #6caaff; }
+.character-row[data-character="peter"]:focus-within .character-name { color: var(--red); }
+.character-row[data-character="ham"]:focus-within .character-name { color: #fca4cc; }
+.character-row[data-character="hulk"]:focus-within .character-name { color: #bbf459; }
+.gwen-portrait img { object-position: center 25%; }
+.miguel-portrait img { object-position: center 35%; }
+
+/* Un titre de catalogue plus grand, centré au-dessus du tableau. */
+.section-heading {
+  display: block;
+  text-align: center;
+  margin-bottom: 38px;
+}
+#archives-title {
+  font-size: clamp(64px, 12vw, 150px);
+  line-height: 1;
+  margin: 12px 0 20px;
+  letter-spacing: 2px;
+}
+.section-intro {
+  border-left: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* Une couleur de fiche pour chaque personnage. */
+#character-dialog { --accent: var(--red); box-shadow: 8px 8px 0 var(--accent); }
+#character-dialog[data-character="ham"],
+#character-dialog[data-character="gwen"] { --accent: #fca4cc; }
+#character-dialog[data-character="hulk"] { --accent: #bbf459; }
+#character-dialog[data-character="miles"] { --accent: #ff9055; }
+#character-dialog[data-character="miguel"] { --accent: #6caaff; }
+#character-dialog .eyebrow,
+#character-dialog .dialog-identity,
+#character-dialog #dialog-source { color: var(--accent); }
+#character-dialog .close-button:hover { background: var(--accent); color: var(--bg); }
+#character-dialog :focus-visible { outline-color: var(--accent); }
+.dialog-figure { margin: 0; width: 100%; }
+#dialog-caption {
+  padding: 16px 20px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+/* Les commandes restent au-dessus du tableau, même sur un petit écran. */
+.table-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(18,18,24,.95);
+  border: 1px solid var(--line);
+}
+.search-field { flex: 1 1 240px; }
+.sort-field { flex: 1 1 220px; }
+.table-tools label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+.table-tools input,
+.table-tools select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #50505c;
+  background: var(--bg);
+  color: var(--white);
+  font: inherit;
+  font-size: 13px;
+  color-scheme: dark;
+}
+.table-tools input::placeholder { color: #a6a5af; }
+.table-tools input:focus-visible,
+.table-tools select:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.reset-button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--red);
+  background: transparent;
+  color: var(--white);
+  font-size: 12px;
+  cursor: pointer;
+}
+.reset-button:hover { background: var(--red); }
+.result-count {
+  min-height: 16px;
+  margin: 14px 0;
+  color: var(--muted);
+  font-family: monospace;
+  font-size: 11px;
+}
+.no-results {
+  margin: 0;
+  padding: 32px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.7;
+}
+/* Respecte l’attribut hidden, y compris sur les éléments stylés en flex. */
+[hidden] { display: none !important; }
+@media(max-width:520px) {
+  .table-tools { padding: 16px; }
+  .search-field, .sort-field, .reset-button { flex-basis: 100%; }
+  .dialog-visual:has(#dialog-caption:not([hidden])) { height: auto; }
+  .dialog-figure img { max-height: 210px; object-fit: contain; }
+}
+
+/* Le dossier troll a sa propre couleur, comme les autres fiches. */
+.yellow { color: #e6ff41; }
+.character-row[data-character="spooder"]:hover .character-name,
+.character-row[data-character="spooder"]:focus-within .character-name { color: #e6ff41; }
+#character-dialog[data-character="spooder"] { --accent: #e6ff41; }
+.spooder-portrait img { object-fit: contain; background: white; }
