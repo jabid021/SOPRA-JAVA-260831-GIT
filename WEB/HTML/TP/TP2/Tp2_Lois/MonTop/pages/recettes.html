@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP des recette de la flemme</title>
+    <meta name="description" content="Description de mon site">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="header">
+        <h1>Top des recettes de la flemme</h1>
+</header>
+
+<div class="recettes" >
+ 
+    <div class="recette" onclick="changerCarte(this)">
+        <div class="carte-interieur">
+          <div class="avant">
+            <img src="../assets/image/carbo.jpg" alt="Fausses carbo">
+           
+        </div>
+
+         <div class="arriere">
+        <h2> fausses carbo </h2>
+        <p class="temps">15 min</p>
+        <ul class="ingredient">
+            <li>Pâtes</li>
+            <li>Lardons</li>
+            <li>Crème</li>
+            <li>Parmesan</li>
+        </ul>
+
+        <h3>Préparation</h3>
+        <p>
+            Faire cuire les pâtes. Faire revenir les lardons,
+            ajouter la crème puis mélanger avec les pâtes.
+        </p>
+        </div>
+        </div>
+    </div>
+
+    <div class="recette" onclick="changerCarte(this)">
+        <div class="carte-interieur">
+          <div class="avant">
+            <img src="../assets/image/fajitas.jpg" alt="Fajitas">
+           
+        </div>
+
+         <div class="arriere">
+        <h2> fajitas </h2>
+        <p class="temps"> 10 min</p>
+
+        
+        <ul class="ingredient">
+            <li>galettes</li>
+            <li>viande hache</li>
+            <li>Salade</li>
+            <li>Sauce</li>
+            <li>épices </li>
+        </ul>
+
+        <h3>Préparation</h3>
+        <p>
+            Faire la viandes mettre tous les ingrédients
+            dans le wrap et rouler.
+        </p>
+    </div>
+        </div>
+    </div>
+    <div class="recette" onclick="changerCarte(this)">
+        <div class="carte-interieur">
+          <div class="avant">
+            <img src="../assets/image/croque.jpg" alt="Croque monsieur">
+           
+        </div>
+
+         <div class="arriere">
+        <h2> croque monsieur</h2>
+        <p class="temps"> 2 min</p>
+
+        <ul class="ingredient">
+            <li>pain</li>
+            <li>jambon</li>
+            <li>fromage</li>
+            
+        </ul>
+
+        <h3>Préparation</h3>
+        <p>
+            Placer le fromage et le jambon entre 2 tranches de pain. 
+            mettre 1 min au toaster.
+
+        </p>
+    </div>
+        </div>
+    </div>
+    <div class="recette" onclick="changerCarte(this)">
+        <div class="carte-interieur">
+          <div class="avant">
+            <img src="../assets/image/chocolat.jpg" alt="Gâteau au chocolat dans une tasse">
+           
+        </div>
+
+         <div class="arriere">
+        <h2> Gâteau au chocolat dans une tasse</h2>
+        <p class="temps">2 min</p>
+
+        
+        <ul  class="ingredient">
+            <li>farine</li>
+            <li>sucre</li>
+            <li>cacao</li>
+            <li>lait</li>
+            <li>huile </li>
+        </ul>
+
+        <h3>Préparation</h3>
+        <p>
+            mélange tout dans une grande tasse compatible micro-ondes. Fais cuire environ 60 à 90 secondes, en surveillant la cuisson. Laisse tiédir avant de manger.
+        </p>
+    </div>
+        </div>
+    </div>
+    <div class="recette" onclick="changerCarte(this)">
+        <div class="carte-interieur">
+          <div class="avant">
+            <img src="../assets/image/toast.jpg" alt="Toast oeufs brouillés">
+           
+        </div>
+
+         <div class="arriere">
+        <h2> toast oeufs brouillés</h2>
+        <p class="temps">10 min</p>
+
+        
+        <ul class="ingredient">
+            <li>oeufs</li>
+            <li>pain</li>
+            <li>frommage</li>
+           
+        </ul>
+
+        <h3>Préparation</h3>
+        <p>
+            battre les œufs, les cuires doucement à la poêle en remuant, ajouter le fromage et poser le tout sur du pain grillé.
+        </p>
+    </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+<script>
+    function changerCarte(recette) {
+       recette.classList.toggle("retournee");
+    }
+</script>

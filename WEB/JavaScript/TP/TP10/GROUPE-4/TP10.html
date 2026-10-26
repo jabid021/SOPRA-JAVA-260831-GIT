@@ -1,0 +1,69 @@
+<style>
+
+  body
+  {
+    background-image : url("assets/img/cinema.jpg");
+    background-size:100% 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  #grass
+  {
+    display:none;
+    position:relative;
+    width:700px;
+    height:700px;
+    background-image : url("assets/img/Grass.png")
+  }
+
+  #pikachu
+  {
+    position:absolute;
+    top:0;
+    left:0;
+  }
+.place{
+  position:absolute;
+  top:0;
+  left:0;
+  width: 45px;
+  height: 46px;
+  margin-left: 5px;
+  margin-top: 5px;
+  
+}
+#btnValiderPlaces img{
+  position:absolute;
+  width: 34px;
+  height: 30px;
+  top:0;
+  left:660;
+  margin-left: 5px;
+  margin-top: 5px;
+
+}
+</style>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<script defer src="pikachu.js" charset="utf-8"></script>
+  <audio id="themePokemon" src="assets/audio/theme.mp3"></audio>
+
+<div id="formStart">
+  <input id="inputName" type="text" placeholder="pikachu"><input id="btnStart" disabled type="button" value="Start !">
+</div>
+
+<div id="grass">
+  <div id="pikachu"><img id="imgPikachu" src="assets/img/pikachuDown.png"></div>
+  <div id="salle">
+      <button id="btnValiderPlaces" class="btn p-0"  title="Valider les places sélectionnées">
+      <img src="assets/img/popcorn.png" alt="Valider les places">
+      </button>
+
+
+  </div>
+</div>
+</body>
