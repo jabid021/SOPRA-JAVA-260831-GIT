@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <title>Tableaux des stagiaires</title>
+    <style>
+        :root {
+            --cadre-l: 800px; --cadre-h: 300px; --page-l: 1200px; --page-h: 450px; --scale: 0.6667;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <header>
+            <h1>Tableaux des stagiaires</h1>
+            <p>Clique sur une vignette pour ouvrir le tableau complet</p>
+        </header>
+
+        <div class="barre">
+            <span id="statut-notes"></span>
+            <button id="enregistrer">Enregistrer les notes</button>
+            <button id="trier">Trier par note</button>
+            <button id="reinit">Remettre l'ordre d'origine</button>
+        </div>
+
+        <div class="carte">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>N°</th>
+                        <th>Prénom</th>
+                        <th>Note</th>
+                        <th>Tableau</th>
+                    </tr>
+                </thead>
+                <tbody id="corps">
+                            <tr data-id="../Theo_Deb-CineSeat/TP2.html">
+            <td class="poignee" title="Glisser pour déplacer">⠿</td>
+            <td class="num"><span>1</span></td>
+            <td class="prenom">Theo_Deb-CineSeat</td>
+            <td class="note">10.0</td>
+            <td>
+                <div class="vignette">
+                    <iframe src="../Theo_Deb-CineSeat/TP2.html" scrolling="no"></iframe>
+                    <a class="lien" href="../Theo_Deb-CineSeat/TP2.html" target="_blank" rel="noopener"></a>
+                </div>
+            </td>
+        </tr>
+        <tr data-id="../Léo créature Top5/Léo créature top5.html">
+            <td class="poignee" title="Glisser pour déplacer">⠿</td>
+            <td class="num"><span>2</span></td>
+            <td class="prenom">Léo créature Top5</td>
+            <td class="note">9.0</td>
+            <td>
+                <div class="vignette">
+                    <iframe src="../Léo créature Top5/Léo créature top5.html" scrolling="no"></iframe>
+                    <a class="lien" href="../Léo créature Top5/Léo créature top5.html" target="_blank" rel="noopener"></a>
+                </div>
+            </td>
+        </tr>
+        <tr data-id="../Tableau_Guilhem/tableauGuilhem.html">
+            <td class="poignee" title="Glisser pour déplacer">⠿</td>
+            <td class="num"><span>3</span></td>
+            <td class="prenom">Tableau_Guilhem</td>
+            <td class="note">9.0</td>
+            <td>
+                <div class="vignette">
+                    <iframe src="../Tableau_Guilhem/tableauGuilhem.html" scrolling="no"></iframe>
+                    <a class="lien" href="../Tableau_Guilhem/tableauGuilhem.html" target="_blank" rel="noopener"></a>
+                </div>
+            </td>
+        </tr>
+        <tr data-id="../Omb_Crabe/CrabesCrabes.html">
+            <td class="poignee" title="Glisser pour déplacer">⠿</td>
+            <td class="num"><span>4</span></td>
+            <td class="prenom">Omb_Crabe</td>
+            <td class="note">8.0</td>
+            <td>
+                <div class="vignette">
+                    <iframe src="../Omb_Crabe/CrabesCrabes.html" scrolling="no"></iframe>
+                    <a class="lien" href="../Omb_Crabe/CrabesCrabes.html" target="_blank" rel="noopener"></a>
+                </div>
+            </td>
+        </tr>
+        <tr data-id="../Frederic-Kana/index.html">
+            <td class="poignee" title="Glisser pour déplacer">⠿</td>
+            <td class="num"><span>5</span></td>
+            <td class="prenom">Frederic-Kana</td>
+            <td class="note">6.0</td>
+            <td>
+                <div class="vignette">
+                    <iframe src="../Frederic-Kana/index.html" scrolling="no"></iframe>
+                    <a class="lien" href="../Frederic-Kana/index.html" target="_blank" rel="noopener"></a>
+                </div>
+            </td>
+        </tr>
+        <tr data-id="../Steven-Herisson/index.html">
+            <td class="poignee" title="Glisser pour déplacer">⠿</td>
+            <td class="num"><span>6</span></td>
+            <td class="prenom">Steven-Herisson</td>
+            <td class="note">5.5</td>
+            <td>
+                <div class="vignette">
+                    <iframe src="../Steven-Herisson/index.html" scrolling="no"></iframe>
+                    <a class="lien" href="../Steven-Herisson/index.html" target="_blank" rel="noopener"></a>
+                </div>
+            </td>
+        </tr>
+        <tr data-id="../TAB_leandre_TP2/TP2/HTML_TP2/TP2_leandre.html">
+            <td class="poignee" title="Glisser pour déplacer">⠿</td>
+            <td class="num"><span>7</span></td>
+            <td class="prenom">TAB_leandre_TP2</td>
+            <td class="note">2.0</td>
+            <td>
+                <div class="vignette">
+                    <iframe src="../TAB_leandre_TP2/TP2/HTML_TP2/TP2_leandre.html" scrolling="no"></iframe>
+                    <a class="lien" href="../TAB_leandre_TP2/TP2/HTML_TP2/TP2_leandre.html" target="_blank" rel="noopener"></a>
+                </div>
+            </td>
+        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
