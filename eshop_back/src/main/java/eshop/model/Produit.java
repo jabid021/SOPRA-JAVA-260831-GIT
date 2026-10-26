@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.hibernate.validator.constraints.Range;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +16,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import view.Views;
 
 @Entity
 @Table(name="product")
@@ -21,20 +24,25 @@ public class Produit {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Common.class)
 	private Integer id;
 	@Column(name="label",length = 30,nullable=false)
 	@NotBlank(message = "Un produit doit avoir un libelle !")
+	@JsonView(Views.Common.class)
 	private String libelle;
 	
 	@Column(name="price", columnDefinition = "DECIMAL(6,2)")
 	@Range(min=100,max=1000,message="Nos prix sont toujours entre [100 et 10000]")
+	@JsonView(Views.Common.class)
 	private double prix;
 	
 	@ManyToOne
 	@JoinColumn(name="fournisseur",nullable=false)
+	@JsonView(Views.Produit.class)
 	private Fournisseur fournisseur;
 	
 	@OneToMany(mappedBy = "produit")
+	@JsonView(Views.ProduitWithVentes.class)
 	private List<Achat> ventes;
 	
 	public Produit() {}

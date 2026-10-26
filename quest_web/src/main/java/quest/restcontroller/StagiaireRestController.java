@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
 import quest.dao.IDAOPersonne;
 import quest.model.Stagiaire;
-import view.Views;
+import quest_dto.StagiaireDTO;
 
 @RestController
 @RequestMapping("/api/stagiaire")
@@ -27,17 +25,22 @@ public class StagiaireRestController {
 	IDAOPersonne daoPersonne;
 	
 	@GetMapping
-	@JsonView(Views.Stagiaire.class)
-	public List<Stagiaire> afficherTous() 
+	public List<StagiaireDTO> afficherTous() 
 	{
-	  return daoPersonne.findAllStagiaires();
+		/*List<StagiaireDTO> listeStagiaireDTO = new ArrayList();
+		for(Stagiaire s : daoPersonne.findAllStagiaires()) 
+		{
+			listeStagiaireDTO.add(StagiaireDTO.convert(s));
+		}*/
+		System.out.println(daoPersonne.findAllStagiaires());
+		System.out.println(daoPersonne.findAllStagiaires().stream().map(s->StagiaireDTO.convert(s)).toList());
+	  return daoPersonne.findAllStagiaires().stream().map(s->StagiaireDTO.convert(s)).toList();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.Stagiaire.class)
-	public Stagiaire afficherParId(@PathVariable Integer id) 
+	public StagiaireDTO afficherParId(@PathVariable Integer id) 
 	{
-		return (Stagiaire) daoPersonne.findById(id).orElse(null);
+		return StagiaireDTO.convert((Stagiaire) daoPersonne.findById(id).orElse(null));
 	}
 	
 	@DeleteMapping("/{id}")
@@ -47,7 +50,6 @@ public class StagiaireRestController {
 	}
 
 	@PostMapping
-	@JsonView(Views.Stagiaire.class)
 	public Stagiaire ajouter(@RequestBody Stagiaire stagiaire)
 	{
 		daoPersonne.save(stagiaire);
@@ -55,7 +57,6 @@ public class StagiaireRestController {
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.Stagiaire.class)
 	public Stagiaire modifier(@PathVariable Integer id,@RequestBody Stagiaire stagiaire) 
 	{
 	  stagiaire.setId(id);

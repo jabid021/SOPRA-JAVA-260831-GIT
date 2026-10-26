@@ -1,7 +1,5 @@
 package quest.model;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,21 +8,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import view.Views;
 
 @Entity
 @Table(name="ordinateur")
 public class Ordinateur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(Views.Common.class)
 	private Integer numero;
 	@Column(length = 20,nullable = false)
-	@JsonView(Views.Common.class)
 	private String marque;
 	
 	@Column(columnDefinition = "int default 0")
-	@JsonView(Views.Common.class)
 	private int ram;
 	
 	@OneToOne
