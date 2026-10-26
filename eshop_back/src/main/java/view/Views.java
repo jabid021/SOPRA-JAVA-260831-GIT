@@ -8,7 +8,8 @@ public class Views {
 		
 			
 		public class Client extends Common{}
-			public class ProduitWithAchats extends Client{}
+			public class ClientWithAchats extends Client{}
+	
 			
 		
 		public class Fournisseur extends Common{}
