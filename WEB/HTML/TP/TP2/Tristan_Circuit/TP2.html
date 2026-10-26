@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<style>
+
+  * {
+  box-sizing: border-box;
+}
+
+header {
+  background-color:#424242;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:100px;
+}
+
+h1 {
+    font-weight: 900;
+    color: #E10600;
+    text-transform: uppercase;
+    font-style: italic;
+    margin: 0;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    font-family: 'Titillium Web', sans-serif;
+    background-image: url("assets/background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#tab {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 75%;
+    margin: 30px auto;
+    background-color: white;
+    color: black;
+    text-align: center;
+    table-layout: fixed;
+}
+
+#tab .circuit {
+    width: 13%;
+}
+
+#tab .pays {
+    width: 12%;
+}
+
+#tab .distance {
+    width: 10%;
+}
+
+#tab .features {
+    width: 25%;
+}
+
+#tab .schema {
+    width: 20%;
+}
+
+#tab .image {
+    width: 20%;
+}
+
+#tab th, #tab td {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 12px;
+    vertical-align: middle;
+}
+
+#tab th:last-child, #tab td:last-child {
+    border-right: none;
+}
+
+#tab tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#tab th {
+    background-color: #424242;
+    color: white;
+}
+
+#tab ul {
+    text-align: left;
+    padding-left: 20px;
+}
+
+#tab img {
+    border-radius : 5px;
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+footer {
+    background-color: #252525;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    min-height: 100px;
+    padding: 25px;
+    color: white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #E10600;
+}
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les meilleurs circuits de F1</title>
+</head>
+
+
+
+<body>
+  <header>
+    <h1>Les meilleurs circuits de F1</h1>
+  </header>
+
+  <table id="tab">
+    <thead>
+      <tr>
+        <th class="circuit">Circuit</th>
+        <th class="pays">Pays</th>
+        <th class="distance">Distance du circuit</th>
+        <th class="features">Particularités</th>
+        <th class="schema">Tracé du circuit</th>
+        <th class="image">Image du circuit</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Spa Francorchamps</td>
+        <td>Belgique</td>
+        <td>7,004 km</td>
+        <td>
+          <ul>
+            <li>Situé dans les Ardennes Belges</li>
+            <li>Un des circuit les plus long</li>
+            <li>Un des circuits les plus aimés des pilotes</li>
+          </ul>
+        </td>
+        <td><img src="assets/schema/Spa.jpg" ></td>
+        <td><img src="assets/img/Spa.jpg" ></td>
+      </tr>
+
+      <tr>
+        <td>RedBull Ring</td>
+        <td>Autriche</td>
+        <td>4,326 km</td>
+        <td>
+          <ul>
+            <li>Situé dans les Alpes styriennes</li>
+            <li>Circuit très vallonné</li>
+            <li>Circuit situé à 700m d'altitude</li>
+          </ul>
+        </td>
+        <td><img src="assets/schema/RedBullRing.jpg" ></td>
+        <td><img src="assets/img/RedBullRing.jpg" ></td>
+      </tr>
+
+      <tr>
+        <td>Monaco</td>
+        <td>Monaco</td>
+        <td>3,337 km</td>
+        <td>
+          <ul>
+            <li>Circuit urbain qui passe par les routes de Monte-Carlo</li>
+            <li>Circuit très étroit avec des gros virages</li>
+            <li>Très peu de possibilité de dépassement dûes aux rues étroites</li>
+          </ul>
+        </td>
+        <td><img src="assets/schema/Monaco.jpg" ></td>
+        <td><img src="assets/img/Monaco.jpg" ></td>
+      </tr>
+
+      <tr>
+        <td>Marina Bay</td>
+        <td>Singapour</td>
+        <td>5,063 km</td>
+        <td>
+          <ul>
+            <li>Se déroule en pleine nuit</li>
+            <li>Circuit qui traverse les rues de Singapour</li>
+            <li>Conditions climatiques exigeantes dûes aux fortes chaleurs et humidités</li>
+          </ul>
+        </td>
+        <td><img src="assets/schema/MarinaBay.jpg" ></td>
+        <td><img src="assets/img/MarinaBay.jpg" ></td>
+      </tr>
+
+      <tr>
+        <td>Suzuka</td>
+        <td>Japon</td>
+        <td>5,807 km</td>
+        <td>
+          <ul>
+            <li>Tracé du circuit en 8, qui fait passer la piste au-dessus d'elle-même</li>
+            <li>Circuit qui traverse les rues de Singapour</li>
+            <li>Circuit composé de pleins de petits virages rapides</li>
+          </ul>
+        </td>
+        <td><img src="assets/schema/Suzuka.jpg" ></td>
+        <td><img src="assets/img/Suzuka.jpg" ></td>
+      </tr>
+
+      <tr>
+        <td>Monza</td>
+        <td>Italie</td>
+        <td>5,793 km</td>
+      <td>
+        <ul>
+          <li>Circuit composé de longues lignes droites</li>
+          <li>Un des 7 circuits qui ont accueilli le premier championnat de F1</li>
+          <li>Supporters de Ferrari créant una ambiance exceptionnelle</li>
+        </ul>
+      </td>
+      <td><img src="assets/schema/Monza.jpg" ></td>
+      <td><img src="assets/img/Monza.jpg" ></td>
+    </tr>
+
+    <tr>
+      <td>Zandvoort</td>
+      <td>Pays-Bas</td>
+      <td>4,259 km</td>
+      <td>
+        <ul>
+          <li>Circuit au bord de la Mer du Nord</li>
+          <li>Circuit tracé entre les dunes de sables</li>
+          <li>Piste très glissante dû au sable</li>
+        </ul>
+      </td>
+      <td><img src="assets/schema/Zandvoort.jpg" ></td>
+      <td><img src="assets/img/Zandvoort.jpg" ></td>
+    </tr>
+
+    <tr>
+      <td>Silverstone</td>
+      <td>Angleterre</td>
+      <td>5,891 km</td>
+      <td>
+        <ul>
+          <li>Circuit situé sur une ancienne base de la Royal Air Force</li>
+          <li>Un des 7 circuits qui ont accueilli le premier championnat de F1</li>
+          <li>Météo très aléatoire qui peut changer le cours de la course</li>
+        </ul>
+      </td>
+      <td><img src="assets/schema/Silverstone.jpg" ></td>
+      <td><img src="assets/img/Silverstone.jpg" ></td>
+    </tr>
+
+    <tr>
+      <td>Autódromo Hermanos Rodríguez</td>
+      <td>Mexique</td>
+      <td>4,304 km</td>
+      <td>
+        <ul>
+          <li>Circuit traversant un ancien stade de baseball</li>
+          <li>Circuit situé à 2200m d'altitude</li>
+          <li>Circuit exigeant pour les moteurs et les pilotes dû à l'altitude</li>
+        </ul>
+      </td>
+      <td><img src="assets/schema/Mexico.jpg" ></td>
+      <td><img src="assets/img/Mexico.jpg" ></td>
+    </tr>
+
+    <tr>
+      <td>Autodromo Enzo e Dino Ferrari</td>
+      <td>Saint-Marin</td>
+      <td>4,909 km</td>
+      <td>
+        <ul>
+          <li>Un des seul circuit où l'on tourne dans le sens anti-horaire</li>
+          <li>Circuit où le pilote Ayrton Senna est décédé</li>
+          <li>Dernier GP de F1 disputé en 2006</li>
+        </ul>
+      </td>
+      <td><img src="assets/schema/SanMarin.jpg" ></td>
+      <td><img src="assets/img/SanMarin.jpg" ></td>
+    </tr>
+  </tbody>
+  </table>
+
+  <footer>
+    <a class="lien" href="https://www.formula1.com/" target="_blank" rel="noopener">Site officiel de la Formule 1</a>
+  </footer>
+</body>
