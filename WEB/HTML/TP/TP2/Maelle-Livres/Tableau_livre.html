@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<style>
+
+
+
+h1{
+  background-color: #8f84a7;
+  width : fit-content;
+  margin: 30px auto ;
+  border-radius : 12px ;
+  color : #443566;
+}
+
+body {
+  cursor: url('image/livre_ferme (1).png'), auto;
+  font-family: 'Grenze', serif;
+  background-image : url('image/fond.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+
+}
+.couverture {
+  cursor: url('image/livre_ouvert.png') 16 11, pointer;
+
+}
+
+table{
+  border: 3px solid #8f84a7;
+  background-color:#252536;
+  border-collapse: collapse;
+}
+
+th, td{
+  text-align: center;
+  vertical-align: middle;
+  border-color :  #8f84a7;
+  padding: 5px;
+}
+
+#nom-colonne{
+  font-size: 18pt;
+  color : #f7c8ea;
+}
+.infos-livres{
+  font-size: 16pt;
+  color : #bdb2d6;
+}
+#Top{
+  width:5%;
+}
+#Titre{
+  width:10%;
+}
+#Aut{
+  width:10%;
+}
+#Infos{
+  width:10%;
+}
+
+td p {
+  align-items: center;
+  margin: 0 0 0px 0;
+}
+td:nth-child(1){
+  font-size: 20pt;
+}
+
+
+
+#fenetre-resume {
+  background-image : url('image/fond_fenetre.jpeg');
+  width: 636px;
+  height: 314px;
+  padding: 50px;
+  border: 2px solid #8b5e3c;
+  border-radius: 12px;
+  font-family: 'Grenze', serif;
+  margin : auto ;
+  outline: none;
+}
+#resume-texte {
+  text-align: justify;
+}
+
+
+
+</style>
+
+
+
+<h1 align="center"> Liste non exhaustive des meilleurs livres de fantasy  </h1>
+
+<table class="table table-striped" border width="60%" align="center">
+
+
+
+<thead>
+  <tr id="nom-colonne">
+    <th id= "Top">Top</th>
+    <th id= "Titre">Titre</th>
+    <th id= "Aut">Auteurice</th>
+    <th id= "Infos">Infos saga</th>
+  <!--  <th id= "Res">Résumé</th> -->
+  </tr>
+</thead>
+
+<dialog id="fenetre-resume">
+  <h2 id="resume-titre"></h2>
+  <p id="resume-texte"></p>
+</dialog>
+
+<tbody>
+  <tr class = "infos-livres">
+    <td >1</td>
+    <td >The Bone Season
+      <p><img class="couverture" src="image\The_Bone_Season.jpg" alt = "The Bone Season" width = 120 ></p>
+      <div class="resume" hidden>
+        Dans un monde totalitaire et dangereux, une réveuse va démarrer une révolution. 2059, Paige travaille pour une organisation criminelle souterraine dans les rues de Scion-Londres, où elle récolte des informations en pénétrant dans l'esprit des gens. Paige est une marcherêve, une clairvoyante, et selon les règles de Scion, son existence même est déjà une trahison.
+    Poursuivie puis arrêtée, elle est déportée vers une colonie pénitentiaire sur l'ancien territoire d'Oxford secrètement occupé par les réphaïm, une race venue d'un autre monde qui récolte et utilise les clairvoyants à ses propres fins.
+    Paige se retrouve assignée au mystérieux gouverneur Arcturus. Celui-ci devient son maître. Son formateur. Son ennemi naturel. À ses côtés, elle va devoir apprendre à développer son pouvoir pour servir ses ravisseurs, mais surtout pour s'échapper de ce sinistre endroit où elle semble promise à une mort certaine...
+  </div>
+    </td>
+    <td>Samantha Shannon</td>
+    <td >
+      <p> Série en cours </p>
+      <p> 5 tomes de sortis  </p>
+    </td>
+
+  </tr>
+
+  <tr class = "infos-livres">
+    <td >2</td>
+    <td>La Dernière Geste
+      <p><img class="couverture" src="image\Derniere_geste.webp" alt = "La Dernière Geste" width = 120 ></p>
+      <div class="resume" hidden>
+        Depuis des siècles, les Humains traitent les fées, créatures magiques dont ils redoutent les pouvoirs, comme des animaux dangereux.
+        L’alliance du Royaume de France, de l’Empire du Japon et du Sultanat Ottoman se partage désormais l’Europe, l’Asie et l’Afrique. Ces féroces aristocraties oppriment leurs peuples et écrasent dans le sang toute révolte, qu’elle soit humaine ou féerique.
+        En choisissant les dangers de la liberté plutôt que la soumission aux règles de sa caste, la princesse Nekohaima Yuri va se forger ses propres valeurs et bientôt, mettra en péril la plus grande puissance du monde.
+        Au cœur de cette métamorphose, une amitié très improbable...
+        </div>
+    </td>
+    <td>Morgan of Glencoe</td>
+    <td>
+      <p> Série terminée  </p>
+      <p> 5 tomes </p>
+    </td>
+  </tr>
+
+  <tr class = "infos-livres">
+    <td>3</td>
+    <td>La maison au milieu de la mer céruléenne
+    <p><img class="couverture" src="image\la-maison-au-milieu-de-la-mer-ceruleenne.jpg" alt = "La maison au milieu de la mer céruléenne" width = 120 ></p>
+    <div class="resume" hidden>
+      Linus Baker mène une vie tranquille et solitaire. À quarante ans, il vit dans une petite maison avec un chat sournois et ses vieux disques. Il travaille au Ministère de la Jeunesse Magique.
+  Lorsque Linus est convoqué de manière inattendue dans le bureau des Cadres Extrêmement Supérieurs du ministère, il se voit confier une mission curieuse et hautement secrète : se rendre à l'orphelinat de l'île de Marsyas, où résident six enfants dangereux : un gnome, un esprit de la nature, une vouivre, une créature inconnue, un métamorphe et l'Antéchrist. Linus doit mettre de côté ses craintes et déterminer si le directeur de cet orphelinat particulier est parfaitement qualifié pour le gérer.
+  Mais les enfants ne sont pas le seul secret que renferme l’île. Leur gardien est le charmant et énigmatique Arthur Parnassus, qui fera tout pour assurer la sécurité de ses protégés.
+
+      </div>
+      </td>
+    <td>Travis John Klune</td>
+    <td><p> Série terminée  </p>
+    <p> 2 tomes  </p>
+  </td>
+
+  </tr>
+
+  <tr class = "infos-livres">
+    <td>4</td>
+    <td>Plein ciel
+    <p><img class="couverture" src="image\Plein_Ciel.jpg" alt = "Plein ciel" width = 120 ></p>
+      <div class="resume" hidden>
+        Sur l'île de la Nébuleuse, l'Opéra Plein-Ciel fait la pluie et le beau temps, et chacune de ses représentations se doit d'être parfaite. Née dans une famille de Masques - des aristocrates capables de transmuter les corps vivants - Ivoire est une jeune femme dont le talent de Jouet ne gouverne que les objets. C'est loin de son milieu social qu'elle a trouvé sa place, en périphérie de la capitale, au sein d'une petite maison donnant sur les rizières et d'un prestigieux atelier de couture, l'Atelier-Des-Mesures. Mais lorsque son talent de dompteuse de rubans est remarqué par la Maîtresse-Jouet de Plein-Ciel en personne, Ivoire n'a pas le choix : elle est forcée d'abandonner son quotidien tranquille pour emménager en plein coeur de l'Opéra. La voilà plongée dans les coulisses où la vie se mène à un rythme effréné, au gré des préparatifs, des intrigues de cour, des rumeurs scandaleuses et des pamphlets interdits qui circulent sous le manteau et promettent un autre monde possible...
+        </div>
+        </td>
+
+    <td>Siècle Vaëlban</td>
+    <td><p> Un seul tome</p>
+  </td>
+
+  </tr>
+
+  <tr class = "infos-livres">
+    <td>5</td>
+    <td>La Passe Miroire
+    <p><img class="couverture" src="image\La-passe-miroir.webp" alt = "La Passe Miroire" width = 120 ></p>
+  <div class="resume" hidden>
+    Sous son écharpe élimée et ses lunettes de myope, Ophélie cache des dons singuliers : elle peut lire le passé des objets et traverser les miroirs.
+    Elle vit paisiblement sur l'arche d'Anima quand on la fiance à Thorn, du puissant clan des Dragons. La jeune fille doit quitter sa famille et le suivre à la Citacielle, capitale flottante du Pôle. À quelle fin a-t-elle été choisie ? Pourquoi doit-elle dissimuler sa véritable identité ? Sans le savoir, Ophélie devient le jouet d'un complot mortel.
+      </div>
+  </td>
+    <td>Christelle Dabos</td>
+    <td><p> Série terminée  </p>
+    <p> 4 tomes  </p>
+    </td>
+  </tr>
+
+  <tr class = "infos-livres">
+    <td>6</td>
+    <td>La Neuvième maison
+    <p><img class="couverture" src="image\la-neuvieme-maison.jpg" alt = "La Neuvième maison" width = 120 ></p>
+<div class="resume" hidden>
+  Alex " Galaxy " Stern a vécu une adolescence chaotique. Élevée à Los Angeles par une mère hippie, elle a abandonné l'école très jeune pour se retrouver dans un monde sombre, violent et sans avenir.
+À 20 ans, elle est la seule survivante d'un horrible massacre inexpliqué, et c'est sur son lit d'hôpital qu'elle se voit offrir une seconde chance : rejoindre la prestigieuse université Yale en intégrant la maison Léthé. Cette entité, appelée La Neuvième Maison, surveille les huit sociétés secrètes de Yale ; ces dernières forment les futurs décideurs ainsi que les personnes influentes et pratiquent la magie sous différentes formes, bien souvent sinistres et dangereuses
+Alex a été choisie, car elle possède un pouvoir rare et mystérieux : elle peut voir les fantômes. Alors que son mentor a disparu, elle va devoir enquêter sur le meurtre d'une jeune fille. Ce qu'elle va découvrir va bien au-delà de l'horreur...
+  </div>
+  </td>
+    <td>Leigh Bardugo</td>
+    <td>
+      <p> Série terminée  </p>
+      <p> 2 tomes  </p>
+    </td>
+  </tr>
+
+  <tr class = "infos-livres">
+    <td>7</td>
+    <td>La Scholomance
+    <p><img class="couverture" src="image\scholomance.jpg" alt = "La Scholomance" width = 120 ></p>
+    <div class="resume" hidden>
+      Bienvenue à Scholomance, une école pour les surdoués de la magie où l’échec signifie la mort… Au sens propre. Il n’y a pas de professeurs, pas de vacances et pas d’amitiés, sauf celles qui sont stratégiques.
+
+  El Higgins est particulièrement bien préparée pour sa première année. Elle n’a peut-être pas d’alliés, mais elle possède un pouvoir assez puissant pour raser des montagnes. Elle semble de taille à affronter cette scolarité hors normes. Le problème ? Sa magie pourrait aussi tuer tous les autres élèves.
+
+  Et lorsqu’elle commence à déterrer les secrets de l’établissement, les dangers se multiplient.
+      </div>
+  </td>
+    <td>Naomi Novik</td>
+    <td>
+      <p> Série terminée  </p>
+      <p> 3 tomes   </p>
+    </td>
+
+  </tr>
+
+  <tr class = "infos-livres">
+    <td>8</td>
+    <td>Le temps des sorcières
+    <p><img class="couverture" src="image\le-temps-des-sorcieres.jpg" alt = "Le temps des sorcières"width = 120 ></p>
+  <div class="resume" hidden>
+    Avant, quand l’air était si imprégné de magie qu’il laissait un goût de cendres sur la langue, les sorcières étaient féroces et intrépides, la magie flamboyait et la nuit leur appartenait. Ce temps n’est plus, les hommes ont dressé des bûchers, et les femmes ont appris à se taire, à dissimuler ce qui leur restait de magie dans des comptines, des formules à deux sous et des contes de bonne femme.
+
+    Mais la vraie sorcellerie n’a besoin que de trois choses pour renaître : la volonté de l’écouter, les vers pour lui parler, et les voies pour la laisser pénétrer le monde. Car tout ce qui est important va par trois.
+
+    Ainsi des sœurs Eastwood : Bella, Agnès et Genièvre. Mues par la colère, la peur... et une pulsation écarlate qui ne demande qu’à revivre, des dons qu’elles découvrent peu à peu. Il suffit pour cela de s’unir, et d’y croire, de traquer tous les interstices où elle se dissimule. Car la magie, c’est d’abord penser que chacun est libre d’agir, même si le mal rôde. Le temps des Sorcières pourrait alors bien revenir, pour notre plus grand bénéfice à tous.
+
+    </div>
+  </td>
+    <td>Alix E. Harrow</td>
+    <td>
+      <p> Un seul tome</p>
+  </td>
+
+  </tr>
+
+  <tr class = "infos-livres">
+    <td>9</td>
+    <td>Passing Strange
+    <p><img class="couverture" src="image\passing-strange.jpg" alt = "Passing Strange" width = 120 ></p>
+<div class="resume" hidden>
+  San Francisco, 1940. Six femmes, avocate, artiste ou scientifique, choisissent d'assumer librement leurs vies et leur homosexualité dans une société dominée par les hommes. Elles essayent de faire plier la ville des brumes par la force de leurs désirs... ou par celle de l'ori-kami. Mais en science comme en magie, il y a toujours un prix à payer quand la réalité reprend ses droits.
+
+  </div>
+  </td>
+    <td>Ellen Klages</td>
+    <td>
+      <p> Un seul tome  </p>
+  </td>
+  </tr>
+
+  <tr class = "infos-livres">
+    <td>10</td>
+    <td>Les aventuriers de la mer
+    <p><img class="couverture" src="image\les-aventuriers-de-la-mer.jpg" alt = "Les aventuriers de la mer" width = 120 ></p>
+<div class="resume" hidden>
+  Les vivenefs sont des vaisseaux magiques attachés par des liens empathiques à la famille qui les possède. Ces navires insaisissables bravent les tempêtes, évitent les récifs, distancent les monstres marins, sèment les pirates... et font l'objet de toutes les convoitises. Le capitaine de la Vivacia, Ephron Vestrit, se meurt. Parmi les siens, chacun ourdit complot et trahison pour s'approprier son vaisseau, car une vivenef ne se transmet pas comme un legs ordinaire. Pendant ce temps, d'autres dangers se profiles à l'horizon : les serpents de mer qui infestent les océanes se regroupent, et un ambitieux pirate aspire à unir ses pairs sous un seul pavillon : le sien.
+
+  </div>
+  </td>
+    <td>Robin Hobb</td>
+    <td>
+      <p> Série terminée  </p>
+    <p> 10 tomes  </p>
+  </td>
+
+  </tr>
+<script>
+
+ const fenetre = document.getElementById(`fenetre-resume`);
+ const titre = document.getElementById(`resume-titre`);
+ const texte = document.getElementById(`resume-texte`);
+
+ document.querySelectorAll('.couverture').forEach(img => {
+   img.addEventListener('click', () => {
+     const cellule = img.closest('td');
+     titre.textContent = img.alt;
+     texte.textContent = cellule.querySelector('.resume').textContent;
+     fenetre.showModal();
+   });
+ });
+
+
+
+fenetre.addEventListener('click', (e) =>
+{
+  if (e.target === fenetre) fenetre.close();
+});
+
+</script>
+</tbody>
+
+
+</table>
