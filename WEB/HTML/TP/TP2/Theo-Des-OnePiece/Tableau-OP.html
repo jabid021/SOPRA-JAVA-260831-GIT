@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Le grand registre des primes - One Piece</title>
+
+    <style>
+        body {
+            background-image: url("img/fond-one-piece.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            font-family: Georgia, serif;
+            color: #E3C28C;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #E3C28C;
+            font-size: 36px;
+            text-shadow: 3px 3px 4px #302017;
+            margin-bottom: 25px;
+        }
+
+        /* Introduction */
+        .introduction {
+            max-width: 1000px;
+            margin: 20px auto 30px auto;
+            padding: 20px;
+            background-color: rgba(48, 32, 23, 0.78);
+            color: #E3C28C;
+            border: 4px ridge #8A603C;
+            border-radius: 18px 18px 48% 48% / 12px 12px 24% 24%;
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.45);
+            font-size: 17px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .introduction h2 {
+            margin-top: 25px;
+        }
+
+        .introduction ul {
+            max-width: 800px;
+            margin: 15px auto;
+            padding-left: 25px;
+            text-align: left;
+        }
+
+        .introduction li {
+            margin-bottom: 8px;
+        }
+
+        .date-verification {
+            margin-top: 25px;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        h2 {
+            text-align: center;
+            color: #E3C28C;
+            text-shadow: 2px 2px 3px #302017;
+        }
+
+        /* Tableau */
+        .table-container {
+            width: 100%;
+            max-width: 1500px;
+            margin: auto;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 1000px;
+            border-collapse: collapse;
+            margin: auto;
+            background-color: rgba(48, 32, 23, 0.70);
+            border: 6px ridge #8A603C;
+            box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        th, td {
+            border: 1px solid #8A603C;
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+            color: #E3C28C;
+        }
+
+        th {
+            background-color: rgba(89, 59, 40, 0.84);
+            font-size: 16px;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgba(69, 48, 32, 0.68);
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: rgba(56, 39, 28, 0.68);
+        }
+
+        tbody tr:hover {
+            background-color: rgba(104, 71, 46, 0.88);
+        }
+
+        /* Images des avis de recherche */
+        td img {
+            display: block;
+            width: 100px;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 8px auto;
+            border: 2px solid #E3C28C;
+            box-shadow: 2px 3px 6px #1D1712;
+        }
+
+        .prime {
+            display: inline-block;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .rang {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Phrase de fin */
+        .phrase-fin {
+            max-width: 1000px;
+            margin: 35px auto 20px auto;
+            padding: 15px 20px;
+            text-align: center;
+            color: #E3C28C;
+            background-color: rgba(48, 32, 23, 0.82);
+            border: 4px ridge #8A603C;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        /* Réflexions finales */
+        footer {
+            max-width: 1000px;
+            margin: 0 auto 15px auto;
+            padding: 20px;
+            text-align: center;
+            color: #E3C28C;
+            background-color: rgba(48, 32, 23, 0.82);
+            border: 4px ridge #8A603C;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+                background-attachment: scroll;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .introduction {
+                padding: 15px;
+                font-size: 15px;
+                border-radius: 18px;
+            }
+
+            .phrase-fin {
+                padding: 12px;
+                font-size: 17px;
+            }
+
+            footer {
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Top 15 des primes dans One Piece</h1>
+
+        <div class="introduction">
+            <p>
+                Bienvenue dans le registre des plus grandes primes connues
+                du monde de <em>One Piece</em>. Des pirates légendaires aux
+                nouvelles générations, découvre les montants attribués aux
+                personnages par le Gouvernement mondial.
+            </p>
+
+            <h2>Règles du classement</h2>
+
+            <ul>
+                <li>
+                    Seules les primes officiellement révélées dans le manga
+                    sont prises en compte.
+                </li>
+                <li>
+                    Les personnages sont classés par ordre décroissant
+                    de prime.
+                </li>
+                <li>
+                    En cas d'égalité, les personnages partagent le même rang.
+                </li>
+                <li>
+                    Les primes inconnues ne sont pas estimées et les primes
+                    anciennes restent identifiées comme telles si nécessaire.
+                </li>
+            </ul>
+
+            <p class="date-verification">
+                Dernière vérification : 19 octobre 2026.
+                Les montants sont à revérifier lors de chaque nouvelle
+                révélation officielle.
+            </p>
+        </div>
+    </header>
+
+    <h2>Les légendes des mers et leurs primes</h2>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rang</th>
+                    <th>Personnage</th>
+                    <th>Équipage</th>
+                    <th>Avis de recherche et prime</th>
+                    <th>Fruit du démon</th>
+                    <th>Haki</th>
+                    <th>Origine</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td class="rang">1</td>
+                    <td>Gol D. Roger</td>
+                    <td>Équipage de Roger</td>
+                    <td>
+                        <img src="img/roger.png" alt="Avis de recherche de Gol D. Roger">
+                        <span class="prime">5 564 800 000 ฿</span>
+                    </td>
+                    <td>Aucun connu</td>
+                    <td>Observation, Armement, Royal</td>
+                    <td>East Blue</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">2</td>
+                    <td>Edward Newgate (Barbe Blanche)</td>
+                    <td>Équipage de Barbe Blanche</td>
+                    <td>
+                        <img src="img/barbeblanche.png" alt="Avis de recherche de Barbe Blanche">
+                        <span class="prime">5 046 000 000 ฿</span>
+                    </td>
+                    <td>Gura Gura no Mi</td>
+                    <td>Observation, Armement, Royal</td>
+                    <td>Grand Line</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">3</td>
+                    <td>Kaido</td>
+                    <td>Équipage aux Cent Bêtes</td>
+                    <td>
+                        <img src="img/kaido.png" alt="Avis de recherche de Kaido">
+                        <span class="prime">4 611 100 000 ฿</span>
+                    </td>
+                    <td>Uo Uo no Mi, modèle Seiryu</td>
+                    <td>Observation, Armement, Royal</td>
+                    <td>Grand Line</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">4</td>
+                    <td>Charlotte Linlin (Big Mom)</td>
+                    <td>Équipage de Big Mom</td>
+                    <td>
+                        <img src="img/bigmom.png" alt="Avis de recherche de Big Mom">
+                        <span class="prime">4 388 000 000 ฿</span>
+                    </td>
+                    <td>Soru Soru no Mi</td>
+                    <td>Observation, Armement, Royal</td>
+                    <td>Elbaf</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">5</td>
+                    <td>Shanks</td>
+                    <td>Équipage du Roux</td>
+                    <td>
+                        <img src="img/shanks.png" alt="Avis de recherche de Shanks">
+                        <span class="prime">4 048 900 000 ฿</span>
+                    </td>
+                    <td>Aucun connu</td>
+                    <td>Observation, Armement, Royal</td>
+                    <td>West Blue</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">6</td>
+                    <td>Marshall D. Teach (Barbe Noire)</td>
+                    <td>Équipage de Barbe Noire</td>
+                    <td>
+                        <img src="img/barbenoire.png" alt="Avis de recherche de Barbe Noire">
+                        <span class="prime">3 996 000 000 ฿</span>
+                    </td>
+                    <td>Yami Yami no Mi et Gura Gura no Mi</td>
+                    <td>Non entièrement précisé</td>
+                    <td>Grand Line</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">7</td>
+                    <td>Dracule Mihawk</td>
+                    <td>Cross Guild</td>
+                    <td>
+                        <img src="img/mihawk.png" alt="Avis de recherche de Dracule Mihawk">
+                        <span class="prime">3 590 000 000 ฿</span>
+                    </td>
+                    <td>Aucun connu</td>
+                    <td>Armement, Observation</td>
+                    <td>Non précisée</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">8</td>
+                    <td>Buggy le Clown</td>
+                    <td>Cross Guild</td>
+                    <td>
+                        <img src="img/buggy.png" alt="Avis de recherche de Buggy">
+                        <span class="prime">3 189 000 000 ฿</span>
+                    </td>
+                    <td>Bara Bara no Mi</td>
+                    <td>Non confirmé</td>
+                    <td>Grand Line</td>
+                </tr>
+
+                <!-- Rang 9 fusionné sur 3 lignes -->
+                <tr>
+                    <td class="rang" rowspan="3">9</td>
+                    <td>Monkey D. Luffy</td>
+                    <td>Équipage du Chapeau de paille</td>
+                    <td>
+                        <img src="img/luffy.png" alt="Avis de recherche de Monkey D. Luffy">
+                        <span class="prime">3 000 000 000 ฿</span>
+                    </td>
+                    <td>Hito Hito no Mi, modèle Nika</td>
+                    <td>Observation, Armement, Royal</td>
+                    <td>East Blue</td>
+                </tr>
+
+                <tr>
+                    <td>Eustass Kid</td>
+                    <td>Équipage de Kid</td>
+                    <td>
+                        <img src="img/kid.png" alt="Avis de recherche d'Eustass Kid">
+                        <span class="prime">3 000 000 000 ฿</span>
+                    </td>
+                    <td>Jiki Jiki no Mi</td>
+                    <td>Armement, Observation, Royal</td>
+                    <td>South Blue</td>
+                </tr>
+
+                <tr>
+                    <td>Trafalgar D. Water Law</td>
+                    <td>Équipage du Heart</td>
+                    <td>
+                        <img src="img/law.png" alt="Avis de recherche de Trafalgar Law">
+                        <span class="prime">3 000 000 000 ฿</span>
+                    </td>
+                    <td>Ope Ope no Mi</td>
+                    <td>Armement, Observation</td>
+                    <td>North Blue</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">12</td>
+                    <td>Crocodile</td>
+                    <td>Cross Guild</td>
+                    <td>
+                        <img src="img/crocodile.png" alt="Avis de recherche de Crocodile">
+                        <span class="prime">1 965 000 000 ฿</span>
+                    </td>
+                    <td>Suna Suna no Mi</td>
+                    <td>Non entièrement précisé</td>
+                    <td>Grand Line</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">13</td>
+                    <td>Dorry</td>
+                    <td>Guerriers géants</td>
+                    <td>
+                        <img src="img/dorry.png" alt="Avis de recherche de Dorry">
+                        <span class="prime">1 800 000 000 ฿</span>
+                    </td>
+                    <td>Aucun connu</td>
+                    <td>Non entièrement précisé</td>
+                    <td>Elbaf</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">13</td>
+                    <td>Brogy</td>
+                    <td>Guerriers géants</td>
+                    <td>
+                        <img src="img/brogy.png" alt="Avis de recherche de Brogy">
+                        <span class="prime">1 800 000 000 ฿</span>
+                    </td>
+                    <td>Aucun connu</td>
+                    <td>Non entièrement précisé</td>
+                    <td>Elbaf</td>
+                </tr>
+
+                <tr>
+                    <td class="rang">15</td>
+                    <td>Boa Hancock</td>
+                    <td>Kuja</td>
+                    <td>
+                        <img src="img/hancock.png" alt="Avis de recherche de Boa Hancock">
+                        <span class="prime">1 659 000 000 ฿</span>
+                    </td>
+                    <td>Mero Mero no Mi</td>
+                    <td>Observation, Armement, Royal</td>
+                    <td>Amazon Lily</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Petite phrase de fin, juste après le tableau -->
+    <div class="phrase-fin">
+        « La piraterie n'est jamais finie... »
+    </div>
+
+    <!-- Réflexions finales, tout en bas -->
+    <footer>
+        <p>
+            Les rêves ne meurent jamais. Tant qu'il restera des mers
+            à explorer et des trésors à découvrir, la grande aventure
+            continuera ! ☠
+        </p>
+    </footer>
+
+</body>
+</html>
