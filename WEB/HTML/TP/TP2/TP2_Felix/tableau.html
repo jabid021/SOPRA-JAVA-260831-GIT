@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Mon top 6 d'envies de voyage</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="tableau.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap">
+</head>
+<body class="tableau">
+
+  <h1>Mes envies de voyage</h1>
+  <p class="sous-titre">Le top 6 de mes destinations de rêve</p>
+
+  <table>
+
+    <tr class="Categorie">
+      <th></th>
+      <th>Pays</th>
+      <th>Carte d'identité</th>
+      <th>Pourquoi j'ai envie d'y aller
+        <div class="themes">
+          <span class="theme">Nature</span>
+          <span class="theme">Culture</span>
+          <span class="theme">Plaisirs</span>
+          <span class="theme">Ambiance</span>
+        </div>
+      </th>
+    </tr>
+
+    <tr class="islande" data-carte="carte-islande.png">
+      <td>1</td>
+      <td>
+        <img class="drapeau" src="assets/images/icelandFlag.png" alt="Drapeau Islande">
+        Islande
+      </td>
+      <td>
+        <div class="info"><span class="label">Continent</span><span class="sep"> - </span> Europe</div>
+        <div class="info"><span class="label">Capitale</span><span class="sep"> - </span> Reykjavik</div>
+        <div class="info"><span class="label">Langue</span><span class="sep"> - </span> Islandais</div>
+        <div class="info"><span class="label">Habitants</span><span class="sep"> - </span> 390 000</div>
+      </td>
+      <td>
+        <div class="raisons">
+          <span class="tag">Paysages / Aurores boréales</span>
+          <span class="tag">Légendes vikings</span>
+          <span class="tag">Se baigner nu dans le Blue Lagoon</span>
+          <span class="tag">Hivernale</span>
+        </div>
+      </td>
+    </tr>
+
+    <tr class="nz" data-carte="carte-nouvelle-zelande.png">
+      <td>2</td>
+      <td>
+        <img class="drapeau" src="assets/images/nzFlag.svg" alt="Drapeau Nouvelle Zelande">
+        Nouvelle-Zélande
+      </td>
+      <td>
+        <div class="info"><span class="label">Continent</span><span class="sep"> - </span> Océanie</div>
+        <div class="info"><span class="label">Capitale</span><span class="sep"> - </span> Wellington</div>
+        <div class="info"><span class="label">Langue</span><span class="sep"> - </span> Anglais</div>
+        <div class="info"><span class="label">Habitants</span><span class="sep"> - </span> 5,3 millions</div>
+      </td>
+      <td>
+        <div class="raisons">
+          <span class="tag">Collines / Montagnes</span>
+          <span class="tag">Seigneur des anneaux</span>
+          <span class="tag">Rugby</span>
+          <span class="tag">Maori</span>
+        </div>
+      </td>
+    </tr>
+
+    <tr class="fidji" data-carte="carte-fidji.png">
+      <td>3</td>
+      <td>
+        <img class="drapeau" src="assets/images/fijiFlag.png" alt="Drapeau Fidji">
+        Îles Fidji
+      </td>
+      <td>
+        <div class="info"><span class="label">Continent</span><span class="sep"> - </span> Océanie</div>
+        <div class="info"><span class="label">Capitale</span><span class="sep"> - </span> Suva</div>
+        <div class="info"><span class="label">Langue</span><span class="sep"> - </span> Anglais</div>
+        <div class="info"><span class="label">Habitants</span><span class="sep"> - </span> 930 000</div>
+      </td>
+      <td>
+        <div class="raisons">
+          <span class="tag">Plages</span>
+          <span class="tag">Accueil fidjien</span>
+          <span class="tag">Surf</span>
+          <span class="tag">Cocktails au soleil</span>
+        </div>
+      </td>
+    </tr>
+
+    <tr class="tahiti" data-carte="carte-polynesie.png">
+      <td>4</td>
+      <td>
+        <img class="drapeau" src="assets/images/tahitiFlag.png" alt="Drapeau Tahiti">
+        Polynésie Française
+      </td>
+      <td>
+        <div class="info"><span class="label">Continent</span><span class="sep"> - </span> Océanie</div>
+        <div class="info"><span class="label">Capitale</span><span class="sep"> - </span> Papeete</div>
+        <div class="info"><span class="label">Langue</span><span class="sep"> - </span> Français</div>
+        <div class="info"><span class="label">Habitants</span><span class="sep"> - </span> 280 000</div>
+      </td>
+      <td>
+        <div class="raisons">
+          <span class="tag">Lagons</span>
+          <span class="tag">Danse tahitienne</span>
+          <span class="tag">Surf</span>
+          <span class="tag">Famille et tranquillité</span>
+        </div>
+      </td>
+    </tr>
+
+    <tr class="canada" data-carte="carte-canada.png">
+      <td>5</td>
+      <td>
+        <img class="drapeau" src="assets/images/canadaFlag.png" alt="Drapeau Canada">
+        Canada
+      </td>
+      <td>
+        <div class="info"><span class="label">Continent</span><span class="sep"> - </span> Amérique du Nord</div>
+        <div class="info"><span class="label">Capitale</span><span class="sep"> - </span> Ottawa</div>
+        <div class="info"><span class="label">Langue</span><span class="sep"> - </span> Anglais / Français</div>
+        <div class="info"><span class="label">Habitants</span><span class="sep"> - </span> 41 millions</div>
+      </td>
+      <td>
+        <div class="raisons">
+          <span class="tag">Nature sauvage</span>
+          <span class="tag">Accent québécois</span>
+          <span class="tag">Sirop d'érable</span>
+          <span class="tag">Hivernale</span>
+        </div>
+      </td>
+    </tr>
+
+    <tr class="mexique" data-carte="carte-mexique.png">
+      <td>6</td>
+      <td>
+        <img class="drapeau" src="assets/images/mexicoFlag.png" alt="Drapeau Mexique">
+        Mexique
+      </td>
+      <td>
+        <div class="info"><span class="label">Continent</span><span class="sep"> - </span> Amérique Centrale</div>
+        <div class="info"><span class="label">Capitale</span><span class="sep"> - </span> Mexico City</div>
+        <div class="info"><span class="label">Langue</span><span class="sep"> - </span> Espagnol</div>
+        <div class="info"><span class="label">Habitants</span><span class="sep"> - </span> 130 millions</div>
+      </td>
+      <td>
+        <div class="raisons">
+          <span class="tag">Paysages</span>
+          <span class="tag">Mariachis</span>
+          <span class="tag">Tacos</span>
+          <span class="tag">Soleil</span>
+        </div>
+      </td>
+    </tr>
+
+  </table>
+
+  <footer>
+    <div>
+      <p class="Enonce">TP 2 - Tableau Félix Royer</p>
+    </div>
+    <nav>
+      <img class="avion" src="assets/images/avion.png" alt="avion">
+      <a class="lien" href="https://www.skyscanner.fr/vols-de/fr/vols-pas-chers-de-france.html?" target="_blank" rel="noopener">Laisser vous tenter...</a>
+    </nav>
+  </footer>
+
+
+</body>
+</html>

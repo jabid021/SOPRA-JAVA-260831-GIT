@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  padding: 40px 60px; /* Permet de mettre de l'espace entre le bord du body et le contenu en haut/bas et droite/gauche */
+  min-height: 100vh; /* 100% de la taille de l'ecran */
+  background-image: url("assets/images/carte/carte.png");
+  background-color: #0f1f30;
+  background-size: cover; /* Rempli l'ecran avec l'image sans la deformer */
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
+  color: #e8eef5;
+}
+
+h1 {
+  font-family:  'Playfair Display', serif;
+  font-size: 52px;
+  margin: 0;
+  color: #fff;
+}
+
+.sous-titre {
+  color: #9fb6cc;
+  font-size: 16px;
+  margin: 6px 0 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #f2b880;
+  padding: 0 16px;
+  text-align: left;
+}
+
+td {
+  background-color: rgba(15, 31, 48, 0.65); /* couleur avec transparence via curseur opacité */
+  padding: 16px;
+  vertical-align: middle;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+td:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px 0 0 14px;
+  font-family:  'Playfair Display', serif;
+  font-size: 40px;
+  color: #f2b880;
+  text-align: center;
+  width: 70px;
+}
+
+td:last-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0 14px 14px 0;
+  width: 50%; /* réserve la moitié du tableau aux raisons */
+}
+
+.info {
+  white-space: nowrap; /* une info = une ligne, jamais coupée */
+}
+
+td:nth-child(2) {
+  font-size: 20px;
+  text-align: left;
+  padding-left: 40px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.drapeau {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  vertical-align: middle;
+  margin-right: 14px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0px;
+}
+
+footer nav {
+  display: flex;
+  align-items: center;
+}
+
+.Enonce {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  color: #f2b880;
+  white-space: nowrap;
+}
+.avion {
+  width: 40px;
+  height: auto;
+  filter: invert(1);
+  object-fit: cover;
+  border-radius: 6px;
+  vertical-align: middle;
+  margin-right: 14px;
+}
+
+.lien{
+  color: #f2b880;
+  text-decoration: none;
+}
+
+.lien:visited{
+  color: #f2b880;
+  text-decoration: none;
+}
+
+/* Grille de 4 colonnes égales, identique dans l'en-tête et dans chaque ligne */
+.themes,
+.raisons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 colonnes strictement égales */
+  gap: 8px;
+}
+
+.themes {
+  margin-top: 8px;
+}
+
+.theme,
+.tag {
+  text-align: center;
+}
+
+.theme {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: none;
+  font-weight: 400;
+  color: #9fb6cc;
+  border-bottom: 1px solid rgba(242, 184, 128, 0.35);
+  padding-bottom: 4px;
+}
+
+.tag {
+  display: flex; /* centre le texte verticalement dans l'étiquette */
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(242, 184, 128, 0.15);
+  border: 1px solid rgba(242, 184, 128, 0.35);
+  border-radius: 14px;
+  color: #f6cfa6;
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.label {
+  display: inline-block;
+  width: 90px;
+  color: #9fb6cc;
+}
+
+tr:hover td {
+  background-color: rgba(30, 55, 80, 0.9);
+  border-color: #f2b880;
+}
+
+td {
+  transition: background-color 0.2s, border-color 0.2s;
+}
