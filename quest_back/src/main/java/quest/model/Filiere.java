@@ -45,9 +45,11 @@ public class Filiere {
     
     @ManyToOne
     @JoinColumn(name="salle")
+    @JsonView(Views.Filiere.class)
     private Salle salle;
     
     @OneToMany(mappedBy = "filiere")
+    @JsonView(Views.FiliereWithStagiaires.class)
     private List<Stagiaire> stagiaires;
     
     
