@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mélange de cartes</title>
+
+    <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:wght@400;500;600&family=Cormorant+SC:wght@400;500;600&family=Grenze+Gotisch:wght@400;500;600&display=swap');
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            background: #17111C;
+            font-family: 'IM Fell English', serif;
+            cursor: url('Image/cristal.png'), auto;
+        }
+
+        h1 {
+            color:#D7B56D;
+            font-family: 'Grenze Gotisch', serif;
+            font-size:50px;
+        }
+        
+        .table {
+            position: relative;
+            width: 460px;
+            height: 320px;
+        }
+
+        .carte {
+            position: absolute;
+            width: 160px;
+            height: 230px;
+            left: 150px;
+            top: 40px;
+            border-radius: 12px;
+            
+            
+            background-color: #d1b46a;
+            background-image: url("Image/carte.jpg");
+            background-size: cover;
+            background-position: center;
+        
+            border: 3px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+            font-size: 38px;
+            font-weight: bold;
+
+            transition:
+                transform 0.55s ease-in-out,
+                left 0.55s ease-in-out,
+                top 0.55s ease-in-out;
+        }
+
+        
+
+        .carte span {
+            z-index: 1;
+        }
+
+        button {
+        display: inline-block;
+		padding: 15px 30px;
+		background-color: #512D60;
+		color: #F5F0E8;
+		text-decoration: none;
+		font-family: 'Cormorant SC', serif;
+		font-size: 18px;
+		border: 2px solid #A98B52;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: 0.3s;
+        }
+
+        button:hover {
+        background-color: #A98B52;
+		color: #17111C;
+        }
+
+        button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+        }
+
+		.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.actions-principales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.actions button,
+.actions .button {
+    min-width: 190px;
+    padding: 13px 22px;
+    font-family: 'Cormorant SC', serif;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #A98B52;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.actions button {
+    background-color: #512D60;
+    color: #F5F0E8;
+}
+
+.actions button:hover {
+    background-color: #A98B52;
+    color: #17111C;
+    transform: translateY(-2px);
+}
+
+.actions-principales button:nth-child(2) {
+    background-color: #D7B56D;
+    color: #17111C;
+}
+
+.actions-principales button:nth-child(2):hover {
+    background-color: #F5F0E8;
+}
+
+.actions .retour {
+    min-width: auto;
+    padding: 7px 12px;
+    background: transparent;
+    color: #D7B56D;
+    border-color: transparent;
+    font-size: 15px;
+}
+
+.actions .retour:hover {
+    color: #F5F0E8;
+    text-decoration: underline;
+    transform: none;
+}
+
+
+
+        #message {
+            color: #F5F0E8;
+            min-height: 20px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+			inset: 0;
+            padding: 24px;
+            box-sizing: border-box;
+            background: rgba(10, 6, 15, 0.88);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-contenu {
+            position: relative;
+            background: linear-gradient(145deg, #2a2034, #1e1726);
+            color: #F5F0E8;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #A98B52;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
+            width: min(1500px, 96%);
+            max-width: 96%;
+            max-height: 90vh;
+            overflow: auto;
+        }
+        
+         .modal-contenu h2 {
+            margin: 0 55px 22px 0;
+            color: #D7B56D;
+            font-family: 'Grenze Gotisch', serif;
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+        }
+
+        .fermer {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            table-layout: fixed;
+            
+        }
+        
+        .centrer
+        {
+        	text-align: center;
+        	vertical-align: middle;
+        	font-size:20px;
+        }
+
+        th, td {
+            border: 1px solid #A98B52;
+            padding: 12px;
+            text-align: center;
+            word-wrap: break-word;
+            
+        }
+
+        th {
+            background-color: #512D60;
+            color: #D7B56D;
+        }
+        
+         table img {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            height: 280px;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 6px;
+            cursor: zoom-in;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        table img:hover {
+   	 	transform: scale(1.03);
+    	box-shadow: 0 4px 18px rgba(215, 181, 109, 0.25);
+		}
+		
+		th, td {
+    	vertical-align: top;
+		}
+		
+		td {
+    	text-align: left;
+    	line-height: 1.6;
+		}
+		
+		thead td {
+    	text-align: center;
+    	font-family: 'Cormorant SC', serif;
+    	font-size: 17px;
+    	font-weight: 600;
+    	color: #D7B56D;
+    	font-weight: bold;
+		}
+		
+		.image-agrandie {
+    	display: none;
+    	position: fixed;
+    	inset: 0;
+    	z-index: 2000;
+    	background: rgba(10, 6, 15, 0.92);
+    	align-items: center;
+    	justify-content: center;
+    	padding: 55px 20px 20px;
+    	box-sizing: border-box;
+		}
+		
+		.image-agrandie.ouverte { display: flex; }
+
+        .image-agrandie img {
+            display: block;
+            max-width: min(90vw, 650px);
+            max-height: 88vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border: 2px solid #D7B56D;
+            border-radius: 8px;
+            box-shadow: 0 15px 50px rgba(0,0,0,.6);
+        }
+
+        .fermer-image {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            padding: 5px 14px;
+            font-size: 28px;
+            line-height: 1.2;
+            z-index: 1;
+        }
+
+        @media (max-width: 700px) {
+            .table { width: 100%; max-width: 460px; }
+            .modal-contenu { padding: 18px; width: 100%; max-width: 100%; }
+            table { min-width: 850px; }
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <h1>Tirage du tarot de Dali</h1>
+    
+      <p id="message">Pour réaliser ce tirage, réfléchissez à une question puis mélangez les cartes.</p>
+
+    <div class="table" id="table">
+        <!-- Les étoiles ✦ à l'intérieur des balises span ont été supprimées -->
+        <div class="carte"><span></span></div>
+        <div class="carte"><span></span></div>
+        <div class="carte"><span></span></div>
+        <div class="carte"><span></span></div>
+        <div class="carte"><span></span></div>
+        <div class="carte"><span></span></div>
+        <div class="carte"><span></span></div>
+    </div>
+
+   <div class="actions">
+    <div class="actions-principales">
+        <button id="melanger">Mélanger les cartes</button>
+        <button onclick="ouvrirFenetre()">Révéler le tirage</button>
+    </div>
+
+    <a href="site.html" class="button retour">← Retour à l'accueil</a>
+</div>
+    
+    <div id="maFenetre" class="modal">
+    <div class="modal-contenu">
+        <button class="fermer" onclick="fermerFenetre()">✕</button>
+
+       <h2>Résultats du tirage</h2>
+
+<table> 
+<thead>
+	<tr>
+		<td style="width: 16%;">Représentation</td>
+		<td style="width: 10%;">Nom de la carte</td>
+		<td style="width: 10%;"> Numérologie associée</td>
+		<td style="width: 36%;">Signification</td>
+		<td style="width: 28%;">Conseils pratiques</td>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td><img src="Image/chariot.jpg" alt="Carte du Chariot" loading="lazy"></td>
+		<td class="centrer">Le Chariot</td>
+		<td class="centrer"> VII </td>
+		<td><b  style="color: #D7B56D;">Oser suivre sa propre voie</b>
+		<br> 
+		Le chariot est synonyme d'expérience et d'évolution de la personnalité qui se forme autant à travers un contrôle conscient que sous l’influence de l'inconscient. 
+		Aussi la carte figure-t-elle la voie des désirs, le chemin vers l'accomplissement de rêves sensuels et l’évanouissement de peurs infondées. Tant que nous sommes en route, tous nos actes valent la peine, même si des efforts ou d'apparents détours sont nécessaires.
+		</td>
+		<td>Aménagez vous-même votre chemin de vie. Vous ne pouvez pas descendre de votre chariot, de votre «karma», mais vous pouvez le conduire vers une nouvelle direction. Doté d'une saine attitude, vous pouvez accepter le bien qui vous est fait et l'amplifier, mais aussi éviter le mal et lâcher prise ou bien l'intégrer et le surmonter. Acceptez la lumière et l'ombre et transformez vos peurs en confiance et en épanouissement.
+		</td>
+	</tr>	
+	
+	<tr>
+		<td><img src="Image/moon.jpg" alt="Carte de la Lune" loading="lazy"></td>
+		<td class="centrer">La Lune</td>
+		<td class="centrer"> XVIII </td>
+		<td><b  style="color: #D7B56D;">Délivrance</b>
+		<br>
+		La lune est le symbole de l'inconscient collectif, des « sentiments océaniques».
+		La pleine lune en particulier éveille les instincts cachés et possède la faculté de secouer nos émotions.  
+		La grande promesse de cette carte est le recouvrement des refoulements anciens - la métamorphose de l'instabilité intérieure en une culture raffinée des forces spirituelles, la transformation du quotidien en une vie plus épanouie.
+		</td>
+		<td>Considérez les «grands sentiments» comme une réalité qui demande à être vécue. Ainsi réussirez-vous à vous mouvoir, à nager librement dans des eaux plus profondes.
+		Faites la paix avec vous-même et votre entourage, ouvrez votre cœur et débarrassez-vous de toutes vos inhibitions.
+		</td>
+	</tr>
+	
+	<tr>
+		<td><img src="Image/world.jpg" alt="Carte du Monde" loading="lazy"></td>
+		<td class="centrer">Le Monde</td>
+		<td class="centrer"> XXI</td>
+		<td><b  style="color: #D7B56D;">Abolition des contradictions</b>
+		<br>
+		Les hommes ne sont pas descendus du ciel sur la terre comme des anges, ils sont le produit final d'une longue évolution. Chaque nouveau pas sur le chemin de l'évolution humaine signifie toujours de se pencher sur notre ascendance. Sans cesse nous découvrons en nous et chez nos contemporains des traits menaçants, dangereux; mais sans cesse aussi nous atteignons des chances d’épanouissement jusqu'alors insoupçonnées.
+		De nos parents nous avons hérité la Terre et nous ne l'avons que prêtée à nos enfants. Ne la mettons pas en péril.
+		<td>Votre force et votre mission sont désormais de vous placer vous-même au centre. Le monde est aussi pour vous tel que vous le ressentez! Profitez de votre temps sur terre et jouissez de votre séjour!
+		</td>
+	</tr>
+	
+	<tr>
+		<td><img src="Image/lovers.jpg" alt="Carte des Amoureux" loading="lazy"></td>
+		<td class="centrer">Les Amoureux</td>
+		<td class="centrer"> VI</td>
+		<td><b  style="color: #D7B56D;">Paradis et Ombre</b>
+		<br>
+		Nous aspirons à l'amour, mais en secret nous avons peut-être peur de pouvoir aimer et/ou d'être aimé. Notre bonheur en amour dépend beaucoup des objectifs et représentations que nous lions au mot « amour». Tant que nous sommes à la recherche de notre « moitié», nous courons le risque de nous réduire de moitié. Ou bien nous recherchons un maximum de ressemblance personnelle: réfléchissez dans quelle mesure cette idée vous porte.
+		<td> Le petit ange de la carte incarne aussi l'enfant des deux amoureux. Cela peut être pris au sens propre comme au sens figuré. Tout type de relation, y compris la relation avec soi-même ou la relation avec des partenaires com-merciaux, porte au sens figuré un « enfant»: des résultats productifs - preuve vivante d'une collaboration collégiale - porteurs de vie et d'avenir.
+		</td>
+	</tr>
+	
+	<tr>
+		<td><img src="Image/sun.jpg" alt="Carte du Soleil" loading="lazy"></td>
+		<td class="centrer">Le Soleil</td>
+		<td class="centrer"> XVIIII</td>
+		<td><b  style="color: #D7B56D;">Illumination</b>
+		<br>
+		Le soleil fait discrètement allusion au thème de la deuxième naissance qui suppose une évolution. Après la première naissance qui fut le début de votre vie actuelle, la deuxième naissance signifie une forme de vie délibérément choisie, qui n'est pas imprégnée d'habitude et de routine, mais de choix libre et de volonté souveraine. Au comportement transmis par l'éducation succèdent la pensée et l'action indépendantes. La deuxième naissance peut naturellement être suivie d'une troisième, d'une quatrième, etc., un processus permanent de renouvellement. Mais la « deuxième naissance » est décisive, parce qu'elle constitue la première naissance consciente.
+		<td> Détournez-vous et protégez-vous de la poudre aux yeux. Fiez-vous au courant de lénergie vitale.
+		</td>
+	</tr>
+
+</tbody>
+</table>		
+
+  </div>
+</div>
+
+<div class="image-agrandie" id="imageAgrandie" role="dialog" aria-modal="true" aria-label="Carte agrandie">
+    <button class="fermer-image" id="fermerImage" aria-label="Fermer l’image">×</button>
+    <img id="imagePleinEcran" src="" alt="">
+</div>
+
+    <script>
+        const cartes = document.querySelectorAll(".carte");
+        const bouton = document.getElementById("melanger");
+        const message = document.getElementById("message");
+
+        let melangeEnCours = false;
+
+        function melanger() {
+            if (melangeEnCours) return;
+
+            melangeEnCours = true;
+            bouton.disabled = true;
+
+            // Première phase : les cartes partent dans tous les sens
+            cartes.forEach((carte, index) => {
+                const x = Math.random() * 260 - 130;
+                const y = Math.random() * 150 - 75;
+                const rotation = Math.random() * 100 - 50;
+
+                carte.style.left = "150px";
+                carte.style.top = "40px";
+
+                carte.style.transform =
+                    `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+
+                carte.style.zIndex = index;
+            });
+
+            // Deuxième phase : les cartes reviennent en pile
+            setTimeout(() => {
+                cartes.forEach((carte, index) => {
+                    carte.style.left = "150px";
+                    carte.style.top = "40px";
+                    carte.style.transform =
+                        `rotate(${(index - 3) * 4}deg)`;
+
+                    carte.style.zIndex = index;
+                });
+            }, 650);
+
+            // Fin de l'animation
+            setTimeout(() => {
+                melangeEnCours = false;
+                bouton.disabled = false;
+            }, 1350);
+        }
+
+        bouton.addEventListener("click", melanger);
+
+        // Position initiale en éventail
+        cartes.forEach((carte, index) => {
+            carte.style.zIndex = index;
+            carte.style.transform =
+                `rotate(${(index - 3) * 4}deg)`;
+        });
+        
+          function ouvrirFenetre() {
+        document.getElementById("maFenetre").style.display = "flex";
+    }
+
+    function fermerFenetre() {
+        document.getElementById("maFenetre").style.display = "none";
+    }
+    
+    const fenetreImage = document.getElementById("imageAgrandie");
+    const imagePleinEcran = document.getElementById("imagePleinEcran");
+    const fermerImage = document.getElementById("fermerImage");
+
+    document.querySelectorAll("table img").forEach((image) => {
+        image.addEventListener("click", () => {
+            imagePleinEcran.src = image.src;
+            imagePleinEcran.alt = image.alt;
+            fenetreImage.classList.add("ouverte");
+        });
+    });
+
+    function fermerImageAgrandie() {
+        fenetreImage.classList.remove("ouverte");
+        imagePleinEcran.src = "";
+    }
+
+    fermerImage.addEventListener("click", fermerImageAgrandie);
+    fenetreImage.addEventListener("click", (event) => {
+        if (event.target === fenetreImage) fermerImageAgrandie();
+    });
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") fermerImageAgrandie();
+    });
+    
+    </script>
+
+</body>
+</html>

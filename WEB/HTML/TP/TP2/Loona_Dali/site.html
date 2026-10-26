@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarot de Dali</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:wght@400;500;600&family=Cormorant+SC:wght@400;500;600&family=Grenze+Gotisch:wght@400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+margin:0;
+background-color: #17111C;
+color: #F5F0E8;
+font-family: 'IM Fell English', serif;
+cursor: url('Image/cristal.png'), auto;
+}
+
+header
+{
+display:flex;
+background-color:#21152B;
+min-height:110px;
+align-items:center;
+justify-content:center;
+border-bottom: 4px solid #A98B52;
+color: #D7B56D;
+font-family: 'Grenze Gotisch', serif;
+font-size: 60px;
+letter-spacing: 2px;
+text-align: center;
+}
+
+
+main{
+display:flex;
+align-items: stretch;
+gap: 0;
+min-height: calc(100vh - 110px - 110px);
+}
+
+.images {
+    width: 17%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    padding: 160px 15px;
+    background-color: #17111C;
+    border-right: 1px solid #A98B52;
+}
+
+.img,
+.imgtarot {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.imgtarot {
+    margin-top: 8px;
+}
+
+.img img,
+.imgtarot img {
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border: 2px solid #A98B52;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.img img:hover,
+.imgtarot img:hover {
+    transform: scale(1.04);
+}
+
+.contenu{
+flex: 1;
+min-width: 0;
+padding: 45px 4%;
+background-color: #F5F0E8;
+color: #302536;
+font-size: 16px;
+line-height: 2;
+}
+
+.contenu h3 {
+color: #512D60;
+font-family: 'IM Fell English', serif;
+font-size: 27px;
+font-weight: normal;
+margin-top: 0;
+margin-bottom: 22px;
+padding-bottom: 12px;
+border-bottom: 4px solid #C6AD7B;
+}
+
+.contenu p {
+margin-top: 0;
+margin-bottom: 40px;
+text-align: justify;
+}
+
+.contenu ul{
+margin-top: 0;
+margin-bottom: 30px;
+}
+
+.contenu p.avant-liste {
+margin-bottom: 0;}
+
+.rien {
+width: 17%;
+flex-shrink: 0;
+background-color: #17111C;
+border-left: 4px solid #44334D;
+}
+
+.button{
+display: inline-block;
+padding: 15px 30px;
+background-color: #512D60;
+color: #F5F0E8;
+text-decoration: none;
+font-family: 'Cormorant SC', serif;
+font-size: 18px;
+border: 2px solid #A98B52;
+border-radius: 5px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.contenu .button {
+display: table;
+margin: 30px auto 0;
+}
+
+.button:hover {
+background-color: #A98B52;
+color: #17111C;
+}
+
+footer{
+display:flex;
+height:110px;
+background-color:#17111C;
+align-items:center;
+justify-content:center;
+border-top: 4px solid #A98B52;
+color: #D7B56D;
+font-family:'IM Fell English', serif;
+font-size: 20px;
+text-align: center;
+}
+
+
+</style>
+
+<header>
+	Tarot de Dali
+</header>
+
+<main >
+
+<div class="images">
+
+    <div class="img">
+        <img src="Image/dali.jpg" width="130" height="180">
+    </div>
+
+    <div class="imgtarot">
+        <img src="Image/tarot.jpg" width="130" height="260">
+    </div>
+
+</div>
+<div class="contenu">  
+<h3>Salvador Dali (1904-1989)</h3>
+
+<p>
+Il est considéré comme l’un des artistes les plus influents et les plus singuliers de l’histoire de l’art espagnol. Né et mort à Figueras (Catalogne), il a laissé une empreinte indélébile sur la peinture du XXe siècle grâce à son génie créatif et à sa capacité inépuisable d’innovation. Il fut le principal représentant du mouvement surréaliste en Espagne, portant ses idées au-delà de la toile pour faire de sa vie entière une œuvre d’art.
+Doté d’une personnalité à la fois excentrique et visionnaire, Dalí transforma chaque aspect de son existence — son image, sa pensée et son œuvre — en une expression de sa sensibilité artistique singulière.
+Ce contraste entre son caractère provocateur et sa discipline méticuleuse définit le mystère et la fascination que sa figure continue d’inspirer. Après sa mort, il laissa un immense héritage artistique qui inspire encore des générations et redéfinit notre manière de comprendre l’esthétique et l’art.
+</p>
+
+<h3> L'histoire du tarot de Dali</h3>
+
+<p>
+Le Tarot Universel Dali fut créé au milieu des années 1970 par le célèbre peintre Salvador Dali. 
+Il s’agit du premier chef-d’oeuvre de tarot entièrement conçu par un artiste peintre de renommée mondiale. Pour réaliser ce jeu, Dali ne s'est pas contenté de peindre des cartes. Il a fait entrer son univers artistique dans un jeu vieux de plusieurs siècles, en y mêlant des symboles traditionnels, des références à la Renaissance et des figures inspirées de sa propre vie.
+Le tarot est ainsi présenté non seulement comme un moyen d'explorer les symboles et d'interpréter les tirages, mais aussi comme un témoignage de la créativité de Dalí.
+</p>
+
+<h3> Qu’est ce que le tarot ? </h3>
+
+<p class="avant-liste">
+Le tarot de voyance (ou tarot divinatoire) est un outil d’introspection, au service du développement personnel et de l’intuition. Le jeu de tarot est constitué de 78 cartes (appelées arcanes) qui permettent d’explorer le passé, éclairer le présent et dessiner les tendances de l’avenir. Il se sépare en deux catégories :
+</p>
+<ul> <li><b>les 22 arcanes majeures</b> qui représentent les grandes étapes de la vie</li>
+<li><b>les 56 arcanes mineures</b> qui symbolisent les détails concrets, les émotions et les défis de notre quotidien à travers quatre éléments (bâtons, coupes, épées, deniers)</li>
+</ul>
+
+<p>
+Je vous invite désormais à effectuer un tirage de 5 cartes et d’interroger le tarot de Dali afin de stimuler votre intuition, faire les bons choix et mieux comprendre votre inconscient. 
+</p>
+<a href="mixCartes.html" class="button">Réaliser un tirage</a>
+</div>
+
+<div class="rien">
+</div>
+
+
+
+</main>
+
+<footer>
+Réalisé par Loona MAHAMODO-GALLOUET
+</footer>
