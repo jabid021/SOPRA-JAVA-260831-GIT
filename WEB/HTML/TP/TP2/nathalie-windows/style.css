@@ -1,0 +1,605 @@
+/* ============================= */
+/* GENERAL                       */
+/* ============================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eeeeee;
+
+    background-image: url("images/background_1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* ============================= */
+/* PAGE DU TOP 5                 */
+/* ============================= */
+
+#page-top {
+    width: 900px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 30px;
+
+    background-color: rgba(15, 30, 48, 0.50);
+    color: #F4F7FB;
+
+
+    border: 1px solid rgba(180, 220, 255, 0.25);
+    border-radius: 12px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.30);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.introduction {
+    text-align: center;
+    color: #F4F7FB;
+    /*color: #555555;*/
+    margin-bottom: 30px;
+}
+
+
+/* ============================= */
+/* TABLEAU                      */
+/* ============================= */
+
+
+/* EN-TETE DU TABLEAU */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent; /* dégradé sur toute la ligne */
+    box-shadow:/* lueur autour du tableau */
+        0 0 15px rgba(0, 255, 120, 0.08),
+        0 0 30px rgba(255, 100, 190, 0.04);
+}
+
+th {
+    color: #d5ffe3;
+    padding: 15px;
+
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    /* Les cellules laissent apparaître le fond commun */
+    background: transparent;
+
+    /* On retire le soulignement individuel */
+    border-bottom: none;
+
+    /* On garde les titres nets et lisibles */
+    text-shadow: 0 0 6px rgba(100, 255, 160, 0.15);
+}
+
+/* Dégradé sur toute la largeur de l'en-tête */
+thead {
+  background: linear-gradient(
+      90deg,
+      rgba(32, 115, 67, 0.44) 0%,
+      rgba(28, 101, 59, 0.42) 25%,
+      rgba(16, 37, 28, 0.48) 50%,
+      rgba(28, 101, 59, 0.42) 75%,
+      rgba(32, 115, 67, 0.44) 100%
+  );
+
+    /* Soulignement rose commun */
+    border-bottom: 2px solid #ff8dce;
+}
+
+
+/* CELLULES DU TABLEAU */
+
+td {
+    padding: 20px;
+    text-align: center;
+
+    color: #e1eee6;
+    background: rgba(5, 12, 10, 0.68);
+
+    /* transparence du fond */
+    background: rgba(5, 12, 10, 0.40);
+
+    border-bottom: 1px solid rgba(100, 255, 160, 0.12);
+}
+
+/* ALTERNANCE DES LIGNES */
+
+tbody tr:nth-child(even) td {
+    background: rgba(15, 35, 26, 0.35);
+}
+
+/* SURVOL DES LIGNES */
+
+tbody tr:hover td {
+    background: rgba(28, 65, 45, 0.85);
+    transition: background 0.2s ease;
+}
+
+
+
+/* ============================= */
+/* BOUTONS WINDOWS              */
+/* ============================= */
+
+td button {
+    padding: 12px 16px;
+
+    border: 1px solid rgba(150, 205, 255, 0.45);
+    border-radius: 7px;
+
+    background: rgba(45, 95, 140, 0.35);
+    color: #ffffff;
+
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+td button:hover {
+    background: rgba(60, 135, 195, 0.65);
+    border-color: rgba(190, 225, 255, 0.8);
+}
+
+
+
+/* ============================= */
+/* BUREAU                       */
+/* ============================= */
+
+#bureau {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+
+/* ============================= */
+/* FONDS D'ECRAN                */
+/* ============================= */
+
+#bureau.windows95 {
+    background-image: url("images/windows95.jpg");
+}
+
+#bureau.windowsxp {
+    background-image: url("images/windowsxp.jpg");
+}
+
+#bureau.windowsvista {
+    background-image: url("images/windowsvista.jpg");
+}
+
+#bureau.windows10 {
+    background-image: url("images/windows10.jpg");
+}
+
+#bureau.windows11 {
+    background-image: url("images/windows11.jpg");
+}
+
+
+/* ============================= */
+/* ICONES DU BUREAU             */
+/* ============================= */
+
+
+.icones-bureau {
+    position: absolute;
+    top: 18px;
+    left: 12px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 12px;
+    max-height: calc(100vh - 100px);
+}
+
+.icone {
+    cursor: pointer;
+    user-select: none;
+    width: 88px;
+    min-height: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+.icone p {
+    margin: 4px 0 0;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.icone-image {
+    font-size: 32px;
+    margin-bottom: 2px;
+}
+
+#bureau.windows95 .icone-internet {
+    background-image: url("images/icones/internet95.png");
+}
+
+#bureau.windowsxp .icone-internet,
+#bureau.windowsvista .icone-internet {
+    background-image: url("images/icones/internet-explo.png");
+}
+
+#bureau.windows10 .icone-internet {
+    background-image: url("images/icones/chrome.svg");
+}
+
+#bureau.windows11 .icone-internet {
+    background-image: url("images/icones/internet-edge.png");
+}
+
+.icone-internet {
+    width: 36px;
+    height: 36px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 2px;
+}
+
+
+/* ============================= */
+/* BARRE DES TACHES             */
+/* ============================= */
+
+#barre-taches {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: #222222;
+    color: white;
+}
+
+
+/* ============================= */
+/* BOUTON DEMARRER              */
+/* ============================= */
+
+#bouton-demarrer {
+    height: 100%;
+    padding: 0 25px;
+    border: none;
+    background-color: #333333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#bouton-demarrer:hover {
+    background-color: #444444;
+}
+
+
+/* ============================= */
+/* APPLICATIONS                 */
+/* ============================= */
+
+.applications {
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.application {
+    width: 45px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    font-size: 20px;
+}
+
+
+/* ============================= */
+/* HORLOGE                      */
+/* ============================= */
+
+#horloge {
+    user-select: none;
+    margin-left: auto;
+    padding: 20px;
+}
+
+
+/* ============================= */
+/* MENU DEMARRER                */
+/* ============================= */
+#menu-demarrer {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+
+    width: 300px;
+    height: 350px;
+
+    background-image: url("images/menu-demarrer.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    overflow: hidden;
+}
+
+
+
+/* Titre du menu */
+/*.menu-titre {
+    background-color: #0078d7;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+*/
+/* Options */
+/*.menu-option {
+    padding: 15px;
+    cursor: default;
+}
+*/
+
+.menu-option:hover {
+    background-color: #eeeeee;
+}
+
+
+/* ============================= */
+/* BOUTON RETOUR                */
+/* ============================= */
+
+#retour {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    cursor: pointer;
+    z-index: 20;
+}
+
+#retour:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+
+/* ============================= */
+/* Personnalisation des versions */
+/* ============================= */
+
+/* WINDOWS 95 : gris classique */
+
+#bureau.windows95 #barre-taches {
+    height: 42px;
+    background: #c0c0c0;
+    color: black;
+    border-top: 2px solid white;
+}
+
+#bureau.windows95 #bouton-demarrer {
+    margin: 4px;
+    height: 32px;
+    padding: 0 12px;
+    color: black;
+    background: #c0c0c0;
+    border: 2px outset white;
+    font-weight: bold;
+}
+
+#bureau.windows95 .application {
+    background: #c0c0c0;
+    color: black;
+    border: 2px outset white;
+}
+
+
+/* WINDOWS XP : bleu et vert */
+
+#bureau.windowsxp #barre-taches {
+    background: linear-gradient(#3898ed, #0755b7);
+    height: 42px;
+}
+
+#bureau.windowsxp #bouton-demarrer {
+    background: linear-gradient(#70d64b, #16852d);
+    border-radius: 0 16px 16px 0;
+    padding: 0 22px;
+}
+
+#bureau.windowsxp .application {
+    background: rgba(0, 40, 120, 0.4);
+    border-radius: 4px;
+}
+
+
+/* WINDOWS VISTA : effet Aero */
+
+#bureau.windowsvista #barre-taches {
+    height: 48px;
+    background: linear-gradient(
+        rgba(30, 50, 70, 0.72),
+        rgba(5, 15, 30, 0.94)
+    );
+    border-top: 1px solid rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+}
+
+#bureau.windowsvista #bouton-demarrer {
+    background: radial-gradient(circle, #8ceaff, #1762ad);
+    border: 2px solid #c4edff;
+    border-radius: 50%;
+    width: 48px;
+    padding: 0;
+    margin-left: 8px;
+}
+
+#bureau.windowsvista .application {
+    background: rgba(180, 220, 255, 0.15);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+
+/* WINDOWS 10 : barre sombre */
+
+#bureau.windows10 #barre-taches {
+    height: 48px;
+    background: #202020;
+}
+
+#bureau.windows10 #bouton-demarrer {
+    background: #202020;
+    padding: 0 22px;
+}
+
+#bureau.windows10 .application {background: transparent;}
+
+#bureau.windows10 .application:hover {background: #454545;}
+
+
+/* WINDOWS 11 : icônes centrées et arrondies */
+
+#bureau.windows11 #barre-taches {
+    height: 54px;
+    justify-content: center;
+    background: rgba(30, 32, 40, 0.88);
+    backdrop-filter: blur(18px);
+}
+
+#bureau.windows11 #bouton-demarrer {
+    order: 2;
+    height: 42px;
+    width: 48px;
+    padding: 0;
+    border-radius: 10px;
+    background: transparent;
+}
+
+#bureau.windows11 .applications {
+    order: 3;
+    margin: 0 12px;
+}
+
+#bureau.windows11 .application {
+    background: transparent;
+    border-radius: 9px;
+}
+
+#bureau.windows11 .application:hover {background: rgba(255,255,255,0.15);}
+
+#bureau.windows11 #horloge {
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    padding: 12px;
+}
+
+#bureau.windows11 #menu-demarrer {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 64px;
+    width: min(360px, 90vw);
+    border-radius: 12px;
+    overflow: hidden;
+    /*background: #f5f5f7;*/
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+#bureau.windows11 .menu-titre {
+    background: #f5f5f7;
+    color: #222;
+}
+
+#bureau.windows11 .menu-option {border-radius: 6px;}
+
+
+/* Petites améliorations communes */
+
+#bureau .icone {
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+#bureau .icone:hover {
+    background: rgba(180, 210, 255, 0.25);
+    border-color: rgba(255,255,255,0.35);
+}
+
+#bureau .icone-image {
+    font-size: 36px;
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.35));
+}
+
+/*#bureau #menu-demarrer {z-index: 10;}
+
+#bureau #retour {z-index: 20;}*/
+
+@media (max-width: 600px) {
+    #page-top {
+        max-width: 96%;
+        margin: 12px auto;
+        padding: 12px;
+    }
+
+    td, th {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    td button {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
