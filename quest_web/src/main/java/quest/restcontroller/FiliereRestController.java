@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import quest.dao.IDAOFiliere;
 import quest.model.Filiere;
+import quest_dto.FiliereDTO;
 
 @RestController
 @RequestMapping("/api/filiere")
@@ -24,21 +25,21 @@ public class FiliereRestController {
 	IDAOFiliere daoFiliere;
 	
 	@GetMapping
-	public List<Filiere> afficherTous() 
+	public List<FiliereDTO> afficherTous() 
 	{
-	  return daoFiliere.findAll();
+	  return daoFiliere.findAll().stream().map(f->FiliereDTO.convert(f)).toList();
 	}
 
 	@GetMapping("/{id}")
-	public Filiere afficherParId(@PathVariable Integer id) 
+	public FiliereDTO afficherParId(@PathVariable Integer id) 
 	{
-		return daoFiliere.findById(id).orElse(null);
+		return FiliereDTO.convert(daoFiliere.findById(id).orElse(null));
 	}
 	
 	@GetMapping("/{id}/stagiaires")
-	public Filiere afficherParIdAvecStagiaires(@PathVariable Integer id) 
+	public FiliereDTO afficherParIdAvecStagiaires(@PathVariable Integer id) 
 	{
-		return daoFiliere.findByIdWithStagiaires(id);
+		return FiliereDTO.convertWithStagiaires(daoFiliere.findByIdWithStagiaires(id));
 	}
 	
 	@DeleteMapping("/{id}")
