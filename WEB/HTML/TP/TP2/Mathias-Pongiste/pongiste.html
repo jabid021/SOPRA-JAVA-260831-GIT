@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le top 5 des pongistes français, hommes et femmes.">
+    <title>Top Pongiste</title>
+
+    <link rel="icon" href="img/icon.jpg">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="container py-5">
+
+        <header class="site-header text-center">
+            <h1>Le top 5 du <span>tennis de table</span> français </h1>
+        </header>
+
+        <section class="ranking-section" aria-label="Classement des pongistes">
+
+            <div class="ranking-toolbar">
+                <div class="category-switch" role="group" aria-label="Choisir le classement">
+                    <button
+                        type="button"
+                        id="btn-hommes"
+                        class="category-button active"
+                        aria-pressed="true"
+                    >
+                        Hommes
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btn-femmes"
+                        class="category-button"
+                        aria-pressed="false"
+                    >
+                        Femmes
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-card">
+				<table class="table ping-table mb-0">
+					<thead>
+						<tr>
+							<th scope="col">Rang national</th>
+							<th scope="col">Rang mondial</th>
+							<th scope="col">Pongiste</th>
+							<th scope="col">Portrait</th>
+							<th scope="col">FFTT</th>
+						</tr>
+					</thead>
+
+					<tbody id="players-table-body">
+					</tbody>
+				</table>
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>

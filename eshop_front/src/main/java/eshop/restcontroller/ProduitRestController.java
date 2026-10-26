@@ -24,30 +24,27 @@ public class ProduitRestController {
 
 	@Autowired
 	IDAOProduit daoProduit;
-	
+
 	@GetMapping
 	@JsonView(Views.Produit.class)
 	public List<Produit> afficherTous() 
 	{
-	  //Coder Ici
-		return null;
+		return daoProduit.findAll();
 	}
 
 	@GetMapping("/{id}")
 	@JsonView(Views.Produit.class)
 	public Produit afficherParId(@PathVariable Integer id) 
 	{
-		//Coder Ici
-		return null;
+		return daoProduit.findById(id).orElse(null);
 	}
 	@GetMapping("/{id}/ventes")
 	@JsonView(Views.ProduitWithVentes.class)
 	public Produit afficherParIdAvecVentes(@PathVariable Integer id) 
 	{
-		//Coder Ici
-		return null;
+		return daoProduit.findByIdWithVentes(id);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public void supprimer(@PathVariable Integer id)
 	{
@@ -58,16 +55,16 @@ public class ProduitRestController {
 	@JsonView(Views.Produit.class)
 	public Produit ajouter(@RequestBody Produit produit)
 	{
-		//Coder Ici
-		return null;
+		daoProduit.save(produit);
+		return produit;
 	}
-	
+
 	@PutMapping("/{id}")
 	@JsonView(Views.Produit.class)
 	public Produit modifier(@PathVariable Integer id,@RequestBody Produit produit) 
 	{
-	  produit.setId(id);
-	  //Coder Ici
-	  return null;
+		produit.setId(id);
+		daoProduit.save(produit);
+		return produit;
 	}
 }
