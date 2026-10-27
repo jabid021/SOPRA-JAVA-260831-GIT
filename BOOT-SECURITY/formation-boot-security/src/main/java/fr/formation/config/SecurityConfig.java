@@ -2,6 +2,7 @@ package fr.formation.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -24,6 +25,7 @@ public class SecurityConfig {
             // authorize.requestMatchers("/api/hello").authenticated();
 
             // /api/hello UNIQUEMENT pour les roles ADMIN
+            authorize.requestMatchers(HttpMethod.POST, "/api/hello").hasAnyRole("ADMIN");
             authorize.requestMatchers("/api/hello/create").hasAnyRole("ADMIN");
 
             // /api/hello/quelchose/nimportequoi UNIQUEMENT pour les roles ADMIN et USER
@@ -40,6 +42,10 @@ public class SecurityConfig {
 
         // Remet le HTTP Basic
         http.httpBasic(Customizer.withDefaults());
+
+
+        // Désactiver la protection CSRF uniquement pour les /api/quelquechose
+        http.csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"));
 
         return http.build();
     }
