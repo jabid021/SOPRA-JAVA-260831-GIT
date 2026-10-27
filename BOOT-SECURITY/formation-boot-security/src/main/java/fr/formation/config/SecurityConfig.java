@@ -17,14 +17,22 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) {
         // Configuration des autorisations d'accès
         http.authorizeHttpRequests(authorize -> {
-            // !!! L'ordre a une importante ici
+            // !!! L'ordre a une importance ici
             // Il faut faire de la règle la plus spécifique à la règle la plus générale
 
             // authorize.requestMatchers("/api/hello").permitAll();
             // authorize.requestMatchers("/api/hello").authenticated();
 
-            // /api/hello/quelchose/nimportequoi UNIQUEMENT pour les roles USER
-            authorize.requestMatchers("/api/hello/**").hasRole("USER");
+            // /api/hello UNIQUEMENT pour les roles ADMIN
+            authorize.requestMatchers("/api/hello/create").hasAnyRole("ADMIN");
+
+            // /api/hello/quelchose/nimportequoi UNIQUEMENT pour les roles ADMIN et USER
+            authorize.requestMatchers("/api/hello/**").hasAnyRole("ADMIN", "USER");
+
+            // authorize.requestMatchers("/api/auth/**").permitAll();
+
+            // Tout le reste il faut être authentifié
+            authorize.requestMatchers("/api/**").authenticated();
         });
 
         // Reconfiguration d'un formulaire de connexion
