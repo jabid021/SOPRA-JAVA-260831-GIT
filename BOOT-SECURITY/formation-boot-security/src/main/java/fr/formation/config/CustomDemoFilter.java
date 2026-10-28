@@ -2,6 +2,8 @@ package fr.formation.config;
 
 import java.io.IOException;
 
+import org.springframework.security.web.authentication.www.BasicAuthenticationConverter;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
