@@ -20,6 +20,8 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -96,6 +98,19 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"));
 
         return http.build();
+    }
+
+    @Bean
+    JwtAuthenticationConverter jwtAuthenticationConverter() {
+        JwtGrantedAuthoritiesConverter granted = new JwtGrantedAuthoritiesConverter();
+        JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
+
+        // Par défaut, le préfix est "SCOPE_"
+        granted.setAuthorityPrefix("");
+
+        converter.setJwtGrantedAuthoritiesConverter(granted);
+
+        return converter;
     }
 
     // Ici on va gérer nos propres utilisateurs en mémoire
