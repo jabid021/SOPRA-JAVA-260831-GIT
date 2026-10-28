@@ -1,5 +1,10 @@
 package fr.formation.config;
 
+import java.nio.charset.StandardCharsets;
+
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -10,13 +15,48 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import com.nimbusds.jose.jwk.source.ImmutableSecret;
 
 @Configuration
 // Activer les annotations @PreAuthorize / @PostAuthorize
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
+    private static final String SECRET_KEY = "3f79ae1cb1016bebe4c00a841f8bf0c90b03c2ad896cad9086ae6792ce109549";
+
+    private SecretKey secretKey() {
+        // On transforme le secret en tableau d'octets
+        // On retourne la clé secrète au format Hmac SHA 256
+        return new SecretKeySpec(SECRET_KEY.getBytes(StandardCharsets.UTF_8), "HmacSHA256");
+    }
+
+    // Ce JwtEncoder permettra de générer des jetons JWT, signés avec la clé privée
+    @Bean
+    JwtEncoder jwtEncoder() {
+        SecretKey secretKey = this.secretKey();
+
+        return new NimbusJwtEncoder(new ImmutableSecret<>(secretKey));
+    }
+
+    // Ce JwtDecoder permettra de valider les jetons reçus dans les requêtes HTTP, utilisé par le Filter qui se chargera de valider le jeton
+    @Bean
+    JwtDecoder jwtDecoder() {
+        SecretKey secretKey = this.secretKey();
+
+        return NimbusJwtDecoder
+            .withSecretKey(secretKey)
+            .macAlgorithm(MacAlgorithm.HS256) // HmacSHA256
+            .build()
+        ;
+    }
+
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) {
         // Configuration des autorisations d'accès
