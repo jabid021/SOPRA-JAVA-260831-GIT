@@ -89,6 +89,8 @@ public class SecurityConfig {
         // Remet le HTTP Basic
         http.httpBasic(Customizer.withDefaults());
 
+        // Activer le filtre de validation du jeton JWT
+        http.oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
 
         // Désactiver la protection CSRF uniquement pour les /api/quelquechose
         http.csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"));
