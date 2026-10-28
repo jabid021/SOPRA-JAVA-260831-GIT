@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,6 +14,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+// Activer les annotations @PreAuthorize / @PostAuthorize
+@EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) {
@@ -27,11 +30,11 @@ public class SecurityConfig {
             authorize.requestMatchers(HttpMethod.POST, "/api/user/subscribe").permitAll();
 
             // /api/hello UNIQUEMENT pour les roles ADMIN
-            authorize.requestMatchers(HttpMethod.POST, "/api/hello").hasAnyRole("ADMIN");
-            authorize.requestMatchers("/api/hello/create").hasAnyRole("ADMIN");
+            // authorize.requestMatchers(HttpMethod.POST, "/api/hello").hasAnyRole("ADMIN");
+            // authorize.requestMatchers("/api/hello/create").hasAnyRole("ADMIN");
 
-            // /api/hello/quelchose/nimportequoi UNIQUEMENT pour les roles ADMIN et USER
-            authorize.requestMatchers("/api/hello/**").hasAnyRole("ADMIN", "USER");
+            // // /api/hello/quelchose/nimportequoi UNIQUEMENT pour les roles ADMIN et USER
+            // authorize.requestMatchers("/api/hello/**").hasAnyRole("ADMIN", "USER");
 
             // authorize.requestMatchers("/api/auth/**").permitAll();
 
