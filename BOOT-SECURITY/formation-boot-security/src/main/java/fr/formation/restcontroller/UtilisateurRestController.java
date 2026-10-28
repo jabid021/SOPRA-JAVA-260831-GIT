@@ -4,6 +4,9 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
 import org.springframework.security.oauth2.jwt.JwsHeader;
@@ -31,6 +34,23 @@ public class UtilisateurRestController {
 
     @Autowired
     private JwtEncoder jwtEncoder;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @GetMapping("/auth")
+    public String auth() {
+        // On prépare l'authentification utilisateur
+        Authentication auth = new UsernamePasswordAuthenticationToken("admin", "123456$");
+
+        // On demande à Spring Security de vérifier l'authentification
+        auth = this.authenticationManager.authenticate(auth);
+
+        // Si tout est OK, "auth" fera référence à l'utilisateur connecté !
+        // Si ça n'a pas fonctionné, Erreur 401, la suite ne s'exécutera pas
+
+        return "OK";
+    }
 
     @GetMapping("/jwt")
     public String getJwt() {

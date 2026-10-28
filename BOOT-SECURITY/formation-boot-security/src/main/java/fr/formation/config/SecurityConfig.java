@@ -8,7 +8,9 @@ import javax.crypto.spec.SecretKeySpec;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -71,6 +73,7 @@ public class SecurityConfig {
 
             authorize.requestMatchers(HttpMethod.POST, "/api/user/subscribe").permitAll();
             authorize.requestMatchers("/api/user/jwt").permitAll();
+            authorize.requestMatchers("/api/user/auth").permitAll();
 
             // /api/hello UNIQUEMENT pour les roles ADMIN
             // authorize.requestMatchers(HttpMethod.POST, "/api/hello").hasAnyRole("ADMIN");
@@ -142,5 +145,11 @@ public class SecurityConfig {
         System.out.println(new BCryptPasswordEncoder().encode("123456$"));
         // return NoOpPasswordEncoder.getInstance();
         return new BCryptPasswordEncoder();
+    }
+
+    // On intègre l'AuthenticationManager dans le contexte de Spring pour pouvoir l'utiliser directement
+    @Bean
+    AuthenticationManager authenticationManager(AuthenticationConfiguration config) {
+        return config.getAuthenticationManager();
     }
 }
