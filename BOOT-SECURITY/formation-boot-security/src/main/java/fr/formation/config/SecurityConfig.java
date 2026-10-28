@@ -68,6 +68,7 @@ public class SecurityConfig {
             // authorize.requestMatchers("/api/hello").authenticated();
 
             authorize.requestMatchers(HttpMethod.POST, "/api/user/subscribe").permitAll();
+            authorize.requestMatchers("/api/user/jwt").permitAll();
 
             // /api/hello UNIQUEMENT pour les roles ADMIN
             // authorize.requestMatchers(HttpMethod.POST, "/api/hello").hasAnyRole("ADMIN");

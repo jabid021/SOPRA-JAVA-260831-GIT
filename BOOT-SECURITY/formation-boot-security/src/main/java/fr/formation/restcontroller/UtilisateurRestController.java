@@ -1,7 +1,16 @@
 package fr.formation.restcontroller;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
+import org.springframework.security.oauth2.jwt.JwsHeader;
+import org.springframework.security.oauth2.jwt.JwtClaimsSet;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +28,38 @@ public class UtilisateurRestController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtEncoder jwtEncoder;
+
+    @GetMapping("/jwt")
+    public String getJwt() {
+        Instant now = Instant.now();
+
+        // Payload - Contenu du jeton JWT
+        JwtClaimsSet payload = JwtClaimsSet.builder()
+            .subject("LE USERNAME EN COURS") // Le nom d'utilisateur
+            .issuedAt(now) // La date / heure de la création du jeton
+            .expiresAt(now.plus(1, ChronoUnit.HOURS)) // Date de validité = 1 heure
+
+            // Liste des rôles / autorisations / etc.
+            .claim("scope", "ROLE_ADMIN")
+
+            .build()
+        ;
+
+        // Header - En-tête du jeton JWT
+        JwsHeader header = JwsHeader
+            .with(MacAlgorithm.HS256) // HmacSHA256
+            .build()
+        ;
+
+        // Génération du jeton JWT avec le JwtEncoder
+        return this.jwtEncoder
+            .encode(JwtEncoderParameters.from(header, payload))
+            .getTokenValue()
+        ;
+    }
 
     @PostMapping("/subscribe")
     public Integer subscribe(@RequestBody SubscribeRequest request) {
