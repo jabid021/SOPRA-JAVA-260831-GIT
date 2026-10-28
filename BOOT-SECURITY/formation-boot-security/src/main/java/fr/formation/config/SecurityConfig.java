@@ -51,7 +51,7 @@ public class SecurityConfig {
     }
 
     // Ici on va gérer nos propres utilisateurs en mémoire
-    @Bean
+    // @Bean
     UserDetailsService inMemory() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 
