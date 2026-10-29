@@ -1,6 +1,7 @@
 package fr.formation.restcontroller;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.security.test.context.support.WithMockUser;
@@ -51,5 +52,8 @@ public class HelloRestControllerTest {
 
         // then
         result.andExpect(MockMvcResultMatchers.status().isOk());
+
+        // On va vérifier si le findAll de la DAO a bien été utilisé
+        Mockito.verify(this.dao).findAll();
     }
 }
