@@ -41,20 +41,6 @@ public class UtilisateurRestController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @GetMapping("/auth")
-    public String auth() {
-        // On prépare l'authentification utilisateur
-        Authentication auth = new UsernamePasswordAuthenticationToken("admin", "123456$");
-
-        // On demande à Spring Security de vérifier l'authentification
-        auth = this.authenticationManager.authenticate(auth);
-
-        // Si tout est OK, "auth" fera référence à l'utilisateur connecté !
-        // Si ça n'a pas fonctionné, Erreur 401, la suite ne s'exécutera pas
-
-        return "OK";
-    }
-
     @PostMapping("/auth")
     public String auth(@RequestBody AuthRequest request) {
         // On prépare l'authentification utilisateur
@@ -86,35 +72,6 @@ public class UtilisateurRestController {
 
             // Liste des rôles / autorisations / etc.
             .claim("scope", scope)
-
-            .build()
-        ;
-
-        // Header - En-tête du jeton JWT
-        JwsHeader header = JwsHeader
-            .with(MacAlgorithm.HS256) // HmacSHA256
-            .build()
-        ;
-
-        // Génération du jeton JWT avec le JwtEncoder
-        return this.jwtEncoder
-            .encode(JwtEncoderParameters.from(header, payload))
-            .getTokenValue()
-        ;
-    }
-
-    @GetMapping("/jwt")
-    public String getJwt() {
-        Instant now = Instant.now();
-
-        // Payload - Contenu du jeton JWT
-        JwtClaimsSet payload = JwtClaimsSet.builder()
-            .subject("LE USERNAME EN COURS") // Le nom d'utilisateur
-            .issuedAt(now) // La date / heure de la création du jeton
-            .expiresAt(now.plus(1, ChronoUnit.HOURS)) // Date de validité = 1 heure
-
-            // Liste des rôles / autorisations / etc.
-            .claim("scope", "ROLE_ADMIN")
 
             .build()
         ;
