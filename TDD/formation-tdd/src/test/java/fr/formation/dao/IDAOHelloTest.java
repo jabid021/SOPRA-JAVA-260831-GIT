@@ -1,11 +1,14 @@
 package fr.formation.dao;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
+
+import fr.formation.model.Hello;
 
 // @SpringBootTest
 // @Transactional // Permet d'activer des transactions ACID
@@ -28,5 +31,18 @@ public class IDAOHelloTest {
 
         // then
         Assertions.assertEquals(2, result);
+    }
+
+    @Test
+    @Sql(scripts = "classpath:/create-hello.sql")
+    void shouldFindByIdPresent() {
+        // given
+
+        // when
+        Optional<Hello> optHello = this.dao.findById(1);
+
+        // then
+        Assertions.assertTrue(optHello.isPresent());
+        Assertions.assertEquals("hello 1 !", optHello.get().getMessage());
     }
 }
