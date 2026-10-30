@@ -13,6 +13,10 @@
   {{ prenom }}
 </p>
 
-<input type="text" [value]="prenom" (input)="onInput($event)" />
+<div>
+  <input type="text" [value]="prenom" (input)="onInput($event)" />
+  <button (click)="modifierPrenom()">Modifier prenom</button>
+</div>
 
-<button (click)="modifierPrenom()">Modifier prenom</button>
+<input type="text" [(ngModel)]="prenom" />
+
