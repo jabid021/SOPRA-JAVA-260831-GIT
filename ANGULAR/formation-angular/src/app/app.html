@@ -29,3 +29,21 @@
 
 <input type="text" [(ngModel)]="prenom" />
 
+<hr />
+
+<h2>ngIf</h2>
+
+<p *ngIf="prenom === 'toto'">
+  Avec du contenu pour toto
+</p>
+
+<hr />
+
+<h2>ngFor</h2>
+
+<ul>
+  <li *ngFor="let p of prenoms">
+    {{ p }}
+  </li>
+</ul>
+
