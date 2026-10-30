@@ -8,5 +8,14 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('formation-angular');
+  protected readonly title = signal('PREMIERE APP');
+  protected prenom: string = "Jeremy";
+
+  protected modifierPrenom() {
+    this.prenom = "Nouveau prénom";
+  }
+
+  protected onInput() {
+    console.log("TOTO");
+  }
 }
