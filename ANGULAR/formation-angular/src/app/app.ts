@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { Todo } from './todo';
 import { MonPremierComposant } from './mon-premier-composant/mon-premier-composant';
+import { ListePrenoms } from './liste-prenoms/liste-prenoms';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { MonPremierComposant } from './mon-premier-composant/mon-premier-composa
     RouterOutlet,
     FormsModule, // Parce qu'on utilise ngModel dans le template
     CommonModule, // Parce qu'on utilise ngIf ou ngFor
-    MonPremierComposant // Parce qu'on utilise ce composant
+    MonPremierComposant, // Parce qu'on utilise ce composant
+    ListePrenoms
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
