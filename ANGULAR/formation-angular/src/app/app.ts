@@ -14,6 +14,7 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   protected readonly title = signal('PREMIERE APP');
   protected prenom: string = "Jeremy";
+  protected couleur: string = "black";
 
   protected modifierPrenom() {
     this.prenom = "Nouveau prénom";

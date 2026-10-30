@@ -9,9 +9,18 @@
   {{ title() }}
 </p>
 
-<p>
+<p [style.color]="couleur">
   {{ prenom }}
 </p>
+
+<select [(ngModel)]="couleur">
+  <option value="black">Noir</option>
+  <option value="red">Rouge</option>
+  <option value="blue">Bleu</option>
+  <option value="#51a5ae">Bleu vert</option>
+</select>
+
+<input type="color" [(ngModel)]="couleur" />
 
 <div>
   <input type="text" [value]="prenom" (input)="onInput($event)" />
