@@ -13,6 +13,6 @@
   {{ prenom }}
 </p>
 
-<input type="text" [value]="prenom" (input)="onInput()" />
+<input type="text" [value]="prenom" (input)="onInput($event)" />
 
 <button (click)="modifierPrenom()">Modifier prenom</button>

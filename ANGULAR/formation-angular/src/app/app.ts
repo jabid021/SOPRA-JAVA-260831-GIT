@@ -15,7 +15,7 @@ export class App {
     this.prenom = "Nouveau prénom";
   }
 
-  protected onInput() {
-    console.log("TOTO");
+  protected onInput(event: any) {
+    this.prenom = event.target.value;
   }
 }
