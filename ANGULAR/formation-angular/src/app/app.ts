@@ -3,13 +3,15 @@ import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { Todo } from './todo';
+import { MonPremierComposant } from './mon-premier-composant/mon-premier-composant';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
     FormsModule, // Parce qu'on utilise ngModel dans le template
-    CommonModule // Parce qu'on utilise ngIf ou ngFor
+    CommonModule, // Parce qu'on utilise ngIf ou ngFor
+    MonPremierComposant // Parce qu'on utilise ce composant
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
