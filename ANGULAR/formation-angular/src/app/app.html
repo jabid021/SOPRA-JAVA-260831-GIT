@@ -47,3 +47,47 @@
   </li>
 </ul>
 
+<hr />
+
+<div>
+  <input type="number" placeholder="ID" [(ngModel)]="formTodo.id" />
+  <input type="text" placeholder="Title" [(ngModel)]="formTodo.title" />
+
+  <input type="checkbox" [(ngModel)]="formTodo.completed" />
+</div>
+
+<button (click)="ajouterTodo()">Ajouter</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Complété 1</th>
+      <th>Complété 2</th>
+      <th>Complété 3</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let todo of todos">
+      <td>{{ todo.id }}</td>
+      <td>{{ todo.title }}</td>
+
+      <td>{{ todo.completed ? 'Terminé !' : 'Non terminé' }}</td>
+
+      <td *ngIf="todo.completed">Terminé !</td>
+      <td *ngIf="!todo.completed">Non terminé</td>
+
+      <td>
+        @if (todo.completed) {
+          Terminé !
+        }
+
+        @else {
+          Non terminé
+        }
+      </td>
+    </tr>
+  </tbody>
+</table>
