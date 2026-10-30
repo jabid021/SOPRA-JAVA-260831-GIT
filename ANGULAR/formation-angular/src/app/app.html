@@ -56,6 +56,11 @@
   <input type="checkbox" [(ngModel)]="formTodo.completed" />
 </div>
 
+<div>
+  <input type="radio" name="complet" [value]="false" [(ngModel)]="formTodo.completed" />
+  <input type="radio" name="complet" [value]="true" [(ngModel)]="formTodo.completed" />
+</div>
+
 <button (click)="ajouterTodo()">Ajouter</button>
 
 <table>
