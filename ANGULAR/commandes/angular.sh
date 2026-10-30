@@ -13,3 +13,18 @@ ng s
 # Générer une nouvelle interface
 ng generate interface nom-interface
 ng g i nom-interface
+
+# Générer une nouvelle classe
+ng generate class nom-classe
+ng g class nom-interface
+
+# Générer une nouvelle directive
+ng generate directive nom-directive
+ng g d nom-directive
+
+# Générer un nouveau composant
+ng generate component nom-composant
+ng g c nom-composant
+
+
+
