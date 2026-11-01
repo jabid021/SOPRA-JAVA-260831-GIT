@@ -31,6 +31,7 @@ export class App {
   ];
 
   protected formTodo: Todo = { id: 0, title: "", completed: false };
+  protected todoId: number = 3;
 
   protected modifierPrenom() {
     this.prenom = "Nouveau prénom";
@@ -40,8 +41,14 @@ export class App {
     this.prenom = event.target.value;
   }
 
-  protected ajouterTodo() {
-    this.todos.push(this.formTodo);
+  protected ajouterOuModifierTodo() {
+    if (!this.formTodo.id) {
+      this.todos.push({
+        ...this.formTodo,
+        id: this.todoId++
+      });
+    }
+
     this.formTodo = { id: 0, title: "", completed: false };
 
     // this.todos.push({
@@ -51,5 +58,18 @@ export class App {
     // });
 
     // this.todos.push({ ...this.formTodo });
+  }
+
+  protected editerTodo(todo: Todo) {
+    this.formTodo = todo;
+  }
+
+  protected annulerEditerTodo() {
+    this.formTodo = { id: 0, title: "", completed: false };
+  }
+
+  protected supprimerTodo(todo: Todo) {
+    const index = this.todos.indexOf(todo);
+    this.todos.splice(index, 1);
   }
 }
