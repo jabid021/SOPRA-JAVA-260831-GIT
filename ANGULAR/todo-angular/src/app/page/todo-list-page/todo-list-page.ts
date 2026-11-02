@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Todo } from '../../model/todo';
 import { TodoCompletedPipe } from '../../pipe/todo-completed-pipe';
 import { Title } from '@angular/platform-browser';
+import { TodoService } from '../../service/todo-service';
 
 @Component({
   selector: 'app-todo-list-page',
@@ -17,25 +18,22 @@ import { Title } from '@angular/platform-browser';
 })
 export class TodoListPage implements OnInit {
   protected title: Title = inject(Title);
+  protected todoService: TodoService = inject(TodoService);
 
-  protected todos: Todo[] = [
-    { id: 1, title: "Faire du café", completed: true },
-    { id: 2, title: "Boire le café", completed: false }
-  ];
+  protected todos!: Todo[];
 
   protected formTodo: Todo = { id: 0, title: "", completed: false };
-  protected todoId: number = 3;
+
 
   ngOnInit(): void {
     this.title.setTitle("Liste des todos");
+
+    this.todos = this.todoService.findAll();
   }
 
   protected ajouterOuModifierTodo() {
     if (!this.formTodo.id) {
-      this.todos.push({
-        ...this.formTodo,
-        id: this.todoId++
-      });
+      this.todoService.add(this.formTodo);
     }
 
     this.formTodo = { id: 0, title: "", completed: false };
@@ -58,7 +56,6 @@ export class TodoListPage implements OnInit {
   }
 
   protected supprimerTodo(todo: Todo) {
-    const index = this.todos.indexOf(todo);
-    this.todos.splice(index, 1);
+    this.todoService.remove(todo);
   }
 }
