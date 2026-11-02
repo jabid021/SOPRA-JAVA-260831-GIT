@@ -1,0 +1,63 @@
+
+<h1>Todo liste</h1>
+
+<div>
+  <input type="text" placeholder="Title" [(ngModel)]="formTodo.title" />
+
+  <input type="checkbox" [(ngModel)]="formTodo.completed" />
+</div>
+
+<div>
+  <input type="radio" name="complet" [value]="false" [(ngModel)]="formTodo.completed" />
+  <input type="radio" name="complet" [value]="true" [(ngModel)]="formTodo.completed" />
+</div>
+
+<button (click)="ajouterOuModifierTodo()">{{ formTodo.id ? 'Modifier' : 'Ajouter' }}</button>
+
+@if (formTodo.id) {
+  <button (click)="annulerEditerTodo()">Annuler</button>
+}
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Complété 1</th>
+      <th>Complété 2</th>
+      <th>Complété 3</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let todo of todos">
+      <td>{{ todo.id }}</td>
+      <td>{{ todo.title }}</td>
+
+      <td>{{ todo.completed ? 'Terminé !' : 'Non terminé' }}</td>
+
+      <td *ngIf="todo.completed">Terminé !</td>
+      <td *ngIf="!todo.completed">Non terminé</td>
+
+      <td>
+        @if (todo.completed) {
+          Terminé !
+        }
+
+        @else {
+          Non terminé
+        }
+      </td>
+
+      <td>
+        <button (click)="editerTodo(todo)">Modifier</button>
+      </td>
+
+      <td>
+        <button (click)="supprimerTodo(todo)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
