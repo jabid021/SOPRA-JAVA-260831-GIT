@@ -1,17 +1,19 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Todo } from '../../model/todo';
 import { TodoCompletedPipe } from '../../pipe/todo-completed-pipe';
 import { Title } from '@angular/platform-browser';
 import { TodoService } from '../../service/todo-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todo-list-page',
   imports: [
     CommonModule, // Parce qu'on utilise ngIf ou ngFor
     FormsModule, // Parce qu'on utilise ngModel dans le template
-    TodoCompletedPipe
+    TodoCompletedPipe,
+    AsyncPipe
   ],
   templateUrl: './todo-list-page.html',
   styleUrl: './todo-list-page.css',
@@ -21,14 +23,14 @@ export class TodoListPage implements OnInit {
   protected todoService: TodoService = inject(TodoService);
 
   protected todos!: Todo[];
+  protected todos$!: Observable<Todo[]>;
 
   protected formTodo: Todo = { id: 0, title: "", completed: false };
 
   ngOnInit(): void {
     this.title.setTitle("Liste des todos");
 
-    this.todoService.findAllObs();
-
+    this.todos$ = this.todoService.findAllObs();
     this.todos = this.todoService.findAll();
   }
 

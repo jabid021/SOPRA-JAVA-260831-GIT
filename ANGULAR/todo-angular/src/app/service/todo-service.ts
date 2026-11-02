@@ -22,12 +22,21 @@ export class TodoService {
     return this.todos;
   }
 
-  public findAllObs(): void {
-    const obs: Observable<Todo[]> = this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos');
+  // public findAllObs(): void {
+  //   const obs: Observable<Todo[]> = this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos');
 
-    obs.subscribe(todos => {
-      console.log(todos);
-    });
+  //   obs.subscribe(todos => {
+  //     // console.log(todos);
+  //     // this.todos = todos;
+
+  //     for (let t of todos) {
+  //       this.todos.push(t);
+  //     }
+  //   });
+  // }
+
+  public findAllObs(): Observable<Todo[]> {
+    return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos');
   }
 
   public add(todo: Todo) {
