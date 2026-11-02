@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { DemoPipePage } from './page/demo-pipe-page/demo-pipe-page';
 import { HomePage } from './page/home-page/home-page';
 import { TodoListPage } from './page/todo-list-page/todo-list-page';
+import { DemoObservablePage } from './page/demo-observable-page/demo-observable-page';
 
 export const routes: Routes = [
 
@@ -21,6 +22,12 @@ export const routes: Routes = [
   {
     path: 'demo-pipe',
     component: DemoPipePage
+  },
+
+  // Page Démo Observables
+  {
+    path: 'demo-observable',
+    component: DemoObservablePage
   },
 
   // Rediriger par défaut sur l'accueil
