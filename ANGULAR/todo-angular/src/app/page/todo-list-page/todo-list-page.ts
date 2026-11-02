@@ -2,12 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Todo } from '../../model/todo';
+import { TodoCompletedPipe } from '../../pipe/todo-completed-pipe';
 
 @Component({
   selector: 'app-todo-list-page',
   imports: [
     CommonModule, // Parce qu'on utilise ngIf ou ngFor
-    FormsModule // Parce qu'on utilise ngModel dans le template
+    FormsModule, // Parce qu'on utilise ngModel dans le template
+    TodoCompletedPipe
   ],
   templateUrl: './todo-list-page.html',
   styleUrl: './todo-list-page.css',

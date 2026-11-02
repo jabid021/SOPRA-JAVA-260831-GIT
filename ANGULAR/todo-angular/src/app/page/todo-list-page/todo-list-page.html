@@ -26,6 +26,7 @@
       <th>Complété 1</th>
       <th>Complété 2</th>
       <th>Complété 3</th>
+      <th>Complété 4</th>
       <th></th>
       <th></th>
     </tr>
@@ -50,6 +51,8 @@
           Non terminé
         }
       </td>
+
+      <td>{{ todo.completed | todoCompleted }}</td>
 
       <td>
         <button (click)="editerTodo(todo)">Modifier</button>
