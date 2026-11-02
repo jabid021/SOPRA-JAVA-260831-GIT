@@ -30,5 +30,9 @@ ng g c nom-composant
 ng generate pipe nom-pipe
 ng g p nom-pipe
 
+# Générer un nouveau service
+ng generate service nom-service
+ng g s nom-service
+
 
 
