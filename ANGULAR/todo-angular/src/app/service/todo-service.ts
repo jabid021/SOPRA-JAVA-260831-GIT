@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Todo } from '../model/todo';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +14,20 @@ export class TodoService {
     { id: 2, title: "Boire le café", completed: false }
   ];
 
+  constructor(private http: HttpClient) {
+
+  }
+
   public findAll(): Todo[] {
     return this.todos;
+  }
+
+  public findAllObs(): void {
+    const obs: Observable<Todo[]> = this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos');
+
+    obs.subscribe(todos => {
+      console.log(todos);
+    });
   }
 
   public add(todo: Todo) {

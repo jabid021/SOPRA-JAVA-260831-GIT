@@ -24,9 +24,10 @@ export class TodoListPage implements OnInit {
 
   protected formTodo: Todo = { id: 0, title: "", completed: false };
 
-
   ngOnInit(): void {
     this.title.setTitle("Liste des todos");
+
+    this.todoService.findAllObs();
 
     this.todos = this.todoService.findAll();
   }
