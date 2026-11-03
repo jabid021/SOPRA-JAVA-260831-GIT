@@ -60,6 +60,7 @@ public class MatiereRestControllerTest {
                     }
                 """)
                 .contentType(MediaType.APPLICATION_JSON)
+                // .contentType("application/json")
                 .with(SecurityMockMvcRequestPostProcessors.csrf())
         );
 
@@ -97,6 +98,7 @@ public class MatiereRestControllerTest {
         // On vérifie la matière envoyée dans save
         Matiere savedMatiere = cptMatiere.getValue();
         Assertions.assertEquals("TEST DE CREATION", savedMatiere.getLibelle());
+        Assertions.assertNotNull(savedMatiere.getId()); // Après save, l'id n'est plus à 0 car auto-incrémenté
         Assertions.assertNotEquals(0, savedMatiere.getId()); // Après save, l'id n'est plus à 0 car auto-incrémenté
     }
 

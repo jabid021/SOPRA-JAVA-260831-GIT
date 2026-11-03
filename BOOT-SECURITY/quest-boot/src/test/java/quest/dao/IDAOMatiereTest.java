@@ -29,7 +29,7 @@ public class IDAOMatiereTest {
         List<Matiere> matieres = this.dao.findByLibelleContaining(libelle);
 
         // then
-        Assertions.assertNotNull( matieres);
+        Assertions.assertNotNull(matieres);
         Assertions.assertEquals(size, matieres.size());
     }
 }
