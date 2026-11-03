@@ -37,6 +37,10 @@ export class TodoListPage implements OnInit {
       this.todoService.add(this.formTodo).subscribe();
     }
 
+    else {
+      this.todoService.update(this.formTodo).subscribe();
+    }
+
     this.formTodo = { id: 0, title: "", completed: false };
 
     // this.todos.push({
