@@ -30,6 +30,10 @@ export class TodoService {
     return this.http.post<Todo>('https://jsonplaceholder.typicode.com/todos', todo);
   }
 
+  public update(todo: Todo): Observable<Todo> {
+    return this.http.put<Todo>(`https://jsonplaceholder.typicode.com/todos/${ todo.id }`, todo);
+  }
+
   public remove(todo: Todo): Observable<void> {
     return this.http.delete<void>(`https://jsonplaceholder.typicode.com/todos/${ todo.id }`);
   }
