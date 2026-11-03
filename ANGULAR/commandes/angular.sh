@@ -34,5 +34,6 @@ ng g p nom-pipe
 ng generate service nom-service
 ng g s nom-service
 
-
-
+# Générer un nouvel interceptor
+ng generate interceptor nom-interceptor
+ng g interceptor nom-interceptor
