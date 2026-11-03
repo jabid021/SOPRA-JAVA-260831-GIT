@@ -22,7 +22,6 @@ export class TodoListPage implements OnInit {
   protected title: Title = inject(Title);
   protected todoService: TodoService = inject(TodoService);
 
-  protected todos!: Todo[];
   protected todos$!: Observable<Todo[]>;
 
   protected formTodo: Todo = { id: 0, title: "", completed: false };
@@ -30,13 +29,12 @@ export class TodoListPage implements OnInit {
   ngOnInit(): void {
     this.title.setTitle("Liste des todos");
 
-    this.todos$ = this.todoService.findAllObs();
-    this.todos = this.todoService.findAll();
+    this.todos$ = this.todoService.findAll();
   }
 
   protected ajouterOuModifierTodo() {
     if (!this.formTodo.id) {
-      this.todoService.add(this.formTodo);
+      this.todoService.add(this.formTodo).subscribe();
     }
 
     this.formTodo = { id: 0, title: "", completed: false };
@@ -59,6 +57,6 @@ export class TodoListPage implements OnInit {
   }
 
   protected supprimerTodo(todo: Todo) {
-    this.todoService.remove(todo);
+    this.todoService.remove(todo).subscribe();
   }
 }
