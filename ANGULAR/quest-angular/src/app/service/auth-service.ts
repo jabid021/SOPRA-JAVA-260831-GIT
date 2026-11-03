@@ -8,7 +8,7 @@ import { Auth } from '../model/auth';
   providedIn: 'root',
 })
 export class AuthService {
-  private _token: string = "";
+  private _token: string = sessionStorage.getItem('token') ?? "";
 
   public get token(): string {
     return this._token;

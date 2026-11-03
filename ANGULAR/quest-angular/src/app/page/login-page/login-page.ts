@@ -20,6 +20,9 @@ export class LoginPage {
       // On affecte le jeton JWT reçu au service
       this.authService.token = resp.token;
 
+      // Stockage du jeton dans la session du navigateur
+      sessionStorage.setItem('token', resp.token);
+
       // On redirige vers la page de la liste des matières
       this.router.navigate([ 'matiere-v2' ]);
     });
