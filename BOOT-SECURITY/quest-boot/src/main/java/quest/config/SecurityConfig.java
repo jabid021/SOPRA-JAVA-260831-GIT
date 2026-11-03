@@ -1,12 +1,14 @@
 package quest.config;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -22,6 +24,9 @@ import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
 
@@ -60,7 +65,8 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) {
         // Configuration des autorisations d'accès
         http.authorizeHttpRequests(authorize -> {
-            authorize.requestMatchers("/api/**").permitAll();
+            authorize.requestMatchers(HttpMethod.POST, "/api/user/auth").permitAll();
+            authorize.requestMatchers("/api/**").authenticated();
         });
 
         // Remet le HTTP Basic
@@ -71,6 +77,9 @@ public class SecurityConfig {
 
         // Désactiver la protection CSRF uniquement pour les /api/quelquechose
         http.csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"));
+
+        // Ici, on utilisera le CorsConfigurationSource défini plus bas
+        http.cors(Customizer.withDefaults());
 
         return http.build();
     }
@@ -86,6 +95,25 @@ public class SecurityConfig {
         converter.setJwtGrantedAuthoritiesConverter(granted);
 
         return converter;
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        UrlBasedCorsConfigurationSource corsSource = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+
+        // corsConfiguration.setAllowedMethods(List.of("GET", "POST", "DELETE", "PUT"));
+        corsConfiguration.setAllowedMethods(List.of("*"));
+
+        // corsConfiguration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        corsConfiguration.setAllowedHeaders(List.of("*"));
+
+        corsConfiguration.setAllowedOrigins(List.of("http://localhost:4200"));
+
+        // Pour toutes les ressources, on applique la politique CORS définie plus haut
+        corsSource.registerCorsConfiguration("/**", corsConfiguration);
+
+        return corsSource;
     }
 
     @Bean
