@@ -1,0 +1,38 @@
+<h1>Liste des matières</h1>
+
+<div>
+  <div>
+    <input type="text" [(ngModel)]="formMatiere.libelle" />
+  </div>
+
+  <div>
+    <button (click)="ajouterOuModifier()">{{ formMatiere.id ? 'Modifier' : 'Ajouter' }}</button>
+
+    @if (formMatiere.id) {
+      <button (click)="annulerEdition()">Annuler</button>
+    }
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Libellé</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (matiere of matieres.value(); track matiere.id) {
+      <tr>
+        <td>{{ matiere.id }}</td>
+        <td>{{ matiere.libelle }}</td>
+        <td>
+          <button (click)="editer(matiere)">Editer</button>
+          <button (click)="supprimer(matiere)">Supprimer</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
