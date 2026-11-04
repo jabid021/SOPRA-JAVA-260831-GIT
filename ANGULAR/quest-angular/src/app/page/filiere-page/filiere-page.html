@@ -1,0 +1,29 @@
+<h1>Liste des filières</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Libellé</th>
+      <th>Début</th>
+      <th>Fin</th>
+      <th>Stagiaires</th>
+      <th>Salle</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (filiere of (filieres$ | async); track filiere.id) {
+      <tr>
+        <td>{{ filiere.id }}</td>
+        <td>{{ filiere.libelle }}</td>
+        <td>{{ filiere.debut | date:"dd/MM/yyyy" }}</td>
+        <td>{{ filiere.fin }}</td>
+        <td>{{ filiere.stagiaireCount }}</td>
+        <td>
+          {{ filiere.salleNom }} - {{ filiere.salle?.nom }}
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

@@ -5,8 +5,11 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,33 +19,39 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import quest.dto.Views;
 
 @Entity
 @Table(name="filiere")
 public class Filiere {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(Views.FiliereView.class)
 	private Integer id;
+
 	@Column(length = 35,nullable = false)
-	
+
 	@NotBlank
 	@Size(min = 10, max = 20, message = "La taille du libelle n'est pas conforme (entre 10 et 20 stp..) ")
+	@JsonView(Views.FiliereView.class)
 	private String libelle;
+
+
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate debut;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate fin;
-    
+
     @ManyToOne
     @JoinColumn(name="salle")
     private Salle salle;
-    
-    @OneToMany(mappedBy = "filiere")
+
+    @OneToMany(mappedBy = "filiere", fetch = FetchType.LAZY)
     private List<Stagiaire> stagiaires;
-    
-    
+
+
     public Filiere() {}
-    
+
 	public Filiere(Integer id, String libelle, LocalDate debut, LocalDate fin,Salle salle) {
 		this.id = id;
 		this.libelle = libelle;
@@ -50,8 +59,8 @@ public class Filiere {
 		this.fin = fin;
 		this.salle=salle;
 	}
-	
-	
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -82,13 +91,13 @@ public class Filiere {
 	public void setSalle(Salle salle) {
 		this.salle = salle;
 	}
-	
-	public String getInfos() 
+
+	public String getInfos()
 	{
 		return id+" - "+libelle;
 	}
 
-	
+
 
 	public List<Stagiaire> getStagiaires() {
 		return stagiaires;
