@@ -1,13 +1,33 @@
 <h1>Connexion</h1>
 
-<div>
-  <input type="text" [(ngModel)]="formAuth.username" />
-</div>
+<form (submit)="login()" [formGroup]="formLoginGroup">
+  <div>
+    <input type="text" [formControl]="formLoginUsernameCtrl" />
+  </div>
 
-<div>
-  <input type="password"[(ngModel)]="formAuth.password" />
-</div>
+  <div>
+    <input type="password" [formControl]="formLoginPasswordCtrl" />
+  </div>
 
-<div>
-  <button (click)="login()">Connecter</button>
-</div>
+  @if (formLoginUsernameCtrl.dirty && formLoginUsernameCtrl.hasError('required')) {
+    <div>
+      Le nom d'utilisateur est obligatoire
+    </div>
+  }
+
+  @if (formLoginPasswordCtrl.dirty && formLoginPasswordCtrl.hasError('required')) {
+    <div>
+      Le mot de passe est obligatoire
+    </div>
+  }
+
+  @if (formLoginPasswordCtrl.dirty && formLoginPasswordCtrl.hasError('minlength')) {
+    <div>
+      Le mot de passe doit être de 4 caractères minimum
+    </div>
+  }
+
+  <div>
+    <button [disabled]="formLoginGroup.invalid" type="submit">Connecter</button>
+  </div>
+</form>
