@@ -1,18 +1,21 @@
 <h1>Liste des matières</h1>
 
-<div>
+<form (submit)="ajouterOuModifier()" [formGroup]="formMatiereGroup">
   <div>
-    <input type="text" [(ngModel)]="formMatiere.libelle" />
+    <!-- <input type="text" formControlName="libelle" /> -->
+    <input type="text" [formControl]="formMatiereLibelleCtrl" />
   </div>
 
-  <div>
-    <button (click)="ajouterOuModifier()">{{ formMatiere.id ? 'Modifier' : 'Ajouter' }}</button>
+  @if (formMatiereLibelleCtrl.dirty && formMatiereLibelleCtrl.hasError('required')) {
+    <div>
+      Le libellé est obligatoire !
+    </div>
+  }
 
-    @if (formMatiere.id) {
-      <button (click)="annulerEdition()">Annuler</button>
-    }
+  <div>
+    <button [disabled]="formMatiereGroup.invalid" type="submit">Ajouter</button>
   </div>
-</div>
+</form>
 
 <table>
   <thead>
