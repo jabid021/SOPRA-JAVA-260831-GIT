@@ -22,6 +22,6 @@ export class AuthService {
   }
 
   public login(auth: Auth): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>('http://localhost:8080/api/user/auth', auth);
+    return this.http.post<AuthResponse>('/user/auth', auth);
   }
 }

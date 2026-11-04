@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class MatiereService {
-  private apiUrl: string = "http://localhost:8080/api/matiere";
+  private apiUrl: string = "/matiere";
   private http: HttpClient = inject(HttpClient);
 
   public findAll(): Observable<Matiere[]> {

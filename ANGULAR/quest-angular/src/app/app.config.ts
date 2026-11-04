@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 import { jwtInterceptor } from './interceptor/jwt-interceptor';
+import { apiUrlInterceptor } from './interceptor/api-url-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,7 +16,8 @@ export const appConfig: ApplicationConfig = {
       // Avec les intercepteurs ...
       withInterceptors([
         // demoInterceptor, // DemoInterceptor
-        jwtInterceptor // JWT Interceptor
+        jwtInterceptor, // JWT Interceptor
+        apiUrlInterceptor // API URL Interceptor
       ])
     )
   ]
