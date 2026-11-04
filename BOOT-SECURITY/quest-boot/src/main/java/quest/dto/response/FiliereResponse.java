@@ -17,19 +17,31 @@ public record FiliereResponse(
 
 
     public static FiliereResponse convert(Filiere filiere) {
+        Integer salleId = null;
+        String salleNom = null;
+        Integer stagiaireCount = null;
+
+        if (filiere.getSalle() != null) {
+            salleId = filiere.getSalle().getId();
+            salleNom = filiere.getSalle().getNom();
+        }
+
+        if (filiere.getStagiaires() != null) {
+            stagiaireCount = filiere.getStagiaires().size();
+        }
+
         return new FiliereResponse(
             filiere.getId(),
             filiere.getLibelle(),
             filiere.getDebut(),
             filiere.getFin(),
 
-            filiere.getSalle().getId(),
-            filiere.getSalle().getNom(),
+            salleId,
+            salleNom,
 
-            new SalleResponse(filiere.getSalle().getId(), filiere.getSalle().getNom()),
+            new SalleResponse(salleId, salleNom),
 
-            filiere.getStagiaires().size()
+            stagiaireCount
         );
     }
-
 }
