@@ -12,7 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Digits;
 
 @Entity
 @Table(name="module")
@@ -27,20 +26,20 @@ public class Module {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(nullable = false)
 	private LocalDate fin;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "matiere",nullable = false)
 	private Matiere matiere;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "filiere",nullable = false)
 	private Filiere filiere;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "formateur")
 	private Formateur formateur;
-	
-	
+
+
 	public Module() {}
 
 	public Module(Integer id, int quest, LocalDate debut, LocalDate fin, Matiere matiere, Filiere filiere, Formateur formateur) {
@@ -115,5 +114,5 @@ public class Module {
 				+ ", filiere=" + filiere + ", formateur=" + formateur + "]";
 	}
 
-	
+
 }
