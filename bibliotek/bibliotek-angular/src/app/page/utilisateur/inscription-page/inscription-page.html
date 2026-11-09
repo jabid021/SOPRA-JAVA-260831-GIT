@@ -1,0 +1,16 @@
+<h1>S'inscrire</h1>
+
+@if (subscriptionError) {
+    <div class="alert alert-danger">Une erreur est survenue lors de la souscription</div>
+}
+
+<form (ngSubmit)="connecter()" [formGroup]="userForm">
+    <ajc-text-field label="Nom d'utilisateur" id="username" [control]="usernameCtrl" />
+    <ajc-text-field label="Mot de passe" type="password" id="password" [control]="passwordCtrl" [errorMessages]="passwordErrorMessages" />
+    <ajc-text-field label="Confirmation du mot de passe" type="password" id="passwordConfirm" [control]="passwordConfirmCtrl"  [errorMessages]="passwordConfirmErrorMessages" />
+
+    <div class="btn-group">
+        <input type="submit" class="btn btn-success" [disabled]="userForm.invalid" value="S'inscrire" />
+        <a type="button" class="btn btn-danger" routerLink="/login">Annuler</a>
+    </div>
+</form>

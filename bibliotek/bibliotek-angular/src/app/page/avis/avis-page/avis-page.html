@@ -1,0 +1,53 @@
+<h1>Liste des avis</h1>
+
+<button (click)="showForm = true" class="btn btn-light">Cliquer ici pour ajouter</button>
+
+<ajc-modal *ngIf="showForm" (submit)="creerOuModifier()" [form]="avisForm" [title]="(editingAvis) ? `Modifier l'avis` : `Ajouter un avis`" (closed)="showForm = false">
+  <ajc-form-field label="Note" id="note" [control]="noteCtrl">
+    <ajc-rating [control]="noteCtrl" />
+  </ajc-form-field>
+
+  <ajc-text-field label="Commentaire" id="commentaire" type="textarea" [control]="commentaireCtrl" />
+
+  <ajc-select label="Livre" id="livreId" [items]="(livres$ | async) ?? []" item-value="id" [control]="livreCtrl">
+    <ng-template let-livre="item">
+      {{ livre.nom }}
+    </ng-template>
+  </ajc-select>
+
+  <ajc-submit [editing]="!!editingAvis" [form]="avisForm" (cancel)="annulerEditer()" />
+</ajc-modal>
+
+<hr />
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="w-20">Date</th>
+      <th class="w-20">Note</th>
+      <th>Commentaire</th>
+      <th class="w-20">Livre</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let a of avis$ | async; trackBy: trackAvis" class="align-middle">
+      <td>{{ a.date | date:"dd/MM/yyyy HH:mm:ss" }}</td>
+
+      <td>
+        <ajc-rating [note]="a.note" [readonly]="true" />
+      </td>
+
+      <td class="comment">{{ a.commentaire }}</td>
+      <td>{{ a.livreNom }}</td>
+
+      <td>
+        <div class="btn-group" >
+          <button class="btn btn-warning" (click)="editer(a)">Modifier</button>
+          <button class="btn btn-danger" (click)="supprimer(a)">Supprimer</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

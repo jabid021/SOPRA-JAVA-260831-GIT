@@ -1,0 +1,9 @@
+<ajc-form-field [label]="label" [id]="id" [control]="control" [errorMessages]="errorMessages">
+  @if (type === 'textarea') {
+    <textarea class="form-control" [id]="id" rows="3" [formControl]="control" [class.is-invalid]="control.invalid && (control.dirty || control.touched)"></textarea>
+  }
+
+  @else {
+    <input [type]="type" class="form-control" [id]="id" [formControl]="control" [class.is-invalid]="control.invalid && (control.dirty || control.touched)" />
+  }
+</ajc-form-field>

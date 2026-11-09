@@ -1,0 +1,12 @@
+<div class="rating" [class.is-readonly]="readonly">
+  @for (i of stars; track i) {
+    <span class="star"
+          [class.text-warning]="i < (hoverNote || value)"
+          [class.text-muted]="i >= (hoverNote || value)"
+          (click)="setValue(i + 1)"
+          (mouseenter)="onMouseEnter(i)"
+          (mouseleave)="onMouseLeave()">
+      ★
+    </span>
+  }
+</div>

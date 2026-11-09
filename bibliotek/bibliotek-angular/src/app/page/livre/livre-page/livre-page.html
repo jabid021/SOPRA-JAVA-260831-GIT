@@ -1,0 +1,63 @@
+<h1>Liste des livres</h1>
+
+<button (click)="showForm = true" class="btn btn-light">Cliquer ici pour ajouter</button>
+
+<ajc-modal *ngIf="showForm" (submit)="creerOuModifier()" [form]="livreForm" [title]="(editingLivre) ? `Modifier le livre` : `Ajouter un livre`" (closed)="showForm = false">
+  <ajc-text-field label="Nom" id="name" [control]="nameCtrl" />
+  <ajc-text-field label="Date de publication" id="date" type="date" [control]="publicationCtrl" [errorMessages]="publicationErrorMessages" />
+
+  <ajc-select label="Auteur" id="auteurId" [items]="(auteurs$ | async) ?? []" item-value="id" [control]="authorCtrl">
+    <ng-template let-auteur="item">
+      {{ auteur.nom }}
+    </ng-template>
+  </ajc-select>
+
+  <ajc-select label="Editeur" id="editeurId" [items]="(editeurs$ | async) ?? []" item-value="id" [control]="editorCtrl">
+    <ng-template let-editeur="item">
+      {{ editeur.nom }}
+    </ng-template>
+  </ajc-select>
+
+  <ajc-select label="Collection" id="editeurId" [items]="(collections$ | async) ?? []" item-value="id" [nullable]="true" null-label="-- Aucune collection --" [control]="collectionCtrl">
+    <ng-template let-collection="item">
+      {{ collection.nom }}
+    </ng-template>
+  </ajc-select>
+
+  <ajc-submit [editing]="!!editingLivre" [form]="livreForm" (cancel)="annulerEditer()" />
+</ajc-modal>
+
+<hr />
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Date de publication</th>
+      <th>Auteur</th>
+      <th>Editeur</th>
+      <th>Collection</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let livre of livres$ | async; trackBy: trackLivre" class="align-middle">
+      <td>
+        <a [routerLink]="[ '/livre', livre.id ]">{{ livre.nom }}</a>
+      </td>
+
+      <td>{{ livre.publication | date:"dd/MM/yyyy" }}</td>
+      <td>{{ livre.auteurNom }}</td>
+      <td>{{ livre.editeurNom }}</td>
+      <td>{{ livre.collectionNom }}</td>
+
+      <td>
+        <div class="btn-group" >
+          <button class="btn btn-warning" (click)="editer(livre)">Modifier</button>
+          <button class="btn btn-danger" (click)="supprimer(livre)">Supprimer</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

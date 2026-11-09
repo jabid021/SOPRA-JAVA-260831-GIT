@@ -1,0 +1,19 @@
+<ajc-form-field [label]="label" [id]="id" [control]="control">
+  <select class="form-select" [id]="id" [formControl]="control" [class.is-invalid]="control.invalid && (control.dirty || control.touched)">
+    @if (nullable) {
+      <option [ngValue]="null">
+        {{ nullLabel }}
+      </option>
+    }
+
+    <option *ngFor="let item of items" [value]="resolveValue(item)">
+      @if (itemTemplate) {
+        <ng-container [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{ item }"></ng-container>
+      }
+
+      @else {
+        {{ item }}
+      }
+    </option>
+  </select>
+</ajc-form-field>

@@ -1,0 +1,22 @@
+<div class="modal show" tabindex="-1" role="modal">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">{{ title }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()"></button>
+      </div>
+
+      <form [formGroup]="form">
+        <div class="modal-body">
+          <ng-content></ng-content>
+        </div>
+
+        <div class="modal-footer">
+          <ng-content select="ajc-submit"></ng-content>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop show"></div>

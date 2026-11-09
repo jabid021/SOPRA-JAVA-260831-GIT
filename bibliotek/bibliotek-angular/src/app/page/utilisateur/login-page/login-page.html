@@ -1,0 +1,15 @@
+<h1>Se connecter</h1>
+
+@if (loginError()) {
+  <div class="alert alert-danger">Nom d'utilisateur ou mot de passe incorrect</div>
+}
+
+<form (ngSubmit)="connecter()" [formGroup]="userForm">
+  <ajc-text-field label="Nom d'utilisateur" id="username" [control]="usernameCtrl" />
+  <ajc-text-field label="Mot de passe" type="password" id="password" [control]="passwordCtrl" [errorMessages]="passwordErrorMessages" />
+
+  <div class="btn-group">
+    <input type="submit" class="btn btn-success" [disabled]="userForm.invalid" value="Se connecter" />
+    <a type="button" class="btn btn-primary" routerLink="/inscription">S'inscrire</a>
+  </div>
+</form>

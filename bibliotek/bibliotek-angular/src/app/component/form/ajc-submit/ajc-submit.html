@@ -1,0 +1,11 @@
+<div class="btn-group">
+  @if (editing) {
+    <input type="submit" [disabled]="form.invalid" class="btn btn-warning" value="Modifier" />
+  }
+
+  @else {
+    <input type="submit" [disabled]="form.invalid" class="btn btn-success" value="Créer" />
+  }
+
+  <button type="button" class="btn btn-danger" (click)="onCancelClick()">Annuler</button>
+</div>

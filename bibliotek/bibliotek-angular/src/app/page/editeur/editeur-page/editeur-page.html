@@ -1,0 +1,46 @@
+<h1>Liste des éditeurs</h1>
+
+<button (click)="showForm = true" class="btn btn-light">Cliquer ici pour ajouter</button>
+
+<ajc-modal *ngIf="showForm" (submit)="creerOuModifier()" [form]="editeurForm" [title]="(editingEditeur) ? `Modifier l'éditeur` : `Ajouter un éditeur`" (closed)="showForm = false">
+  <ajc-text-field label="Nom" id="name" [control]="nameCtrl" />
+
+  <ajc-select label="Pays" id="pays" [items]="nationalites" [control]="paysCtrl">
+    <ng-template let-nat="item">
+      {{ nat | nationalite:'P' }}
+    </ng-template>
+  </ajc-select>
+
+  <ajc-submit [editing]="!!editingEditeur" [form]="editeurForm" (cancel)="annulerEditer()" />
+</ajc-modal>
+
+<hr />
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Pays</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let editeur of editeurs$ | async; trackBy: trackEditeur" class="align-middle">
+      <td>
+        <a [routerLink]="[ '/editeur', editeur.id ]">{{ editeur.nom }}</a>
+      </td>
+
+      <td>
+        {{ editeur.pays | nationalite:'P' }}
+      </td>
+
+      <td>
+        <div class="btn-group" >
+          <button class="btn btn-warning" (click)="editer(editeur)">Modifier</button>
+          <button class="btn btn-danger" (click)="supprimer(editeur)">Supprimer</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,34 @@
+<h1>Liste des collections</h1>
+
+<button (click)="showForm = true" class="btn btn-light">Cliquer ici pour ajouter</button>
+
+<ajc-modal *ngIf="showForm" (submit)="creerOuModifier()" [form]="collectionForm" [title]="(editingCollection) ? `Modifier la collection` : `Ajouter une collection`" (closed)="showForm = false">
+    <ajc-text-field label="Nom" id="name" [control]="nameCtrl" />
+    <ajc-submit [editing]="!!editingCollection" [form]="collectionForm" (cancel)="annulerEditer()" />
+</ajc-modal>
+
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let collection of collections$ | async; trackBy: trackCollection" class="align-middle">
+            <td>
+                <a [routerLink]="[ '/collection', collection.id ]">{{ collection.nom }}</a>
+            </td>
+
+            <td>
+                <div class="btn-group" >
+                    <button class="btn btn-warning" (click)="editer(collection)">Modifier</button>
+                    <button class="btn btn-danger" (click)="supprimer(collection)">Supprimer</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
