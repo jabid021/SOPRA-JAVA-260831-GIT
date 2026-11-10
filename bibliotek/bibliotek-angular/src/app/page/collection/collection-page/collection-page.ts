@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { Observable, startWith, Subject, switchMap } from 'rxjs';
+import { merge, Observable, startWith, Subject, switchMap } from 'rxjs';
 import { AjcModal } from '../../../component/ajc-modal/ajc-modal';
 import { AjcSubmit, AjcTextField } from '../../../component/form';
 import { CollectionDto } from '../../../dto/collection-dto';
@@ -30,7 +30,7 @@ export class CollectionPage implements OnInit {
   protected editingCollection!: CollectionDto | null;
 
   ngOnInit(): void {
-    this.collections$ = this.refresh$.pipe(
+    this.collections$ = merge(this.refresh$, this.collectionService.changes()).pipe(
       startWith(null),
 
       switchMap(() => {

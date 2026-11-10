@@ -3,6 +3,7 @@ package fr.bibliotek.api;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,21 +13,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import fr.bibliotek.api.request.CreateOrUpdateCollectionRequest;
 import fr.bibliotek.api.response.CollectionResponse;
 import fr.bibliotek.api.response.EntityCreatedResponse;
 import fr.bibliotek.api.response.EntityUpdatedResponse;
 import fr.bibliotek.service.CollectionService;
+import fr.bibliotek.service.CollectionEvents;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/collection")
 public class CollectionApiController {
     private final CollectionService service;
+    private final CollectionEvents events;
 
-    public CollectionApiController(CollectionService service) {
+    public CollectionApiController(CollectionService service, CollectionEvents events) {
         this.service = service;
+        this.events = events;
+    }
+
+    @GetMapping(value = "/events", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public SseEmitter events() {
+        return this.events.subscribe();
     }
 
     @GetMapping
