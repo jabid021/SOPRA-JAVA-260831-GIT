@@ -22,6 +22,9 @@ docker run -v nom-volume:/chemin/vers/repertoire/container nom-image:tag
 docker run --volume /chemin/local:/chemin/vers/repertoire/container nom-image:tag
 docker run -v /chemin/local:/chemin/vers/repertoire/container nom-image:tag
 
+# Exécuter un nouveau container avec un réseau
+docker run --network nom-reseau nom-image:tag
+
 # Copier un fichier du disque local vers le container
 docker cp /chemin/local/fichier.txt nom-container:/chemin/vers/destination
 
