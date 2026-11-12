@@ -1,0 +1,1 @@
+docker run -d -p 85:80 --name mon-nginx -v D:/ajc-docker:/usr/share/nginx/html nginx
