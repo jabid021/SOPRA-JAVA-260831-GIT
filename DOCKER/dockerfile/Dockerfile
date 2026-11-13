@@ -1,3 +1,5 @@
+# L'ordre a une importance : on essaie autant que possible de mettre les éléments qui changent le moins en haut, et ceux qui changent le plus en bas
+
 
 # Image de base à partir de laquelle notre nouvelle image sera créée
 # FROM nom-image:tag
