@@ -12,3 +12,6 @@ docker network disconnect nom-reseau nom-container
 
 # Supprimer un réseau
 docker network rm nom-reseau
+
+# Vérifier les infos d'un réseau (contrôler les containers connectés par exemple)
+docker inspect network rm nom-reseau
