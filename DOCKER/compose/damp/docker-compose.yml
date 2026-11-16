@@ -1,0 +1,40 @@
+name: damp
+
+services:
+  db:
+    image: mysql:8.4.13
+    container_name: damp-db
+
+    # ports:
+      # - 3308:3306
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+    volumes:
+      - db-data:/var/lib/mysql
+
+    networks:
+      - damp
+
+  pma:
+    image: phpmyadmin
+    container_name: damp-pma
+
+    environment:
+      PMA_HOST: db
+      # PMA_HOST: damp-db
+
+    ports:
+      - 81:80
+
+    networks:
+      - damp
+
+networks:
+  damp:
+    name: damp
+
+volumes:
+  db-data:
+    name: damp-db-data
