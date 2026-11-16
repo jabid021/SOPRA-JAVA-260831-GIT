@@ -80,7 +80,7 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"));
 
         // Ici, on utilisera le CorsConfigurationSource défini plus bas
-        http.cors(Customizer.withDefaults());
+        // http.cors(Customizer.withDefaults());
 
         return http.build();
     }

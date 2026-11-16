@@ -1,0 +1,74 @@
+name: quest
+
+services:
+  db:
+    image: mysql:8.4.13
+    container_name: quest-db
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: projet_quest
+
+    volumes:
+      - db-data:/var/lib/mysql
+
+    networks:
+      - quest
+
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 3s
+      retries: 10
+      interval: 5s
+
+  pma:
+    image: phpmyadmin
+    container_name: quest-pma
+
+    environment:
+      PMA_HOST: db
+
+    networks:
+      - quest
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+  java:
+    image: quest:boot
+    build: ../../../BOOT-SECURITY/quest-boot
+    container_name: quest-boot
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db/projet_quest
+
+    networks:
+      - quest
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+  angular:
+    image: quest:angular
+    build: ../../../ANGULAR/quest-angular
+    container_name: quest-angular
+
+    networks:
+      - quest
+
+    ports:
+      - 83:80
+
+    depends_on:
+      - java
+      - pma
+
+networks:
+  quest:
+    name: quest
+
+volumes:
+  db-data:
+    name: quest-db-data
