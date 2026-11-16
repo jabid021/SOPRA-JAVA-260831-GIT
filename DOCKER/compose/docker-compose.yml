@@ -1,0 +1,36 @@
+name: demo-compose
+
+# La liste des containers à manager
+services:
+  # Créer un service "web", qui deviendra un container Docker
+  web:
+    # docker run -e NGINX_HOST=demo.fr --name demo-web -p 81:80 -v cle-volume:/usr/share/nginx/html nginx
+    image: nginx
+    # build: ./quest-boot
+    container_name: demo-web
+
+    # environment:
+    #   - NGINX_HOST=demo.fr
+
+    environment:
+      NGINX_HOST: demo.fr
+
+    ports:
+      - 82:80
+
+    networks:
+      - cle-reseau
+
+    volumes:
+      - cle-volume:/usr/share/nginx/html
+      # - le-chemin-du-fichier:/chemin-dans-container
+
+# La liste des réseaux
+networks:
+  cle-reseau:
+    name: le-nom-du-reseau
+
+# La liste des volumes
+volumes:
+  cle-volume:
+    name: le-nom-du-volume
