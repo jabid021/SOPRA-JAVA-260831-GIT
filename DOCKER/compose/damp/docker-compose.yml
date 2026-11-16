@@ -17,6 +17,14 @@ services:
     networks:
       - damp
 
+    # Mécanique que Docker va exécuter pour vérifier si le service est UP
+    healthcheck:
+      # Commande de test pour s'assurer que mysql est UP
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 3s
+      retries: 10
+      interval: 5s
+
   pma:
     image: phpmyadmin
     container_name: damp-pma
@@ -30,6 +38,15 @@ services:
 
     networks:
       - damp
+
+    # On attend que "db" soit démarré avant de démarrer celui-ci
+    # depends_on:
+    #   - db
+
+    # On attend que "db" soit démarré ET en pleine santée : le service mysql est UP
+    depends_on:
+      db:
+        condition: service_healthy
 
 networks:
   damp:
