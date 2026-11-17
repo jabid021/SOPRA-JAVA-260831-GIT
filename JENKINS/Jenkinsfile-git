@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Démonstration') {
+            steps {
+                sh 'echo "Hello world!"' // Le commentaire ici
+                sh 'echo "OK !"'
+            }
+        }
+
+        stage('Démonstration 2') {
+            steps {
+                sh 'echo "Bonjour !"'
+            }
+        }
+
+        stage('Git checkout') {
+            steps {
+                script {
+                    git credentialsId: 'github-login',
+                        url: 'git@github.com:jabid021/SOPRA-JAVA-260831-GIT.git',
+                        branch: 'main'
+                }
+            }
+        }
+    }
+}
