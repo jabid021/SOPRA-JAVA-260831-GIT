@@ -13,5 +13,16 @@ pipeline {
                 sh 'mvn -v'
             }
         }
+
+        stage('Outil Maven spécifique') {
+            // Configuration d'outils spécifique au stage
+            tools {
+                maven 'maven-3.9.10'
+            }
+
+            steps {
+                sh 'mvn -v'
+            }
+        }
     }
 }
