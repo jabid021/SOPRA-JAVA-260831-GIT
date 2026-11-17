@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven-3.10.1'
+    }
+
+    stages {
+        stage('Git checkout') {
+            steps {
+                script {
+                    git credentialsId: 'github-login',
+                        url: 'git@github.com:jabid021/SOPRA-JAVA-260831-GIT.git',
+                        branch: 'main'
+                }
+            }
+        }
+
+        stage('Maven Package') {
+            steps {
+                dir('BOOT-SECURITY/quest-boot') {
+                    sh 'mvn clean package'
+                }
+            }
+        }
+    }
+}
