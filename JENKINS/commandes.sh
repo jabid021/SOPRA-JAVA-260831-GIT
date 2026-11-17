@@ -9,3 +9,6 @@ docker exec -it jenkins bash
 
 # Vérifier que la commande docker est disponible
 docker ps
+
+# Récupérer le mot de passe admin (sur le container jenkins)
+cat /var/jenkins_home/secrets/initialAdminPassword
