@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    // Configuration des outils à utiliser pour l'ensemble de la Pipeline
+    tools {
+        // On dit qu'on veut configurer l'outil Maven, id "maven-3.10.1"
+        maven 'maven-3.10.1'
+    }
+
+    stages {
+        stage('Maven') {
+            steps {
+                sh 'mvn -v'
+            }
+        }
+    }
+}
