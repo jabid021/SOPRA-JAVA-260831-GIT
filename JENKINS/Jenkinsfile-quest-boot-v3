@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git checkout') {
+            steps {
+                script {
+                    git credentialsId: 'github-login',
+                        url: 'git@github.com:jabid021/SOPRA-JAVA-260831-GIT.git',
+                        branch: 'main'
+                }
+            }
+        }
+
+        stage('Maven Package') {
+            agent {
+                docker {
+                    image 'maven:3.10.0-eclipse-temurin-21'
+                    args '''
+                        -v $HOME/.m2:/root/.m2:z
+                        -u root
+                    '''
+                    reuseNode true // Permet de partager l'espace de travail entre l'agent Jenkins et l'agent Docker
+                }
+            }
+
+            steps {
+                dir('BOOT-SECURITY/quest-boot') {
+                    sh 'mvn clean package'
+                }
+            }
+        }
+    }
+}
