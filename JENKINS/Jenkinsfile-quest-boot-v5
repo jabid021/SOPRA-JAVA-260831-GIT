@@ -35,8 +35,8 @@ pipeline {
         }
 
         stage('Docker Compose') {
-            dir('DOCKER/compose/quest') {
-                steps {
+            steps {
+                dir('DOCKER/compose/quest') {
                     sh 'docker compose up -d --build'
                 }
             }
