@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Maven Package') {
+            agent {
+                docker {
+                    image 'maven:3.10.0-eclipse-temurin-21'
+                    args '''
+                        -v $HOME/.m2:/root/.m2:z
+                        -u root
+                    '''
+                    reuseNode true // Permet de partager l'espace de travail entre l'agent Jenkins et l'agent Docker
+                }
+            }
+
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        // stage('Docker Build') {
+        //     steps {
+        //         sh 'docker build -t pipeline .'
+        //     }
+        // }
+
+        // stage('Docker Compose') {
+        //     steps {
+        //         sh 'docker compose up -d --pull always'
+        //     }
+        // }
+
+        stage('Docker Compose') {
+            steps {
+                sh 'docker compose up -d --build'
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+name: pipeline-boot
+
+services:
+  java:
+    image: pipeline
+    build: .
+
+    ports:
+      - 8081:8080
