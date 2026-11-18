@@ -1,0 +1,9 @@
+name: pipeline
+
+services:
+  web:
+    image: pipeline
+    build: .
+
+    ports:
+      - 81:80
