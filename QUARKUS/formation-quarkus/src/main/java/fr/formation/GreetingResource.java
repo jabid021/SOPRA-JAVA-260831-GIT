@@ -1,5 +1,7 @@
 package fr.formation;
 
+import java.util.Map;
+
 import fr.formation.musique.Guitariste;
 import fr.formation.request.ProduitBeanParamRequest;
 import fr.formation.request.ProduitRequest;
@@ -12,6 +14,8 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response.Status;
 
 @Path("/hello")
 public class GreetingResource {
@@ -61,5 +65,20 @@ public class GreetingResource {
     @POST
     public String post(ProduitRequest request) {
         return "Le nom du produit est " + request.getLibelle();
+    }
+
+    @POST
+    @Path("/response")
+    public Response postResponse(ProduitRequest request) {
+        return Response
+            .status(Status.CREATED)
+            .entity(
+                Map.of(
+                    "message",
+                    "Le nom du produit est " + request.getLibelle()
+                )
+            )
+            .build()
+        ;
     }
 }
