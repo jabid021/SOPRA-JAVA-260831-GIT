@@ -47,6 +47,16 @@
             <artifactId>quarkus-arc</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-mysql</artifactId>
+        </dependency>
+
         <!-- Tests unitaires -->
         <dependency>
             <groupId>io.quarkus</groupId>
