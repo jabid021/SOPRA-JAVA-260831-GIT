@@ -4,6 +4,7 @@ import fr.formation.musique.Guitariste;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
@@ -38,6 +39,12 @@ public class GreetingResource {
     @GET
     @Path("/query-param")
     public String queryParam(@QueryParam("libelle") String libelle) {
+        return "Le nom du paramètre est " + libelle;
+    }
+
+    @GET
+    @Path("/path-param/{libelle}")
+    public String pathParam(@PathParam("libelle") String libelle) {
         return "Le nom du paramètre est " + libelle;
     }
 }
