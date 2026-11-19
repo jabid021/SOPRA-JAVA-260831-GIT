@@ -5,6 +5,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("/hello")
@@ -32,5 +33,11 @@ public class GreetingResource {
         this.guitariste.setNom("The rocker");
 
         return this.guitariste;
+    }
+
+    @GET
+    @Path("/query-param")
+    public String queryParam(@QueryParam("libelle") String libelle) {
+        return "Le nom du paramètre est " + libelle;
     }
 }
