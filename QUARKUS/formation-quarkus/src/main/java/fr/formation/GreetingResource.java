@@ -17,6 +17,20 @@ public class GreetingResource {
     public String hello() {
         this.guitariste.jouer();
 
-        return "Hello from Quarkus REST (2)";
+        return "Hello from Quarkus REST (3)";
+    }
+
+    @GET
+    @Path("/test")
+    public String test() {
+        return "Test";
+    }
+
+    @GET
+    @Path("/guitariste")
+    public Guitariste guitariste() {
+        this.guitariste.setNom("The rocker");
+
+        return this.guitariste;
     }
 }
