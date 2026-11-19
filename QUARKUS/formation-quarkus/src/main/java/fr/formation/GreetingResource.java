@@ -2,9 +2,11 @@ package fr.formation;
 
 import fr.formation.musique.Guitariste;
 import fr.formation.request.ProduitBeanParamRequest;
+import fr.formation.request.ProduitRequest;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.BeanParam;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
@@ -53,6 +55,11 @@ public class GreetingResource {
     @GET
     @Path("/bean-param")
     public String beanParam(@BeanParam ProduitBeanParamRequest request) {
+        return "Le nom du produit est " + request.getLibelle();
+    }
+
+    @POST
+    public String post(ProduitRequest request) {
         return "Le nom du produit est " + request.getLibelle();
     }
 }
