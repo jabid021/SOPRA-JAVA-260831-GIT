@@ -1,4 +1,4 @@
-package fr.formation;
+package fr.formation.api;
 
 import java.util.Map;
 
