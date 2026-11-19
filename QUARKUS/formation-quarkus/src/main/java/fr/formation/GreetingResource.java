@@ -1,7 +1,9 @@
 package fr.formation;
 
 import fr.formation.musique.Guitariste;
+import fr.formation.request.ProduitBeanParamRequest;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.BeanParam;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
@@ -46,5 +48,11 @@ public class GreetingResource {
     @Path("/path-param/{libelle}")
     public String pathParam(@PathParam("libelle") String libelle) {
         return "Le nom du paramètre est " + libelle;
+    }
+
+    @GET
+    @Path("/bean-param")
+    public String beanParam(@BeanParam ProduitBeanParamRequest request) {
+        return "Le nom du produit est " + request.getLibelle();
     }
 }
