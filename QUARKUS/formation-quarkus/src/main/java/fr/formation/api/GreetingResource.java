@@ -5,6 +5,7 @@ import java.util.Map;
 import fr.formation.musique.Guitariste;
 import fr.formation.request.ProduitBeanParamRequest;
 import fr.formation.request.ProduitRequest;
+import io.quarkus.elytron.security.common.BcryptUtil;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.BeanParam;
 import jakarta.ws.rs.GET;
@@ -26,6 +27,8 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
         this.guitariste.jouer();
+
+        System.out.println(BcryptUtil.bcryptHash("123456$"));
 
         return "Hello from Quarkus REST (3)";
     }
